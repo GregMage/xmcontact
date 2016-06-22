@@ -70,15 +70,78 @@ $modversion['tables'][1] = 'xmcontact_request';
 $modversion['tables'][2] = 'xmcontact_category';
 
 // Pref.
-$i = 1;
-$modversion['config'][$i]['name'] = 'editor';
-$modversion['config'][$i]['title'] = '_MI_XMCONTACT_PREF_EDITOR';
-$modversion['config'][$i]['description'] = '';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'dhtmltextarea';
+
+$modversion['config'][] = array(
+    'name'        => 'break',
+    'title'       => '_MI_XMCONTACT_PREF_HEAD_INFORMATION',
+    'description' => '',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'head'
+);
+
+$modversion['config'][] = array(
+    'name'        => 'info_header',
+    'title'       => '_MI_XMCONTACT_PREF_HEADER',
+    'description' => '_MI_XMCONTACT_PREF_HEADER_DESC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => ''
+);
+
+$modversion['config'][] = array(
+    'name'        => 'info_footer',
+    'title'       => '_MI_XMCONTACT_PREF_FOOTER',
+    'description' => '_MI_XMCONTACT_PREF_FOOTER_DESC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => ''
+);
+
+$modversion['config'][] = array(
+    'name'        => 'info_addresse',
+    'title'       => '_MI_XMCONTACT_PREF_ADDRESSE',
+    'description' => '_MI_XMCONTACT_PREF_ADDRESSE_DESC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => ''
+);
+
+$modversion['config'][] = array(
+    'name'        => 'info_googlemaps',
+    'title'       => '_MI_XMCONTACT_PREF_GOOGLEMAPS',
+    'description' => '_MI_XMCONTACT_PREF_GOOGLEMAPS_DESC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => ''
+);
+
+$modversion['config'][] = array(
+    'name'        => 'break',
+    'title'       => '_MI_XMCONTACT_PREF_HEAD_ADMIN',
+    'description' => '',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'head'
+);
+
 xoops_load('xoopseditorhandler');
 $editor_handler = XoopsEditorHandler::getInstance();
-$modversion['config'][$i]['options'] = array_flip($editor_handler->getList());
+$modversion['config'][] = array(
+    'name'        => 'admin_editor',
+    'title'       => '_MI_XMCONTACT_PREF_EDITOR',
+    'description' => '',
+    'formtype'    => 'select',
+    'valuetype'   => 'text',
+    'default'     => 'dhtmltextarea',
+    'options'     => array_flip($editor_handler->getList())
+);
 
-
+$modversion['config'][] = array(
+    'name'        => 'admin_perpage',
+    'title'       => '_MI_XMCONTACT_PREF_ITEMPERPAGE',
+    'description' => '',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'int',
+    'default'     => 10
+);

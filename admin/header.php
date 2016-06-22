@@ -28,8 +28,7 @@ global $xoopsModule;
 $uploaddir = XOOPS_ROOT_PATH . '/uploads/xmcontact/images/cats/';
 $uploadurl = XOOPS_URL . '/uploads/xmcontact/images/cats/';
 $upload_size = 500000;
-$nb_limit = 15;
-
+$nb_limit = $xoopsModuleConfig['admin_perpage'];
 $pathIcon16 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons16');
 $pathIcon32 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons32');
 // Include language file
@@ -41,31 +40,3 @@ $admin_class = new ModuleAdmin();
 // Get handler
 $request_Handler = xoops_getModuleHandler('xmcontact_request', 'xmcontact');
 $category_Handler = xoops_getModuleHandler('xmcontact_category', 'xmcontact');
-
-// Get main instance
-//XoopsLoad::load('system', 'system');
-
-/*$request = Xoops_Request::getInstance();
-$helper = Page::getInstance();
-$xoops = $helper->xoops();
-
-// Get handler
-$content_Handler = $helper->getContentHandler();
-$related_Handler = $helper->getRelatedHandler();
-$link_Handler = $helper->getLinkHandler();
-$rating_Handler = $helper->getRatingHandler();
-$gperm_Handler = $helper->getGrouppermHandler();
-
-// Get $_POST, $_GET, $_REQUEST
-$op = $request->asStr('op', 'list');
-$start = $request->asInt('start', 0);
-
-// Parameters
-$nb_limit = $helper->getConfig('page_adminpager');
-$module_id = $helper->getModule()->getVar('mid');
-
-// Define Stylesheet
-$xoops->theme()->addStylesheet('modules/system/css/admin.css');
-
-// Add Scripts
-$xoops->theme()->addScript('media/xoops/xoops.js');*/

@@ -32,4 +32,15 @@ define('_MI_XMCONTACT_MENU_HELP', "Help");
 define('_MI_XMCONTACT_MENU_HELP_DESC', "Module help");
 
 // Pref.
+define('_MI_XMCONTACT_PREF_HEAD_INFORMATION', "Informations");
+define('_MI_XMCONTACT_PREF_HEAD_ADMIN', "Administration");
 define('_MI_XMCONTACT_PREF_EDITOR', "Editeur de texte");
+define('_MI_XMCONTACT_PREF_ITEMPERPAGE', "Number of items per page in the administration");
+define('_MI_XMCONTACT_PREF_GOOGLEMAPS', "Embed google maps");
+define('_MI_XMCONTACT_PREF_GOOGLEMAPS_DESC', "Embed google maps iframe<br />change iframe width to '100%'");
+define('_MI_XMCONTACT_PREF_HEADER', "Header contact form");
+define('_MI_XMCONTACT_PREF_HEADER_DESC', "Set HTML codes to show in contact page");
+define('_MI_XMCONTACT_PREF_FOOTER', "Footer contact form");
+define('_MI_XMCONTACT_PREF_FOOTER_DESC', "Set HTML codes to show in contact page");
+define('_MI_XMCONTACT_PREF_ADDRESSE', "Addresse contact form");
+define('_MI_XMCONTACT_PREF_ADDRESSE_DESC', "Set HTML codes to show in contact page");
