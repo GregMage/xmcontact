@@ -86,6 +86,16 @@ $modversion['config'][] = array(
 );
 
 $modversion['config'][] = array(
+    'name'        => 'info_columncat',
+    'title'       => '_MI_XMCONTACT_PREF_COLUMNCAT',
+    'description' => '_MI_XMCONTACT_PREF_COLUMNCAT_DESC',
+    'formtype'    => 'select',
+    'valuetype'   => 'int',
+    'default'     => 2,
+    'options'     => array(1 => 1, 2 => 2, 3 => 3, 4 => 4)
+);
+
+$modversion['config'][] = array(
     'name'        => 'info_header',
     'title'       => '_MI_XMCONTACT_PREF_HEADER',
     'description' => '_MI_XMCONTACT_PREF_HEADER_DESC',
