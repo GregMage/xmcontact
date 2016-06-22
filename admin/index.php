@@ -20,8 +20,18 @@ require dirname(__FILE__) . '/header.php';
 
 // header
 xoops_cp_header();
-$admin_class->addInfoBox(_AM_XMCONTACT_INDEX_ADMENU1);
-$admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_ADMENU1, _AM_XMCONTACT_INDEX_TOTAL, $request_Handler->getCount(), 'red');
+
+// category
+$criteria = new CriteriaCompo();
+$criteria->add(new Criteria('category_status', 1));
+$category_active = $category_Handler->getCount($criteria);
+$criteria = new CriteriaCompo();
+$criteria->add(new Criteria('category_status', 0));
+$category_notactive = $category_Handler->getCount($criteria);
+
+$admin_class->addInfoBox(_AM_XMCONTACT_INDEX_CAT);
+$admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_CAT, _AM_XMCONTACT_INDEX_CAT_ACTIVE, $category_active, 'green');
+$admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_CAT, _AM_XMCONTACT_INDEX_CAT_NOTACTIVE, $category_notactive, 'red');
 $xoopsTpl->assign('navigation', $admin_class->addNavigation('index.php'));
 $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
 

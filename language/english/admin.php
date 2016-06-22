@@ -28,8 +28,9 @@ define('_AM_SYSTEM_STATUS_ON', "Activé");
 define('_AM_SYSTEM_STATUS_OFF', "Désactivé");
 
 // index
-define('_AM_XMCONTACT_INDEX_ADMENU1', "Messages");
-define('_AM_XMCONTACT_INDEX_TOTAL', "There are %s requests in our database");
+define('_AM_XMCONTACT_INDEX_CAT', "Catégories");
+define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', "il y a %s catégories active");
+define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', "il y a %s catégories désactivées");
 
 // request
 define('_AM_XMCONTACT_REQUEST_NUMBER', "N°");
