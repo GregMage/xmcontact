@@ -22,10 +22,6 @@ require dirname(__FILE__) . '/header.php';
 xoops_cp_header();
 
 
-
-$xoopsTpl->assign('navigation', $admin_class->addNavigation('category.php'));
-$xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-
 // Get Action type
 $op = system_CleanVars($_REQUEST, 'op', 'list', 'string');
 
@@ -38,6 +34,9 @@ switch ($op) {
         $xoTheme->addScript('browse.php?Frameworks/jquery/jquery.js');
         $xoTheme->addScript('browse.php?Frameworks/jquery/plugins/jquery.tablesorter.js');
         $xoTheme->addScript('modules/system/js/admin.js');
+        //navigation
+        $xoopsTpl->assign('navigation', $admin_class->addNavigation('category.php'));
+        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
         // Define button addItemButton
         $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php', 'add');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
@@ -78,6 +77,9 @@ switch ($op) {
     
     // add category
     case 'add':
+        //navigation
+        $xoopsTpl->assign('navigation', $admin_class->addNavigation('category.php'));
+        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
         // Define button addItemButton
         $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
@@ -91,6 +93,9 @@ switch ($op) {
 
     // edit category
     case 'edit':
+        //navigation
+        $xoopsTpl->assign('navigation', $admin_class->addNavigation('category.php'));
+        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
         // Define button addItemButton
         $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php', 'add');
         $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
@@ -103,6 +108,36 @@ switch ($op) {
         $xoopsTpl->assign('form', $form->render());
         break;
 
+    // del category
+    case 'del':
+        // Create form
+        $category_id = system_CleanVars($_REQUEST, 'category_id', 0, 'int');
+        $obj  = $category_Handler->get($category_id);
+
+        if (isset($_POST['ok']) && $_POST['ok'] == 1) {
+            if (!$GLOBALS['xoopsSecurity']->check()) {
+                redirect_header('category.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
+            }
+            if ($category_Handler->delete($obj)) {
+                $urlfile = XOOPS_UPLOAD_PATH . '/xmcontact/images/cats/' . $obj->getVar('category_logo');
+                if (is_file($urlfile)) {
+                    chmod($urlfile, 0777);
+                    unlink($urlfile);
+                }
+                redirect_header('category.php', 2, _AM_XMCONTACT_REDIRECT_SAVE);
+            } else {
+                xoops_error($obj->getHtmlErrors());
+            }
+        } else {
+
+        
+            $category_img = $obj->getVar('category_logo') ?: 'blank.gif';
+            xoops_confirm(array(
+                              'ok' => 1,
+                              'category_id' => $category_id,
+                              'op' => 'del'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_CATEGORY_SUREDEL, $obj->getVar('category_title')) . '<br \><img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' . $category_img . '" alt="" /><br \>');
+        }
+        break;
     // save category
     case 'save':
         if (!$GLOBALS['xoopsSecurity']->check()) {

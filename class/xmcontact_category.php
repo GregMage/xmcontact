@@ -77,7 +77,7 @@ class xmcontact_category extends XoopsObject
         $blank_img = $this->getVar('category_logo') ? $this->getVar('category_logo') : 'blank.gif';
         $uploadirectory='/uploads/xmcontact/images/cats';
         $imgtray_img     = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_LOGOFILE, '<br />');
-        $imgpath_img     = sprintf(_AM_XMCONTACT_CATEGORY__FORMPATH, $uploadirectory);
+        $imgpath_img     = sprintf(_AM_XMCONTACT_CATEGORY_FORMPATH, $uploadirectory);
         $imageselect_img = new XoopsFormSelect($imgpath_img, 'category_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray(XOOPS_ROOT_PATH . $uploadirectory);
         $imageselect_img->addOption("$blank_img", $blank_img);
