@@ -48,6 +48,7 @@ define('_AM_XMCONTACT_CATEGORY_UPLOAD', "Upload");
 define('_AM_XMCONTACT_CATEGORY_TITLE', "Titre");
 define('_AM_XMCONTACT_CATEGORY_DESC', "Déscription");
 define('_AM_XMCONTACT_CATEGORY_WEIGHT', "Poids");
+define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE', "Résponsable");
 define('_AM_XMCONTACT_CATEGORY_SUREDEL', "Etes vous sûr de vouloir supprimmer la catégorie: %s");
 
 // error

@@ -19,6 +19,7 @@ CREATE TABLE `xmcontact_category` (
   `category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `category_title` varchar(255) NOT NULL DEFAULT '',
   `category_description` text NOT NULL,
+  `category_responsible` int(11) NOT NULL DEFAULT '0',
   `category_logo` varchar(255) NOT NULL DEFAULT '',
   `category_weight` int(11) NOT NULL DEFAULT '0',
   `category_status` tinyint(1) NOT NULL DEFAULT '0',

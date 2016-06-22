@@ -32,6 +32,7 @@ class xmcontact_category extends XoopsObject
         $this->initVar('category_description',XOBJ_DTYPE_TXTAREA, null, false);
         // use html
         $this->initVar('dohtml', XOBJ_DTYPE_INT, 1, false);
+        $this->initVar('category_responsible',XOBJ_DTYPE_INT,null,false,11);
         $this->initVar('category_logo',XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('category_weight',XOBJ_DTYPE_INT,null,false,11);
         $this->initVar('category_status',XOBJ_DTYPE_INT,null,false,1);
@@ -48,7 +49,7 @@ class xmcontact_category extends XoopsObject
     }
     function getForm($action = false)
     {
-        global $xoopsModuleConfig;
+        global $xoopsModuleConfig, $xoopsUser;
         if ($action === false) {
             $action = $_SERVER['REQUEST_URI'];
         }
@@ -73,7 +74,9 @@ class xmcontact_category extends XoopsObject
         $editor_configs["height"] = "400px";
         $editor_configs["editor"] = $xoopsModuleConfig['editor'];
         $form->addElement( new XoopsFormEditor(_AM_XMCONTACT_CATEGORY_DESC, "category_description", $editor_configs), false);
-        //logo
+        // responsible
+        $form->addElement(new XoopsFormSelectUser(_AM_XMCONTACT_CATEGORY_RESPONSIBLE, 'category_responsible', true, $this->getVar('category_responsible'), 1, false), true);
+        // logo
         $blank_img = $this->getVar('category_logo') ? $this->getVar('category_logo') : 'blank.gif';
         $uploadirectory='/uploads/xmcontact/images/cats';
         $imgtray_img     = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_LOGOFILE, '<br />');

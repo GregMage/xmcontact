@@ -38,7 +38,7 @@ switch ($op) {
         $xoopsTpl->assign('navigation', $admin_class->addNavigation('category.php'));
         $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
         // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php', 'add');
+        $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php?op=add', 'add');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
         // Get start pager
         $start = system_CleanVars($_REQUEST, 'start', 0, 'int');
@@ -58,6 +58,8 @@ switch ($op) {
                 $category['id']              = $category_id;
                 $category['title']           = $category_arr[$i]->getVar('category_title');
                 $category['description']     = $category_arr[$i]->getVar('category_description');
+                $category['uid']             = $category_arr[$i]->getVar('category_responsible');
+                $category['responsible']     = XoopsUser::getUnameFromId($category_arr[$i]->getVar('category_responsible'));
                 $category['weight']          = $category_arr[$i]->getVar('category_weight');
                 $category['status']          = $category_arr[$i]->getVar('category_status');
                 $category_img                = $category_arr[$i]->getVar('category_logo') ?: 'blank.gif';
@@ -97,7 +99,7 @@ switch ($op) {
         $xoopsTpl->assign('navigation', $admin_class->addNavigation('category.php'));
         $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
         // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php', 'add');
+        $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php?op=add', 'add');
         $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
         
@@ -153,6 +155,7 @@ switch ($op) {
         
         $obj->setVar('category_title', $_POST['category_title']);
         $obj->setVar('category_description', $_POST['category_description']);
+        $obj->setVar('category_responsible', $_POST['category_responsible']);
         $obj->setVar('category_weight', $_POST['category_weight']);
         $status = ($_POST['category_status'] == 1) ? '1' : '0';
         $obj->setVar('category_status', $status);
