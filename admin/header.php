@@ -16,35 +16,19 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-/*$path = dirname(dirname(dirname(dirname(__FILE__))));
 
-include_once $path . '/mainfile.php';
-include_once XOOPS_ROOT_PATH . '/include/cp_functions.php';
-include_once XOOPS_ROOT_PATH . '/include/cp_header.php';
-include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
-global $xoopsModule;
-
-$thisModuleDir = $GLOBALS['xoopsModule']->getVar('dirname');
-
-// Load language files
-xoops_loadLanguage('admin', $thisModuleDir);
-xoops_loadLanguage('modinfo', $thisModuleDir);
-xoops_loadLanguage('main', $thisModuleDir);
-
-$pathIcon16 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons16');
-$pathIcon32 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons32');
-$pathModuleAdmin = XOOPS_ROOT_PATH . '/' . $xoopsModule->getInfo('dirmoduleadmin');
-echo $thisModuleDir . "gg";*/
-/*require_once $pathModuleAdmin . '/moduleadmin/moduleadmin.php';
-$admin_class = new ModuleAdmin();*/
- 
- 
- 
 require_once dirname(dirname(dirname(dirname(__FILE__)))) . '/include/cp_header.php';
 include_once $GLOBALS['xoops']->path('Frameworks/moduleclasses/moduleadmin/moduleadmin.php');
+require_once dirname(dirname(dirname(__FILE__))) . '/system/include/functions.php';
+include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
 
 global $xoopsModule;
+
+// Config
+$uploaddir = XOOPS_ROOT_PATH . '/uploads/xmcontact/images/cats/';
+$uploadurl = XOOPS_URL . '/uploads/xmcontact/images/cats/';
+$upload_size = 500000;
+$nb_limit = 15;
 
 $pathIcon16 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons16');
 $pathIcon32 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons32');
@@ -56,6 +40,7 @@ $admin_class = new ModuleAdmin();
 
 // Get handler
 $request_Handler = xoops_getModuleHandler('xmcontact_request', 'xmcontact');
+$category_Handler = xoops_getModuleHandler('xmcontact_category', 'xmcontact');
 
 // Get main instance
 //XoopsLoad::load('system', 'system');

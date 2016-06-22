@@ -26,17 +26,18 @@ class xmcontact_request extends XoopsObject
 // constructor
     function __construct()
     {
-        $this->XoopsObject();
+        //$this->XoopsObject();
         $this->initVar('request_id',XOBJ_DTYPE_INT,null,false,11);
         $this->initVar('request_cid',XOBJ_DTYPE_INT,null,false,11);
         $this->initVar('request_name',XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_email',XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_phone',XOBJ_DTYPE_TXTBOX, null, false);
+        $this->initVar('request_ip',XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_subject',XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_message',XOBJ_DTYPE_TXTAREA, null, false);
-        $this->initVar('request_date',XOBJ_DTYPE_INT,null,false,10);
+        $this->initVar('request_date_e',XOBJ_DTYPE_INT,null,false,10);
+        $this->initVar('request_date_r',XOBJ_DTYPE_INT,null,false,10);
         $this->initVar('request_status',XOBJ_DTYPE_INT,null,false,10);
-        $this->initVar('request_ip',XOBJ_DTYPE_TXTBOX, null, false);
 
         //pour les jointures:
         //$this->initVar("cat_title",XOBJ_DTYPE_TXTBOX, null, false);

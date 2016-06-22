@@ -22,9 +22,14 @@ define('_MI_XMCONTACT_DESC', "Module de contact");
 // Admin menu
 define('_MI_XMCONTACT_MENU_HOME', "Home");
 define('_MI_XMCONTACT_MENU_HOME_DESC', "Go back to homepage");
+define('_MI_XMCONTACT_MENU_CATEGORY', "Category");
+define('_MI_XMCONTACT_MENU_CATEGORY_DESC', "List of category");
 define('_MI_XMCONTACT_MENU_REQUEST', "Request");
 define('_MI_XMCONTACT_MENU_REQUEST_DESC', "List of request");
 define('_MI_XMCONTACT_MENU_ABOUT', "About");
 define('_MI_XMCONTACT_MENU_ABOUT_DESC', "About this module");
 define('_MI_XMCONTACT_MENU_HELP', "Help");
 define('_MI_XMCONTACT_MENU_HELP_DESC', "Module help");
+
+// Pref.
+define('_MI_XMCONTACT_PREF_EDITOR', "Editeur de texte");

@@ -18,14 +18,40 @@
  */
 require dirname(__FILE__) . '/header.php';
 
-// header
+// Header
 xoops_cp_header();
+
+// Config
+$nb_limit = 5;
+$start = 0;
+
+
 $xoopsTpl->assign('navigation', $admin_class->addNavigation('request.php'));
 $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
+//echo $request_Handler->getCount();
 
-echo $request_Handler->getCount();
+// Content
+$request_count = $request_Handler->getCount();
+$request_arr = $request_Handler->getall();
+//echo $request_count;
+// Assign Template variables
+if ($request_count > 0) {
+    foreach (array_keys($request_arr) as $i) {
+        $request['id']        = $request_arr[$i]->getVar('request_id');
+        $request['categors']       = $request_arr[$i]->getVar('request_cid');
+        $request['name']       = $request_arr[$i]->getVar('request_name');
+        echo $request['name'];
+        $xoopsTpl->append_by_ref('request', $request);
+        unset($request);
+    }
+    // Display Page Navigation
+    if ($request_count > $nb_limit) {
+        $nav = new XoopsPageNav($request_count, $nb_limit, $start, 'start');
+        $xoopsTpl->assign('nav_menu', $nav->renderNav(4));
+    }
+}
+
 
 // Call template file
 $xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xmcontact/templates/admin/xmcontact_request.tpl');
-
 xoops_cp_footer();

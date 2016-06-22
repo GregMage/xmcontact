@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -16,6 +16,40 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
+// all
+define('_AM_XMCONTACT_ACTION', "Action");
+define('_AM_XMCONTACT_STATUS', "Statut");
+define('_AM_XMCONTACT_CATEGORY', "Catégorie");
+define('_AM_XMCONTACT_ADD', "Ajouter");
+define('_AM_XMCONTACT_EDIT', "Editer");
+define('_AM_XMCONTACT_DEL', "Supprimer");
+define('_AM_XMCONTACT_REDIRECT_SAVE', "Successfully registered");
+define('_AM_SYSTEM_STATUS_ON', "Activé");
+define('_AM_SYSTEM_STATUS_OFF', "Désactivé");
+
 // index
 define('_AM_XMCONTACT_INDEX_ADMENU1', "Messages");
 define('_AM_XMCONTACT_INDEX_TOTAL', "There are %s requests in our database");
+
+// request
+define('_AM_XMCONTACT_REQUEST_NUMBER', "N°");
+define('_AM_XMCONTACT_REQUEST_SUBJECT', "Sujet");
+define('_AM_XMCONTACT_REQUEST_SUBMITTER', "Nom");
+define('_AM_XMCONTACT_REQUEST_DATES', "Date d'envoie");
+define('_AM_XMCONTACT_REQUEST_DATER', "Date de réponse");
+
+// category
+define('_AM_XMCONTACT_CATEGORY_ADD', "Ajouter une catégorie");
+define('_AM_XMCONTACT_CATEGORY_LIST', "Liste des catégories");
+define('_AM_XMCONTACT_CATEGORY_LOGO', "Logo");
+define('_AM_XMCONTACT_CATEGORY_LOGOFILE', "Logo file");
+define('_AM_XMCONTACT_CATEGORY__FORMPATH', "Files exist in: %s");
+define('_AM_XMCONTACT_CATEGORY_UPLOAD', "Upload");
+define('_AM_XMCONTACT_CATEGORY_TITLE', "Titre");
+define('_AM_XMCONTACT_CATEGORY_DESC', "Déscription");
+define('_AM_XMCONTACT_CATEGORY_WEIGHT', "Poids");
+
+// error
+
+define('_AM_XMCONTACT_ERROR_WEIGHT', "weight must be a number");
+define('_AM_XMCONTACT_ERROR_CAT', "Il n'y a pas de catégories dans la base de donnée");

@@ -33,6 +33,11 @@ switch ($op) {
     // list of category
     case 'list':
         default:
+        // Define Stylesheet
+        $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
+        $xoTheme->addScript('browse.php?Frameworks/jquery/jquery.js');
+        $xoTheme->addScript('browse.php?Frameworks/jquery/plugins/jquery.tablesorter.js');
+        $xoTheme->addScript('modules/system/js/admin.js');
         // Define button addItemButton
         $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php', 'add');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
@@ -58,10 +63,6 @@ switch ($op) {
                 $category['status']          = $category_arr[$i]->getVar('category_status');
                 $category_img                = $category_arr[$i]->getVar('category_logo') ?: 'blank.gif';
                 $category['logo']            = '<img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img . '" alt="' . $category_img . '" />';
-                $category['edit_delete']     = '<a href="category.php?op=edit&amp;category_id=' . $category_id . '">
-                                                <img src="../../../Frameworks/moduleclasses/icons/16/edit.png" border="0" alt="' . _AM_XMCONTACT_EDIT . '" title="' . _AM_XMCONTACT_EDIT . '"></a>
-                                                <a href="category.php?op=del&amp;category_id==' . $category_id . '">
-                                                <img src="../../../Frameworks/moduleclasses/icons/16/delete.png" border="0" alt="' . _AM_XMCONTACT_DEL . '" title="' . _AM_XMCONTACT_DEL . '"></a>';
                 $xoopsTpl->append_by_ref('category', $category);
                 unset($category);
             }
@@ -70,6 +71,8 @@ switch ($op) {
                 $nav = new XoopsPageNav($category_count, $nb_limit, $start, 'start');
                 $xoopsTpl->assign('nav_menu', $nav->renderNav(4));
             }
+        } else{
+            $xoopsTpl->assign('message_error', _AM_XMCONTACT_ERROR_CAT);
         }
         break;
     
@@ -124,8 +127,7 @@ switch ($op) {
 
         // logo
         include_once XOOPS_ROOT_PATH . '/class/uploader.php';
-        $uploader_category_img = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/smilies', array('image/gif', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png'), $upload_size, null, null);
-
+        $uploader_category_img = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontact/images/cats/', array('image/gif', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png'), $upload_size, null, null);
         if ($uploader_category_img->fetchMedia('category_logo')) {
             $uploader_category_img->setPrefix('cat_');
             $uploader_category_img->fetchMedia('category_logo');
@@ -133,7 +135,7 @@ switch ($op) {
                 $errors =& $uploader_category_img->getErrors();
                 redirect_header('javascript:history.go(-1)', 3, $errors);
             } else {
-                $obj->setVar('category_logo', $uploader_smilies_img->getSavedFileName());
+                $obj->setVar('category_logo', $uploader_category_img->getSavedFileName());
             }
         } else {
             $obj->setVar('category_logo', $_POST['category_logo']);

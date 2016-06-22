@@ -48,7 +48,7 @@ class xmcontact_category extends XoopsObject
     }
     function getForm($action = false)
     {
-        global $xoopsDB, $xoopsModule, $xoopsModuleConfig;
+        global $xoopsModuleConfig;
         if ($action === false) {
             $action = $_SERVER['REQUEST_URI'];
         }
