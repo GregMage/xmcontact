@@ -59,6 +59,11 @@ $modversion['adminmenu'] = 'admin/menu.php';
 // JQuery
 //$modversion['jquery'] = 1;
 
+// Templates
+$i                                          = 1;
+$modversion['templates'][$i]['file']        = 'xmcontact_index.tpl';
+$modversion['templates'][$i]['description'] = '';
+
 // Menu
 $modversion['hasMain'] = 1;
 
