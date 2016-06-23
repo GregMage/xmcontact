@@ -49,7 +49,7 @@ switch ($op) {
         $criteria->setStart($start);
         $criteria->setLimit($nb_limit);
         $category_arr = $category_Handler->getall($criteria);
-        $category_count = $category_Handler->getCount($criteria);;
+        $category_count = $category_Handler->getCount($criteria);
         $xoopsTpl->assign('category_count', $category_count);
 
         if ($category_count > 0) {
