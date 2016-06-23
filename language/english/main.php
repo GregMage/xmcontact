@@ -18,3 +18,16 @@
  */
 // index.php
 define('_MD_XMCONTACT_INDEX_CONTACT', "Contact");
+define('_MD_XMCONTACT_INDEX_LISTCONTACT', "List of contact");
+define('_MD_XMCONTACT_INDEX_FORM', "Formulaire");
+define('_MD_XMCONTACT_INDEX_NAME', "Name");
+define('_MD_XMCONTACT_INDEX_NAME_PH', "Enter your name");
+define('_MD_XMCONTACT_INDEX_EMAIL', "Email address");
+define('_MD_XMCONTACT_INDEX_EMAIL_PH', "Enter your email address");
+define('_MD_XMCONTACT_INDEX_PHONE', "Phone");
+define('_MD_XMCONTACT_INDEX_PHONE_PH', "Enter your phone number");
+define('_MD_XMCONTACT_INDEX_SUBJECT', "Subject");
+define('_MD_XMCONTACT_INDEX_SUBJECT_PH', "Enter your subject");
+define('_MD_XMCONTACT_INDEX_MESSAGE', "Message");
+define('_MD_XMCONTACT_INDEX_MESSAGE_PH', "Enter your message");
+define('_MD_XMCONTACT_INDEX_SUBMIT', "Submit");

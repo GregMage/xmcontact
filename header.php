@@ -18,7 +18,9 @@
  */
 
 include '../../mainfile.php';
+require_once dirname(dirname(__FILE__)) . '/system/include/functions.php';
 //include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
+
 
 // Include language file
 //xoops_loadLanguage('admin', 'system');
