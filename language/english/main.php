@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -31,3 +31,11 @@ define('_MD_XMCONTACT_INDEX_SUBJECT_PH', "Enter your subject");
 define('_MD_XMCONTACT_INDEX_MESSAGE', "Message");
 define('_MD_XMCONTACT_INDEX_MESSAGE_PH', "Enter your message");
 define('_MD_XMCONTACT_INDEX_SUBMIT', "Submit");
+define('_MD_XMCONTACT_REDIRECT_SEND', "Message envoyé");
+
+
+//errors
+define('_MD_XMCONTACT_ERROR_NAME', "Le nom est obligatoire!");
+define('_MD_XMCONTACT_ERROR_EMAIL', "L'email est obligatoire et doit être valide!");
+define('_MD_XMCONTACT_ERROR_SUBJECT', "Le sujet est obligatoire!");
+define('_MD_XMCONTACT_ERROR_MESSAGE', "Le message est obligatoire!");
