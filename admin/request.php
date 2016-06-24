@@ -33,7 +33,10 @@ $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
 // Content
 $request_count = $request_Handler->getCount();
 $request_arr = $request_Handler->getall();
-//echo $request_count;
+$xoopsTpl->assign('request_count', $request_count);
+
+// Define Stylesheet
+$xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
 // Assign Template variables
 if ($request_count > 0) {
     foreach (array_keys($request_arr) as $i) {
@@ -47,7 +50,11 @@ if ($request_count > 0) {
         } else {
             $request['date_s']    = formatTimestamp($request_arr[$i]->getVar('request_date_s'));
         }
-        $request['status'] = $request_arr[$i]->getVar('request_status');
+        if ($request_arr[$i]->getVar('request_status') == 0){
+            $request['status'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_NR . '</span>';
+        } else {
+            $request['status'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_R . '</span>';
+        }
         $xoopsTpl->append_by_ref('request', $request);
         unset($request);
     }

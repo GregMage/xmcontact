@@ -38,6 +38,8 @@ define('_AM_XMCONTACT_REQUEST_SUBJECT', "Sujet");
 define('_AM_XMCONTACT_REQUEST_SUBMITTER', "Nom");
 define('_AM_XMCONTACT_REQUEST_DATES', "Date d'envoi");
 define('_AM_XMCONTACT_REQUEST_DATER', "Date de réponse");
+define('_AM_XMCONTACT_REQUEST_STATUS_R', "Répondu");
+define('_AM_XMCONTACT_REQUEST_STATUS_NR', "Pas répondu");
 
 // category
 define('_AM_XMCONTACT_CATEGORY_ADD', "Ajouter une catégorie");
