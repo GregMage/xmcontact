@@ -16,7 +16,7 @@
     </div>
     <div class="form-group">
         <label for="Email"><{$smarty.const._MD_XMCONTACT_INDEX_EMAIL}> <span style="color: red;">*</span></label>
-        <input type="text" class="form-control" id="email" name="email" placeholder="<{$smarty.const._MD_XMCONTACT_INDEX_EMAIL_PH}>" value="<{$request.email}>" required>
+        <input type="email" class="form-control" id="email" name="email" placeholder="<{$smarty.const._MD_XMCONTACT_INDEX_EMAIL_PH}>" value="<{$request.email}>" required>
     </div>
     <div class="form-group">
         <label for="Phone"><{$smarty.const._MD_XMCONTACT_INDEX_PHONE}></label>
