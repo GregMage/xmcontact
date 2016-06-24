@@ -10,7 +10,7 @@
     <tr>
         <th class="txtcenter width5"><{$smarty.const._AM_XMCONTACT_REQUEST_NUMBER}></th>
         <th class="txtleft width15"><{$smarty.const._AM_XMCONTACT_CATEGORY}></th>
-        <th class="txtcleft"><{$smarty.const._AM_XMCONTACT_REQUEST_SUBJECT}></th>
+        <th class="txtleft"><{$smarty.const._AM_XMCONTACT_REQUEST_SUBJECT}></th>
         <th class="txtcenter width15"><{$smarty.const._AM_XMCONTACT_REQUEST_SUBMITTER}></th>
         <th class="txtcenter width15"><{$smarty.const._AM_XMCONTACT_REQUEST_DATES}></th>
         <th class="txtcenter width10"><{$smarty.const._AM_XMCONTACT_REQUEST_DATER}></th>
@@ -22,13 +22,13 @@
     <{foreach item=request from=$request}>
         <tr class="<{cycle values='even,odd'}> alignmiddle">
             <td class="txtcenter"><{$request.id}></td>
-            <td class="txtcenter"><{$request.category}></td>
-            <td class="txtcenter"><{$request.id}></td>
+            <td class="txtleft"><{$request.category}></td>
+            <td class="txtleft"><{$request.subject}></td>
             <td class="txtcenter"><{$request.name}></td>
-            <td class="txtcenter"><{$request.id}></td>
-            <td class="txtcenter"><{$request.id}></td>
-            <td class="txtcenter"><{$request.id}></td>
-            <td class="txtcenter"><{$request.id}></td>
+            <td class="txtcenter"><{$request.date_e}></td>
+            <td class="txtcenter"><{$request.date_s}></td>
+            <td class="txtcenter"><{$request.status}></td>
+            <td class="txtcenter">actions</td>
 
         </tr>
     <{/foreach}>

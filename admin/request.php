@@ -37,10 +37,17 @@ $request_arr = $request_Handler->getall();
 // Assign Template variables
 if ($request_count > 0) {
     foreach (array_keys($request_arr) as $i) {
-        $request['id']        = $request_arr[$i]->getVar('request_id');
-        $request['categors']       = $request_arr[$i]->getVar('request_cid');
-        $request['name']       = $request_arr[$i]->getVar('request_name');
-        echo $request['name'];
+        $request['id'] = $request_arr[$i]->getVar('request_id');
+        $request['category'] = $request_arr[$i]->getVar('request_cid');
+        $request['subject'] = $request_arr[$i]->getVar('request_subject');
+        $request['name'] = $request_arr[$i]->getVar('request_name');
+        $request['date_e'] = formatTimestamp($request_arr[$i]->getVar('request_date_e'));
+        if ($request_arr[$i]->getVar('request_date_s') == 0) {
+            $request['date_s'] = '/';
+        } else {
+            $request['date_s']    = formatTimestamp($request_arr[$i]->getVar('request_date_s'));
+        }
+        $request['status'] = $request_arr[$i]->getVar('request_status');
         $xoopsTpl->append_by_ref('request', $request);
         unset($request);
     }

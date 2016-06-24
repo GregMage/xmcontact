@@ -36,7 +36,7 @@ define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', "il y a %s catégories désactivées
 define('_AM_XMCONTACT_REQUEST_NUMBER', "N°");
 define('_AM_XMCONTACT_REQUEST_SUBJECT', "Sujet");
 define('_AM_XMCONTACT_REQUEST_SUBMITTER', "Nom");
-define('_AM_XMCONTACT_REQUEST_DATES', "Date d'envoie");
+define('_AM_XMCONTACT_REQUEST_DATES', "Date d'envoi");
 define('_AM_XMCONTACT_REQUEST_DATER', "Date de réponse");
 
 // category
