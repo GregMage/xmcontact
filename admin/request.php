@@ -22,17 +22,21 @@ require dirname(__FILE__) . '/header.php';
 xoops_cp_header();
 
 // Config
-$nb_limit = 5;
-$start = 0;
 
 
 $xoopsTpl->assign('navigation', $admin_class->addNavigation('request.php'));
 $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
 //echo $request_Handler->getCount();
 
+// Get start pager
+$start = system_CleanVars($_REQUEST, 'start', 0, 'int');
+// Criteria
+$criteria = new CriteriaCompo();
+$criteria->setStart($start);
+$criteria->setLimit($nb_limit);
 // Content
-$request_count = $request_Handler->getCount();
-$request_arr = $request_Handler->getall();
+$request_count = $request_Handler->getCount($criteria);
+$request_arr = $request_Handler->getall($criteria);
 $xoopsTpl->assign('request_count', $request_count);
 
 // Define Stylesheet
