@@ -92,7 +92,7 @@ switch ($op) {
         if ($request->getVar('request_date_r') == 0) {
             $date_r = '/';
         } else {
-            $date_r = formatTimestamp($request_arr->getVar('request_date_r'));
+            $date_r = formatTimestamp($request->getVar('request_date_r'));
         }
         if ($request->getVar('request_status') == 0){
             $status = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_NR . '</span>';
