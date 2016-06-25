@@ -31,6 +31,7 @@ $modversion['dirname']             = 'xmcontact';
 $modversion['dirmoduleadmin']      = 'Frameworks/moduleclasses';
 $modversion['icons16']             = 'Frameworks/moduleclasses/icons/16';
 $modversion['icons32']             = 'Frameworks/moduleclasses/icons/32';
+$modversion['help']                = 'page=help';
 
 //about
 $modversion['release_date']         = '2016/06/30';
