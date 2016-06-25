@@ -99,7 +99,9 @@ switch ($op) {
         } else {
             $status = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_R . '</span>';
         }
-        $request_arr = array(_AM_XMCONTACT_CATEGORY => $request->getVar('request_cid'),
+        $category = $category_Handler->get($request->getVar('request_cid'));
+        $category_title = $category->getVar('category_title');
+        $request_arr = array(_AM_XMCONTACT_CATEGORY => $category_title,
                              _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
                              _AM_XMCONTACT_REQUEST_SUBMITTER => $request->getVar('request_name'),
                              _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
