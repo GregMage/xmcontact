@@ -188,7 +188,7 @@ switch ($op) {
             $xoopsTpl->assign('form', $form->render());
         }
         if ($category_Handler->insert($obj)) {
-            redirect_header('category', 2, _AM_XMCONTACT_REDIRECT_SAVE);
+            redirect_header('category.php', 2, _AM_XMCONTACT_REDIRECT_SAVE);
         }
         echo $obj->getHtmlErrors();
         break;
