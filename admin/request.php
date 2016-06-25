@@ -36,16 +36,15 @@ $criteria->setStart($start);
 $criteria->setLimit($nb_limit);
 // Content
 $request_count = $request_Handler->getCount($criteria);
-$request_arr = $request_Handler->getall($criteria);
+$request_arr = $request_Handler->getByLink($criteria);
 $xoopsTpl->assign('request_count', $request_count);
-
 // Define Stylesheet
 $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
 // Assign Template variables
 if ($request_count > 0) {
     foreach (array_keys($request_arr) as $i) {
         $request['id'] = $request_arr[$i]->getVar('request_id');
-        $request['category'] = $request_arr[$i]->getVar('request_cid');
+        $request['category'] = $request_arr[$i]->getVar('category_title');
         $request['subject'] = $request_arr[$i]->getVar('request_subject');
         $request['name'] = $request_arr[$i]->getVar('request_name');
         $request['date_e'] = formatTimestamp($request_arr[$i]->getVar('request_date_e'));
@@ -68,7 +67,6 @@ if ($request_count > 0) {
         $xoopsTpl->assign('nav_menu', $nav->renderNav(4));
     }
 }
-
 
 // Call template file
 $xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xmcontact/templates/admin/xmcontact_request.tpl');

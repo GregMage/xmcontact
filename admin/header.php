@@ -38,5 +38,9 @@ xoops_loadLanguage('modinfo', $xoopsModule->getVar('dirname', 'e'));
 $admin_class = new ModuleAdmin();
 
 // Get handler
-$request_Handler = xoops_getModuleHandler('xmcontact_request', 'xmcontact');
 $category_Handler = xoops_getModuleHandler('xmcontact_category', 'xmcontact');
+$request_Handler = xoops_getModuleHandler('xmcontact_request', 'xmcontact');
+// joint
+$request_Handler->table_link = $request_Handler->db->prefix('xmcontact_category'); // Nom de la table en jointure
+$request_Handler->field_link = 'category_id'; // champ de la table en jointure
+$request_Handler->field_object = 'request_cid'; // champ de la table courante

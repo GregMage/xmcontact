@@ -118,6 +118,6 @@ class xmcontactxmcontact_categoryHandler extends XoopsPersistableObjectHandler
 {
     function __construct(&$db)
     {
-        parent::__construct($db, "xmcontact_category", 'xmcontact_category', 'category_id', 'category_name');
+        parent::__construct($db, "xmcontact_category", 'xmcontact_category', 'category_id', 'category_title');
     }
 }

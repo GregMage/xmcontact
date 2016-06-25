@@ -40,8 +40,7 @@ class xmcontact_request extends XoopsObject
         $this->initVar('request_status',XOBJ_DTYPE_INT,null,false,10);
 
         //pour les jointures:
-        //$this->initVar("cat_title",XOBJ_DTYPE_TXTBOX, null, false);
-        //$this->initVar("cat_imgurl",XOBJ_DTYPE_TXTBOX, null, false);
+        $this->initVar('category_title',XOBJ_DTYPE_TXTBOX, null, false);
     }
     function get_new_enreg()
     {
