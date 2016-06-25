@@ -61,3 +61,33 @@
         <div class="clear spacer"></div>
     <{/if}>
 <{/if}>
+<{if $view}>
+    <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
+        <thead>
+        <tr>
+            <th class="txtleft width20"><{$smarty.const._AM_XMCONTACT_REQUEST_TITLE}></th>
+            <th class="txtleft"><{$smarty.const._AM_XMCONTACT_REQUEST_INFORMATION}></th>
+        </tr>
+        </thead>
+        <tbody>
+        <{foreach from=$request_arr key=title item=information}>
+            <tr class="<{cycle values='even,odd'}> alignmiddle">
+                <td class="txtleft"><{$title}></td>
+                <td class="txtleft"><{$information}></td>
+            </tr>
+        <{/foreach}>
+            <tr class="<{cycle values='even,odd'}> alignmiddle">
+                <td><{$smarty.const._AM_XMCONTACT_ACTION}></td>
+                <td class="xo-actions txtleft">
+                    <a class="tooltip" href="request.php?op=reply&amp;request_id=<{$request_id}>" title="<{$smarty.const._AM_XMCONTACT_REPLY}>">
+                        <img src="<{xoAdminIcons mail_reply.png}>" alt="<{$smarty.const._AM_XMCONTACT_REPLY}>"/>
+                    </a>
+                    <a class="tooltip" href="request.php?op=del&amp;request_id=<{$request_id}>" title="<{$smarty.const._AM_XMCONTACT_DEL}>">
+                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/>
+                    </a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+<{/if}>

@@ -48,6 +48,10 @@ define('_AM_XMCONTACT_REQUEST_LIST', "Liste des demandes");
 define('_AM_XMCONTACT_REQUEST_TO', "A:");
 define('_AM_XMCONTACT_REQUEST_FROM', "De:");
 define('_AM_XMCONTACT_REQUEST_SENDEMAIL', "Email envoyé");
+define('_AM_XMCONTACT_REQUEST_TITLE', "Titres");
+define('_AM_XMCONTACT_REQUEST_INFORMATION', "Informations");
+define('_AM_XMCONTACT_REQUEST_PHONE', "Téléphone");
+define('_AM_XMCONTACT_REQUEST_IP', "IP");
 
 
 

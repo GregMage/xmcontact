@@ -73,6 +73,49 @@ switch ($op) {
         }
         break;
 
+    // list of request
+    case 'view':
+        //navigation
+        $xoopsTpl->assign('navigation', $admin_class->addNavigation('request.php'));
+        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
+        // Define button addItemButton
+        $admin_class->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
+        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
+        // Define Stylesheet
+        $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
+        
+        $xoopsTpl->assign('view', 'view');
+        
+        $request_id = system_CleanVars($_REQUEST, 'request_id', 0, 'int');
+        $request = $request_Handler->get($request_id);
+        
+        if ($request->getVar('request_date_r') == 0) {
+            $date_r = '/';
+        } else {
+            $date_r = formatTimestamp($request_arr->getVar('request_date_r'));
+        }
+        if ($request->getVar('request_status') == 0){
+            $status = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_NR . '</span>';
+        } else {
+            $status = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_R . '</span>';
+        }
+        $request_arr = array(_AM_XMCONTACT_CATEGORY => $request->getVar('request_cid'),
+                             _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
+                             _AM_XMCONTACT_REQUEST_SUBMITTER => $request->getVar('request_name'),
+                             _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
+                             _AM_XMCONTACT_REQUEST_EMAIL => $request->getVar('request_email'),
+                             _AM_XMCONTACT_REQUEST_PHONE => $request->getVar('request_phone'),
+                             _AM_XMCONTACT_REQUEST_IP => $request->getVar('request_ip'),
+                             _AM_XMCONTACT_REQUEST_DATES => formatTimestamp($request->getVar('request_date_e')),
+                             _AM_XMCONTACT_REQUEST_DATER => $date_r,
+                             _AM_XMCONTACT_STATUS => $status,
+                             _AM_XMCONTACT_REQUEST_MESSAGE => $request->getVar('request_message', 'show'),
+                             );
+
+        $xoopsTpl->assign('request_arr', $request_arr);
+        $xoopsTpl->assign('request_id', $request_id);
+        break;
+
     // edit status
     case 'edit':
         //navigation
