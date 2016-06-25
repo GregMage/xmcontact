@@ -33,7 +33,6 @@ define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', "il y a %s catégories active");
 define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', "il y a %s catégories désactivées");
 
 // request
-define('_AM_XMCONTACT_REQUEST_NUMBER', "N°");
 define('_AM_XMCONTACT_REQUEST_SUBJECT', "Sujet");
 define('_AM_XMCONTACT_REQUEST_SUBMITTER', "Nom");
 define('_AM_XMCONTACT_REQUEST_DATES', "Date d'envoi");
