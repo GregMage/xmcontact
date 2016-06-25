@@ -35,6 +35,10 @@ define('_AM_XMCONTACT_INDEX_CAT', "Catégories");
 define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', "il y a %s catégories actives");
 define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', "il y a %s catégories désactivées");
 
+define('_AM_XMCONTACT_INDEX_REQUEST', "Demandes");
+define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', "il y a %s demandes traitées");
+define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', "il y a %s demandes non traitées");
+
 // request
 define('_AM_XMCONTACT_REQUEST_SUBJECT', "Sujet");
 define('_AM_XMCONTACT_REQUEST_SUBMITTER', "Nom");
