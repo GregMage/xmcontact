@@ -32,7 +32,7 @@
                 <td class="txtleft"><{$request.subject}></td>
                 <td class="txtleft"><{$request.name}></td>
                 <td class="txtcenter"><{$request.date_e}></td>
-                <td class="txtcenter"><{$request.date_s}></td>
+                <td class="txtcenter"><{$request.date_r}></td>
                 <td class="xo-actions txtcenter">
                     <{$request.status}>
                     <a class="tooltip" href="request.php?op=edit&amp;request_id=<{$request.id}>" title="<{$smarty.const._AM_XMCONTACT_EDITSTATUS}>">

@@ -26,19 +26,26 @@ define('_AM_XMCONTACT_DEL', "Supprimer");
 define('_AM_XMCONTACT_REDIRECT_SAVE', "Successfully registered");
 define('_AM_SYSTEM_STATUS_ON', "Activé");
 define('_AM_SYSTEM_STATUS_OFF', "Désactivé");
+define('_AM_XMCONTACT_EDITSTATUS', "Editer manuellement le statut");
+define('_AM_XMCONTACT_REPLY', "Répondre");
+define('_AM_XMCONTACT_VIEW', "Voir les détails");
 
 // index
 define('_AM_XMCONTACT_INDEX_CAT', "Catégories");
-define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', "il y a %s catégories active");
+define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', "il y a %s catégories actives");
 define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', "il y a %s catégories désactivées");
 
 // request
 define('_AM_XMCONTACT_REQUEST_SUBJECT', "Sujet");
 define('_AM_XMCONTACT_REQUEST_SUBMITTER', "Nom");
+define('_AM_XMCONTACT_REQUEST_MESSAGE', "Message");
+define('_AM_XMCONTACT_REQUEST_EMAIL', "Email");
 define('_AM_XMCONTACT_REQUEST_DATES', "Date d'envoi");
 define('_AM_XMCONTACT_REQUEST_DATER', "Date de réponse");
 define('_AM_XMCONTACT_REQUEST_STATUS_R', "Répondu");
 define('_AM_XMCONTACT_REQUEST_STATUS_NR', "Pas répondu");
+define('_AM_XMCONTACT_REQUEST_LIST', "Liste des demandes");
+
 
 // category
 define('_AM_XMCONTACT_CATEGORY_ADD', "Ajouter une catégorie");

@@ -52,6 +52,58 @@ class xmcontact_request extends XoopsObject
     {
         $this->__construct();
     }
+    function getFormEdit($action = false)
+    {
+        if ($action === false) {
+            $action = $_SERVER['REQUEST_URI'];
+        }
+        include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
+        
+        $form = new XoopsThemeForm(_AM_XMCONTACT_EDITSTATUS, 'form', $action, 'post', true);
+        // submitter
+        $form->addElement(new XoopsFormLabel(_AM_XMCONTACT_REQUEST_SUBMITTER, $this->getVar('request_name'), 'name'));
+        // subject
+        $form->addElement(new XoopsFormLabel(_AM_XMCONTACT_REQUEST_SUBJECT, $this->getVar('request_subject'), 'subject'));    
+        // status
+        $status = new XoopsFormRadio(_AM_XMCONTACT_STATUS, 'request_status', $this->getVar('request_status'));
+        $options = array('0' =>_AM_XMCONTACT_REQUEST_STATUS_NR, '1' => _AM_XMCONTACT_REQUEST_STATUS_R);
+        $status->addOptionArray($options);
+        $form->addElement($status);
+
+        $form->addElement(new XoopsFormHidden('request_id', $this->getVar('request_id')));
+        $form->addElement(new XoopsFormHidden('op', 'save'));
+        // submitt
+        $form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
+
+        return $form;
+    }
+    
+    function getFormReply($action = false)
+    {
+        if ($action === false) {
+            $action = $_SERVER['REQUEST_URI'];
+        }
+        include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
+        
+        $form = new XoopsThemeForm(_AM_XMCONTACT_EDITSTATUS, 'form', $action, 'post', true);
+        
+        $form->addElement(new XoopsFormLabel(_AM_XMCONTACT_REQUEST_SUBMITTER, $this->getVar('request_name'), 'name'));
+        //$form->addElement(new XoopsFormLabel(_AM_XMCONTACT_REQUEST_EMAIL, $this->getVar('request_email'), 'email'));
+        $form->addElement(new XoopsFormLabel(_AM_XMCONTACT_REQUEST_SUBJECT, $this->getVar('request_subject'), 'subject'));
+        //$form->addElement(new XoopsFormLabel(_AM_XMCONTACT_REQUEST_MESSAGE, $this->getVar('request_message', 'show'), 'message'));
+        
+        // status
+        $status = new XoopsFormRadio(_AM_XMCONTACT_STATUS, 'date_update', $this->getVar('request_status'));
+        $options = array('0' =>_AM_XMCONTACT_REQUEST_STATUS_NR, '1' => _AM_XMCONTACT_REQUEST_STATUS_R);
+        $status->addOptionArray($options);
+        $form->addElement($status);
+
+        $form->addElement(new XoopsFormHidden('op', 'save'));
+        // submitt
+        $form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
+
+        return $form;
+    }
 }
 
 class xmcontactxmcontact_requestHandler extends XoopsPersistableObjectHandler
