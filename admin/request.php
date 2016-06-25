@@ -92,7 +92,7 @@ switch ($op) {
     // save status
     case 'save':
         if (!$GLOBALS['xoopsSecurity']->check()) {
-            redirect_header('category.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
+            redirect_header('request.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
         }
         $request_id = system_CleanVars($_POST, 'request_id', 0, 'int');
         if ($request_id > 0) {
@@ -107,6 +107,60 @@ switch ($op) {
                 redirect_header('request.php', 2, _AM_XMCONTACT_REDIRECT_SAVE);
             }
             echo $obj->getHtmlErrors();
+        }
+        break;
+
+    // reply
+    case 'reply':
+        //navigation
+        $xoopsTpl->assign('navigation', $admin_class->addNavigation('request.php'));
+        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
+        // Define button addItemButton
+        $admin_class->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
+        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
+
+        // Create form
+        $obj  = $request_Handler->get(system_CleanVars($_REQUEST, 'request_id', 0, 'int'));
+        $form = $obj->getFormReply();
+        // Assign form
+        $xoopsTpl->assign('form', $form->render());
+        break;
+    
+    // send
+    case 'send':
+        if (!$GLOBALS['xoopsSecurity']->check()) {
+            redirect_header('request.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
+        }
+        $request_id = system_CleanVars($_POST, 'request_id', 0, 'int');
+        // error
+        $message_error = '';
+        
+        if ($request_id > 0) {
+            $xoopsMailer = xoops_getMailer();
+            $xoopsMailer->useMail();
+            $xoopsMailer->setToEmails($_POST['toemail']);
+            $xoopsMailer->setFromEmail($_POST['xmcontact_mail']);
+            $xoopsMailer->setFromName($_POST['xmcontact_submitter']);
+            $xoopsMailer->setSubject($_POST['xmcontact_subject']);
+            $xoopsMailer->setBody($_POST['xmcontact_message']);
+            if ($xoopsMailer->send()) {
+                $message = _AM_XMCONTACT_REQUEST_SENDEMAIL;
+                $obj = $request_Handler->get($request_id);
+                $obj->setVar('request_date_r', time());
+                $obj->setVar('request_status', 1);
+                if ($request_Handler->insert($obj)) {
+                    redirect_header('request.php', 2, _AM_XMCONTACT_REQUEST_SENDEMAIL . '<br />' . _AM_XMCONTACT_REDIRECT_SAVE);
+                }
+                $message_error .= $obj->getHtmlErrors();
+            } else {
+                $message_error .= $xoopsMailer->getErrors();
+            }
+            if ($message_error != '') {
+                // Define button addItemButton
+                $admin_class->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
+                $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
+                $xoopsTpl->assign('message_error', $message_error);
+            }
         }
         break;
 }

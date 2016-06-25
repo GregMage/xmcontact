@@ -45,6 +45,11 @@ define('_AM_XMCONTACT_REQUEST_DATER', "Date de réponse");
 define('_AM_XMCONTACT_REQUEST_STATUS_R', "Répondu");
 define('_AM_XMCONTACT_REQUEST_STATUS_NR', "Pas répondu");
 define('_AM_XMCONTACT_REQUEST_LIST', "Liste des demandes");
+define('_AM_XMCONTACT_REQUEST_TO', "A:");
+define('_AM_XMCONTACT_REQUEST_FROM', "De:");
+define('_AM_XMCONTACT_REQUEST_SENDEMAIL', "Email envoyé");
+
+
 
 
 // category
