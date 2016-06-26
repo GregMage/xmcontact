@@ -19,6 +19,7 @@
 // The name of this module
 define('_MI_XMCONTACT_NAME', "Nous contacter");
 define('_MI_XMCONTACT_DESC', "Module de contact");
+
 // Admin menu
 define('_MI_XMCONTACT_MENU_HOME', "Home");
 define('_MI_XMCONTACT_MENU_HOME_DESC', "Go back to homepage");
@@ -33,16 +34,16 @@ define('_MI_XMCONTACT_MENU_HELP_DESC', "Module help");
 
 // Pref.
 define('_MI_XMCONTACT_PREF_HEAD_INFORMATION', "Informations");
-define('_MI_XMCONTACT_PREF_HEAD_ADMIN', "Administration");
-define('_MI_XMCONTACT_PREF_EDITOR', "Editeur de texte");
-define('_MI_XMCONTACT_PREF_ITEMPERPAGE', "Number of items per page in the administration");
-define('_MI_XMCONTACT_PREF_GOOGLEMAPS', "Embed google maps");
-define('_MI_XMCONTACT_PREF_GOOGLEMAPS_DESC', "Embed google maps iframe<br />change iframe width to '100%'");
+define('_MI_XMCONTACT_PREF_COLUMNCAT', "Nombre de colonne pour l'affichage des catégories");
+define('_MI_XMCONTACT_PREF_COLUMNCAT_DESC', "Les catégories peuvent êre affichée en: 1, 2, 3 ou 4 colonnes");
 define('_MI_XMCONTACT_PREF_HEADER', "Header contact form");
 define('_MI_XMCONTACT_PREF_HEADER_DESC', "Set HTML codes to show in contact page");
 define('_MI_XMCONTACT_PREF_FOOTER', "Footer contact form");
 define('_MI_XMCONTACT_PREF_FOOTER_DESC', "Set HTML codes to show in contact page");
 define('_MI_XMCONTACT_PREF_ADDRESSE', "Addresse contact form");
 define('_MI_XMCONTACT_PREF_ADDRESSE_DESC', "Set HTML codes to show in contact page");
-define('_MI_XMCONTACT_PREF_COLUMNCAT', "Nombre de colonne pour l'affichage des catégories");
-define('_MI_XMCONTACT_PREF_COLUMNCAT_DESC', "Les catégories peuvent êre affichée en: 1, 2, 3 ou 4 colonnes");
+define('_MI_XMCONTACT_PREF_GOOGLEMAPS', "Embed google maps");
+define('_MI_XMCONTACT_PREF_GOOGLEMAPS_DESC', "Embed google maps iframe<br />change iframe width to '100%'");
+define('_MI_XMCONTACT_PREF_HEAD_ADMIN', "Administration");
+define('_MI_XMCONTACT_PREF_EDITOR', "Editeur de texte");
+define('_MI_XMCONTACT_PREF_ITEMPERPAGE', "Number of items per page in the administration");
