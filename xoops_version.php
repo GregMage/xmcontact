@@ -133,6 +133,15 @@ $modversion['config'][] = array(
 );
 
 $modversion['config'][] = array(
+    'name'        => 'info_notification',
+    'title'       => '_MI_XMCONTACT_PREF_NOTIFICATION',
+    'description' => '_MI_XMCONTACT_PREF_NOTIFICATION_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1
+);
+
+$modversion['config'][] = array(
     'name'        => 'break',
     'title'       => '_MI_XMCONTACT_PREF_HEAD_ADMIN',
     'description' => '',
