@@ -61,6 +61,8 @@ switch ($op) {
                 $count++;
                 unset($category);
             }
+        } else {
+            $xoopsTpl->assign('simple_contact', true);
         }
         break;
     

@@ -80,7 +80,7 @@
                 <h4><{$category.title}></h4>
                 <{$category.description}>
                 <p style="padding-top: 15px;">
-                    <a href="index.php?op=form&cat_id=<{$category.id}>"><button type="button" class="btn btn-info btn-xs"><{$smarty.const._MD_XMCONTACT_INDEX_CONTACT}></button></a>
+                    <a href="index.php?op=form&cat_id=<{$category.id}>"><button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTACT_INDEX_CONTACT}></button></a>
                 </p>
             </div>
         </div>
@@ -96,7 +96,7 @@
                 <h4><{$category.title}></h4>
                 <{$category.description}>
                 <p style="padding-top: 15px;">
-                    <a href="index.php?op=form&cat_id=<{$category.id}>"><button type="button" class="btn btn-info btn-xs"><{$smarty.const._MD_XMCONTACT_INDEX_CONTACT}></button></a>
+                    <a href="index.php?op=form&cat_id=<{$category.id}>"><button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTACT_INDEX_CONTACT}></button></a>
                 </p>
             </div>
         <{if $category.count is div by $info_columncat}>
@@ -114,7 +114,7 @@
                 <h4><{$category.title}></h4>
                 <{$category.description}> <{$category.count}>
                 <p style="padding-top: 15px;">
-                    <a href="index.php?op=form&cat_id=<{$category.id}>"><button type="button" class="btn btn-info btn-xs"><{$smarty.const._MD_XMCONTACT_INDEX_CONTACT}></button></a>
+                    <a href="index.php?op=form&cat_id=<{$category.id}>"><button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTACT_INDEX_CONTACT}></button></a>
                 </p>
             </div>
         <{if $category.count is div by $info_columncat}>
@@ -122,6 +122,15 @@
         <{/if}>
     <{/if}>
     <{/foreach}>
+<{/if}>
+<{if $simple_contact}>
+    <div class="row" style="padding-bottom: 5px; padding-top: 5px;">
+        <div class="col-sm-12" style="text-align: center;">
+            <p style="padding-top: 15px;">
+                <a href="index.php?op=form"><button type="button" class="btn btn-primary"><{$smarty.const._MD_XMCONTACT_INDEX_CONTACT}></button></a>
+            </p>
+        </div>
+    </div>
 <{/if}>
 
 <{if $info_footer}>
