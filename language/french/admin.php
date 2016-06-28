@@ -23,7 +23,7 @@ define('_AM_XMCONTACT_CATEGORY', "Catégorie");
 define('_AM_XMCONTACT_DEL', "Supprimer");
 define('_AM_XMCONTACT_EDIT', "Editer");
 define('_AM_XMCONTACT_EDITSTATUS', "Editer manuellement le statut");
-define('_AM_XMCONTACT_REDIRECT_SAVE', "Successfully registered");
+define('_AM_XMCONTACT_REDIRECT_SAVE', "Enregistré avec succès");
 define('_AM_XMCONTACT_REPLY', "Répondre");
 define('_AM_XMCONTACT_STATUS', "Statut");
 define('_AM_SYSTEM_STATUS_OFF', "Désactivé");
@@ -60,7 +60,7 @@ define('_AM_XMCONTACT_REQUEST_TO', "A:");
 // category
 define('_AM_XMCONTACT_CATEGORY_ADD', "Ajouter une catégorie");
 define('_AM_XMCONTACT_CATEGORY_DESC', "Déscription");
-define('_AM_XMCONTACT_CATEGORY_FORMPATH', "Files exist in: %s");
+define('_AM_XMCONTACT_CATEGORY_FORMPATH', "Fichier existant dans: %s");
 define('_AM_XMCONTACT_CATEGORY_LIST', "Liste des catégories");
 define('_AM_XMCONTACT_CATEGORY_LOGO', "Logo");
 define('_AM_XMCONTACT_CATEGORY_LOGOFILE', "Logo file");
@@ -72,4 +72,4 @@ define('_AM_XMCONTACT_CATEGORY_WEIGHT', "Poids");
 
 // error
 define('_AM_XMCONTACT_ERROR_CAT', "Il n'y a pas de catégories dans la base de donnée");
-define('_AM_XMCONTACT_ERROR_WEIGHT', "Weight must be a number");
+define('_AM_XMCONTACT_ERROR_WEIGHT', "Vous devez entrer un nombre");

@@ -18,19 +18,19 @@
  */
 // index.php
 define('_MD_XMCONTACT_INDEX_CONTACT', "Contact");
-define('_MD_XMCONTACT_INDEX_EMAIL', "Email address");
-define('_MD_XMCONTACT_INDEX_EMAIL_PH', "Enter your email address");
+define('_MD_XMCONTACT_INDEX_EMAIL', "Adresse email");
+define('_MD_XMCONTACT_INDEX_EMAIL_PH', "Entrez votre Adresse email");
 define('_MD_XMCONTACT_INDEX_FORM', "Formulaire");
-define('_MD_XMCONTACT_INDEX_LISTCONTACT', "List of contacts");
+define('_MD_XMCONTACT_INDEX_LISTCONTACT', "Liste des contacts");
 define('_MD_XMCONTACT_INDEX_MESSAGE', "Message");
-define('_MD_XMCONTACT_INDEX_MESSAGE_PH', "Enter your message");
-define('_MD_XMCONTACT_INDEX_NAME', "Name");
-define('_MD_XMCONTACT_INDEX_NAME_PH', "Enter your name");
-define('_MD_XMCONTACT_INDEX_PHONE', "Phone");
-define('_MD_XMCONTACT_INDEX_PHONE_PH', "Enter your phone number");
-define('_MD_XMCONTACT_INDEX_SUBMIT', "Submit");
-define('_MD_XMCONTACT_INDEX_SUBJECT', "Subject");
-define('_MD_XMCONTACT_INDEX_SUBJECT_PH', "Enter your subject");
+define('_MD_XMCONTACT_INDEX_MESSAGE_PH', "Entrez votre message");
+define('_MD_XMCONTACT_INDEX_NAME', "Nom");
+define('_MD_XMCONTACT_INDEX_NAME_PH', "Entrez votre nom");
+define('_MD_XMCONTACT_INDEX_PHONE', "Téléphone");
+define('_MD_XMCONTACT_INDEX_PHONE_PH', "Entrez votre Téléphone");
+define('_MD_XMCONTACT_INDEX_SUBMIT', "Envoyer");
+define('_MD_XMCONTACT_INDEX_SUBJECT', "Sujet");
+define('_MD_XMCONTACT_INDEX_SUBJECT_PH', "Entrez votre sujet");
 define('_MD_XMCONTACT_REDIRECT_SEND', "Message envoyé");
 
 // dans l'attente de faire un template pour les mails
