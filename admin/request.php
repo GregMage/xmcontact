@@ -208,6 +208,29 @@ switch ($op) {
             }
         }
         break;
+
+    // del
+    case 'del':
+        // Create form
+        $request_id = system_CleanVars($_REQUEST, 'request_id', 0, 'int');
+        $obj  = $request_Handler->get($request_id);
+
+        if (isset($_POST['ok']) && $_POST['ok'] == 1) {
+            if (!$GLOBALS['xoopsSecurity']->check()) {
+                redirect_header('request.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
+            }
+            if ($request_Handler->delete($obj)) {
+                redirect_header('request.php', 2, _AM_XMCONTACT_REDIRECT_SAVE);
+            } else {
+                xoops_error($obj->getHtmlErrors());
+            }
+        } else {
+            xoops_confirm(array(
+                              'ok' => 1,
+                              'request_id' => $request_id,
+                              'op' => 'del'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_REQUEST_SUREDEL, $obj->getVar('request_name')) . '<br \>' . $obj->getVar('request_subject') . '<br \>');
+        }
+        break;
 }
 // Call template file
 $xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xmcontact/templates/admin/xmcontact_request.tpl');

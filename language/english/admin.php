@@ -53,6 +53,7 @@ define('_AM_XMCONTACT_REQUEST_STATUS_NR', "Pas répondu");
 define('_AM_XMCONTACT_REQUEST_STATUS_R', "Répondu");
 define('_AM_XMCONTACT_REQUEST_SUBJECT', "Sujet");
 define('_AM_XMCONTACT_REQUEST_SUBMITTER', "Nom");
+define('_AM_XMCONTACT_REQUEST_SUREDEL', "Etes vous sûr de vouloir supprimmer la demande de: %s");
 define('_AM_XMCONTACT_REQUEST_TITLE', "Titres");
 define('_AM_XMCONTACT_REQUEST_TO', "A:");
 
