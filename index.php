@@ -113,6 +113,7 @@ switch ($op) {
             $xoopsTpl->assign('form', true);
             $xoopsTpl->assign('cat_id', $cat_id);
         } else {
+            $message_error = '';
             $obj = $request_Handler->create();
             $obj->setVar('request_cid', $cat_id);
             $obj->setVar('request_name', $request['name']);
@@ -124,9 +125,27 @@ switch ($op) {
             $obj->setVar('request_date_e', time());
             $obj->setVar('request_status', 0);
             if ($request_Handler->insert($obj)) {
-                redirect_header('index.php', 2, _MD_XMCONTACT_REDIRECT_SEND);
+                if ($cat_id != 0 && $xoopsModuleConfig['info_notification'] == 1){
+                    $category = $category_Handler->get($cat_id);
+                    $member_handler = xoops_getHandler('member');
+                    $thisUser = $member_handler->getUser($category->getVar('category_responsible'));
+                    $xoopsMailer = xoops_getMailer();
+                    $xoopsMailer->useMail();
+                    $xoopsMailer->setToEmails($thisUser->getVar('email'));
+                    $xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT);
+                    $xoopsMailer->setBody(_MD_XMCONTACT_INDEX_MAIL_MESSAGE);
+                    if (!$xoopsMailer->send()) {
+                        $message_error = $xoopsMailer->getErrors();
+                        $xoopsTpl->assign('message_error', $message_error);
+                    }
+                }
+            } else {
+                $message_error = $obj->getHtmlErrors();
             }
-            echo $obj->getHtmlErrors();
+            if ($message_error != '') {
+                $xoopsTpl->assign('error', $message_error);
+            }
+            redirect_header('index.php', 2, _MD_XMCONTACT_REDIRECT_SEND);
         }
     break;
 }

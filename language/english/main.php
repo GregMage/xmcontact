@@ -33,6 +33,10 @@ define('_MD_XMCONTACT_INDEX_SUBJECT', "Subject");
 define('_MD_XMCONTACT_INDEX_SUBJECT_PH', "Enter your subject");
 define('_MD_XMCONTACT_REDIRECT_SEND', "Message envoyé");
 
+// dans l'attente de faire un template pour les mails
+define('_MD_XMCONTACT_INDEX_MAIL_SUBJECT', "Nouvelle demande de contact");
+define('_MD_XMCONTACT_INDEX_MAIL_MESSAGE', "Vous avez reçu une nouvelle demande de contact");
+
 //errors
 define('_MD_XMCONTACT_ERROR_EMAIL', "L'email est obligatoire et doit être valide!");
 define('_MD_XMCONTACT_ERROR_MESSAGE', "Le message est obligatoire!");
