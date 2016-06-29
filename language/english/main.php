@@ -22,6 +22,7 @@ define('_MD_XMCONTACT_INDEX_EMAIL', "Email address");
 define('_MD_XMCONTACT_INDEX_EMAIL_PH', "Enter your email address");
 define('_MD_XMCONTACT_INDEX_FORM', "Formulaire");
 define('_MD_XMCONTACT_INDEX_LISTCONTACT', "List of contacts");
+define('_MD_XMCONTACT_INDEX_MAIL_SUBJECT', "Nouvelle demande de contact");
 define('_MD_XMCONTACT_INDEX_MESSAGE', "Message");
 define('_MD_XMCONTACT_INDEX_MESSAGE_PH', "Enter your message");
 define('_MD_XMCONTACT_INDEX_NAME', "Name");
@@ -32,10 +33,6 @@ define('_MD_XMCONTACT_INDEX_SUBMIT', "Submit");
 define('_MD_XMCONTACT_INDEX_SUBJECT', "Subject");
 define('_MD_XMCONTACT_INDEX_SUBJECT_PH', "Enter your subject");
 define('_MD_XMCONTACT_REDIRECT_SEND', "Message envoyé");
-
-// dans l'attente de faire un template pour les mails
-define('_MD_XMCONTACT_INDEX_MAIL_SUBJECT', "Nouvelle demande de contact");
-define('_MD_XMCONTACT_INDEX_MAIL_MESSAGE', "Vous avez reçu une nouvelle demande de contact");
 
 //errors
 define('_MD_XMCONTACT_ERROR_EMAIL', "L'email est obligatoire et doit être valide!");

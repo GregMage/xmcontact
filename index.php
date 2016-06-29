@@ -133,7 +133,18 @@ switch ($op) {
                     $xoopsMailer->useMail();
                     $xoopsMailer->setToEmails($thisUser->getVar('email'));
                     $xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT);
-                    $xoopsMailer->setBody(_MD_XMCONTACT_INDEX_MAIL_MESSAGE);
+
+                    $xoopsMailer->setTemplateDir($GLOBALS['xoopsModule']->getVar('dirname', 'n'));
+                    $xoopsMailer->setTemplate('new_request.tpl');
+                    $xoopsMailer->assign('X_UNAME', XoopsUser::getUnameFromId($category->getVar('category_responsible')));
+                    $xoopsMailer->assign('X_CATEGORY', $category->getVar('category_title'));
+                    $xoopsMailer->assign('X_SUBJECT', $request['subject']);
+                    $xoopsMailer->assign('X_NAME', $request['name']);
+                    $xoopsMailer->assign('X_EMAIL', $request['email']);
+                    $xoopsMailer->assign('X_PHONE', $request['phone']);
+                    $xoopsMailer->assign('X_MESSAGE', $request['message']);
+                    $xoopsMailer->assign('REQUEST_URL', XOOPS_URL . '/modules/xmcontact/admin/request.php');
+                    
                     if (!$xoopsMailer->send()) {
                         $message_error = $xoopsMailer->getErrors();
                         $xoopsTpl->assign('message_error', $message_error);
