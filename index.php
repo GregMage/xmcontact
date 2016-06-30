@@ -23,6 +23,8 @@ include_once XOOPS_ROOT_PATH.'/header.php';
 // Get Action type
 $op = system_CleanVars($_REQUEST, 'op', 'list', 'string');
 
+$keywords = '';
+
 switch ($op) {
     // list
     case 'list':
@@ -59,14 +61,21 @@ switch ($op) {
                 }
                 $xoopsTpl->append_by_ref('category', $category);
                 $count++;
+                $keywords .= $category['title'] . ',';
                 unset($category);
             }
         } else {
             $xoopsTpl->assign('simple_contact', true);
         }
+        //SEO
+        //description
+        $xoTheme->addMeta('meta', 'description', strip_tags($xoopsModule->name()));
+        //keywords
+        $keywords = substr($keywords,0,-1);
+        $xoTheme->addMeta('meta', 'keywords', $keywords);
         break;
     
-    // list
+    // form
     case 'form':
         $request['name'] = '';
         $request['email'] = '';
@@ -77,6 +86,14 @@ switch ($op) {
         $xoopsTpl->assign('form', true);
         $cat_id = system_CleanVars($_REQUEST, 'cat_id', 0, 'int');
         $xoopsTpl->assign('cat_id', $cat_id);
+        //SEO
+        if ($cat_id != 0){
+            $category = $category_Handler->get($cat_id);
+            // pagetitle
+            $xoopsTpl->assign('xoops_pagetitle', strip_tags($category->getVar('category_title') . ' - ' . $xoopsModule->name()));
+        }
+        //description
+        $xoTheme->addMeta('meta', 'description', strip_tags($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM));
     break;
 
     // save
