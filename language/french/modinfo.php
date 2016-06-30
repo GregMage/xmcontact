@@ -34,7 +34,7 @@ define('_MI_XMCONTACT_MENU_HELP_DESC', "Aide du module");
 // Pref.
 define('_MI_XMCONTACT_PREF_HEAD_INFORMATION', "<span style='font-weight: bold;'>Informations</span>");
 define('_MI_XMCONTACT_PREF_COLUMNCAT', "Nombre de colonne pour l'affichage des catégories");
-define('_MI_XMCONTACT_PREF_COLUMNCAT_DESC', "Les catégories peuvent êre affichée en: 1, 2, 3 ou 4 colonnes");
+define('_MI_XMCONTACT_PREF_COLUMNCAT_DESC', "Les catégories peuvent êre affichée en: 1, 2 ou 3 colonnes");
 define('_MI_XMCONTACT_PREF_HEADER', "Haut de page sur l'index du module");
 define('_MI_XMCONTACT_PREF_HEADER_DESC', "Utilisez du code HTML pour la mise en page");
 define('_MI_XMCONTACT_PREF_FOOTER', "Footer contact form");

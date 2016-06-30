@@ -34,7 +34,7 @@ define('_MI_XMCONTACT_MENU_HELP_DESC', 'Module help');
 // Pref.
 define('_MI_XMCONTACT_PREF_HEAD_INFORMATION', "<span style='font-weight: bold;'>Information</span>");
 define('_MI_XMCONTACT_PREF_COLUMNCAT', 'Number of column for Category View');
-define('_MI_XMCONTACT_PREF_COLUMNCAT_DESC', 'Number of categories that can be viewed: 1, 2, 3 or 4 columns');
+define('_MI_XMCONTACT_PREF_COLUMNCAT_DESC', 'Number of categories that can be viewed: 1, 2 or 3 columns');
 define('_MI_XMCONTACT_PREF_HEADER', 'Header index page');
 define('_MI_XMCONTACT_PREF_HEADER_DESC', 'Set HTML codes to show in contact page');
 define('_MI_XMCONTACT_PREF_FOOTER', 'Footer contact form');
