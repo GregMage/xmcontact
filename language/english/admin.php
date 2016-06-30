@@ -18,58 +18,58 @@
  */
 // all
 define('_AM_XMCONTACT_ACTION', "Action");
-define('_AM_XMCONTACT_ADD', "Ajouter");
-define('_AM_XMCONTACT_CATEGORY', "Catégorie");
-define('_AM_XMCONTACT_DEL', "Supprimer");
-define('_AM_XMCONTACT_EDIT', "Editer");
-define('_AM_XMCONTACT_EDITSTATUS', "Editer manuellement le statut");
-define('_AM_XMCONTACT_REDIRECT_SAVE', "Successfully registered");
-define('_AM_XMCONTACT_REPLY', "Répondre");
-define('_AM_XMCONTACT_STATUS', "Statut");
-define('_AM_SYSTEM_STATUS_OFF', "Désactivé");
-define('_AM_SYSTEM_STATUS_ON', "Activé");
-define('_AM_XMCONTACT_VIEW', "Voir les détails");
+define('_AM_XMCONTACT_ADD', "Add");
+define('_AM_XMCONTACT_CATEGORY', "Category");
+define('_AM_XMCONTACT_DEL', "Delete");
+define('_AM_XMCONTACT_EDIT', "Edit");
+define('_AM_XMCONTACT_EDITSTATUS', "Manually edit the status");
+define('_AM_XMCONTACT_REDIRECT_SAVE', "Successfully saved");
+define('_AM_XMCONTACT_REPLY', "Reply");
+define('_AM_XMCONTACT_STATUS', "Status");
+define('_AM_SYSTEM_STATUS_OFF', "Disabled");
+define('_AM_SYSTEM_STATUS_ON', "Active");
+define('_AM_XMCONTACT_VIEW', "View Details");
 
 // index
-define('_AM_XMCONTACT_INDEX_CAT', "Catégories");
-define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', "il y a %s catégories actives");
-define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', "il y a %s catégories désactivées");
-define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', "il y a %s demandes non traitées");
-define('_AM_XMCONTACT_INDEX_REQUEST', "Demandes");
-define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', "il y a %s demandes traitées");
+define('_AM_XMCONTACT_INDEX_CAT', "Categories");
+define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', "%s active categories");
+define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', "%s disabled categories");
+define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', "%s unaswered requests");
+define('_AM_XMCONTACT_INDEX_REQUEST', "Requests");
+define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', "%s processed requests");
 
 // request
-define('_AM_XMCONTACT_REQUEST_DATER', "Date de réponse");
-define('_AM_XMCONTACT_REQUEST_DATES', "Date d'envoi");
+define('_AM_XMCONTACT_REQUEST_DATER', "Date received");
+define('_AM_XMCONTACT_REQUEST_DATES', "Date responded");
 define('_AM_XMCONTACT_REQUEST_EMAIL', "Email");
-define('_AM_XMCONTACT_REQUEST_PHONE', "Téléphone");
-define('_AM_XMCONTACT_REQUEST_FROM', "De:");
+define('_AM_XMCONTACT_REQUEST_PHONE', "Telephone");
+define('_AM_XMCONTACT_REQUEST_FROM', "From:");
 define('_AM_XMCONTACT_REQUEST_INFORMATION', "Informations");
 define('_AM_XMCONTACT_REQUEST_IP', "IP");
-define('_AM_XMCONTACT_REQUEST_LIST', "Liste des demandes");
+define('_AM_XMCONTACT_REQUEST_LIST', "List of requests");
 define('_AM_XMCONTACT_REQUEST_MESSAGE', "Message");
-define('_AM_XMCONTACT_REQUEST_SENDEMAIL', "Email envoyé");
-define('_AM_XMCONTACT_REQUEST_STATUS_NR', "Pas répondu");
-define('_AM_XMCONTACT_REQUEST_STATUS_R', "Répondu");
-define('_AM_XMCONTACT_REQUEST_SUBJECT', "Sujet");
-define('_AM_XMCONTACT_REQUEST_SUBMITTER', "Nom");
-define('_AM_XMCONTACT_REQUEST_SUREDEL', "Etes vous sûr de vouloir supprimmer la demande de: %s");
-define('_AM_XMCONTACT_REQUEST_TITLE', "Titres");
+define('_AM_XMCONTACT_REQUEST_SENDEMAIL', "Email sent");
+define('_AM_XMCONTACT_REQUEST_STATUS_NR', "No answer");
+define('_AM_XMCONTACT_REQUEST_STATUS_R', "Answered");
+define('_AM_XMCONTACT_REQUEST_SUBJECT', "Subject");
+define('_AM_XMCONTACT_REQUEST_SUBMITTER', "Name");
+define('_AM_XMCONTACT_REQUEST_SUREDEL', "Sure to delete this request? %s");
+define('_AM_XMCONTACT_REQUEST_TITLE', "Title");
 define('_AM_XMCONTACT_REQUEST_TO', "A:");
 
 // category
-define('_AM_XMCONTACT_CATEGORY_ADD', "Ajouter une catégorie");
-define('_AM_XMCONTACT_CATEGORY_DESC', "Déscription");
-define('_AM_XMCONTACT_CATEGORY_FORMPATH', "Files exist in: %s");
-define('_AM_XMCONTACT_CATEGORY_LIST', "Liste des catégories");
+define('_AM_XMCONTACT_CATEGORY_ADD', "Add Category");
+define('_AM_XMCONTACT_CATEGORY_DESC', "Description");
+define('_AM_XMCONTACT_CATEGORY_FORMPATH', "Files are in: %s");
+define('_AM_XMCONTACT_CATEGORY_LIST', "Category List");
 define('_AM_XMCONTACT_CATEGORY_LOGO', "Logo");
 define('_AM_XMCONTACT_CATEGORY_LOGOFILE', "Logo file");
-define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE', "Résponsable");
-define('_AM_XMCONTACT_CATEGORY_SUREDEL', "Etes vous sûr de vouloir supprimmer la catégorie: %s");
-define('_AM_XMCONTACT_CATEGORY_TITLE', "Titre");
+define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE', "Owner");
+define('_AM_XMCONTACT_CATEGORY_SUREDEL', "Sure to delete this category? %s");
+define('_AM_XMCONTACT_CATEGORY_TITLE', "Title");
 define('_AM_XMCONTACT_CATEGORY_UPLOAD', "Upload");
-define('_AM_XMCONTACT_CATEGORY_WEIGHT', "Poids");
+define('_AM_XMCONTACT_CATEGORY_WEIGHT', "Weight");
 
 // error
-define('_AM_XMCONTACT_ERROR_CAT', "Il n'y a pas de catégories dans la base de donnée");
+define('_AM_XMCONTACT_ERROR_CAT', "There are no categories in the database");
 define('_AM_XMCONTACT_ERROR_WEIGHT', "Weight must be a number");
