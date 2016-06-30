@@ -17,59 +17,59 @@
  * @author          Mage Gregory (AKA Mage)
  */
 // all
-define('_AM_XMCONTACT_ACTION', "Action");
-define('_AM_XMCONTACT_ADD', "Ajouter");
-define('_AM_XMCONTACT_CATEGORY', "Catégorie");
-define('_AM_XMCONTACT_DEL', "Supprimer");
-define('_AM_XMCONTACT_EDIT', "Editer");
-define('_AM_XMCONTACT_EDITSTATUS', "Editer manuellement le statut");
-define('_AM_XMCONTACT_REDIRECT_SAVE', "Enregistré avec succès");
-define('_AM_XMCONTACT_REPLY', "Répondre");
-define('_AM_XMCONTACT_STATUS', "Statut");
-define('_AM_SYSTEM_STATUS_OFF', "Désactivé");
-define('_AM_SYSTEM_STATUS_ON', "Activé");
-define('_AM_XMCONTACT_VIEW', "Voir les détails");
+define('_AM_XMCONTACT_ACTION', 'Action');
+define('_AM_XMCONTACT_ADD', 'Ajouter');
+define('_AM_XMCONTACT_CATEGORY', 'Catégorie');
+define('_AM_XMCONTACT_DEL', 'Supprimer');
+define('_AM_XMCONTACT_EDIT', 'Editer');
+define('_AM_XMCONTACT_EDITSTATUS', 'Editer manuellement le statut');
+define('_AM_XMCONTACT_REDIRECT_SAVE', 'Enregistré avec succès');
+define('_AM_XMCONTACT_REPLY', 'Répondre');
+define('_AM_XMCONTACT_STATUS', 'Statut');
+define('_AM_SYSTEM_STATUS_OFF', 'Désactivé');
+define('_AM_SYSTEM_STATUS_ON', 'Activé');
+define('_AM_XMCONTACT_VIEW', 'Voir les détails');
 
 // index
-define('_AM_XMCONTACT_INDEX_CAT', "Catégories");
-define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', "il y a %s catégories actives");
-define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', "il y a %s catégories désactivées");
-define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', "il y a %s demandes non traitées");
-define('_AM_XMCONTACT_INDEX_REQUEST', "Demandes");
-define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', "il y a %s demandes traitées");
+define('_AM_XMCONTACT_INDEX_CAT', 'Catégories');
+define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', 'il y a %s catégories actives');
+define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', 'il y a %s catégories désactivées');
+define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', 'il y a %s demandes non traitées');
+define('_AM_XMCONTACT_INDEX_REQUEST', 'Demandes');
+define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', 'il y a %s demandes traitées');
 
 // request
-define('_AM_XMCONTACT_REQUEST_DATER', "Date de réponse");
-define('_AM_XMCONTACT_REQUEST_DATES', "Date d'envoi");
-define('_AM_XMCONTACT_REQUEST_EMAIL', "Email");
-define('_AM_XMCONTACT_REQUEST_PHONE', "Téléphone");
-define('_AM_XMCONTACT_REQUEST_FROM', "De:");
-define('_AM_XMCONTACT_REQUEST_INFORMATION', "Informations");
-define('_AM_XMCONTACT_REQUEST_IP', "IP");
-define('_AM_XMCONTACT_REQUEST_LIST', "Liste des demandes");
-define('_AM_XMCONTACT_REQUEST_MESSAGE', "Message");
-define('_AM_XMCONTACT_REQUEST_SENDEMAIL', "Email envoyé");
-define('_AM_XMCONTACT_REQUEST_STATUS_NR', "Pas répondu");
-define('_AM_XMCONTACT_REQUEST_STATUS_R', "Répondu");
-define('_AM_XMCONTACT_REQUEST_SUBJECT', "Sujet");
-define('_AM_XMCONTACT_REQUEST_SUBMITTER', "Nom");
-define('_AM_XMCONTACT_REQUEST_SUREDEL', "Etes vous sûr de vouloir supprimmer la demande de: %s");
-define('_AM_XMCONTACT_REQUEST_TITLE', "Titres");
-define('_AM_XMCONTACT_REQUEST_TO', "A:");
+define('_AM_XMCONTACT_REQUEST_DATER', 'Date de réponse');
+define('_AM_XMCONTACT_REQUEST_DATES', 'Date d\'envoi');
+define('_AM_XMCONTACT_REQUEST_EMAIL', 'Email');
+define('_AM_XMCONTACT_REQUEST_PHONE', 'Téléphone');
+define('_AM_XMCONTACT_REQUEST_FROM', 'De:');
+define('_AM_XMCONTACT_REQUEST_INFORMATION', 'Informations');
+define('_AM_XMCONTACT_REQUEST_IP', 'IP');
+define('_AM_XMCONTACT_REQUEST_LIST', 'Liste des demandes');
+define('_AM_XMCONTACT_REQUEST_MESSAGE', 'Message');
+define('_AM_XMCONTACT_REQUEST_SENDEMAIL', 'Email envoyé');
+define('_AM_XMCONTACT_REQUEST_STATUS_NR', 'Pas répondu');
+define('_AM_XMCONTACT_REQUEST_STATUS_R', 'Répondu');
+define('_AM_XMCONTACT_REQUEST_SUBJECT', 'Sujet');
+define('_AM_XMCONTACT_REQUEST_SUBMITTER', 'Nom');
+define('_AM_XMCONTACT_REQUEST_SUREDEL', 'Etes vous sûr de vouloir supprimmer la demande de: %s');
+define('_AM_XMCONTACT_REQUEST_TITLE', 'Titres');
+define('_AM_XMCONTACT_REQUEST_TO', 'A:');
 
 // category
-define('_AM_XMCONTACT_CATEGORY_ADD', "Ajouter une catégorie");
-define('_AM_XMCONTACT_CATEGORY_DESC', "Déscription");
-define('_AM_XMCONTACT_CATEGORY_FORMPATH', "Fichier existant dans: %s");
-define('_AM_XMCONTACT_CATEGORY_LIST', "Liste des catégories");
-define('_AM_XMCONTACT_CATEGORY_LOGO', "Logo");
-define('_AM_XMCONTACT_CATEGORY_LOGOFILE', "Logo file");
-define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE', "Résponsable");
-define('_AM_XMCONTACT_CATEGORY_SUREDEL', "Etes vous sûr de vouloir supprimmer la catégorie: %s");
-define('_AM_XMCONTACT_CATEGORY_TITLE', "Titre");
-define('_AM_XMCONTACT_CATEGORY_UPLOAD', "Upload");
-define('_AM_XMCONTACT_CATEGORY_WEIGHT', "Poids");
+define('_AM_XMCONTACT_CATEGORY_ADD', 'Ajouter une catégorie');
+define('_AM_XMCONTACT_CATEGORY_DESC', 'Déscription');
+define('_AM_XMCONTACT_CATEGORY_FORMPATH', 'Fichier existant dans: %s');
+define('_AM_XMCONTACT_CATEGORY_LIST', 'Liste des catégories');
+define('_AM_XMCONTACT_CATEGORY_LOGO', 'Logo');
+define('_AM_XMCONTACT_CATEGORY_LOGOFILE', 'Logo file');
+define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE', 'Résponsable');
+define('_AM_XMCONTACT_CATEGORY_SUREDEL', 'Etes vous sûr de vouloir supprimmer la catégorie: %s');
+define('_AM_XMCONTACT_CATEGORY_TITLE', 'Titre');
+define('_AM_XMCONTACT_CATEGORY_UPLOAD', 'Upload');
+define('_AM_XMCONTACT_CATEGORY_WEIGHT', 'Poids');
 
 // error
-define('_AM_XMCONTACT_ERROR_CAT', "Il n'y a pas de catégories dans la base de donnée");
-define('_AM_XMCONTACT_ERROR_WEIGHT', "Vous devez entrer un nombre");
+define('_AM_XMCONTACT_ERROR_CAT', 'Il n\'y a pas de catégories dans la base de donnée');
+define('_AM_XMCONTACT_ERROR_WEIGHT', 'Vous devez entrer un nombre');
