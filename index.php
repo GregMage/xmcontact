@@ -57,7 +57,12 @@ switch ($op) {
                     $category['row'] = true;
                     $count_row = $count_row + $xoopsModuleConfig['info_columncat'];
                 } else { 
-                $category['row'] = false;
+                    $category['row'] = false;
+                }
+                if ($count == $category_count){
+                    $category['end'] = true;
+                } else { 
+                    $category['end'] = false;
                 }
                 $xoopsTpl->append_by_ref('category', $category);
                 $count++;

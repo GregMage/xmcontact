@@ -99,7 +99,7 @@
                     <a href="index.php?op=form&cat_id=<{$category.id}>"><button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTACT_INDEX_CONTACT}></button></a>
                 </p>
             </div>
-        <{if $category.count is div by $info_columncat}>
+        <{if $category.count is div by $info_columncat || $category.end == true}>
         </div>
         <{/if}>
     <{/if}>
@@ -112,12 +112,12 @@
             </div>
             <div class="col-md-2 col-sm-12">
                 <h4><{$category.title}></h4>
-                <{$category.description}> <{$category.count}>
+                <{$category.description}>
                 <p style="padding-top: 15px;">
                     <a href="index.php?op=form&cat_id=<{$category.id}>"><button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTACT_INDEX_CONTACT}></button></a>
                 </p>
             </div>
-        <{if $category.count is div by $info_columncat}>
+        <{if $category.count is div by $info_columncat || $category.end == true}>
         </div>
         <{/if}>
     <{/if}>
