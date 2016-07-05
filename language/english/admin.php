@@ -39,8 +39,8 @@ define('_AM_XMCONTACT_INDEX_REQUEST', 'Requests');
 define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', '%s processed requests');
 
 // request
-define('_AM_XMCONTACT_REQUEST_DATER', 'Date received');
-define('_AM_XMCONTACT_REQUEST_DATES', 'Date responded');
+define('_AM_XMCONTACT_REQUEST_DATER', 'Date responded');
+define('_AM_XMCONTACT_REQUEST_DATES', 'Date received');
 define('_AM_XMCONTACT_REQUEST_EMAIL', 'Email');
 define('_AM_XMCONTACT_REQUEST_PHONE', 'Telephone');
 define('_AM_XMCONTACT_REQUEST_FROM', 'From:');
