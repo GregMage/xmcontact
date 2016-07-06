@@ -82,6 +82,13 @@ switch ($op) {
     
     // form
     case 'form':
+        // reCaptcha
+        if ($xoopsModuleConfig['info_captcha'] == 1) {
+            $xoTheme->addScript('https://www.google.com/recaptcha/api.js');
+            $xoopsTpl->assign('reCaptcha', true);
+            $xoopsTpl->assign('webkey', $xoopsModuleConfig['info_cpatcha_webkey']);
+        }
+        
         $request['name'] = '';
         $request['email'] = '';
         $request['phone'] = '';
@@ -128,7 +135,25 @@ switch ($op) {
         if ($request['message'] == ''){
             $message_error .= _MD_XMCONTACT_ERROR_MESSAGE . '<br />';
         }
+        // reCaptcha
+        if ($xoopsModuleConfig['info_captcha'] == 1) {
+            $recaptcha_response = XoopsRequest::getString('g-recaptcha-response', '');
+            if ($recaptcha_response == ''){
+                $message_error .= _MD_XMCONTACT_ERROR_NOCAPTCHA;
+            } else {
+                $recaptcha_check = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $xoopsModuleConfig['info_cpatcha_secretkey'] . "&response=" . $recaptcha_response . "&remoteip=" . getenv("REMOTE_ADDR"));
+                if ($recaptcha_check.success == false){
+                    $message_error .= _MD_XMCONTACT_ERROR_CAPTCHA;
+                }
+            }
+        }
         if ($message_error != ''){
+            // reCaptcha
+            if ($xoopsModuleConfig['info_captcha'] == 1) {
+                $xoTheme->addScript('https://www.google.com/recaptcha/api.js');
+                $xoopsTpl->assign('reCaptcha', true);
+                $xoopsTpl->assign('webkey', $xoopsModuleConfig['info_cpatcha_webkey']);
+            }
             $xoopsTpl->assign('request', $request);
             $xoopsTpl->assign('error', $message_error);
             $xoopsTpl->assign('form', true);

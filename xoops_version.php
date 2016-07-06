@@ -87,6 +87,33 @@ $modversion['config'][] = array(
 );
 
 $modversion['config'][] = array(
+    'name'        => 'info_captcha',
+    'title'       => '_MI_XMCONTACT_PREF_CAPTCHA',
+    'description' => '_MI_XMCONTACT_PREF_CAPTCHA_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
+);
+
+$modversion['config'][] = array(
+    'name'        => 'info_cpatcha_webkey',
+    'title'       => '_MI_XMCONTACT_PREF_WEBKEY',
+    'description' => '_MI_XMCONTACT_PREF_WEBKEY_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'string',
+    'default'     => ''
+);
+
+$modversion['config'][] = array(
+    'name'        => 'info_cpatcha_secretkey',
+    'title'       => '_MI_XMCONTACT_PREF_SECRETKEY',
+    'description' => '_MI_XMCONTACT_PREF_SECRETKEY_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'string',
+    'default'     => ''
+);
+
+$modversion['config'][] = array(
     'name'        => 'info_columncat',
     'title'       => '_MI_XMCONTACT_PREF_COLUMNCAT',
     'description' => '_MI_XMCONTACT_PREF_COLUMNCAT_DESC',

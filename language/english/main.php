@@ -35,7 +35,9 @@ define('_MD_XMCONTACT_INDEX_SUBJECT_PH', 'Enter your subject');
 define('_MD_XMCONTACT_REDIRECT_SEND', 'Message sent');
 
 //errors
+define('_MD_XMCONTACT_ERROR_CAPTCHA', 'Captcha not correct!');
 define('_MD_XMCONTACT_ERROR_EMAIL', 'Email is required and must be valid!');
 define('_MD_XMCONTACT_ERROR_MESSAGE', 'The message is required!');
 define('_MD_XMCONTACT_ERROR_NAME', 'Name is required!');
+define('_MD_XMCONTACT_ERROR_NOCAPTCHA', 'Captcha is required!');
 define('_MD_XMCONTACT_ERROR_SUBJECT', 'The subject is required!');

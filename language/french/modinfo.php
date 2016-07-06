@@ -33,6 +33,12 @@ define('_MI_XMCONTACT_MENU_HELP', 'Aide');
 define('_MI_XMCONTACT_MENU_HELP_DESC', 'Aide du module');
 // Pref.
 define('_MI_XMCONTACT_PREF_HEAD_INFORMATION', "<span style='font-weight: bold;'>Informations</span>");
+define('_MI_XMCONTACT_PREF_CAPTCHA', 'Utilisez reCaptcha?');
+define('_MI_XMCONTACT_PREF_CAPTCHA_DESC', 'Sélectionnez Oui pour utiliser reCaptcha dans le formulaire de contact');
+define('_MI_XMCONTACT_PREF_WEBKEY', 'reCaptcha clef du site');
+define('_MI_XMCONTACT_PREF_WEBKEY_DESC', "<a href='https://www.google.com/recaptcha' target='_blanck'>Google reCaptcha</a>");
+define('_MI_XMCONTACT_PREF_SECRETKEY', 'reCaptcha clef secrète');
+define('_MI_XMCONTACT_PREF_SECRETKEY_DESC', "<a href='https://www.google.com/recaptcha' target='_blanck'>Google reCaptcha</a>");
 define('_MI_XMCONTACT_PREF_COLUMNCAT', 'Nombre de colonne pour l\'affichage des catégories');
 define('_MI_XMCONTACT_PREF_COLUMNCAT_DESC', 'Les catégories peuvent êre affichée en: 1, 2 ou 3 colonnes');
 define('_MI_XMCONTACT_PREF_HEADER', 'Haut de page sur l\'index du module');
