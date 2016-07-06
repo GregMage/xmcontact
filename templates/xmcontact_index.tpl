@@ -31,7 +31,9 @@
         <textarea class="form-control" id="message" name="message" rows="5" placeholder="<{$smarty.const._MD_XMCONTACT_INDEX_MESSAGE_PH}>" required><{$request.message}></textarea>
     </div>
     <{if $reCaptcha}>
+    <div class="form-group">
         <div class="g-recaptcha" data-sitekey="<{$webkey}>"></div>
+    </div>
     <{/if}>
     <input type="hidden" name="op" id="op" value="save">
     <input type="hidden" name="cat_id" id="cat_id" value="<{$cat_id}>">
