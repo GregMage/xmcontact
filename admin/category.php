@@ -23,7 +23,7 @@ xoops_cp_header();
 
 
 // Get Action type
-$op = system_CleanVars($_REQUEST, 'op', 'list', 'string');
+$op = XoopsRequest::getCmd('op', 'list');
 
 switch ($op) {
     // list of category
@@ -41,7 +41,8 @@ switch ($op) {
         $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php?op=add', 'add');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
         // Get start pager
-        $start = system_CleanVars($_REQUEST, 'start', 0, 'int');
+        //$start = system_CleanVars($_REQUEST, 'start', 0, 'int');
+        $start = XoopsRequest::getInt('start', 0);
         // Criteria
         $criteria = new CriteriaCompo();
         $criteria->setSort('category_weight ASC, category_title');
@@ -104,7 +105,7 @@ switch ($op) {
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
         
         // Create form
-        $obj  = $category_Handler->get(system_CleanVars($_REQUEST, 'category_id', 0, 'int'));
+        $obj  = $category_Handler->get($start = XoopsRequest::getInt('category_id', 0));
         $form = $obj->getForm();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -113,7 +114,7 @@ switch ($op) {
     // del category
     case 'del':
         // Create form
-        $category_id = system_CleanVars($_REQUEST, 'category_id', 0, 'int');
+        $category_id = XoopsRequest::getInt('category_id', 0);
         $obj  = $category_Handler->get($category_id);
 
         if (isset($_POST['ok']) && $_POST['ok'] == 1) {
@@ -146,7 +147,7 @@ switch ($op) {
             redirect_header('category.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
         }
         if (isset($_POST['category_id'])) {
-            $obj = $category_Handler->get(system_CleanVars($_POST, 'category_id', 0, 'int'));
+            $obj = $category_Handler->get(XoopsRequest::getInt('category_id', 0));
         } else {
             $obj = $category_Handler->create();
         }
@@ -196,7 +197,7 @@ switch ($op) {
     // update status
     case 'category_update_status':
         // Get smilies id
-        $category_id = system_CleanVars($_POST, 'category_id', 0, 'int');
+        $category_id = XoopsRequest::getInt('category_id', 0);
         if ($category_id > 0) {
             $obj = $category_Handler->get($category_id);
             $old = $obj->getVar('category_status');

@@ -21,7 +21,7 @@ $xoopsOption['template_main'] = 'xmcontact_index.tpl';
 include_once XOOPS_ROOT_PATH.'/header.php';
 
 // Get Action type
-$op = system_CleanVars($_REQUEST, 'op', 'list', 'string');
+$op = XoopsRequest::getCmd('op', 'list');
 
 $keywords = '';
 
@@ -89,7 +89,7 @@ switch ($op) {
         $request['message'] = '';
         $xoopsTpl->assign('request', $request);
         $xoopsTpl->assign('form', true);
-        $cat_id = system_CleanVars($_REQUEST, 'cat_id', 0, 'int');
+        $cat_id = XoopsRequest::getInt('cat_id', 0);
         $xoopsTpl->assign('cat_id', $cat_id);
         //SEO
         if ($cat_id != 0){
@@ -103,14 +103,13 @@ switch ($op) {
 
     // save
     case 'save':
-        // 
-        $cat_id = system_CleanVars($_POST, 'cat_id', 0, 'int');
-        $request['name'] = system_CleanVars($_POST, 'name', '', 'string');
-        $request['email'] = (isset($_POST['email'])) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
-        $request['phone'] = system_CleanVars($_POST, 'phone', '', 'string');
-        $request['subject'] = system_CleanVars($_POST, 'subject', '', 'string');
-        $request['message'] = system_CleanVars($_POST, 'message', '', 'string');
-        
+        $cat_id = XoopsRequest::getInt('cat_id', 0, 'POST');
+        $request['name'] = XoopsRequest::getString('name', '', 'POST');
+        $request['email'] = XoopsRequest::getEmail('email', '', 'POST');
+        $request['phone'] = XoopsRequest::getString('phone', '', 'POST');
+        $request['subject'] = XoopsRequest::getString('subject', '', 'POST');
+        $request['message'] = XoopsRequest::getText('message', '', 'POST');
+
         // error
         $message_error = '';
         // title

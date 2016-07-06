@@ -19,6 +19,7 @@
 
 include '../../mainfile.php';
 require_once dirname(dirname(__FILE__)) . '/system/include/functions.php';
+XoopsLoad::load('XoopsRequest');
 //include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
 
 

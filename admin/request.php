@@ -22,7 +22,7 @@ require dirname(__FILE__) . '/header.php';
 xoops_cp_header();
 
 // Get Action type
-$op = system_CleanVars($_REQUEST, 'op', 'list', 'string');
+$op = XoopsRequest::getCmd('op', 'list');
 
 switch ($op) {
     // list of request
@@ -33,7 +33,7 @@ switch ($op) {
         $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
 
         // Get start pager
-        $start = system_CleanVars($_REQUEST, 'start', 0, 'int');
+        $start = XoopsRequest::getInt('start', 0);
         // Criteria
         $criteria = new CriteriaCompo();
         $criteria->setStart($start);
@@ -86,7 +86,7 @@ switch ($op) {
         
         $xoopsTpl->assign('view', 'view');
         
-        $request_id = system_CleanVars($_REQUEST, 'request_id', 0, 'int');
+        $request_id = XoopsRequest::getInt('request_id', 0);
         $request = $request_Handler->get($request_id);
         
         if ($request->getVar('request_date_r') == 0) {
@@ -128,7 +128,7 @@ switch ($op) {
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
 
         // Create form
-        $obj  = $request_Handler->get(system_CleanVars($_REQUEST, 'request_id', 0, 'int'));
+        $obj  = $request_Handler->get(XoopsRequest::getInt('request_id', 0));
         $form = $obj->getFormEdit();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -139,7 +139,7 @@ switch ($op) {
         if (!$GLOBALS['xoopsSecurity']->check()) {
             redirect_header('request.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
         }
-        $request_id = system_CleanVars($_POST, 'request_id', 0, 'int');
+        $request_id = XoopsRequest::getInt('request_id', 0);
         if ($request_id > 0) {
             $obj = $request_Handler->get($request_id);
             if ($_POST['request_status'] == 1) {
@@ -165,7 +165,7 @@ switch ($op) {
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
 
         // Create form
-        $obj  = $request_Handler->get(system_CleanVars($_REQUEST, 'request_id', 0, 'int'));
+        $obj  = $request_Handler->get(XoopsRequest::getInt('request_id', 0));
         $form = $obj->getFormReply();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -176,7 +176,7 @@ switch ($op) {
         if (!$GLOBALS['xoopsSecurity']->check()) {
             redirect_header('request.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
         }
-        $request_id = system_CleanVars($_POST, 'request_id', 0, 'int');
+        $request_id = XoopsRequest::getInt('request_id', 0);
         // error
         $message_error = '';
         
@@ -212,7 +212,7 @@ switch ($op) {
     // del
     case 'del':
         // Create form
-        $request_id = system_CleanVars($_REQUEST, 'request_id', 0, 'int');
+        $request_id = XoopsRequest::getInt('request_id', 0);
         $obj  = $request_Handler->get($request_id);
 
         if (isset($_POST['ok']) && $_POST['ok'] == 1) {

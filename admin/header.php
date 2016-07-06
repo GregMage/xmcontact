@@ -23,6 +23,7 @@ require_once dirname(dirname(dirname(__FILE__))) . '/system/include/functions.ph
 include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
 
 global $xoopsModule;
+XoopsLoad::load('XoopsRequest');
 
 // Config
 $uploaddir = XOOPS_ROOT_PATH . '/uploads/xmcontact/images/cats/';
