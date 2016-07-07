@@ -34,7 +34,7 @@ define('_AM_XMCONTACT_VIEW', 'View Details');
 define('_AM_XMCONTACT_INDEX_CAT', 'Categories');
 define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', '%s active categories');
 define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', '%s disabled categories');
-define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', '%s unaswered requests');
+define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', '%s unanswered requests');
 define('_AM_XMCONTACT_INDEX_REQUEST', 'Requests');
 define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', '%s processed requests');
 
