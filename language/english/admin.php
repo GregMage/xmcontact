@@ -68,6 +68,7 @@ define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE', 'Owner');
 define('_AM_XMCONTACT_CATEGORY_SUREDEL', 'Sure to delete this category? %s');
 define('_AM_XMCONTACT_CATEGORY_TITLE', 'Title');
 define('_AM_XMCONTACT_CATEGORY_UPLOAD', 'Upload');
+define('_AM_XMCONTACT_CATEGORY_UPLOADSIZE', 'Maximum size: %s Ko');
 define('_AM_XMCONTACT_CATEGORY_WEIGHT', 'Weight');
 
 // error

@@ -49,6 +49,7 @@ class xmcontact_category extends XoopsObject
     }
     function getForm($action = false)
     {
+        $upload_size = 500000;
         global $xoopsModuleConfig, $xoopsUser;
         if ($action === false) {
             $action = $_SERVER['REQUEST_URI'];
@@ -79,7 +80,7 @@ class xmcontact_category extends XoopsObject
         // logo
         $blank_img = $this->getVar('category_logo') ? $this->getVar('category_logo') : 'blank.gif';
         $uploadirectory='/uploads/xmcontact/images/cats';
-        $imgtray_img     = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_LOGOFILE, '<br />');
+        $imgtray_img     = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_LOGOFILE  . '<br /><br />' . sprintf(_AM_XMCONTACT_CATEGORY_UPLOADSIZE, $upload_size/1000), '<br />');
         $imgpath_img     = sprintf(_AM_XMCONTACT_CATEGORY_FORMPATH, $uploadirectory);
         $imageselect_img = new XoopsFormSelect($imgpath_img, 'category_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray(XOOPS_ROOT_PATH . $uploadirectory);
@@ -91,7 +92,7 @@ class xmcontact_category extends XoopsObject
         $imgtray_img->addElement($imageselect_img, false);
         $imgtray_img->addElement(new XoopsFormLabel('', "<br /><img src='" . XOOPS_URL . "/" . $uploadirectory . "/" . $blank_img . "' name='image_img2' id='image_img2' alt='' />" ) );
         $fileseltray_img = new XoopsFormElementTray('<br />', '<br /><br />');
-        $fileseltray_img->addElement(new XoopsFormFile(_AM_XMCONTACT_CATEGORY_UPLOAD, 'category_logo', 500000), false);
+        $fileseltray_img->addElement(new XoopsFormFile(_AM_XMCONTACT_CATEGORY_UPLOAD, 'category_logo', $upload_size), false);
         $fileseltray_img->addElement(new XoopsFormLabel(''), false);
         $imgtray_img->addElement($fileseltray_img);
         $form->addElement($imgtray_img);
