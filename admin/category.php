@@ -41,7 +41,6 @@ switch ($op) {
         $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php?op=add', 'add');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
         // Get start pager
-        //$start = system_CleanVars($_REQUEST, 'start', 0, 'int');
         $start = XoopsRequest::getInt('start', 0);
         // Criteria
         $criteria = new CriteriaCompo();
@@ -198,7 +197,6 @@ switch ($op) {
 
     // update status
     case 'category_update_status':
-        // Get smilies id
         $category_id = XoopsRequest::getInt('category_id', 0);
         if ($category_id > 0) {
             $obj = $category_Handler->get($category_id);
