@@ -61,6 +61,15 @@ class xmcontact_category extends XoopsObject
         
         $form = new XoopsThemeForm($title, 'form', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
+        
+        if (!$this->isNew()) {
+            $form->addElement(new XoopsFormHidden('category_id', $this->getVar('category_id')));
+            $status = $this->getVar('category_status');
+            $weight = $this->getVar('category_weight');
+        } else {
+            $status = 1;
+            $weight = 0;
+        }
 
         // title
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_CATEGORY_TITLE, 'category_title', 50, 255, $this->getVar('category_title')), true);
@@ -97,15 +106,14 @@ class xmcontact_category extends XoopsObject
         $imgtray_img->addElement($fileseltray_img);
         $form->addElement($imgtray_img);
         // weight
-        $form->addElement(new XoopsFormText(_AM_XMCONTACT_CATEGORY_WEIGHT, 'category_weight', 5, 5, $this->getVar('category_weight', 'e')), false);
-        if (!$this->isNew()) {
-            $form->addElement(new XoopsFormHidden('category_id', $this->getVar('category_id')));
-            $status = $this->getVar('category_status');
-        } else {
-            $status = 1;
-        }
+        $form->addElement(new XoopsFormText(_AM_XMCONTACT_CATEGORY_WEIGHT, 'category_weight', 5, 5, $weight), true);
+
         // status
-        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTACT_STATUS, 'category_status', $status));
+        $form_status = new XoopsFormRadio(_AM_XMCONTACT_STATUS, 'category_status', $status);
+        $options = array(1 => _AM_XMCONTACT_STATUS_A, 0 =>_AM_XMCONTACT_STATUS_NA,);
+        $form_status->addOptionArray($options);
+        $form->addElement($form_status);
+        //$form->addElement(new XoopsFormRadioYN(_AM_XMCONTACT_STATUS, 'category_status', $status));
 
         $form->addElement(new XoopsFormHidden('op', 'save'));
         // submitt

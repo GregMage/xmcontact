@@ -48,8 +48,8 @@
                     alt="<{$smarty.const._AM_SYSTEM_LOADING}>"/><img class="cursorpointer tooltip" id="sml<{$category.id}>"
                     onclick="system_setStatus( { op: 'category_update_status', category_id: <{$category.id}> }, 'sml<{$category.id}>', 'category.php' )"
                     src="<{if $category.status}><{xoAdminIcons success.png}><{else}><{xoAdminIcons cancel.png}><{/if}>"
-                    alt="<{if $category.status}><{$smarty.const._AM_SYSTEM_STATUS_OFF}><{else}><{$smarty.const._AM_SYSTEM_STATUS_ON}><{/if}>"
-                    title="<{if $category.status}><{$smarty.const._AM_SYSTEM_STATUS_OFF}><{else}><{$smarty.const._AM_SYSTEM_STATUS_ON}><{/if}>"/>
+                    alt="<{if $category.status}><{$smarty.const._AM_XMCONTACT_STATUS_NA}><{else}><{$smarty.const._AM_XMCONTACT_STATUS_A}><{/if}>"
+                    title="<{if $category.status}><{$smarty.const._AM_XMCONTACT_STATUS_NA}><{else}><{$smarty.const._AM_XMCONTACT_STATUS_A}><{/if}>"/>
                 </td>
                 <td class="xo-actions txtcenter">
                     <a class="tooltip" href="category.php?op=edit&amp;category_id=<{$category.id}>" title="<{$smarty.const._AM_XMCONTACT_EDIT}>">

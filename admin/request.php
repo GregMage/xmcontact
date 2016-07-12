@@ -140,14 +140,15 @@ switch ($op) {
             redirect_header('request.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
         }
         $request_id = XoopsRequest::getInt('request_id', 0);
+        $request_status = XoopsRequest::getInt('request_status', 0, 'POST');
         if ($request_id > 0) {
             $obj = $request_Handler->get($request_id);
-            if ($_POST['request_status'] == 1) {
+            if ($request_status == 1) {
                 $obj->setVar('request_date_r', time());
             } else {
                 $obj->setVar('request_date_r', 0);
             }
-            $obj->setVar('request_status', $_POST['request_status']);
+            $obj->setVar('request_status', $request_status);
             if ($request_Handler->insert($obj)) {
                 redirect_header('request.php', 2, _AM_XMCONTACT_REDIRECT_SAVE);
             }

@@ -26,8 +26,8 @@ define('_AM_XMCONTACT_EDITSTATUS', 'Éditer manuellement le statut');
 define('_AM_XMCONTACT_REDIRECT_SAVE', 'Enregistré avec succès');
 define('_AM_XMCONTACT_REPLY', 'Répondre');
 define('_AM_XMCONTACT_STATUS', 'Statut');
-define('_AM_SYSTEM_STATUS_OFF', 'Désactivé');
-define('_AM_SYSTEM_STATUS_ON', 'Activé');
+define('_AM_XMCONTACT_STATUS_A', 'Activé');
+define('_AM_XMCONTACT_STATUS_NA', 'Désactivé');
 define('_AM_XMCONTACT_VIEW', 'Voir les détails');
 
 // index

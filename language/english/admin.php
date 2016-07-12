@@ -26,8 +26,8 @@ define('_AM_XMCONTACT_EDITSTATUS', 'Manually edit the status');
 define('_AM_XMCONTACT_REDIRECT_SAVE', 'Successfully saved');
 define('_AM_XMCONTACT_REPLY', 'Reply');
 define('_AM_XMCONTACT_STATUS', 'Status');
-define('_AM_SYSTEM_STATUS_OFF', 'Disabled');
-define('_AM_SYSTEM_STATUS_ON', 'Active');
+define('_AM_XMCONTACT_STATUS_A', 'Active');
+define('_AM_XMCONTACT_STATUS_NA', 'Disabled');
 define('_AM_XMCONTACT_VIEW', 'View Details');
 
 // index

@@ -121,11 +121,12 @@ switch ($op) {
                 redirect_header('category.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($category_Handler->delete($obj)) {
-                $urlfile = XOOPS_UPLOAD_PATH . '/xmcontact/images/cats/' . $obj->getVar('category_logo');
+                // A modifier car si on utilise plusieurs fois la même image, elle est détruite
+                /*$urlfile = XOOPS_UPLOAD_PATH . '/xmcontact/images/cats/' . $obj->getVar('category_logo');
                 if (is_file($urlfile)) {
                     chmod($urlfile, 0777);
                     unlink($urlfile);
-                }
+                }*/
                 redirect_header('category.php', 2, _AM_XMCONTACT_REDIRECT_SAVE);
             } else {
                 xoops_error($obj->getHtmlErrors());
