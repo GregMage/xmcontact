@@ -21,7 +21,7 @@
         <thead>
         <tr>
             <th class="txtcenter width10"><{$smarty.const._AM_XMCONTACT_CATEGORY_LOGO}></th>
-            <th class="txtleft" width15><{$smarty.const._AM_XMCONTACT_CATEGORY_TITLE}></th>
+            <th class="txtleft width15"><{$smarty.const._AM_XMCONTACT_CATEGORY_TITLE}></th>
             <th class="txtleft"><{$smarty.const._AM_XMCONTACT_CATEGORY_DESC}></th>
             <th class="txtcenter width10"><{$smarty.const._AM_XMCONTACT_CATEGORY_RESPONSIBLE}></th>
             <th class="txtcenter width5"><{$smarty.const._AM_XMCONTACT_CATEGORY_WEIGHT}></th>
