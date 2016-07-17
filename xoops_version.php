@@ -54,12 +54,6 @@ $modversion['hasAdmin'] = 1;
 $modversion['adminindex'] = 'admin/index.php';
 $modversion['adminmenu'] = 'admin/menu.php';
 
-// Scripts to run upon installation or update
-//$modversion['onInstall'] = 'include/install.php';
-
-// JQuery
-//$modversion['jquery'] = 1;
-
 // Templates
 $i                                          = 1;
 $modversion['templates'][$i]['file']        = 'xmcontact_index.tpl';
