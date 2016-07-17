@@ -172,6 +172,7 @@ switch ($op) {
             $obj->setVar('request_status', 0);
             if ($request_Handler->insert($obj)) {
                 if ($cat_id != 0 && $xoopsModuleConfig['info_notification'] == 1){
+					$newcontent_id = $obj->get_new_enreg();
                     $category = $category_Handler->get($cat_id);
                     $member_handler = xoops_getHandler('member');
                     $thisUser = $member_handler->getUser($category->getVar('category_responsible'));
@@ -189,7 +190,7 @@ switch ($op) {
                     $xoopsMailer->assign('X_EMAIL', $request['email']);
                     $xoopsMailer->assign('X_PHONE', $request['phone']);
                     $xoopsMailer->assign('X_MESSAGE', $request['message']);
-                    $xoopsMailer->assign('REQUEST_URL', XOOPS_URL . '/modules/xmcontact/admin/request.php');
+                    $xoopsMailer->assign('REQUEST_URL', XOOPS_URL . '/modules/xmcontact/admin/request.php?op=view&request_id=' . $newcontent_id);
                     
                     if (!$xoopsMailer->send()) {
                         $message_error = $xoopsMailer->getErrors();
