@@ -17,9 +17,9 @@
  * @author          Mage Gregory (AKA Mage)
  */
 
-require_once dirname(dirname(dirname(dirname(__FILE__)))) . '/include/cp_header.php';
+require_once dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
 include_once $GLOBALS['xoops']->path('Frameworks/moduleclasses/moduleadmin/moduleadmin.php');
-require_once dirname(dirname(dirname(__FILE__))) . '/system/include/functions.php';
+require_once dirname(dirname(__DIR__)) . '/system/include/functions.php';
 include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
 
 global $xoopsModule;
@@ -39,9 +39,9 @@ xoops_loadLanguage('modinfo', $xoopsModule->getVar('dirname', 'e'));
 $admin_class = new ModuleAdmin();
 
 // Get handler
-$category_Handler = xoops_getModuleHandler('xmcontact_category', 'xmcontact');
-$request_Handler = xoops_getModuleHandler('xmcontact_request', 'xmcontact');
+$categoryHandler = xoops_getModuleHandler('xmcontact_category', 'xmcontact');
+$requestHandler = xoops_getModuleHandler('xmcontact_request', 'xmcontact');
 // joint
-$request_Handler->table_link = $request_Handler->db->prefix('xmcontact_category'); // Nom de la table en jointure
-$request_Handler->field_link = 'category_id'; // champ de la table en jointure
-$request_Handler->field_object = 'request_cid'; // champ de la table courante
+$requestHandler->table_link = $requestHandler->db->prefix('xmcontact_category'); // Nom de la table en jointure
+$requestHandler->field_link = 'category_id'; // champ de la table en jointure
+$requestHandler->field_object = 'request_cid'; // champ de la table courante

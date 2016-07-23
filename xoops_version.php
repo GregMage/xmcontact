@@ -172,7 +172,7 @@ $modversion['config'][] = array(
 );
 
 xoops_load('xoopseditorhandler');
-$editor_handler = XoopsEditorHandler::getInstance();
+$editorHandler = XoopsEditorHandler::getInstance();
 $modversion['config'][] = array(
     'name'        => 'admin_editor',
     'title'       => '_MI_XMCONTACT_PREF_EDITOR',
@@ -180,7 +180,7 @@ $modversion['config'][] = array(
     'formtype'    => 'select',
     'valuetype'   => 'text',
     'default'     => 'dhtmltextarea',
-    'options'     => array_flip($editor_handler->getList())
+    'options'     => array_flip($editorHandler->getList())
 );
 
 $modversion['config'][] = array(

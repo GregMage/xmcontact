@@ -18,7 +18,7 @@
  */
 
 include '../../mainfile.php';
-require_once dirname(dirname(__FILE__)) . '/system/include/functions.php';
+require_once dirname(__DIR__) . '/system/include/functions.php';
 XoopsLoad::load('XoopsRequest');
 //include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
 
@@ -29,5 +29,5 @@ XoopsLoad::load('XoopsRequest');
 //xoops_loadLanguage('modinfo', $xoopsModule->getVar('dirname', 'e'));
 
 // Get handler
-$request_Handler = xoops_getModuleHandler('xmcontact_request', 'xmcontact');
-$category_Handler = xoops_getModuleHandler('xmcontact_category', 'xmcontact');
+$requestHandler = xoops_getModuleHandler('xmcontact_request', 'xmcontact');
+$categoryHandler = xoops_getModuleHandler('xmcontact_category', 'xmcontact');

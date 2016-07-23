@@ -16,7 +16,7 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-include 'header.php';
+include __DIR__ . '/header.php';
 $xoopsOption['template_main'] = 'xmcontact_index.tpl';
 include_once XOOPS_ROOT_PATH.'/header.php';
 
@@ -39,8 +39,8 @@ switch ($op) {
         $criteria->setSort('category_weight ASC, category_title');
         $criteria->setOrder('ASC');
         $criteria->add(new Criteria('category_status', 1));
-        $category_arr = $category_Handler->getall($criteria);
-        $category_count = $category_Handler->getCount($criteria);
+        $category_arr = $categoryHandler->getall($criteria);
+        $category_count = $categoryHandler->getCount($criteria);
         $xoopsTpl->assign('category_count', $category_count);
         $count = 1;
         $count_row = 1;
@@ -53,15 +53,15 @@ switch ($op) {
                 $category_img                = $category_arr[$i]->getVar('category_logo') ?: 'blank.gif';
                 $category['logo']            = XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img;
                 $category['count']           = $count;
-                if ($count_row == $count){
+                if ($count_row == $count) {
                     $category['row'] = true;
                     $count_row = $count_row + $xoopsModuleConfig['info_columncat'];
-                } else { 
+                } else {
                     $category['row'] = false;
                 }
-                if ($count == $category_count){
+                if ($count == $category_count) {
                     $category['end'] = true;
-                } else { 
+                } else {
                     $category['end'] = false;
                 }
                 $xoopsTpl->append_by_ref('category', $category);
@@ -76,7 +76,7 @@ switch ($op) {
         //description
         $xoTheme->addMeta('meta', 'description', strip_tags($xoopsModule->name()));
         //keywords
-        $keywords = substr($keywords,0,-1);
+        $keywords = substr($keywords, 0, -1);
         $xoTheme->addMeta('meta', 'keywords', $keywords);
         break;
     
@@ -99,8 +99,8 @@ switch ($op) {
         $cat_id = XoopsRequest::getInt('cat_id', 0);
         $xoopsTpl->assign('cat_id', $cat_id);
         //SEO
-        if ($cat_id != 0){
-            $category = $category_Handler->get($cat_id);
+        if ($cat_id != 0) {
+            $category = $categoryHandler->get($cat_id);
             // pagetitle
             $xoopsTpl->assign('xoops_pagetitle', strip_tags($category->getVar('category_title') . ' - ' . $xoopsModule->name()));
         }
@@ -120,34 +120,34 @@ switch ($op) {
         // error
         $message_error = '';
         // title
-        if ($request['name'] == ''){
+        if ($request['name'] == '') {
             $message_error .= _MD_XMCONTACT_ERROR_NAME . '<br />';
         }
         // email
-        if ($request['email'] == ''){
+        if ($request['email'] == '') {
             $message_error .= _MD_XMCONTACT_ERROR_EMAIL . '<br />';
         }
         // subject
-        if ($request['subject'] == ''){
+        if ($request['subject'] == '') {
             $message_error .= _MD_XMCONTACT_ERROR_SUBJECT . '<br />';
         }
         // message
-        if ($request['message'] == ''){
+        if ($request['message'] == '') {
             $message_error .= _MD_XMCONTACT_ERROR_MESSAGE . '<br />';
         }
         // reCaptcha
         if ($xoopsModuleConfig['info_captcha'] == 1) {
             $recaptcha_response = XoopsRequest::getString('g-recaptcha-response', '');
-            if ($recaptcha_response == ''){
+            if ($recaptcha_response == '') {
                 $message_error .= _MD_XMCONTACT_ERROR_NOCAPTCHA;
             } else {
-                $recaptcha_check = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $xoopsModuleConfig['info_cpatcha_secretkey'] . "&response=" . $recaptcha_response . "&remoteip=" . getenv("REMOTE_ADDR"));
-                if ($recaptcha_check.success == false){
+                $recaptcha_check = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $xoopsModuleConfig['info_cpatcha_secretkey'] . '&response=' . $recaptcha_response . '&remoteip=' . getenv('REMOTE_ADDR'));
+                if ($recaptcha_check.success == false) {
                     $message_error .= _MD_XMCONTACT_ERROR_CAPTCHA;
                 }
             }
         }
-        if ($message_error != ''){
+        if ($message_error != '') {
             // reCaptcha
             if ($xoopsModuleConfig['info_captcha'] == 1) {
                 $xoTheme->addScript('https://www.google.com/recaptcha/api.js');
@@ -160,23 +160,23 @@ switch ($op) {
             $xoopsTpl->assign('cat_id', $cat_id);
         } else {
             $message_error = '';
-            $obj = $request_Handler->create();
+            $obj = $requestHandler->create();
             $obj->setVar('request_cid', $cat_id);
             $obj->setVar('request_name', $request['name']);
             $obj->setVar('request_email', $request['email']);
             $obj->setVar('request_phone', $request['phone']);
-            $obj->setVar('request_ip', getenv("REMOTE_ADDR"));
+            $obj->setVar('request_ip', getenv('REMOTE_ADDR'));
             $obj->setVar('request_subject',  $request['subject']);
             $obj->setVar('request_message', $request['message']);
             $obj->setVar('request_date_e', time());
             $obj->setVar('request_status', 0);
-            if ($request_Handler->insert($obj)) {
-                if ($cat_id != 0 && $xoopsModuleConfig['info_notification'] == 1){
-					$newcontent_id = $obj->get_new_enreg();
-                    $category = $category_Handler->get($cat_id);
-                    $member_handler = xoops_getHandler('member');
-                    $thisUser = $member_handler->getUser($category->getVar('category_responsible'));
-                    $xoopsMailer = xoops_getMailer();
+            if ($requestHandler->insert($obj)) {
+                if ($cat_id != 0 && $xoopsModuleConfig['info_notification'] == 1) {
+                    $newcontent_id = $obj->get_new_enreg();
+                    $category = $categoryHandler->get($cat_id);
+                    $memberHandler = xoops_getHandler('member');
+                    $thisUser = $memberHandler->getUser($category->getVar('category_responsible'));
+                    $xoopsMailer =& xoops_getMailer();
                     $xoopsMailer->useMail();
                     $xoopsMailer->setToEmails($thisUser->getVar('email'));
                     $xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT);
