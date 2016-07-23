@@ -16,7 +16,7 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-require dirname(__FILE__) . '/header.php';
+require __DIR__ . '/header.php';
 
 // Header
 xoops_cp_header();
@@ -39,8 +39,8 @@ switch ($op) {
         $criteria->setStart($start);
         $criteria->setLimit($nb_limit);
         // Content
-        $request_count = $request_Handler->getCount($criteria);
-        $request_arr = $request_Handler->getByLink($criteria);
+        $request_count = $requestHandler->getCount($criteria);
+        $request_arr = $requestHandler->getByLink($criteria);
         $xoopsTpl->assign('request_count', $request_count);
         // Define Stylesheet
         $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
@@ -57,7 +57,7 @@ switch ($op) {
                 } else {
                     $request['date_r']    = formatTimestamp($request_arr[$i]->getVar('request_date_r'));
                 }
-                if ($request_arr[$i]->getVar('request_status') == 0){
+                if ($request_arr[$i]->getVar('request_status') == 0) {
                     $request['status'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_NR . '</span>';
                 } else {
                     $request['status'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_R . '</span>';
@@ -87,19 +87,19 @@ switch ($op) {
         $xoopsTpl->assign('view', 'view');
         
         $request_id = XoopsRequest::getInt('request_id', 0);
-        $request = $request_Handler->get($request_id);
+        $request = $requestHandler->get($request_id);
         
         if ($request->getVar('request_date_r') == 0) {
             $date_r = '/';
         } else {
             $date_r = formatTimestamp($request->getVar('request_date_r'));
         }
-        if ($request->getVar('request_status') == 0){
+        if ($request->getVar('request_status') == 0) {
             $status = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_NR . '</span>';
         } else {
             $status = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_R . '</span>';
         }
-        $category = $category_Handler->get($request->getVar('request_cid'));
+        $category = $categoryHandler->get($request->getVar('request_cid'));
         $category_title = $category->getVar('category_title');
         $request_arr = array(_AM_XMCONTACT_CATEGORY => $category_title,
                              _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
@@ -128,7 +128,7 @@ switch ($op) {
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
 
         // Create form
-        $obj  = $request_Handler->get(XoopsRequest::getInt('request_id', 0));
+        $obj  = $requestHandler->get(XoopsRequest::getInt('request_id', 0));
         $form = $obj->getFormEdit();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -142,14 +142,14 @@ switch ($op) {
         $request_id = XoopsRequest::getInt('request_id', 0);
         $request_status = XoopsRequest::getInt('request_status', 0, 'POST');
         if ($request_id > 0) {
-            $obj = $request_Handler->get($request_id);
+            $obj = $requestHandler->get($request_id);
             if ($request_status == 1) {
                 $obj->setVar('request_date_r', time());
             } else {
                 $obj->setVar('request_date_r', 0);
             }
             $obj->setVar('request_status', $request_status);
-            if ($request_Handler->insert($obj)) {
+            if ($requestHandler->insert($obj)) {
                 redirect_header('request.php', 2, _AM_XMCONTACT_REDIRECT_SAVE);
             }
             echo $obj->getHtmlErrors();
@@ -166,7 +166,7 @@ switch ($op) {
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
 
         // Create form
-        $obj  = $request_Handler->get(XoopsRequest::getInt('request_id', 0));
+        $obj  = $requestHandler->get(XoopsRequest::getInt('request_id', 0));
         $form = $obj->getFormReply();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -182,7 +182,7 @@ switch ($op) {
         $message_error = '';
         
         if ($request_id > 0) {
-            $xoopsMailer = xoops_getMailer();
+            $xoopsMailer =& xoops_getMailer();
             $xoopsMailer->useMail();
             $xoopsMailer->setToEmails($_POST['toemail']);
             $xoopsMailer->setFromEmail($_POST['xmcontact_mail']);
@@ -191,10 +191,10 @@ switch ($op) {
             $xoopsMailer->setBody($_POST['xmcontact_message']);
             if ($xoopsMailer->send()) {
                 $message = _AM_XMCONTACT_REQUEST_SENDEMAIL;
-                $obj = $request_Handler->get($request_id);
+                $obj = $requestHandler->get($request_id);
                 $obj->setVar('request_date_r', time());
                 $obj->setVar('request_status', 1);
-                if ($request_Handler->insert($obj)) {
+                if ($requestHandler->insert($obj)) {
                     redirect_header('request.php', 2, _AM_XMCONTACT_REQUEST_SENDEMAIL . '<br />' . _AM_XMCONTACT_REDIRECT_SAVE);
                 }
                 $message_error .= $obj->getHtmlErrors();
@@ -214,13 +214,13 @@ switch ($op) {
     case 'del':
         // Create form
         $request_id = XoopsRequest::getInt('request_id', 0);
-        $obj  = $request_Handler->get($request_id);
+        $obj  = $requestHandler->get($request_id);
 
         if (isset($_POST['ok']) && $_POST['ok'] == 1) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 redirect_header('request.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }
-            if ($request_Handler->delete($obj)) {
+            if ($requestHandler->delete($obj)) {
                 redirect_header('request.php', 2, _AM_XMCONTACT_REDIRECT_SAVE);
             } else {
                 xoops_error($obj->getHtmlErrors());

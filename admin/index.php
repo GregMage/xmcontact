@@ -16,7 +16,7 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-require dirname(__FILE__) . '/header.php';
+require __DIR__ . '/header.php';
 
 // header
 xoops_cp_header();
@@ -24,10 +24,10 @@ xoops_cp_header();
 // category
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('category_status', 1));
-$category_active = $category_Handler->getCount($criteria);
+$category_active = $categoryHandler->getCount($criteria);
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('category_status', 0));
-$category_notactive = $category_Handler->getCount($criteria);
+$category_notactive = $categoryHandler->getCount($criteria);
 $admin_class->addInfoBox(_AM_XMCONTACT_INDEX_CAT);
 $admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_CAT, _AM_XMCONTACT_INDEX_CAT_ACTIVE, $category_active, 'green');
 $admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_CAT, _AM_XMCONTACT_INDEX_CAT_NOTACTIVE, $category_notactive, 'red');
@@ -35,10 +35,10 @@ $admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_CAT, _AM_XMCONTACT_INDEX_CAT_NO
 // request
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('request_status', 1));
-$request_reply = $request_Handler->getCount($criteria);
+$request_reply = $requestHandler->getCount($criteria);
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('request_status', 0));
-$request_notreply = $request_Handler->getCount($criteria);
+$request_notreply = $requestHandler->getCount($criteria);
 $admin_class->addInfoBox(_AM_XMCONTACT_INDEX_REQUEST);
 $admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_REQUEST, _AM_XMCONTACT_INDEX_REQUEST_REPLY, $request_reply, 'green');
 $admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_REQUEST, _AM_XMCONTACT_INDEX_CAT_NOTREPLY, $request_notreply, 'red');
@@ -46,7 +46,7 @@ $admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_REQUEST, _AM_XMCONTACT_INDEX_CA
 // folder
 $folder = array(XOOPS_ROOT_PATH . '/uploads/xmcontact/', XOOPS_ROOT_PATH . '/uploads/xmcontact/images',
                XOOPS_ROOT_PATH . '/uploads/xmcontact/images/cats');
-foreach (array_keys( $folder) as $i) {
+foreach (array_keys($folder) as $i) {
     $admin_class->addConfigBoxLine($folder[$i], 'folder');
     $admin_class->addConfigBoxLine(array($folder[$i], '777'), 'chmod');
 }

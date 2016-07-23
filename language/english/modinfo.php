@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -54,4 +54,3 @@ define('_MI_XMCONTACT_PREF_NOTIFICATION_DESC', 'For every contact request, the c
 define('_MI_XMCONTACT_PREF_HEAD_ADMIN', "<span style='font-weight: bold;'>Administration</span>");
 define('_MI_XMCONTACT_PREF_EDITOR', 'Text Editor');
 define('_MI_XMCONTACT_PREF_ITEMPERPAGE', 'Number of items per page in the Admin view');
-
