@@ -59,6 +59,17 @@ $i                                          = 1;
 $modversion['templates'][$i]['file']        = 'xmcontact_index.tpl';
 $modversion['templates'][$i]['description'] = '';
 
+// Pour les blocs
+$modversion['blocks'][] = array(
+    'file'        => 'xmcontact_contact.php',
+    'name'        => _MI_XMCONTACT_BLOCK_CONTACT,
+    'description' => _MI_XMCONTACT_BLOCK_CONTACT_DESC,
+    'show_func'   => 'block_xmcontact_contact_show',
+    'edit_func'   => 'block_xmcontact_contact_edit',
+	'options'     => '',
+    'template'    => 'xmcontact_contact.tpl'
+);
+
 // Menu
 $modversion['hasMain'] = 1;
 
