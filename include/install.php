@@ -49,7 +49,7 @@ function xoops_module_install_xmcontact()
     copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/cats/index.html');
 
     //Copy blank.gif
-    $blankFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/images/blank.gif';
+    $blankFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/assets/images/blank.gif';
     copy($blankFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/cats/blank.gif');
     return true;
 }
