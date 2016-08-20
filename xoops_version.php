@@ -34,10 +34,10 @@ $modversion['icons32']             = 'Frameworks/moduleclasses/icons/32';
 $modversion['help']                = 'page=help';
 
 //about
-$modversion['release_date']         = '2016/08/18';
+$modversion['release_date']         = '2016/08/20';
 $modversion['module_website_url']   = 'http://www.xoops.org/';
 $modversion['module_website_name']  = 'XOOPS';
-$modversion['module_status']        = 'Final';
+$modversion['module_status']        = 'RC';
 $modversion['min_php']              = '5.3';
 $modversion['min_xoops']            = '2.5.8';
 $modversion['min_db']               = array('mysql'=>'5.0.7', 'mysqli'=>'5.0.7');
@@ -66,7 +66,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMCONTACT_BLOCK_CONTACT_DESC,
     'show_func'   => 'block_xmcontact_contact_show',
     'edit_func'   => 'block_xmcontact_contact_edit',
-	'options'     => '',
+	'options'     => '0|1|1|V|2',
     'template'    => 'xmcontact_contact.tpl'
 );
 
