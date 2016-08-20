@@ -18,7 +18,7 @@
  */
 
 $modversion['name']                = _MI_XMCONTACT_NAME;
-$modversion['version']             = '0.1';
+$modversion['version']             = '0.2';
 $modversion['description']         = _MI_XMCONTACT_DESC;
 $modversion['credits']             = 'G. Mage';
 $modversion['author']              = 'G. Mage';
@@ -26,7 +26,7 @@ $modversion['nickname']            = 'Mage';
 $modversion['license']             = 'GNU GPL';
 $modversion['license_url']         = 'www.gnu.org/licenses/gpl-2.0.html/';
 $modversion['official']            = 1;
-$modversion['image']               = 'images/xmcontact_logo.png';
+$modversion['image']               = 'assets/images/xmcontact_logo.png';
 $modversion['dirname']             = 'xmcontact';
 $modversion['dirmoduleadmin']      = 'Frameworks/moduleclasses';
 $modversion['icons16']             = 'Frameworks/moduleclasses/icons/16';
@@ -34,10 +34,10 @@ $modversion['icons32']             = 'Frameworks/moduleclasses/icons/32';
 $modversion['help']                = 'page=help';
 
 //about
-$modversion['release_date']         = '2016/07/22';
+$modversion['release_date']         = '2016/08/20';
 $modversion['module_website_url']   = 'http://www.xoops.org/';
 $modversion['module_website_name']  = 'XOOPS';
-$modversion['module_status']        = 'Final';
+$modversion['module_status']        = 'RC';
 $modversion['min_php']              = '5.3';
 $modversion['min_xoops']            = '2.5.8';
 $modversion['min_db']               = array('mysql'=>'5.0.7', 'mysqli'=>'5.0.7');
@@ -58,6 +58,17 @@ $modversion['adminmenu'] = 'admin/menu.php';
 $i                                          = 1;
 $modversion['templates'][$i]['file']        = 'xmcontact_index.tpl';
 $modversion['templates'][$i]['description'] = '';
+
+// Pour les blocs
+$modversion['blocks'][] = array(
+    'file'        => 'xmcontact_contact.php',
+    'name'        => _MI_XMCONTACT_BLOCK_CONTACT,
+    'description' => _MI_XMCONTACT_BLOCK_CONTACT_DESC,
+    'show_func'   => 'block_xmcontact_contact_show',
+    'edit_func'   => 'block_xmcontact_contact_edit',
+	'options'     => '0|1|1|V|2',
+    'template'    => 'xmcontact_contact.tpl'
+);
 
 // Menu
 $modversion['hasMain'] = 1;

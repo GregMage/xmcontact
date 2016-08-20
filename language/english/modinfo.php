@@ -31,6 +31,9 @@ define('_MI_XMCONTACT_MENU_ABOUT', 'About');
 define('_MI_XMCONTACT_MENU_ABOUT_DESC', 'About this module');
 define('_MI_XMCONTACT_MENU_HELP', 'Help');
 define('_MI_XMCONTACT_MENU_HELP_DESC', 'Module help');
+// Blocks
+define('_MI_XMCONTACT_BLOCK_CONTACT', 'Contact');
+define('_MI_XMCONTACT_BLOCK_CONTACT_DESC', 'Block of contact');
 // Pref.
 define('_MI_XMCONTACT_PREF_HEAD_INFORMATION', "<span style='font-weight: bold;'>Information</span>");
 define('_MI_XMCONTACT_PREF_CAPTCHA', 'Use reCaptcha?');
