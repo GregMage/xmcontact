@@ -98,9 +98,13 @@ switch ($op) {
         $xoopsTpl->assign('form', true);
         $cat_id = XoopsRequest::getInt('cat_id', 0);
         $xoopsTpl->assign('cat_id', $cat_id);
-        //SEO
+
         if ($cat_id != 0) {
             $category = $categoryHandler->get($cat_id);
+            $xoopsTpl->assign('category_title', $category->getVar('category_title'));
+            $xoopsTpl->assign('category_description', $category->getVar('category_description'));
+            $category_img = $category->getVar('category_logo') ?: 'blank.gif';
+            $xoopsTpl->assign('category_logo', XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img);            
             // pagetitle
             $xoopsTpl->assign('xoops_pagetitle', strip_tags($category->getVar('category_title') . ' - ' . $xoopsModule->name()));
         }

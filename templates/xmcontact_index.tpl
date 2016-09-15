@@ -9,6 +9,16 @@
     <li><a href="index.php"><{$smarty.const._MD_XMCONTACT_INDEX_LISTCONTACT}></a></li>
     <li class="active"><{$smarty.const._MD_XMCONTACT_INDEX_FORM}></li>
 </ol>
+<div class="row" style="padding-bottom: 5px; padding-top: 5px;">
+    <div class="col-sm-2" style="height: 152px; text-align: center;">
+        <img src="<{$category_logo}>" title="<{$category_title}>" class="img-rounded" style="max-height: 150px;">
+    </div>
+    <div class="col-sm-10">
+        <h4><{$category_title}></h4>
+        <{$category_description}>
+    </div>
+</div>
+
 <form  name="save" id="save" action="index.php" onsubmit="return xoopsFormValidate_save();" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="Name"><{$smarty.const._MD_XMCONTACT_INDEX_NAME}> <span style="color: red;">*</span></label>
