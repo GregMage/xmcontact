@@ -9,6 +9,8 @@
     <li><a href="index.php"><{$smarty.const._MD_XMCONTACT_INDEX_LISTCONTACT}></a></li>
     <li class="active"><{$smarty.const._MD_XMCONTACT_INDEX_FORM}></li>
 </ol>
+
+<{if $cat_id !=0}>
 <div class="row" style="padding-bottom: 5px; padding-top: 5px;">
     <div class="col-sm-2" style="height: 152px; text-align: center;">
         <img src="<{$category_logo}>" title="<{$category_title}>" class="img-rounded" style="max-height: 150px;">
@@ -18,6 +20,7 @@
         <{$category_description}>
     </div>
 </div>
+<{/if}>
 
 <form  name="save" id="save" action="index.php" onsubmit="return xoopsFormValidate_save();" method="post" enctype="multipart/form-data">
     <div class="form-group">
@@ -40,14 +43,15 @@
         <label for="Message"><{$smarty.const._MD_XMCONTACT_INDEX_MESSAGE}> <span style="color: red;">*</span></label>
         <textarea class="form-control" id="message" name="message" rows="5" placeholder="<{$smarty.const._MD_XMCONTACT_INDEX_MESSAGE_PH}>" required><{$request.message}></textarea>
     </div>
-    <{if $reCaptcha}>
-    <div class="form-group">
-        <div class="g-recaptcha" data-sitekey="<{$webkey}>"></div>
-    </div>
+    <{if $captcha}>
+    <label for="Message"><{$captcha_caption}> <span style="color: red;">*</span></label>
+    <{$captcha}>
     <{/if}>
-    <input type="hidden" name="op" id="op" value="save">
-    <input type="hidden" name="cat_id" id="cat_id" value="<{$cat_id}>">
-    <button type="submit" class="btn btn-primary"><{$smarty.const._MD_XMCONTACT_INDEX_SUBMIT}></button>
+    <div class="form-group">
+        <input type="hidden" name="op" id="op" value="save">
+        <input type="hidden" name="cat_id" id="cat_id" value="<{$cat_id}>">
+        <button type="submit" class="btn btn-primary"><{$smarty.const._MD_XMCONTACT_INDEX_SUBMIT}></button>
+    </div>
 </form>
 <{/if}>
 

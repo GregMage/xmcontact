@@ -82,11 +82,17 @@ switch ($op) {
     
     // form
     case 'form':
-        // reCaptcha
+        // Captcha
         if ($xoopsModuleConfig['info_captcha'] == 1) {
-            $xoTheme->addScript('https://www.google.com/recaptcha/api.js');
-            $xoopsTpl->assign('reCaptcha', true);
-            $xoopsTpl->assign('webkey', $xoopsModuleConfig['info_cpatcha_webkey']);
+            xoops_load('XoopsCaptcha');
+            $captchaHandler  = XoopsCaptcha::getInstance();
+            $configs['name']       = 'xoopscaptcha';
+            $configs['skipmember'] = false;
+            $captchaHandler->setConfigs($configs);
+            if ($captchaHandler->isActive()) {
+                $xoopsTpl->assign('captcha_caption', $captchaHandler->getCaption());
+                $xoopsTpl->assign('captcha', $captchaHandler->render());
+            }
         }
         
         $request['name'] = '';
@@ -98,7 +104,6 @@ switch ($op) {
         $xoopsTpl->assign('form', true);
         $cat_id = XoopsRequest::getInt('cat_id', 0);
         $xoopsTpl->assign('cat_id', $cat_id);
-
         if ($cat_id != 0) {
             $category = $categoryHandler->get($cat_id);
             $xoopsTpl->assign('category_title', $category->getVar('category_title'));
@@ -139,29 +144,42 @@ switch ($op) {
         if ($request['message'] == '') {
             $message_error .= _MD_XMCONTACT_ERROR_MESSAGE . '<br />';
         }
-        // reCaptcha
+        // Captcha
         if ($xoopsModuleConfig['info_captcha'] == 1) {
-            $recaptcha_response = XoopsRequest::getString('g-recaptcha-response', '');
-            if ($recaptcha_response == '') {
-                $message_error .= _MD_XMCONTACT_ERROR_NOCAPTCHA;
-            } else {
-                $recaptcha_check = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $xoopsModuleConfig['info_cpatcha_secretkey'] . '&response=' . $recaptcha_response . '&remoteip=' . getenv('REMOTE_ADDR'));
-                if ($recaptcha_check.success == false) {
-                    $message_error .= _MD_XMCONTACT_ERROR_CAPTCHA;
-                }
+            xoops_load('xoopscaptcha');
+            $xoopsCaptcha = XoopsCaptcha::getInstance();
+            if (! $xoopsCaptcha->verify() ) {
+                $message_error .= $xoopsCaptcha->getMessage();
             }
         }
         if ($message_error != '') {
-            // reCaptcha
+            // Captcha
             if ($xoopsModuleConfig['info_captcha'] == 1) {
-                $xoTheme->addScript('https://www.google.com/recaptcha/api.js');
-                $xoopsTpl->assign('reCaptcha', true);
-                $xoopsTpl->assign('webkey', $xoopsModuleConfig['info_cpatcha_webkey']);
+                xoops_load('XoopsCaptcha');
+                $captchaHandler  = XoopsCaptcha::getInstance();
+                $configs['name']       = 'xoopscaptcha';
+                $configs['skipmember'] = false;
+                $captchaHandler->setConfigs($configs);
+                if ($captchaHandler->isActive()) {
+                    $xoopsTpl->assign('captcha_caption', $captchaHandler->getCaption());
+                    $xoopsTpl->assign('captcha', $captchaHandler->render());
+                }
             }
             $xoopsTpl->assign('request', $request);
             $xoopsTpl->assign('error', $message_error);
             $xoopsTpl->assign('form', true);
             $xoopsTpl->assign('cat_id', $cat_id);
+            if ($cat_id != 0) {
+                $category = $categoryHandler->get($cat_id);
+                $xoopsTpl->assign('category_title', $category->getVar('category_title'));
+                $xoopsTpl->assign('category_description', $category->getVar('category_description'));
+                $category_img = $category->getVar('category_logo') ?: 'blank.gif';
+                $xoopsTpl->assign('category_logo', XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img);            
+                // pagetitle
+                $xoopsTpl->assign('xoops_pagetitle', strip_tags($category->getVar('category_title') . ' - ' . $xoopsModule->name()));
+            }
+            //description
+            $xoTheme->addMeta('meta', 'description', strip_tags($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM));
         } else {
             $message_error = '';
             $obj = $requestHandler->create();
