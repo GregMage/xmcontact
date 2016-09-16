@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -32,7 +32,6 @@ class xmcontact_category extends XoopsObject
      */
     public function __construct()
     {
-        //$this->XoopsObject();
         $this->initVar('category_id', XOBJ_DTYPE_INT, null, false, 11);
         $this->initVar('category_title', XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('category_description', XOBJ_DTYPE_TXTAREA, null, false);

@@ -87,7 +87,7 @@ switch ($op) {
             xoops_load('XoopsCaptcha');
             $captchaHandler  = XoopsCaptcha::getInstance();
             $configs['name']       = 'xoopscaptcha';
-            $configs['skipmember'] = false;
+            $configs['skipmember'] = true;
             $captchaHandler->setConfigs($configs);
             if ($captchaHandler->isActive()) {
                 $xoopsTpl->assign('captcha_caption', $captchaHandler->getCaption());
@@ -158,7 +158,7 @@ switch ($op) {
                 xoops_load('XoopsCaptcha');
                 $captchaHandler  = XoopsCaptcha::getInstance();
                 $configs['name']       = 'xoopscaptcha';
-                $configs['skipmember'] = false;
+                $configs['skipmember'] = true;
                 $captchaHandler->setConfigs($configs);
                 if ($captchaHandler->isActive()) {
                     $xoopsTpl->assign('captcha_caption', $captchaHandler->getCaption());

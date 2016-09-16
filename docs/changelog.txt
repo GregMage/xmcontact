@@ -1,9 +1,11 @@
 ﻿-------------------------------------------------
 Version: 0.20 Final
-Date:    18.08.2016
+Date:    16.09.2016
 -------------------------------------------------
 - Supression du dossier /images et ajout du dossier /assets
 - Ajout d'un bloc de contact
+- Ajout du titre, de l'image et de la description en dessus du formulaire de contact
+- Supression de recaptcha 2 et utilisation de la classe captcha de xoops (dès xoops 2.5.9 recaptcha 2 est intégré)
 
 -------------------------------------------------
 Version: 0.10 Final
