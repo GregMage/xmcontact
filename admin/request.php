@@ -182,7 +182,7 @@ switch ($op) {
         $message_error = '';
         
         if ($request_id > 0) {
-            $xoopsMailer =& xoops_getMailer();
+            $xoopsMailer = xoops_getMailer();
             $xoopsMailer->useMail();
             $xoopsMailer->setToEmails($_POST['toemail']);
             $xoopsMailer->setFromEmail($_POST['xmcontact_mail']);

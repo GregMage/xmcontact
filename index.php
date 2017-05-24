@@ -198,7 +198,7 @@ switch ($op) {
                     $category = $categoryHandler->get($cat_id);
                     $memberHandler = xoops_getHandler('member');
                     $thisUser = $memberHandler->getUser($category->getVar('category_responsible'));
-                    $xoopsMailer =& xoops_getMailer();
+                    $xoopsMailer = xoops_getMailer();
                     $xoopsMailer->useMail();
                     $xoopsMailer->setToEmails($thisUser->getVar('email'));
                     $xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT);
