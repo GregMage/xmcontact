@@ -65,7 +65,7 @@ class xmcontact_request extends XoopsObject
      */
     public function getFormEdit($action = false)
     {
-        if ($action === false) {
+        if (false === $action) {
             $action = $_SERVER['REQUEST_URI'];
         }
         include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
@@ -96,7 +96,7 @@ class xmcontact_request extends XoopsObject
      */
     public function getFormReply($action = false)
     {
-        if ($action === false) {
+        if (false === $action) {
             $action = $_SERVER['REQUEST_URI'];
         }
         global $xoopsModuleConfig, $xoopsUser;
