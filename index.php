@@ -12,7 +12,7 @@
 /**
  * xmcontact module
  *
- * @copyright       XOOPS Project (http://xoops.org)
+ * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
@@ -83,7 +83,7 @@ switch ($op) {
     // form
     case 'form':
         // Captcha
-        if ($xoopsModuleConfig['info_captcha'] == 1) {
+        if (1 == $xoopsModuleConfig['info_captcha']) {
             xoops_load('XoopsCaptcha');
             $captchaHandler  = XoopsCaptcha::getInstance();
             $configs['name']       = 'xoopscaptcha';
@@ -104,7 +104,7 @@ switch ($op) {
         $xoopsTpl->assign('form', true);
         $cat_id = XoopsRequest::getInt('cat_id', 0);
         $xoopsTpl->assign('cat_id', $cat_id);
-        if ($cat_id != 0) {
+        if (0 != $cat_id) {
             $category = $categoryHandler->get($cat_id);
             $xoopsTpl->assign('category_title', $category->getVar('category_title'));
             $xoopsTpl->assign('category_description', $category->getVar('category_description'));
@@ -129,32 +129,32 @@ switch ($op) {
         // error
         $message_error = '';
         // title
-        if ($request['name'] == '') {
+        if ('' == $request['name']) {
             $message_error .= _MD_XMCONTACT_ERROR_NAME . '<br />';
         }
         // email
-        if ($request['email'] == '') {
+        if ('' == $request['email']) {
             $message_error .= _MD_XMCONTACT_ERROR_EMAIL . '<br />';
         }
         // subject
-        if ($request['subject'] == '') {
+        if ('' == $request['subject']) {
             $message_error .= _MD_XMCONTACT_ERROR_SUBJECT . '<br />';
         }
         // message
-        if ($request['message'] == '') {
+        if ('' == $request['message']) {
             $message_error .= _MD_XMCONTACT_ERROR_MESSAGE . '<br />';
         }
         // Captcha
-        if ($xoopsModuleConfig['info_captcha'] == 1) {
+        if (1 == $xoopsModuleConfig['info_captcha']) {
             xoops_load('xoopscaptcha');
             $xoopsCaptcha = XoopsCaptcha::getInstance();
             if (! $xoopsCaptcha->verify() ) {
                 $message_error .= $xoopsCaptcha->getMessage();
             }
         }
-        if ($message_error != '') {
+        if ('' != $message_error) {
             // Captcha
-            if ($xoopsModuleConfig['info_captcha'] == 1) {
+            if (1 == $xoopsModuleConfig['info_captcha']) {
                 xoops_load('XoopsCaptcha');
                 $captchaHandler  = XoopsCaptcha::getInstance();
                 $configs['name']       = 'xoopscaptcha';
@@ -169,7 +169,7 @@ switch ($op) {
             $xoopsTpl->assign('error', $message_error);
             $xoopsTpl->assign('form', true);
             $xoopsTpl->assign('cat_id', $cat_id);
-            if ($cat_id != 0) {
+            if (0 != $cat_id) {
                 $category = $categoryHandler->get($cat_id);
                 $xoopsTpl->assign('category_title', $category->getVar('category_title'));
                 $xoopsTpl->assign('category_description', $category->getVar('category_description'));
@@ -193,12 +193,12 @@ switch ($op) {
             $obj->setVar('request_date_e', time());
             $obj->setVar('request_status', 0);
             if ($requestHandler->insert($obj)) {
-                if ($cat_id != 0 && $xoopsModuleConfig['info_notification'] == 1) {
+                if (0 != $cat_id && 1 == $xoopsModuleConfig['info_notification']) {
                     $newcontent_id = $obj->get_new_enreg();
                     $category = $categoryHandler->get($cat_id);
                     $memberHandler = xoops_getHandler('member');
                     $thisUser = $memberHandler->getUser($category->getVar('category_responsible'));
-                    $xoopsMailer =& xoops_getMailer();
+                    $xoopsMailer = xoops_getMailer();
                     $xoopsMailer->useMail();
                     $xoopsMailer->setToEmails($thisUser->getVar('email'));
                     $xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT);
@@ -222,7 +222,7 @@ switch ($op) {
             } else {
                 $message_error = $obj->getHtmlErrors();
             }
-            if ($message_error != '') {
+            if ('' != $message_error) {
                 $xoopsTpl->assign('error', $message_error);
             }
             redirect_header('index.php', 2, _MD_XMCONTACT_REDIRECT_SEND);

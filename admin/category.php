@@ -12,7 +12,7 @@
 /**
  * xmcontact module
  *
- * @copyright       XOOPS Project (http://xoops.org)
+ * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
@@ -116,18 +116,18 @@ switch ($op) {
         $category_id = XoopsRequest::getInt('category_id', 0);
         $obj  = $categoryHandler->get($category_id);
 
-        if (isset($_POST['ok']) && $_POST['ok'] == 1) {
+        if (isset($_POST['ok']) && 1 == $_POST['ok']) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 redirect_header('category.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($categoryHandler->delete($obj)) {
                 //Del logo
-                if ($obj->getVar('category_logo') != 'blank.gif') {
+                if ('blank.gif' != $obj->getVar('category_logo')) {
                     // Criteria
                     $criteria = new CriteriaCompo();
                     $criteria->add(new Criteria('category_logo', $obj->getVar('category_logo')));
                     $category_count = $categoryHandler->getCount($criteria);
-                    if ($category_count == 0) {
+                    if (0 == $category_count) {
                         $urlfile = XOOPS_UPLOAD_PATH . '/xmcontact/images/cats/' . $obj->getVar('category_logo');
                         if (is_file($urlfile)) {
                             chmod($urlfile, 0777);
@@ -164,13 +164,13 @@ switch ($op) {
         $obj->setVar('category_description', $_POST['category_description']);
         $obj->setVar('category_responsible', $_POST['category_responsible']);
         $obj->setVar('category_weight', $_POST['category_weight']);
-        $status = ($_POST['category_status'] == 1) ? '1' : '0';
+        $status = (1 == $_POST['category_status']) ? '1' : '0';
         $obj->setVar('category_status', $status);
-        if ((int)$_REQUEST['category_weight'] == 0 && $_REQUEST['category_weight'] != '0') {
+        if (0 == (int)$_REQUEST['category_weight'] && '0' != $_REQUEST['category_weight']) {
             $message_error .= _AM_XMCONTACT_ERROR_WEIGHT . '<br>';
         }
         //logo
-        if ($_FILES['category_logo']['error'] != UPLOAD_ERR_NO_FILE) {
+        if (UPLOAD_ERR_NO_FILE != $_FILES['category_logo']['error']) {
             include_once XOOPS_ROOT_PATH . '/class/uploader.php';
             $uploader_category_img = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontact/images/cats/', array('image/gif', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png'), $upload_size, null, null);
             if ($uploader_category_img->fetchMedia('category_logo')) {
@@ -186,7 +186,7 @@ switch ($op) {
         } else {
             $obj->setVar('category_logo', $_POST['category_logo']);
         }
-        if ($message_error != '') {
+        if ('' != $message_error) {
             // Define button addItemButton
             $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
             $xoopsTpl->assign('renderbutton', $admin_class->renderButton());

@@ -12,7 +12,7 @@
 /**
  * xmcontact module
  *
- * @copyright       XOOPS Project (http://xoops.org)
+ * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
@@ -52,12 +52,12 @@ switch ($op) {
                 $request['subject'] = $request_arr[$i]->getVar('request_subject');
                 $request['name'] = $request_arr[$i]->getVar('request_name');
                 $request['date_e'] = formatTimestamp($request_arr[$i]->getVar('request_date_e'));
-                if ($request_arr[$i]->getVar('request_date_r') == 0) {
+                if (0 == $request_arr[$i]->getVar('request_date_r')) {
                     $request['date_r'] = '/';
                 } else {
                     $request['date_r']    = formatTimestamp($request_arr[$i]->getVar('request_date_r'));
                 }
-                if ($request_arr[$i]->getVar('request_status') == 0) {
+                if (0 == $request_arr[$i]->getVar('request_status')) {
                     $request['status'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_NR . '</span>';
                 } else {
                     $request['status'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_R . '</span>';
@@ -89,12 +89,12 @@ switch ($op) {
         $request_id = XoopsRequest::getInt('request_id', 0);
         $request = $requestHandler->get($request_id);
         
-        if ($request->getVar('request_date_r') == 0) {
+        if (0 == $request->getVar('request_date_r')) {
             $date_r = '/';
         } else {
             $date_r = formatTimestamp($request->getVar('request_date_r'));
         }
-        if ($request->getVar('request_status') == 0) {
+        if (0 == $request->getVar('request_status')) {
             $status = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_NR . '</span>';
         } else {
             $status = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_R . '</span>';
@@ -143,7 +143,7 @@ switch ($op) {
         $request_status = XoopsRequest::getInt('request_status', 0, 'POST');
         if ($request_id > 0) {
             $obj = $requestHandler->get($request_id);
-            if ($request_status == 1) {
+            if (1 == $request_status) {
                 $obj->setVar('request_date_r', time());
             } else {
                 $obj->setVar('request_date_r', 0);
@@ -182,7 +182,7 @@ switch ($op) {
         $message_error = '';
         
         if ($request_id > 0) {
-            $xoopsMailer =& xoops_getMailer();
+            $xoopsMailer = xoops_getMailer();
             $xoopsMailer->useMail();
             $xoopsMailer->setToEmails($_POST['toemail']);
             $xoopsMailer->setFromEmail($_POST['xmcontact_mail']);
@@ -201,7 +201,7 @@ switch ($op) {
             } else {
                 $message_error .= $xoopsMailer->getErrors();
             }
-            if ($message_error != '') {
+            if ('' != $message_error) {
                 // Define button addItemButton
                 $admin_class->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
                 $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
@@ -216,7 +216,7 @@ switch ($op) {
         $request_id = XoopsRequest::getInt('request_id', 0);
         $obj  = $requestHandler->get($request_id);
 
-        if (isset($_POST['ok']) && $_POST['ok'] == 1) {
+        if (isset($_POST['ok']) && 1 == $_POST['ok']) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 redirect_header('request.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }

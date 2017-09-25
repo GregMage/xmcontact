@@ -12,7 +12,7 @@
 /**
  * xmcontact module
  *
- * @copyright       XOOPS Project (http://xoops.org)
+ * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
@@ -61,7 +61,7 @@ class xmcontact_category extends XoopsObject
     {
         $upload_size = 500000;
         global $xoopsModuleConfig, $xoopsUser;
-        if ($action === false) {
+        if (false === $action) {
             $action = $_SERVER['REQUEST_URI'];
         }
         include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
