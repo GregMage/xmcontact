@@ -95,7 +95,7 @@ class xmcontact_category extends XoopsObject
         $editor_configs['editor'] = $xoopsModuleConfig['admin_editor'];
         $form->addElement(new XoopsFormEditor(_AM_XMCONTACT_CATEGORY_DESC, 'category_description', $editor_configs), false);
         // responsible
-        $form->addElement(new XoopsFormSelectUser(_AM_XMCONTACT_CATEGORY_RESPONSIBLE, 'category_responsible', true, $this->getVar('category_responsible'), 1, false), true);
+        $form->addElement(new XoopsFormSelectUser(_AM_XMCONTACT_CATEGORY_RESPONSIBLE, 'category_responsible', false, $this->getVar('category_responsible'), 1, false), true);
         // logo
         $blank_img = $this->getVar('category_logo') ? $this->getVar('category_logo') : 'blank.gif';
         $uploadirectory='/uploads/xmcontact/images/cats';
