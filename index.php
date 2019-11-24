@@ -205,8 +205,7 @@ switch ($op) {
                     $xoopsMailer = xoops_getMailer();
                     $xoopsMailer->useMail();
                     $xoopsMailer->setToEmails($thisUser->getVar('email'));
-                    $xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT);
-
+                    $xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT . ' "' . $category->getVar('category_title') . '"');
                     $xoopsMailer->setTemplateDir($GLOBALS['xoopsModule']->getVar('dirname', 'n'));
                     $xoopsMailer->setTemplate('new_request.tpl');
                     $xoopsMailer->assign('X_UNAME', XoopsUser::getUnameFromId($category->getVar('category_responsible')));
