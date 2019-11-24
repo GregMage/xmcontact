@@ -53,11 +53,9 @@
                 </td>
                 <td class="xo-actions txtcenter">
                     <a class="tooltip" href="category.php?op=edit&amp;category_id=<{$category.id}>" title="<{$smarty.const._AM_XMCONTACT_EDIT}>">
-                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTACT_EDIT}>"/>
-                    </a>
+                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTACT_EDIT}>"/></a>
                     <a class="tooltip" href="category.php?op=del&amp;category_id=<{$category.id}>" title="<{$smarty.const._AM_XMCONTACT_DEL}>">
-                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/>
-                    </a>
+                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/></a>
                 </td>
             </tr>
         <{/foreach}>

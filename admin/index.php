@@ -16,10 +16,12 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-require __DIR__ . '/header.php';
+use Xmf\Module\Admin;
 
-// header
-xoops_cp_header();
+require __DIR__ . '/admin_header.php';
+
+$moduleAdmin = Admin::getInstance();
+$moduleAdmin->displayNavigation('index.php');
 
 // category
 $criteria = new CriteriaCompo();
@@ -28,9 +30,11 @@ $category_active = $categoryHandler->getCount($criteria);
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('category_status', 0));
 $category_notactive = $categoryHandler->getCount($criteria);
-$admin_class->addInfoBox(_AM_XMCONTACT_INDEX_CAT);
-$admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_CAT, _AM_XMCONTACT_INDEX_CAT_ACTIVE, $category_active, 'green');
-$admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_CAT, _AM_XMCONTACT_INDEX_CAT_NOTACTIVE, $category_notactive, 'red');
+$moduleAdmin->addInfoBox(_AM_XMCONTACT_INDEX_CAT);
+$ret = '<span style=\'font-weight: bold; color: green;\'>' . $category_active . '</span>';
+$moduleAdmin->addInfoBoxLine(sprintf( $ret . ' ' . _AM_XMCONTACT_INDEX_CAT_ACTIVE));
+$ret = '<span style=\'font-weight: bold; color: red;\'>' . $category_notactive . '</span>';
+$moduleAdmin->addInfoBoxLine(sprintf( $ret . ' ' . _AM_XMCONTACT_INDEX_CAT_NOTACTIVE));
 
 // request
 $criteria = new CriteriaCompo();
@@ -39,22 +43,20 @@ $request_reply = $requestHandler->getCount($criteria);
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('request_status', 0));
 $request_notreply = $requestHandler->getCount($criteria);
-$admin_class->addInfoBox(_AM_XMCONTACT_INDEX_REQUEST);
-$admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_REQUEST, _AM_XMCONTACT_INDEX_REQUEST_REPLY, $request_reply, 'green');
-$admin_class->addInfoBoxLine(_AM_XMCONTACT_INDEX_REQUEST, _AM_XMCONTACT_INDEX_CAT_NOTREPLY, $request_notreply, 'red');
+$moduleAdmin->addInfoBox(_AM_XMCONTACT_INDEX_REQUEST);
+$ret = '<span style=\'font-weight: bold; color: green;\'>' . $request_reply . '</span>';
+$moduleAdmin->addInfoBoxLine(sprintf( $ret . ' ' . _AM_XMCONTACT_INDEX_REQUEST_REPLY));
+$ret = '<span style=\'font-weight: bold; color: red;\'>' . $request_notreply . '</span>';
+$moduleAdmin->addInfoBoxLine(sprintf( $ret . ' ' . _AM_XMCONTACT_INDEX_CAT_NOTREPLY));
 
-// folder
-$folder = array(XOOPS_ROOT_PATH . '/uploads/xmcontact/', XOOPS_ROOT_PATH . '/uploads/xmcontact/images',
-               XOOPS_ROOT_PATH . '/uploads/xmcontact/images/cats');
-foreach (array_keys($folder) as $i) {
-    $admin_class->addConfigBoxLine($folder[$i], 'folder');
-    $admin_class->addConfigBoxLine(array($folder[$i], '777'), 'chmod');
+$folder[] = $path_logo;
+foreach (array_keys( $folder) as $i) {
+    $moduleAdmin->addConfigBoxLine($folder[$i], 'folder');
+    $moduleAdmin->addConfigBoxLine(array($folder[$i], '777'), 'chmod');
 }
 
-$xoopsTpl->assign('navigation', $admin_class->addNavigation('index.php'));
-$xoopsTpl->assign('renderindex', $admin_class->renderIndex());
 
-// Call template file
-$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xmcontact/templates/admin/xmcontact_index.tpl');
 
-xoops_cp_footer();
+$moduleAdmin->displayIndex();
+
+require __DIR__ . '/admin_footer.php';

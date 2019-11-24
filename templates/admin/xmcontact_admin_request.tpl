@@ -36,19 +36,15 @@
                 <td class="xo-actions txtcenter">
                     <{$request.status}>
                     <a class="tooltip" href="request.php?op=edit&amp;request_id=<{$request.id}>" title="<{$smarty.const._AM_XMCONTACT_EDITSTATUS}>">
-                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTACT_EDITSTATUS}>"/>
-                    </a>
+                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTACT_EDITSTATUS}>"/></a>
                 </td>
                 <td class="xo-actions txtcenter">
                     <a class="tooltip" href="request.php?op=view&amp;request_id=<{$request.id}>" title="<{$smarty.const._AM_XMCONTACT_VIEW}>">
-                        <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._AM_XMCONTACT_VIEW}>"/>
-                    </a>
+                        <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._AM_XMCONTACT_VIEW}>"/></a>
                     <a class="tooltip" href="request.php?op=reply&amp;request_id=<{$request.id}>" title="<{$smarty.const._AM_XMCONTACT_REPLY}>">
-                        <img src="<{xoAdminIcons mail_reply.png}>" alt="<{$smarty.const._AM_XMCONTACT_REPLY}>"/>
-                    </a>
+                        <img src="<{xoAdminIcons mail_reply.png}>" alt="<{$smarty.const._AM_XMCONTACT_REPLY}>"/></a>
                     <a class="tooltip" href="request.php?op=del&amp;request_id=<{$request.id}>" title="<{$smarty.const._AM_XMCONTACT_DEL}>">
-                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/>
-                    </a>
+                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/></a>
                 </td>
 
             </tr>
@@ -80,11 +76,9 @@
                 <td><{$smarty.const._AM_XMCONTACT_ACTION}></td>
                 <td class="xo-actions txtleft">
                     <a class="tooltip" href="request.php?op=reply&amp;request_id=<{$request_id}>" title="<{$smarty.const._AM_XMCONTACT_REPLY}>">
-                        <img src="<{xoAdminIcons mail_reply.png}>" alt="<{$smarty.const._AM_XMCONTACT_REPLY}>"/>
-                    </a>
+                        <img src="<{xoAdminIcons mail_reply.png}>" alt="<{$smarty.const._AM_XMCONTACT_REPLY}>"/></a>
                     <a class="tooltip" href="request.php?op=del&amp;request_id=<{$request_id}>" title="<{$smarty.const._AM_XMCONTACT_DEL}>">
-                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/>
-                    </a>
+                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/></a>
                 </td>
 
             </tr>

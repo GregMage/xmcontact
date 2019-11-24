@@ -16,14 +16,17 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-require __DIR__ . '/header.php';
 
-// Header
-xoops_cp_header();
+use Xmf\Module\Admin;
+use Xmf\Request;
+
+require __DIR__ . '/admin_header.php';
+$moduleAdmin = Admin::getInstance();
+$moduleAdmin->displayNavigation('category.php');
 
 
 // Get Action type
-$op = XoopsRequest::getCmd('op', 'list');
+$op = Request::getCmd('op', 'list');
 
 switch ($op) {
     // list of category
@@ -31,17 +34,12 @@ switch ($op) {
         default:
         // Define Stylesheet
         $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
-        $xoTheme->addScript('browse.php?Frameworks/jquery/jquery.js');
-        $xoTheme->addScript('browse.php?Frameworks/jquery/plugins/jquery.tablesorter.js');
         $xoTheme->addScript('modules/system/js/admin.js');
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('category.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-        // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php?op=add', 'add');
-        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
+		// Module admin
+        $moduleAdmin->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php?op=add', 'add');
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Get start pager
-        $start = XoopsRequest::getInt('start', 0);
+        $start = Request::getInt('start', 0);
         // Criteria
         $criteria = new CriteriaCompo();
         $criteria->setSort('category_weight ASC, category_title');
@@ -79,13 +77,9 @@ switch ($op) {
     
     // add category
     case 'add':
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('category.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-        // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
-        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
-        
+		// Module admin
+        $moduleAdmin->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());            
         // Create form
         $obj  = $categoryHandler->create();
         $form = $obj->getForm();
@@ -95,16 +89,13 @@ switch ($op) {
 
     // edit category
     case 'edit':
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('category.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-        // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php?op=add', 'add');
-        $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
-        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
-        
+		// Module admin
+        $moduleAdmin->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php?op=add', 'add');
+        $moduleAdmin->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());         
         // Create form
-        $obj  = $categoryHandler->get($start = XoopsRequest::getInt('category_id', 0));
+		$category_id = Request::getInt('category_id', 0);
+        $obj  = $categoryHandler->get($category_id);
         $form = $obj->getForm();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -113,7 +104,7 @@ switch ($op) {
     // del category
     case 'del':
         // Create form
-        $category_id = XoopsRequest::getInt('category_id', 0);
+		$category_id = Request::getInt('category_id', 0);
         $obj  = $categoryHandler->get($category_id);
 
         if (isset($_POST['ok']) && 1 == $_POST['ok']) {
@@ -149,62 +140,27 @@ switch ($op) {
         break;
     // save category
     case 'save':
-        if (!$GLOBALS['xoopsSecurity']->check()) {
-            redirect_header('category.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
+		if (!$GLOBALS['xoopsSecurity']->check()) {
+            redirect_header('category.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
         }
-        if (isset($_POST['category_id'])) {
-            $obj = $categoryHandler->get(XoopsRequest::getInt('category_id', 0));
+        $category_id = Request::getInt('category_id', 0);
+        if ($category_id == 0) {
+            $obj = $categoryHandler->create();            
         } else {
-            $obj = $categoryHandler->create();
+            $obj = $categoryHandler->get($category_id);
         }
-        // error
-        $message_error = '';
-        
-        $obj->setVar('category_title', $_POST['category_title']);
-        $obj->setVar('category_description', $_POST['category_description']);
-        $obj->setVar('category_responsible', $_POST['category_responsible']);
-        $obj->setVar('category_weight', $_POST['category_weight']);
-        $status = (1 == $_POST['category_status']) ? '1' : '0';
-        $obj->setVar('category_status', $status);
-        if (0 == (int)$_REQUEST['category_weight'] && '0' != $_REQUEST['category_weight']) {
-            $message_error .= _AM_XMCONTACT_ERROR_WEIGHT . '<br>';
-        }
-        //logo
-        if (UPLOAD_ERR_NO_FILE != $_FILES['category_logo']['error']) {
-            include_once XOOPS_ROOT_PATH . '/class/uploader.php';
-            $uploader_category_img = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontact/images/cats/', array('image/gif', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png'), $upload_size, null, null);
-            if ($uploader_category_img->fetchMedia('category_logo')) {
-                $uploader_category_img->setPrefix('cat_');
-                if (!$uploader_category_img->upload()) {
-                    $message_error .= $uploader_category_img->getErrors() . '<br />';
-                } else {
-                    $obj->setVar('category_logo', $uploader_category_img->getSavedFileName());
-                }
-            } else {
-                $message_error .= $uploader_category_img->getErrors();
-            }
-        } else {
-            $obj->setVar('category_logo', $_POST['category_logo']);
-        }
-        if ('' != $message_error) {
-            // Define button addItemButton
-            $admin_class->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
-            $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
-            $xoopsTpl->assign('message_error', $message_error);
+        $error_message = $obj->saveCategory($categoryHandler, 'category.php');
+        if ($error_message != ''){
+            $xoopsTpl->assign('error_message', $error_message);
             $form = $obj->getForm();
             $xoopsTpl->assign('form', $form->render());
-        } else {
-            if ($categoryHandler->insert($obj)) {
-                redirect_header('category.php', 2, _AM_XMCONTACT_REDIRECT_SAVE);
-            } else {
-                $xoopsTpl->assign('message_error', $obj->getHtmlErrors());
-            }
         }
+        
         break;
 
     // update status
     case 'category_update_status':
-        $category_id = XoopsRequest::getInt('category_id', 0);
+		$category_id = Request::getInt('category_id', 0);
         if ($category_id > 0) {
             $obj = $categoryHandler->get($category_id);
             $old = $obj->getVar('category_status');
@@ -216,7 +172,5 @@ switch ($op) {
         }
         break;
 }
-
-// Call template file
-$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xmcontact/templates/admin/xmcontact_category.tpl');
-xoops_cp_footer();
+$xoopsTpl->display("db:xmcontact_admin_category.tpl");
+require __DIR__ . '/admin_footer.php';

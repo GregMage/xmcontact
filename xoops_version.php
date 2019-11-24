@@ -18,7 +18,7 @@
  */
 
 $modversion['name']                = _MI_XMCONTACT_NAME;
-$modversion['version']             = '0.2';
+$modversion['version']             = '1.0';
 $modversion['description']         = _MI_XMCONTACT_DESC;
 $modversion['credits']             = 'G. Mage';
 $modversion['author']              = 'G. Mage';
@@ -34,12 +34,12 @@ $modversion['icons32']             = 'Frameworks/moduleclasses/icons/32';
 $modversion['help']                = 'page=help';
 
 //about
-$modversion['release_date']         = '2016/09/16';
+$modversion['release_date']         = '2019/11/24';
 $modversion['module_website_url']   = 'https://xoops.org/';
 $modversion['module_website_name']  = 'XOOPS';
-$modversion['module_status']        = 'Final';
-$modversion['min_php']              = '5.3';
-$modversion['min_xoops']            = '2.5.8';
+$modversion['module_status']        = 'Alpha 1';
+$modversion['min_php']              = '5.6';
+$modversion['min_xoops']            = '2.5.10';
 $modversion['min_db']               = array('mysql'=>'5.0.7', 'mysqli'=>'5.0.7');
 
 // Install
@@ -54,10 +54,13 @@ $modversion['hasAdmin'] = 1;
 $modversion['adminindex'] = 'admin/index.php';
 $modversion['adminmenu'] = 'admin/menu.php';
 
-// Templates
-$i                                          = 1;
-$modversion['templates'][$i]['file']        = 'xmcontact_index.tpl';
-$modversion['templates'][$i]['description'] = '';
+
+// Admin Templates
+$modversion['templates'][] = ['file' => 'xmcontact_admin_category.tpl', 'description' => '', 'type' => 'admin'];
+$modversion['templates'][] = ['file' => 'xmcontact_admin_request.tpl', 'description' => '', 'type' => 'admin'];
+
+// User Templates
+$modversion['templates'][] = ['file' => 'xmcontact_index.tpl', 'description' => ''];
 
 // Pour les blocs
 $modversion['blocks'][] = array(

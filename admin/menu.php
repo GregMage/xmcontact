@@ -19,36 +19,39 @@
 
 defined('XOOPS_ROOT_PATH') || die('XOOPS root path not defined');
 
-$moduleHandler = xoops_getHandler('module');
-$module        = $moduleHandler->getByDirname(basename(dirname(__DIR__)));
-$pathIcon32    = '../../' . $module->getInfo('icons32');
-xoops_loadLanguage('modinfo', $module->dirname());
+// get path to icons
+$pathIcon32 = '';
+if (class_exists('Xmf\Module\Admin', true)) {
+    $pathIcon32 = \Xmf\Module\Admin::menuIconPath('');
+}
 
+$adminmenu = [];
+// Index
 $adminmenu[] = [
     'title' => _MI_XMCONTACT_MENU_HOME,
     'link'  => 'admin/index.php',
-    'desc'  => _MI_XMCONTACT_MENU_HOME_DESC,
-    'icon'  => $pathIcon32 . '/home.png',
+	'desc'  => _MI_XMCONTACT_MENU_HOME_DESC,
+    'icon'  => $pathIcon32 . 'home.png'
 ];
-
+// Category
 $adminmenu[] = [
     'title' => _MI_XMCONTACT_MENU_CATEGORY,
     'link'  => 'admin/category.php',
-    'desc'  => _MI_XMCONTACT_MENU_CATEGORY_DESC,
-    'icon'  => $pathIcon32 . '/category.png',
+	'desc'  => _MI_XMCONTACT_MENU_CATEGORY_DESC,
+    'icon'  => $pathIcon32 . 'category.png'
 ];
-
+// Request
 $adminmenu[] = [
     'title' => _MI_XMCONTACT_MENU_REQUEST,
     'link'  => 'admin/request.php',
-    'desc'  => _MI_XMCONTACT_MENU_REQUEST_DESC,
-    'icon'  => $pathIcon32 . '/newsletter.png',
+	'desc'  => _MI_XMCONTACT_MENU_REQUEST_DESC,
+    'icon'  => $pathIcon32 . 'newsletter.png'
 ];
-
+// About
 $adminmenu[] = [
     'title' => _MI_XMCONTACT_MENU_ABOUT,
     'link'  => 'admin/about.php',
-    'desc'  => _MI_XMCONTACT_MENU_ABOUT_DESC,
-    'icon'  => $pathIcon32 . '/about.png',
+	'desc'  => _MI_XMCONTACT_MENU_ABOUT_DESC,
+    'icon'  => $pathIcon32 . 'about.png'
 ];
 

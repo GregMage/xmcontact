@@ -32,11 +32,11 @@ define('_AM_XMCONTACT_VIEW', 'Voir les détails');
 
 // index
 define('_AM_XMCONTACT_INDEX_CAT', 'Catégories');
-define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', 'il y a %s catégories actives');
-define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', 'il y a %s catégories désactivées');
-define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', 'il y a %s demandes non traitées');
+define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', 'catégories actives');
+define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', 'catégories désactivées');
+define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', 'demandes non traitées');
 define('_AM_XMCONTACT_INDEX_REQUEST', 'Demandes');
-define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', 'il y a %s demandes traitées');
+define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', 'demandes traitées');
 
 // request
 define('_AM_XMCONTACT_REQUEST_DATER', 'Date de réponse');

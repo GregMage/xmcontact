@@ -16,24 +16,22 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-require __DIR__ . '/header.php';
+use Xmf\Module\Admin;
+use Xmf\Request;
 
-// Header
-xoops_cp_header();
+require __DIR__ . '/admin_header.php';
+$moduleAdmin = Admin::getInstance();
+$moduleAdmin->displayNavigation('request.php');
 
 // Get Action type
-$op = XoopsRequest::getCmd('op', 'list');
+$op = Request::getCmd('op', 'list');
 
 switch ($op) {
     // list of request
     case 'list':
         default:
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('request.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-
         // Get start pager
-        $start = XoopsRequest::getInt('start', 0);
+        $start = Request::getInt('start', 0);
         // Criteria
         $criteria = new CriteriaCompo();
         $criteria->setStart($start);
@@ -75,18 +73,15 @@ switch ($op) {
 
     // list of request
     case 'view':
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('request.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-        // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
-        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
+		// Module admin
+        $moduleAdmin->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Define Stylesheet
         $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
         
         $xoopsTpl->assign('view', 'view');
         
-        $request_id = XoopsRequest::getInt('request_id', 0);
+        $request_id = Request::getInt('request_id', 0);
         $request = $requestHandler->get($request_id);
         
         if (0 == $request->getVar('request_date_r')) {
@@ -120,15 +115,12 @@ switch ($op) {
 
     // edit status
     case 'edit':
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('request.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-        // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
-        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
-
+		// Module admin
+        $moduleAdmin->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Create form
-        $obj  = $requestHandler->get(XoopsRequest::getInt('request_id', 0));
+		$request_id = Request::getInt('request_id', 0);
+        $obj  = $requestHandler->get($request_id);
         $form = $obj->getFormEdit();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -139,8 +131,8 @@ switch ($op) {
         if (!$GLOBALS['xoopsSecurity']->check()) {
             redirect_header('request.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
         }
-        $request_id = XoopsRequest::getInt('request_id', 0);
-        $request_status = XoopsRequest::getInt('request_status', 0, 'POST');
+        $request_id = Request::getInt('request_id', 0);
+        $request_status = Request::getInt('request_status', 0, 'POST');
         if ($request_id > 0) {
             $obj = $requestHandler->get($request_id);
             if (1 == $request_status) {
@@ -158,15 +150,14 @@ switch ($op) {
 
     // reply
     case 'reply':
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('request.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-        // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
-        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
+		// Module admin
+        $moduleAdmin->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
+        // Create form
+		$request_id = Request::getInt('request_id', 0);
 
         // Create form
-        $obj  = $requestHandler->get(XoopsRequest::getInt('request_id', 0));
+        $obj  = $requestHandler->get($request_id);
         $form = $obj->getFormReply();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -177,7 +168,7 @@ switch ($op) {
         if (!$GLOBALS['xoopsSecurity']->check()) {
             redirect_header('request.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
         }
-        $request_id = XoopsRequest::getInt('request_id', 0);
+        $request_id = Request::getInt('request_id', 0);
         // error
         $message_error = '';
         
@@ -202,10 +193,10 @@ switch ($op) {
                 $message_error .= $xoopsMailer->getErrors();
             }
             if ('' != $message_error) {
-                // Define button addItemButton
-                $admin_class->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
-                $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
-                $xoopsTpl->assign('message_error', $message_error);
+				// Module admin
+				$moduleAdmin->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
+				$xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
+                $xoopsTpl->assign('message_error', $message_error);				
             }
         }
         break;
@@ -213,7 +204,7 @@ switch ($op) {
     // del
     case 'del':
         // Create form
-        $request_id = XoopsRequest::getInt('request_id', 0);
+        $request_id = Request::getInt('request_id', 0);
         $obj  = $requestHandler->get($request_id);
 
         if (isset($_POST['ok']) && 1 == $_POST['ok']) {
@@ -233,6 +224,5 @@ switch ($op) {
         }
         break;
 }
-// Call template file
-$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xmcontact/templates/admin/xmcontact_request.tpl');
-xoops_cp_footer();
+$xoopsTpl->display("db:xmcontact_admin_request.tpl");
+require __DIR__ . '/admin_footer.php';
