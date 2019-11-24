@@ -118,9 +118,11 @@ switch ($op) {
             $xoopsTpl->assign('category_logo', XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img);            
             // pagetitle
 			$xoopsTpl->assign('xoops_pagetitle', Metagen::generateSeoTitle($category->getVar('category_title')) . '-' . $xoopsModule->name());
+			$keywords = Metagen::generateKeywords($category->getVar('category_description'), 10);    
+			$xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
+	        //description
+			$xoTheme->addMeta('meta', 'description', Metagen::generateDescription($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM . ' ' . $category->getVar('category_description'), 30));
         }
-        //description
-		$xoTheme->addMeta('meta', 'description', Metagen::generateDescription($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM . ' ' . $category->getVar('category_description'), 30));
     break;
 
     // save
