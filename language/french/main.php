@@ -21,7 +21,7 @@ define('_MD_XMCONTACT_INDEX_CONTACT', 'Contact');
 define('_MD_XMCONTACT_INDEX_EMAIL', 'Adresse électronique');
 define('_MD_XMCONTACT_INDEX_EMAIL_PH', 'Entrez votre adresse électronique');
 define('_MD_XMCONTACT_INDEX_FORM', 'Formulaire');
-define('_MD_XMCONTACT_INDEX_LISTCONTACT', 'Liste des contacts');
+define('_MD_XMCONTACT_INDEX_LISTCONTACT', 'Nous contacter');
 define('_MD_XMCONTACT_INDEX_MAIL_SUBJECT', 'Nouvelle demande de contact');
 define('_MD_XMCONTACT_INDEX_MESSAGE', 'Message');
 define('_MD_XMCONTACT_INDEX_MESSAGE_PH', 'Entrez votre message');

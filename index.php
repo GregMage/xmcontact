@@ -16,12 +16,15 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-include __DIR__ . '/header.php';
-$xoopsOption['template_main'] = 'xmcontact_index.tpl';
-include_once XOOPS_ROOT_PATH.'/header.php';
+use \Xmf\Request;
+use \Xmf\Metagen;
+
+include_once __DIR__ . '/header.php';
+$GLOBALS['xoopsOption']['template_main'] = 'xmcontact_index.tpl';
+include_once XOOPS_ROOT_PATH . '/header.php';
 
 // Get Action type
-$op = XoopsRequest::getCmd('op', 'list');
+$op = Request::getCmd('op', 'list');
 
 $keywords = '';
 
@@ -29,11 +32,12 @@ switch ($op) {
     // list
     case 'list':
         default:
-        $xoopsTpl->assign('info_header', $xoopsModuleConfig['info_header']);
-        $xoopsTpl->assign('info_footer', $xoopsModuleConfig['info_footer']);
-        $xoopsTpl->assign('info_addresse', $xoopsModuleConfig['info_addresse']);
-        $xoopsTpl->assign('info_googlemaps', $xoopsModuleConfig['info_googlemaps']);
-        $xoopsTpl->assign('info_columncat', $xoopsModuleConfig['info_columncat']);
+		$info_columncat = $helper->getConfig('info_columncat', 2);
+        $xoopsTpl->assign('info_header', $helper->getConfig('info_header', ''));
+        $xoopsTpl->assign('info_footer', $helper->getConfig('info_footer', ''));
+        $xoopsTpl->assign('info_addresse', $helper->getConfig('info_addresse', ''));
+        $xoopsTpl->assign('info_googlemaps', $helper->getConfig('info_googlemaps', ''));
+        $xoopsTpl->assign('info_columncat', $info_columncat);
         // Criteria
         $criteria = new CriteriaCompo();
         $criteria->setSort('category_weight ASC, category_title');
@@ -55,7 +59,7 @@ switch ($op) {
                 $category['count']           = $count;
                 if ($count_row == $count) {
                     $category['row'] = true;
-                    $count_row = $count_row + $xoopsModuleConfig['info_columncat'];
+                    $count_row = $count_row + $info_columncat;
                 } else {
                     $category['row'] = false;
                 }
@@ -66,15 +70,17 @@ switch ($op) {
                 }
                 $xoopsTpl->append_by_ref('category', $category);
                 $count++;
-                $keywords .= $category['title'] . ',';
+				$keywords .= Metagen::generateSeoTitle($category['title']) . ',';
                 unset($category);
             }
         } else {
             $xoopsTpl->assign('simple_contact', true);
         }
         //SEO
+		// pagetitle
+		$xoopsTpl->assign('xoops_pagetitle', $xoopsModule->name());
         //description
-        $xoTheme->addMeta('meta', 'description', strip_tags($xoopsModule->name()));
+        $xoTheme->addMeta('meta', 'description', Metagen::generateDescription($xoopsModule->name(), 30));
         //keywords
         $keywords = substr($keywords, 0, -1);
         $xoTheme->addMeta('meta', 'keywords', $keywords);
@@ -83,7 +89,7 @@ switch ($op) {
     // form
     case 'form':
         // Captcha
-        if (1 == $xoopsModuleConfig['info_captcha']) {
+        if (1 == $helper->getConfig('info_captcha', 1)) {
             xoops_load('XoopsCaptcha');
             $captchaHandler  = XoopsCaptcha::getInstance();
             $configs['name']       = 'xoopscaptcha';
@@ -102,7 +108,7 @@ switch ($op) {
         $request['message'] = '';
         $xoopsTpl->assign('request', $request);
         $xoopsTpl->assign('form', true);
-        $cat_id = XoopsRequest::getInt('cat_id', 0);
+        $cat_id = Request::getInt('cat_id', 0);
         $xoopsTpl->assign('cat_id', $cat_id);
         if (0 != $cat_id) {
             $category = $categoryHandler->get($cat_id);
@@ -111,20 +117,20 @@ switch ($op) {
             $category_img = $category->getVar('category_logo') ?: 'blank.gif';
             $xoopsTpl->assign('category_logo', XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img);            
             // pagetitle
-            $xoopsTpl->assign('xoops_pagetitle', strip_tags($category->getVar('category_title') . ' - ' . $xoopsModule->name()));
+			$xoopsTpl->assign('xoops_pagetitle', Metagen::generateSeoTitle($category->getVar('category_title')) . '-' . $xoopsModule->name());
         }
         //description
-        $xoTheme->addMeta('meta', 'description', strip_tags($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM));
+		$xoTheme->addMeta('meta', 'description', Metagen::generateDescription($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM . ' ' . $category->getVar('category_description'), 30));
     break;
 
     // save
     case 'save':
-        $cat_id = XoopsRequest::getInt('cat_id', 0, 'POST');
-        $request['name'] = XoopsRequest::getString('name', '', 'POST');
-        $request['email'] = XoopsRequest::getEmail('email', '', 'POST');
-        $request['phone'] = XoopsRequest::getString('phone', '', 'POST');
-        $request['subject'] = XoopsRequest::getString('subject', '', 'POST');
-        $request['message'] = XoopsRequest::getText('message', '', 'POST');
+        $cat_id = Request::getInt('cat_id', 0, 'POST');
+        $request['name'] = Request::getString('name', '', 'POST');
+        $request['email'] = Request::getEmail('email', '', 'POST');
+        $request['phone'] = Request::getString('phone', '', 'POST');
+        $request['subject'] = Request::getString('subject', '', 'POST');
+        $request['message'] = Request::getText('message', '', 'POST');
 
         // error
         $message_error = '';
@@ -145,7 +151,7 @@ switch ($op) {
             $message_error .= _MD_XMCONTACT_ERROR_MESSAGE . '<br />';
         }
         // Captcha
-        if (1 == $xoopsModuleConfig['info_captcha']) {
+        if (1 == $helper->getConfig('info_captcha', 1)) {
             xoops_load('xoopscaptcha');
             $xoopsCaptcha = XoopsCaptcha::getInstance();
             if (! $xoopsCaptcha->verify() ) {
@@ -154,7 +160,7 @@ switch ($op) {
         }
         if ('' != $message_error) {
             // Captcha
-            if (1 == $xoopsModuleConfig['info_captcha']) {
+            if (1 == $helper->getConfig('info_captcha', 1)) {
                 xoops_load('XoopsCaptcha');
                 $captchaHandler  = XoopsCaptcha::getInstance();
                 $configs['name']       = 'xoopscaptcha';
@@ -174,12 +180,8 @@ switch ($op) {
                 $xoopsTpl->assign('category_title', $category->getVar('category_title'));
                 $xoopsTpl->assign('category_description', $category->getVar('category_description'));
                 $category_img = $category->getVar('category_logo') ?: 'blank.gif';
-                $xoopsTpl->assign('category_logo', XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img);            
-                // pagetitle
-                $xoopsTpl->assign('xoops_pagetitle', strip_tags($category->getVar('category_title') . ' - ' . $xoopsModule->name()));
+                $xoopsTpl->assign('category_logo', XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img);
             }
-            //description
-            $xoTheme->addMeta('meta', 'description', strip_tags($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM));
         } else {
             $message_error = '';
             $obj = $requestHandler->create();
@@ -193,7 +195,7 @@ switch ($op) {
             $obj->setVar('request_date_e', time());
             $obj->setVar('request_status', 0);
             if ($requestHandler->insert($obj)) {
-                if (0 != $cat_id && 1 == $xoopsModuleConfig['info_notification']) {
+                if (0 != $cat_id && 1 == $helper->getConfig('info_notification', 1)) {
                     $newcontent_id = $obj->get_new_enreg();
                     $category = $categoryHandler->get($cat_id);
                     $memberHandler = xoops_getHandler('member');

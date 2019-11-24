@@ -16,18 +16,18 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
+use Xmf\Module\Helper;
+$path = dirname(dirname(__DIR__));
+require_once $path . '/mainfile.php';
+include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
+include_once __DIR__ . '/include/common.php';
 
-include '../../mainfile.php';
-require_once dirname(__DIR__) . '/system/include/functions.php';
-XoopsLoad::load('XoopsRequest');
-//include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
+//xoops_load('utility', basename(__DIR__));
 
+$helper     = Helper::getHelper('xmcontact');
+$permHelper = new Helper\Permission();
 
-// Include language file
-//xoops_loadLanguage('admin', 'system');
-//xoops_loadLanguage('admin', $xoopsModule->getVar('dirname', 'e'));
-//xoops_loadLanguage('modinfo', $xoopsModule->getVar('dirname', 'e'));
-
-// Get handler
-$requestHandler = xoops_getModuleHandler('xmcontact_request', 'xmcontact');
-$categoryHandler = xoops_getModuleHandler('xmcontact_category', 'xmcontact');
+// Load language files
+$helper->loadLanguage('main');
+$helper->loadLanguage('admin');
+$helper->loadLanguage('modinfo');
