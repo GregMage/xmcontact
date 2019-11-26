@@ -122,6 +122,7 @@ switch ($op) {
         $request['subject'] = '';
         $request['message'] = '';
         $xoopsTpl->assign('request', $request);
+        $xoopsTpl->assign('token', $GLOBALS['xoopsSecurity']->createToken(0, 'XOOPS_TOKEN'));
         $cat_id = Request::getInt('cat_id', 0);
         $xoopsTpl->assign('cat_id', $cat_id);
         if (0 != $cat_id) {
@@ -167,6 +168,9 @@ switch ($op) {
 
     // save
     case 'save':
+		if (!$GLOBALS['xoopsSecurity']->check()) {
+            redirect_header('index.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
+        }
         $cat_id = Request::getInt('cat_id', 0, 'POST');
         $request['civility'] = Request::getString('civility', '', 'POST');
         $request['name'] = Request::getString('name', '', 'POST');
