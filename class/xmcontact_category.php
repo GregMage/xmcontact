@@ -39,8 +39,14 @@ class xmcontact_category extends XoopsObject
         $this->initVar('dohtml', XOBJ_DTYPE_INT, 1, false);
         $this->initVar('category_responsible', XOBJ_DTYPE_INT, null, false, 11);
         $this->initVar('category_logo', XOBJ_DTYPE_TXTBOX, null, false);
-        $this->initVar('category_weight', XOBJ_DTYPE_INT, null, false, 11);
-        $this->initVar('category_status', XOBJ_DTYPE_INT, null, false, 1);
+		$this->initVar('category_civility', XOBJ_DTYPE_TXTBOX, '10', false);
+		$this->initVar('category_name', XOBJ_DTYPE_TXTBOX, '10', false);
+		$this->initVar('category_phone', XOBJ_DTYPE_TXTBOX, '10', false);
+		$this->initVar('category_subject', XOBJ_DTYPE_TXTBOX, '10', false);
+		$this->initVar('category_address', XOBJ_DTYPE_TXTBOX, '10', false);
+		$this->initVar('category_url', XOBJ_DTYPE_TXTBOX, '10', false);
+        $this->initVar('category_weight', XOBJ_DTYPE_TXTBOX, '10', false);
+        $this->initVar('category_status', XOBJ_DTYPE_TXTBOX, '10', false);
     }
 
     /**
@@ -88,6 +94,12 @@ class xmcontact_category extends XoopsObject
         $this->setVar('category_title', Request::getString('category_title', ''));
         $this->setVar('category_description', Request::getText('category_description', ''));
         $this->setVar('category_responsible', Request::getInt('category_responsible', 1));
+        $this->setVar('category_civility', Request::getInt('category_docivility', 1) . Request::getInt('category_recivility', 0));
+        $this->setVar('category_name', Request::getInt('category_doname', 1) . Request::getInt('category_rename', 0));
+        $this->setVar('category_phone', Request::getInt('category_dophone', 1) . Request::getInt('category_rephone', 0));
+        $this->setVar('category_subject', Request::getInt('category_dosubject', 1) . Request::getInt('category_resubject', 0));
+        $this->setVar('category_address', Request::getInt('category_doaddress', 1) . Request::getInt('category_readdress', 0));
+        $this->setVar('category_url', Request::getInt('category_dourl', 1) . Request::getInt('category_reurl', 0));
         $this->setVar('category_status', Request::getInt('category_status', 1));
 
          if ($error_message == '') {
@@ -164,6 +176,79 @@ class xmcontact_category extends XoopsObject
         $fileseltray_img->addElement(new XoopsFormLabel(''), false);
         $imgtray_img->addElement($fileseltray_img);
         $form->addElement($imgtray_img);
+		
+		
+		
+		if (!$this->isNew()) {
+			$docivility = substr($this->getVar('category_civility'), 0, 1);
+			$recivility = substr($this->getVar('category_civility'), 1, 1);
+			$doname = substr($this->getVar('category_name'), 0, 1);
+			$rename = substr($this->getVar('category_name'), 1, 1);
+			$dophone = substr($this->getVar('category_phone'), 0, 1);
+			$rephone = substr($this->getVar('category_phone'), 1, 1);
+			$dosubject = substr($this->getVar('category_subject'), 0, 1);
+			$resubject = substr($this->getVar('category_subject'), 1, 1);
+			$doaddress = substr($this->getVar('category_address'), 0, 1);
+			$readdress = substr($this->getVar('category_address'), 1, 1);
+			$dourl = substr($this->getVar('category_url'), 0, 1);
+			$reurl = substr($this->getVar('category_url'), 1, 1);
+		} else {
+			$docivility = 1;
+			$recivility = 0;
+			$doname = 1;
+			$rename = 0;
+			$dophone = 1;
+			$rephone = 0;
+			$dosubject = 1;
+			$resubject = 0;
+			$doaddress = 1;
+			$readdress = 0;
+			$dourl = 1;
+			$reurl = 0;
+		}
+		// civility
+		$civility = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_CIVILITY, '<br>');
+		$docivility = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_docivility', $docivility);
+		$civility->addElement($docivility);
+		$recivility = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_recivility', $recivility);
+		$civility->addElement($recivility);
+		$form->addElement($civility, false);
+		// name
+		$name = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_NAME, '<br>');
+		$doname = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_doname', $doname);
+		$name->addElement($doname);
+		$rename = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_rename', $rename);
+		$name->addElement($rename);
+		$form->addElement($name, false);
+		// phone
+		$phone = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_PHONE, '<br>');
+		$dophone = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_dophone', $dophone);
+		$phone->addElement($dophone);
+		$rephone = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_rephone', $rephone);
+		$phone->addElement($rephone);
+		$form->addElement($phone, false);
+		// subject
+		$subject = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_SUBJECT, '<br>');
+		$dosubject = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_dosubject', $dosubject);
+		$subject->addElement($dosubject);
+		$resubject = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_resubject', $resubject);
+		$subject->addElement($resubject);
+		$form->addElement($subject, false);
+		// address
+		$address = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_ADDRESS, '<br>');
+		$doaddress = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_doaddress', $doaddress);
+		$address->addElement($doaddress);
+		$readdress = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_readdress', $readdress);
+		$address->addElement($readdress);
+		$form->addElement($address, false);
+		// url
+		$url = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_URL, '<br>');
+		$dourl = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_dourl', $dourl);
+		$url->addElement($dourl);
+		$reurl = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_reurl', $reurl);
+		$url->addElement($reurl);
+		$form->addElement($url, false);	
+		
         // weight
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_CATEGORY_WEIGHT, 'category_weight', 5, 5, $weight), true);
 

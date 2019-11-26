@@ -27,7 +27,7 @@ define('_MD_XMCONTACT_INDEX_MESSAGE', 'Message');
 define('_MD_XMCONTACT_INDEX_MESSAGE_PH', 'Enter your message');
 define('_MD_XMCONTACT_INDEX_NAME', 'Name');
 define('_MD_XMCONTACT_INDEX_NAME_PH', 'Enter your name');
-define('_MD_XMCONTACT_INDEX_PHONE', 'Phone');
+define('_MD_XMCONTACT_INDEX_PHONE', 'Phone number');
 define('_MD_XMCONTACT_INDEX_PHONE_PH', 'Enter your phone number');
 define('_MD_XMCONTACT_INDEX_SUBMIT', 'Submit');
 define('_MD_XMCONTACT_INDEX_SUBJECT', 'Subject');
@@ -40,3 +40,17 @@ define('_MD_XMCONTACT_ERROR_MESSAGE', 'The message is required!');
 define('_MD_XMCONTACT_ERROR_NAME', 'Name is required!');
 define('_MD_XMCONTACT_ERROR_NOCAPTCHA', 'Captcha is required!');
 define('_MD_XMCONTACT_ERROR_SUBJECT', 'The subject is required!');
+
+//new version 1.0
+define('_MD_XMCONTACT_INDEX_CIVILITY', 'Civility');
+define('_MD_XMCONTACT_INDEX_CIVILITY_OPT1', 'Mr');
+define('_MD_XMCONTACT_INDEX_CIVILITY_OPT2', 'Miss');
+define('_MD_XMCONTACT_INDEX_CIVILITY_OPT3', 'Ms');
+define('_MD_XMCONTACT_INDEX_ADDRESS', 'Address');
+define('_MD_XMCONTACT_INDEX_ADDRESS_PH', 'Enter your address');
+define('_MD_XMCONTACT_INDEX_URL', 'Url');
+define('_MD_XMCONTACT_INDEX_URL_PH', 'Enter url');
+define('_MD_XMCONTACT_ERROR_CIVILITY', 'Civility is required!');
+define('_MD_XMCONTACT_ERROR_PHONE', 'Phone number is required!');
+define('_MD_XMCONTACT_ERROR_ADDRESS', 'Address is required!');
+define('_MD_XMCONTACT_ERROR_URL', 'Url is required!');

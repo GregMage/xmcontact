@@ -1,25 +1,28 @@
-﻿Bonjour {X_UNAME},
+﻿Hi {X_UNAME},
 
-Une nouvelle demande de contact à été postée depuis le site: {X_SITENAME}
+A new contact request has been posted from the site: {X_SITENAME}
 
-Vous pouvez voir la demande ici :
+Vous pouvez voir la demande ici:
 {REQUEST_URL}
 
-Informations de la demande :
+You can see the request here:
 
-Catégorie: contact- {X_CATEGORY}
+Category: contact- {X_CATEGORY}
 
-Sujet: {X_SUBJECT}
-Nom: {X_NAME}
+Civility: {X_CIVILITY}
+Name: {X_NAME}
 Email: {X_EMAIL}
-Téléphone: {X_PHONE}
+Phone number: {X_PHONE}
+Address: {X_ADDRESS}
+Url: {X_URL}
+Subject: {X_SUBJECT}
 Message:
 {X_MESSAGE}
 
 -----------
-Merci de ne pas répondre à ce message.
+Thank you for not replying to this message.
 -----------
 
 {X_SITENAME} ({X_SITEURL}) 
-Le Webmaster
+The Webmaster
 {X_ADMINMAIL}

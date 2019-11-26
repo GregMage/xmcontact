@@ -35,9 +35,12 @@ class xmcontact_request extends XoopsObject
         //$this->XoopsObject();
         $this->initVar('request_id', XOBJ_DTYPE_INT, null, false, 11);
         $this->initVar('request_cid', XOBJ_DTYPE_INT, null, false, 11);
+        $this->initVar('request_civility', XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_name', XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_email', XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_phone', XOBJ_DTYPE_TXTBOX, null, false);
+		$this->initVar('request_address', XOBJ_DTYPE_TXTAREA, null, false);
+		$this->initVar('request_url', XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_ip', XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_subject', XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_message', XOBJ_DTYPE_TXTAREA, null, false);

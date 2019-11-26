@@ -97,16 +97,18 @@ switch ($op) {
         $category = $categoryHandler->get($request->getVar('request_cid'));
         $category_title = $category->getVar('category_title');
         $request_arr = array(_AM_XMCONTACT_CATEGORY => $category_title,
-                             _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
+							 _AM_XMCONTACT_REQUEST_CIVILITY => $request->getVar('request_civility'),
                              _AM_XMCONTACT_REQUEST_SUBMITTER => $request->getVar('request_name'),
+							 _AM_XMCONTACT_REQUEST_EMAIL => $request->getVar('request_email'),
+							 _AM_XMCONTACT_REQUEST_PHONE => $request->getVar('request_phone'),
+							 _AM_XMCONTACT_REQUEST_ADDRESS => $request->getVar('request_address'),
+							 _AM_XMCONTACT_REQUEST_URL => $request->getVar('request_url'),
                              _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
-                             _AM_XMCONTACT_REQUEST_EMAIL => $request->getVar('request_email'),
-                             _AM_XMCONTACT_REQUEST_PHONE => $request->getVar('request_phone'),
+							 _AM_XMCONTACT_REQUEST_MESSAGE => $request->getVar('request_message', 'show'),
                              _AM_XMCONTACT_REQUEST_IP => $request->getVar('request_ip'),
                              _AM_XMCONTACT_REQUEST_DATES => formatTimestamp($request->getVar('request_date_e')),
                              _AM_XMCONTACT_REQUEST_DATER => $date_r,
                              _AM_XMCONTACT_STATUS => $status,
-                             _AM_XMCONTACT_REQUEST_MESSAGE => $request->getVar('request_message', 'show'),
                              );
 
         $xoopsTpl->assign('request_arr', $request_arr);

@@ -53,3 +53,19 @@ define('_MI_XMCONTACT_PREF_NOTIFICATION_DESC', 'À chaque demande de contact, un
 define('_MI_XMCONTACT_PREF_HEAD_ADMIN', "<span style='font-weight: bold;'>Administration</span>");
 define('_MI_XMCONTACT_PREF_EDITOR', 'Éditeur de texte');
 define('_MI_XMCONTACT_PREF_ITEMPERPAGE', 'Nombre d\'entrées affichées sur les pages de l\'administration');
+
+//new version 1.0
+define('_MI_XMCONTACT_PREF_HEAD_SIMPLECONTACT', 'Options valides si le module est utilisé sans catégories de contact (un seul formulaire de contact)');
+define('_MI_XMCONTACT_PREF_SP_DESC', 'Valable uniquement si le module est utilisé sans catégorie de contact (Un seul formulaire de contact)');
+define('_MI_XMCONTACT_PREF_DOCIVILITY', 'Voir la civilité');
+define('_MI_XMCONTACT_PREF_RECIVILITY', 'Civilité obligatoire');
+define('_MI_XMCONTACT_PREF_DONAME', 'Voir nom');
+define('_MI_XMCONTACT_PREF_RENAME', 'Nom obligatoire');
+define('_MI_XMCONTACT_PREF_DOPHONE', 'Voir le numéro de téléphone');
+define('_MI_XMCONTACT_PREF_REPHONE', 'Numéro de téléphone obligatoire');
+define('_MI_XMCONTACT_PREF_DOSUBJECT', 'Voir le suject');
+define('_MI_XMCONTACT_PREF_RESUBJECT', 'Suject obligatoire');
+define('_MI_XMCONTACT_PREF_DOADDRESS', 'Voir l\'adresse');
+define('_MI_XMCONTACT_PREF_READDRESS', 'Adresse obligatoire');
+define('_MI_XMCONTACT_PREF_DOURL', 'Voir l\'url');
+define('_MI_XMCONTACT_PREF_REURL', 'Url obligatoire');

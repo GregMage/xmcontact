@@ -40,3 +40,17 @@ define('_MD_XMCONTACT_ERROR_MESSAGE', 'Le message est obligatoire !');
 define('_MD_XMCONTACT_ERROR_NAME', 'Le nom est obligatoire !');
 define('_MD_XMCONTACT_ERROR_NOCAPTCHA', 'Le captcha est obligatoire !');
 define('_MD_XMCONTACT_ERROR_SUBJECT', 'Le sujet est obligatoire !');
+
+//new version 1.0
+define('_MD_XMCONTACT_INDEX_CIVILITY', 'Civilité');
+define('_MD_XMCONTACT_INDEX_CIVILITY_OPT1', 'Mr');
+define('_MD_XMCONTACT_INDEX_CIVILITY_OPT2', 'Mlle');
+define('_MD_XMCONTACT_INDEX_CIVILITY_OPT3', 'Mme');
+define('_MD_XMCONTACT_INDEX_ADDRESS', 'Adresse');
+define('_MD_XMCONTACT_INDEX_ADDRESS_PH', 'Entrez votre adresss');
+define('_MD_XMCONTACT_INDEX_URL', 'Url');
+define('_MD_XMCONTACT_INDEX_URL_PH', 'Entrez votre url');
+define('_MD_XMCONTACT_ERROR_CIVILITY', 'La civilité est obligatoire !');
+define('_MD_XMCONTACT_ERROR_PHONE', 'Le numéro de téléphone est obligatoire !');
+define('_MD_XMCONTACT_ERROR_ADDRESS', 'L\'adresse est obligatoire !');
+define('_MD_XMCONTACT_ERROR_URL', 'L\'url est obligatoire !');

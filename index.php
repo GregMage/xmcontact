@@ -101,9 +101,12 @@ switch ($op) {
             }
         }
         
+        $request['civility'] = '';
         $request['name'] = '';
         $request['email'] = '';
         $request['phone'] = '';
+        $request['address'] = '';
+        $request['url'] = '';
         $request['subject'] = '';
         $request['message'] = '';
         $xoopsTpl->assign('request', $request);
@@ -114,6 +117,19 @@ switch ($op) {
             $category = $categoryHandler->get($cat_id);
             $xoopsTpl->assign('category_title', $category->getVar('category_title'));
             $xoopsTpl->assign('category_description', $category->getVar('category_description'));
+            $xoopsTpl->assign('docivility', substr($category->getVar('category_civility'), 0, 1));
+            $xoopsTpl->assign('recivility', substr($category->getVar('category_civility'), 1, 1));
+			$xoopsTpl->assign('doname', substr($category->getVar('category_name'), 0, 1));
+            $xoopsTpl->assign('rename', substr($category->getVar('category_name'), 1, 1));
+			$xoopsTpl->assign('dophone', substr($category->getVar('category_phone'), 0, 1));
+            $xoopsTpl->assign('rephone', substr($category->getVar('category_phone'), 1, 1));
+			$xoopsTpl->assign('doaddress', substr($category->getVar('category_address'), 0, 1));
+            $xoopsTpl->assign('readdress', substr($category->getVar('category_address'), 1, 1));
+			$xoopsTpl->assign('dourl', substr($category->getVar('category_url'), 0, 1));
+            $xoopsTpl->assign('reurl', substr($category->getVar('category_url'), 1, 1));
+			$xoopsTpl->assign('dosubject', substr($category->getVar('category_subject'), 0, 1));
+            $xoopsTpl->assign('resubject', substr($category->getVar('category_subject'), 1, 1));
+			
             $category_img = $category->getVar('category_logo') ?: 'blank.gif';
             $xoopsTpl->assign('category_logo', XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img);            
             // pagetitle
@@ -122,30 +138,91 @@ switch ($op) {
 			$xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 	        //description
 			$xoTheme->addMeta('meta', 'description', Metagen::generateDescription($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM . ' ' . $category->getVar('category_description'), 30));
-        }
+        } else {
+			$xoopsTpl->assign('docivility', $helper->getConfig('sp_docivility', 0));
+            $xoopsTpl->assign('recivility', $helper->getConfig('sp_recivility', 0));
+			$xoopsTpl->assign('doname', $helper->getConfig('sp_doname', 0));
+            $xoopsTpl->assign('rename', $helper->getConfig('sp_rename', 0));
+			$xoopsTpl->assign('dophone', $helper->getConfig('sp_dophone', 0));
+            $xoopsTpl->assign('rephone', $helper->getConfig('sp_rephone', 0));
+			$xoopsTpl->assign('doaddress', $helper->getConfig('sp_doaddress', 0));
+            $xoopsTpl->assign('readdress', $helper->getConfig('sp_readdress', 0));
+			$xoopsTpl->assign('dourl', $helper->getConfig('sp_dourl', 0));
+            $xoopsTpl->assign('reurl', $helper->getConfig('sp_reurl', 0));
+			$xoopsTpl->assign('dosubject', $helper->getConfig('sp_dosubject', 0));
+            $xoopsTpl->assign('resubject', $helper->getConfig('sp_resubject', 0));
+		}
     break;
 
     // save
     case 'save':
         $cat_id = Request::getInt('cat_id', 0, 'POST');
+        $request['civility'] = Request::getString('civility', '', 'POST');
         $request['name'] = Request::getString('name', '', 'POST');
         $request['email'] = Request::getEmail('email', '', 'POST');
         $request['phone'] = Request::getString('phone', '', 'POST');
+        $request['address'] = Request::getString('address', '', 'POST');
+        $request['url'] = Request::getString('url', '', 'POST');
         $request['subject'] = Request::getString('subject', '', 'POST');
         $request['message'] = Request::getText('message', '', 'POST');
-
+		if (0 != $cat_id) {
+			$category 	= $categoryHandler->get($cat_id);
+			$docivility = substr($category->getVar('category_civility'), 0, 1);
+            $recivility = substr($category->getVar('category_civility'), 1, 1);
+			$doname 	= substr($category->getVar('category_name'), 0, 1);
+            $rename 	= substr($category->getVar('category_name'), 1, 1);
+			$dophone 	= substr($category->getVar('category_phone'), 0, 1);
+            $rephone 	= substr($category->getVar('category_phone'), 1, 1);
+			$doaddress	= substr($category->getVar('category_address'), 0, 1);
+            $readdress 	= substr($category->getVar('category_address'), 1, 1);
+			$dourl 		= substr($category->getVar('category_url'), 0, 1);
+            $reurl 		= substr($category->getVar('category_url'), 1, 1);
+			$dosubject 	= substr($category->getVar('category_subject'), 0, 1);
+            $resubject 	= substr($category->getVar('category_subject'), 1, 1);
+			
+		} else {
+			$docivility = $helper->getConfig('sp_docivility', 0);
+            $recivility = $helper->getConfig('sp_recivility', 0);
+			$doname 	= $helper->getConfig('sp_doname', 0);
+            $rename 	= $helper->getConfig('sp_rename', 0);
+			$dophone 	= $helper->getConfig('sp_dophone', 0);
+            $rephone 	= $helper->getConfig('sp_rephone', 0);
+			$doaddress	= $helper->getConfig('sp_doaddress', 0);
+            $readdress 	= $helper->getConfig('sp_readdress', 0);
+			$dourl 		= $helper->getConfig('sp_dourl', 0);
+            $reurl 		= $helper->getConfig('sp_reurl', 0);
+			$dosubject 	= $helper->getConfig('sp_dosubject', 0);
+            $resubject 	= $helper->getConfig('sp_resubject', 0);
+			//en cours
+		}
         // error
         $message_error = '';
-        // title
-        if ('' == $request['name']) {
+		// civility
+        if ('' == $request['civility'] && $docivility == 1 && $recivility == 1) {
+            $message_error .= _MD_XMCONTACT_ERROR_CIVILITY . '<br />';
+        }
+        // name
+        if ('' == $request['name'] && $doname == 1 && $rename == 1) {
             $message_error .= _MD_XMCONTACT_ERROR_NAME . '<br />';
         }
         // email
         if ('' == $request['email']) {
             $message_error .= _MD_XMCONTACT_ERROR_EMAIL . '<br />';
         }
+		// phone
+        if ('' == $request['phone'] && $dophone == 1 && $rephone == 1) {
+            $message_error .= _MD_XMCONTACT_ERROR_PHONE . '<br />';
+        }
+		// address
+        if ('' == $request['address'] && $doaddress == 1 && $readdress == 1) {
+            $message_error .= _MD_XMCONTACT_ERROR_ADDRESS . '<br />';
+        }
+		// url
+        if ('' == $request['url'] && $dourl == 1 && $reurl == 1) {
+            $message_error .= _MD_XMCONTACT_ERROR_URL . '<br />';
+        }
         // subject
-        if ('' == $request['subject']) {
+        if ('' == $request['subject'] && $dosubject == 1 && $resubject == 1) {
             $message_error .= _MD_XMCONTACT_ERROR_SUBJECT . '<br />';
         }
         // message
@@ -177,6 +254,18 @@ switch ($op) {
             $xoopsTpl->assign('error', $message_error);
             $xoopsTpl->assign('form', true);
             $xoopsTpl->assign('cat_id', $cat_id);
+			$xoopsTpl->assign('docivility', $docivility);
+            $xoopsTpl->assign('recivility', $recivility);
+			$xoopsTpl->assign('doname', $doname);
+            $xoopsTpl->assign('rename', $rename);
+			$xoopsTpl->assign('dophone', $dophone);
+            $xoopsTpl->assign('rephone', $rephone);
+			$xoopsTpl->assign('doaddress', $doaddress);
+            $xoopsTpl->assign('readdress', $readdress);
+			$xoopsTpl->assign('dourl', $dourl);
+            $xoopsTpl->assign('reurl', $reurl);
+			$xoopsTpl->assign('dosubject', $dosubject);
+            $xoopsTpl->assign('resubject', $resubject);
             if (0 != $cat_id) {
                 $category = $categoryHandler->get($cat_id);
                 $xoopsTpl->assign('category_title', $category->getVar('category_title'));
@@ -188,9 +277,12 @@ switch ($op) {
             $message_error = '';
             $obj = $requestHandler->create();
             $obj->setVar('request_cid', $cat_id);
+            $obj->setVar('request_civility', $request['civility']);
             $obj->setVar('request_name', $request['name']);
             $obj->setVar('request_email', $request['email']);
             $obj->setVar('request_phone', $request['phone']);
+            $obj->setVar('request_address', $request['address']);
+            $obj->setVar('request_url', $request['url']);
             $obj->setVar('request_ip', getenv('REMOTE_ADDR'));
             $obj->setVar('request_subject',  $request['subject']);
             $obj->setVar('request_message', $request['message']);
@@ -208,15 +300,17 @@ switch ($op) {
                     $xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT . ' "' . $category->getVar('category_title') . '"');
                     $xoopsMailer->setTemplateDir($GLOBALS['xoopsModule']->getVar('dirname', 'n'));
                     $xoopsMailer->setTemplate('new_request.tpl');
+					$xoopsMailer->assign('X_CIVILITY', $request['civility']);
                     $xoopsMailer->assign('X_UNAME', XoopsUser::getUnameFromId($category->getVar('category_responsible')));
                     $xoopsMailer->assign('X_CATEGORY', $category->getVar('category_title'));
                     $xoopsMailer->assign('X_SUBJECT', $request['subject']);
                     $xoopsMailer->assign('X_NAME', $request['name']);
                     $xoopsMailer->assign('X_EMAIL', $request['email']);
                     $xoopsMailer->assign('X_PHONE', $request['phone']);
+                    $xoopsMailer->assign('X_URL', $request['url']);
+                    $xoopsMailer->assign('X_ADDRESS', $request['address']);
                     $xoopsMailer->assign('X_MESSAGE', $request['message']);
-                    $xoopsMailer->assign('REQUEST_URL', XOOPS_URL . '/modules/xmcontact/admin/request.php?op=view&request_id=' . $newcontent_id);
-                    
+                    $xoopsMailer->assign('REQUEST_URL', XOOPS_URL . '/modules/xmcontact/admin/request.php?op=view&request_id=' . $newcontent_id);                    
                     if (!$xoopsMailer->send()) {
                         $message_error = $xoopsMailer->getErrors();
                         $xoopsTpl->assign('message_error', $message_error);
@@ -227,8 +321,9 @@ switch ($op) {
             }
             if ('' != $message_error) {
                 $xoopsTpl->assign('error', $message_error);
-            }
-            redirect_header('index.php', 2, _MD_XMCONTACT_REDIRECT_SEND);
+            } else {
+				redirect_header('index.php', 2, _MD_XMCONTACT_REDIRECT_SEND);
+			}
         }
     break;
 }
