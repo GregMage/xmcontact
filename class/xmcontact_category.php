@@ -45,8 +45,8 @@ class xmcontact_category extends XoopsObject
 		$this->initVar('category_subject', XOBJ_DTYPE_TXTBOX, '10', false);
 		$this->initVar('category_address', XOBJ_DTYPE_TXTBOX, '10', false);
 		$this->initVar('category_url', XOBJ_DTYPE_TXTBOX, '10', false);
-        $this->initVar('category_weight', XOBJ_DTYPE_TXTBOX, '10', false);
-        $this->initVar('category_status', XOBJ_DTYPE_TXTBOX, '10', false);
+        $this->initVar('category_weight', XOBJ_DTYPE_INT, null, 11);
+        $this->initVar('category_status', XOBJ_DTYPE_INT, 1, false);
     }
 
     /**
