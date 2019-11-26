@@ -102,7 +102,7 @@ switch ($op) {
 							 _AM_XMCONTACT_REQUEST_EMAIL => $request->getVar('request_email'),
 							 _AM_XMCONTACT_REQUEST_PHONE => $request->getVar('request_phone'),
 							 _AM_XMCONTACT_REQUEST_ADDRESS => $request->getVar('request_address'),
-							 _AM_XMCONTACT_REQUEST_URL => $request->getVar('request_url'),
+							 _AM_XMCONTACT_REQUEST_URL => '<a href="' . $request->getVar('request_url') . '" target="_blank">' . $request->getVar('request_url') . '</a>',
                              _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
 							 _AM_XMCONTACT_REQUEST_MESSAGE => $request->getVar('request_message', 'show'),
                              _AM_XMCONTACT_REQUEST_IP => $request->getVar('request_ip'),
