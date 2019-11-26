@@ -62,6 +62,7 @@ $modversion['templates'][] = ['file' => 'xmcontact_admin_request.tpl', 'descript
 
 // User Templates
 $modversion['templates'][] = ['file' => 'xmcontact_index.tpl', 'description' => ''];
+$modversion['templates'][] = ['file' => 'xmcontact_index.tpl', 'description' => ''];
 
 // Pour les blocs
 $modversion['blocks'][] = array(

@@ -26,6 +26,25 @@ include_once XOOPS_ROOT_PATH . '/header.php';
 // Get Action type
 $op = Request::getCmd('op', 'list');
 
+// Criteria
+$criteria = new CriteriaCompo();
+$criteria->setSort('category_weight ASC, category_title');
+$criteria->setOrder('ASC');
+$criteria->add(new Criteria('category_status', 1));
+$category_arr = $categoryHandler->getall($criteria);
+$category_count = $categoryHandler->getCount($criteria);
+if ($category_count == 0) {
+	$xoopsTpl->assign('info_header', $helper->getConfig('info_header', ''));
+	$xoopsTpl->assign('info_footer', $helper->getConfig('info_footer', ''));
+	$xoopsTpl->assign('info_addresse', $helper->getConfig('info_addresse', ''));
+	$xoopsTpl->assign('info_googlemaps', $helper->getConfig('info_googlemaps', ''));
+	$op = 'form';
+	$simple_contact = true;
+	$xoopsTpl->assign('simple_contact', $simple_contact);
+} else {
+	$simple_contact = false;
+}
+
 $keywords = '';
 
 switch ($op) {
@@ -38,44 +57,34 @@ switch ($op) {
         $xoopsTpl->assign('info_addresse', $helper->getConfig('info_addresse', ''));
         $xoopsTpl->assign('info_googlemaps', $helper->getConfig('info_googlemaps', ''));
         $xoopsTpl->assign('info_columncat', $info_columncat);
-        // Criteria
-        $criteria = new CriteriaCompo();
-        $criteria->setSort('category_weight ASC, category_title');
-        $criteria->setOrder('ASC');
-        $criteria->add(new Criteria('category_status', 1));
-        $category_arr = $categoryHandler->getall($criteria);
-        $category_count = $categoryHandler->getCount($criteria);
+
         $xoopsTpl->assign('category_count', $category_count);
         $count = 1;
         $count_row = 1;
-        if ($category_count > 0) {
-            foreach (array_keys($category_arr) as $i) {
-                $category_id                 = $category_arr[$i]->getVar('category_id');
-                $category['id']              = $category_id;
-                $category['title']           = $category_arr[$i]->getVar('category_title');
-                $category['description']     = $category_arr[$i]->getVar('category_description');
-                $category_img                = $category_arr[$i]->getVar('category_logo') ?: 'blank.gif';
-                $category['logo']            = XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img;
-                $category['count']           = $count;
-                if ($count_row == $count) {
-                    $category['row'] = true;
-                    $count_row = $count_row + $info_columncat;
-                } else {
-                    $category['row'] = false;
-                }
-                if ($count == $category_count) {
-                    $category['end'] = true;
-                } else {
-                    $category['end'] = false;
-                }
-                $xoopsTpl->append_by_ref('category', $category);
-                $count++;
-				$keywords .= Metagen::generateSeoTitle($category['title']) . ',';
-                unset($category);
-            }
-        } else {
-            $xoopsTpl->assign('simple_contact', true);
-        }
+		foreach (array_keys($category_arr) as $i) {
+			$category_id                 = $category_arr[$i]->getVar('category_id');
+			$category['id']              = $category_id;
+			$category['title']           = $category_arr[$i]->getVar('category_title');
+			$category['description']     = $category_arr[$i]->getVar('category_description');
+			$category_img                = $category_arr[$i]->getVar('category_logo') ?: 'blank.gif';
+			$category['logo']            = XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img;
+			$category['count']           = $count;
+			if ($count_row == $count) {
+				$category['row'] = true;
+				$count_row = $count_row + $info_columncat;
+			} else {
+				$category['row'] = false;
+			}
+			if ($count == $category_count) {
+				$category['end'] = true;
+			} else {
+				$category['end'] = false;
+			}
+			$xoopsTpl->append_by_ref('category', $category);
+			$count++;
+			$keywords .= Metagen::generateSeoTitle($category['title']) . ',';
+			unset($category);
+		}
         //SEO
 		// pagetitle
 		$xoopsTpl->assign('xoops_pagetitle', $xoopsModule->name());
@@ -88,6 +97,9 @@ switch ($op) {
     
     // form
     case 'form':
+		if ($simple_contact == False){
+			$xoopsTpl->assign('form', true);
+		}
         // Captcha
         if (1 == $helper->getConfig('info_captcha', 1)) {
             xoops_load('XoopsCaptcha');
@@ -110,7 +122,6 @@ switch ($op) {
         $request['subject'] = '';
         $request['message'] = '';
         $xoopsTpl->assign('request', $request);
-        $xoopsTpl->assign('form', true);
         $cat_id = Request::getInt('cat_id', 0);
         $xoopsTpl->assign('cat_id', $cat_id);
         if (0 != $cat_id) {
