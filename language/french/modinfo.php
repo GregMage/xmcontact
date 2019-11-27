@@ -67,5 +67,5 @@ define('_MI_XMCONTACT_PREF_DOSUBJECT', 'Voir le suject');
 define('_MI_XMCONTACT_PREF_RESUBJECT', 'Suject obligatoire');
 define('_MI_XMCONTACT_PREF_DOADDRESS', 'Voir l\'adresse');
 define('_MI_XMCONTACT_PREF_READDRESS', 'Adresse obligatoire');
-define('_MI_XMCONTACT_PREF_DOURL', 'Voir l\'url');
-define('_MI_XMCONTACT_PREF_REURL', 'Url obligatoire');
+define('_MI_XMCONTACT_PREF_DOURL', 'Voir le lien');
+define('_MI_XMCONTACT_PREF_REURL', 'Lien obligatoire');
