@@ -206,47 +206,68 @@ class xmcontact_category extends XoopsObject
 			$dourl = 1;
 			$reurl = 0;
 		}
+		$opentable  = new \XoopsFormLabel('', '<table><tr><td width="25%">');
+		$addcol     = new \XoopsFormLabel('', '</td><td>');
+		$closetable = new \XoopsFormLabel('', '</td></tr></table>');
 		// civility
-		$civility = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_CIVILITY, '<br>');
+		$civility = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_CIVILITY, '');
+		$civility ->addElement($opentable);
 		$docivility = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_docivility', $docivility);
 		$civility->addElement($docivility);
+		$civility->addElement($addcol);
 		$recivility = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_recivility', $recivility);
 		$civility->addElement($recivility);
+		$civility->addElement($closetable);
 		$form->addElement($civility, false);
 		// name
-		$name = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_NAME, '<br>');
+		$name = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_NAME, '');
 		$doname = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_doname', $doname);
+		$name ->addElement($opentable);
 		$name->addElement($doname);
+		$name->addElement($addcol);
 		$rename = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_rename', $rename);
 		$name->addElement($rename);
+		$name->addElement($closetable);
 		$form->addElement($name, false);
 		// phone
-		$phone = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_PHONE, '<br>');
+		$phone = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_PHONE, '');
 		$dophone = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_dophone', $dophone);
+		$phone ->addElement($opentable);
 		$phone->addElement($dophone);
+		$phone->addElement($addcol);
 		$rephone = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_rephone', $rephone);
 		$phone->addElement($rephone);
+		$phone->addElement($closetable);
 		$form->addElement($phone, false);
 		// subject
-		$subject = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_SUBJECT, '<br>');
+		$subject = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_SUBJECT, '');
 		$dosubject = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_dosubject', $dosubject);
+		$subject ->addElement($opentable);
 		$subject->addElement($dosubject);
+		$subject->addElement($addcol);
 		$resubject = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_resubject', $resubject);
 		$subject->addElement($resubject);
+		$subject->addElement($closetable);
 		$form->addElement($subject, false);
 		// address
-		$address = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_ADDRESS, '<br>');
+		$address = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_ADDRESS, '');
 		$doaddress = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_doaddress', $doaddress);
+		$address ->addElement($opentable);
 		$address->addElement($doaddress);
+		$address->addElement($addcol);
 		$readdress = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_readdress', $readdress);
 		$address->addElement($readdress);
+		$address->addElement($closetable);
 		$form->addElement($address, false);
 		// url
-		$url = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_URL, '<br>');
+		$url = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_URL, '');
 		$dourl = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_VIEW, 'category_dourl', $dourl);
+		$url ->addElement($opentable);
 		$url->addElement($dourl);
+		$url->addElement($addcol);
 		$reurl = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_reurl', $reurl);
 		$url->addElement($reurl);
+		$url->addElement($closetable);
 		$form->addElement($url, false);	
 		
         // weight
