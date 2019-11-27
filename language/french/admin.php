@@ -87,3 +87,4 @@ define('_AM_XMCONTACT_CATEGORY_REQUIRED', 'Champ obligatoire');
 define('_AM_XMCONTACT_REQUEST_CIVILITY', 'Civilité');
 define('_AM_XMCONTACT_REQUEST_ADDRESS', 'Adresse');
 define('_AM_XMCONTACT_REQUEST_URL', 'Lien');
+define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE_EMPTY', '-- Personne --');
