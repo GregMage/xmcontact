@@ -2,21 +2,18 @@
 
 A new contact request has been posted from the site: {X_SITENAME}
 
-Vous pouvez voir la demande ici:
+You can see the request here:
 {REQUEST_URL}
 
-You can see the request here:
+Informations of request:
 
 Category: contact- {X_CATEGORY}
 
-Civility: {X_CIVILITY}
-Name: {X_NAME}
 Email: {X_EMAIL}
-Phone number: {X_PHONE}
-Address: {X_ADDRESS}
-Url: {X_URL}
-Subject: {X_SUBJECT}
+
+{X_INFOS}
 Message:
+
 {X_MESSAGE}
 
 -----------

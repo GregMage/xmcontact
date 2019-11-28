@@ -316,17 +316,31 @@ switch ($op) {
 						$xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT . ' "' . $category->getVar('category_title') . '"');
 						$xoopsMailer->setTemplateDir($GLOBALS['xoopsModule']->getVar('dirname', 'n'));
 						$xoopsMailer->setTemplate('new_request.tpl');
-						$xoopsMailer->assign('X_CIVILITY', $request['civility']);
-						$xoopsMailer->assign('X_UNAME', XoopsUser::getUnameFromId($category->getVar('category_responsible')));
-						$xoopsMailer->assign('X_CATEGORY', $category->getVar('category_title'));
-						$xoopsMailer->assign('X_SUBJECT', $request['subject']);
-						$xoopsMailer->assign('X_NAME', $request['name']);
+						$xoopsMailer->assign('X_UNAME', XoopsUser::getUnameFromId($category->getVar('category_responsible')));	
+						$xoopsMailer->assign('X_CATEGORY', $category->getVar('category_title'));						
 						$xoopsMailer->assign('X_EMAIL', $request['email']);
-						$xoopsMailer->assign('X_PHONE', $request['phone']);
-						$xoopsMailer->assign('X_URL', $request['url']);
-						$xoopsMailer->assign('X_ADDRESS', $request['address']);
 						$xoopsMailer->assign('X_MESSAGE', $request['message']);
-						$xoopsMailer->assign('REQUEST_URL', XOOPS_URL . '/modules/xmcontact/admin/request.php?op=view&request_id=' . $newcontent_id);                    
+						$xoopsMailer->assign('REQUEST_URL', XOOPS_URL . '/modules/xmcontact/admin/request.php?op=view&request_id=' . $newcontent_id);
+						$infos = '';
+						if ($docivility == 1){
+							$infos .= _MD_XMCONTACT_INDEX_CIVILITY . ': ' . $request['civility'] . "\n";
+						}
+						if ($doname == 1){
+							$infos .= _MD_XMCONTACT_INDEX_NAME . ': ' . $request['name'] . "\n";
+						}
+						if ($doaddress == 1){
+							$infos .= _MD_XMCONTACT_INDEX_ADDRESS . ': ' . $request['address'] . "\n";
+						}
+						if ($dophone == 1){
+							$infos .= _MD_XMCONTACT_INDEX_PHONE . ': ' . $request['phone'] . "\n";
+						}
+						if ($dourl == 1){
+							$infos .= _MD_XMCONTACT_INDEX_URL . ': ' . $request['url'] . "\n";
+						}
+						if ($dosubjec == 1){
+							$infos .= _MD_XMCONTACT_INDEX_SUBJECT . ': ' . $request['subject'] . "\n";
+						}
+						$xoopsMailer->assign('X_INFOS', $infos);						
 						if (!$xoopsMailer->send()) {
 							$message_error = $xoopsMailer->getErrors();
 							$xoopsTpl->assign('message_error', $message_error);

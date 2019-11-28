@@ -9,14 +9,11 @@ Informations de la demande :
 
 Catégorie: contact- {X_CATEGORY}
 
-Civilité: {X_CIVILITY}
-Nom: {X_NAME}
 Email: {X_EMAIL}
-Numéro de téléphone: {X_PHONE}
-Adresse: {X_ADDRESS}
-Url: {X_URL}
-Sujet: {X_SUBJECT}
+
+{X_INFOS}
 Message:
+
 {X_MESSAGE}
 
 -----------
