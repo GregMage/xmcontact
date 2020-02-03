@@ -115,8 +115,13 @@ switch ($op) {
         }
         
         $request['civility'] = '';
-        $request['name'] = '';
-        $request['email'] = '';
+		if (is_object($xoopsUser)) {
+			$request['name'] = $xoopsUser->getVar('name');
+			$request['email'] = $xoopsUser->getVar('email');
+		} else {
+			$request['name'] = '';
+			$request['email'] = '';
+		}
         $request['phone'] = '';
         $request['address'] = '';
         $request['url'] = '';
