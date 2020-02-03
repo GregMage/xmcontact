@@ -6,7 +6,7 @@
 
 <{if $form}>
 	<ol class="breadcrumb">
-		<li><a href="index.php"><{$smarty.const._MD_XMCONTACT_INDEX_LISTCONTACT}></a></li>
+		<li><a href="index.php"><{$index_module}></a></li>
 		<{if $cat_id ==0}>
 			<li class="active"><{$smarty.const._MD_XMCONTACT_INDEX_FORM}></li>
 		<{else}>

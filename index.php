@@ -26,6 +26,7 @@ include_once XOOPS_ROOT_PATH . '/header.php';
 // Get Action type
 $op = Request::getCmd('op', 'list');
 
+$xoopsTpl->assign('index_module', $helper->getModule()->getVar('name'));
 // Criteria
 $criteria = new CriteriaCompo();
 $criteria->setSort('category_weight ASC, category_title');

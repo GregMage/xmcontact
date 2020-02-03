@@ -21,7 +21,6 @@ define('_MD_XMCONTACT_INDEX_CONTACT', 'Contact');
 define('_MD_XMCONTACT_INDEX_EMAIL', 'Email address');
 define('_MD_XMCONTACT_INDEX_EMAIL_PH', 'Enter your email address');
 define('_MD_XMCONTACT_INDEX_FORM', 'Form');
-define('_MD_XMCONTACT_INDEX_LISTCONTACT', 'Contact Us');
 define('_MD_XMCONTACT_INDEX_MAIL_SUBJECT', 'New contact message');
 define('_MD_XMCONTACT_INDEX_MESSAGE', 'Message');
 define('_MD_XMCONTACT_INDEX_MESSAGE_PH', 'Enter your message');
