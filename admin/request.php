@@ -32,8 +32,38 @@ switch ($op) {
         default:
         // Get start pager
         $start = Request::getInt('start', 0);
+		$xoopsTpl->assign('filter', true);
+		// Category
+		$request_cid = Request::getInt('request_cid', 0);
+        $xoopsTpl->assign('request_cid', $request_cid);
+		$criteria = new CriteriaCompo();
+		$criteria->setSort('category_weight ASC, category_title');
+		$criteria->setOrder('ASC');
+		$category_arr = $categoryHandler->getall($criteria);	
+		if (count($category_arr) > 0) {
+			$request_cid_options = '<option value="0"' . ($request_cid == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
+			foreach (array_keys($category_arr) as $i) {
+				$request_cid_options .= '<option value="' . $i . '"' . ($request_cid == $i ? ' selected="selected"' : '') . '>' . $category_arr[$i]->getVar('category_title') . '</option>';
+			}
+			$xoopsTpl->assign('request_cid_options', $request_cid_options);
+		}
+        // Status
+        $request_status = Request::getInt('request_status', 10);
+        $xoopsTpl->assign('request_status', $request_status);
+        $status_options         = [1 => _AM_XMCONTACT_REQUEST_STATUS_R, 0 => _AM_XMCONTACT_REQUEST_STATUS_NR];
+		$request_status_options = '<option value="10"' . ($request_status == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
+        foreach (array_keys($status_options) as $i) {
+            $request_status_options .= '<option value="' . $i . '"' . ($request_status == $i ? ' selected="selected"' : '') . '>' . $status_options[$i] . '</option>';
+        }
+        $xoopsTpl->assign('request_status_options', $request_status_options);
         // Criteria
         $criteria = new CriteriaCompo();
+		if ($request_cid != 0){
+			$criteria->add(new Criteria('request_cid', $request_cid));
+		}
+        if ($request_status != 10){
+			$criteria->add(new Criteria('request_status', $request_status));
+		} 
         $criteria->setStart($start);
         $criteria->setLimit($nb_limit);
         // Content
@@ -65,7 +95,7 @@ switch ($op) {
             }
             // Display Page Navigation
             if ($request_count > $nb_limit) {
-                $nav = new XoopsPageNav($request_count, $nb_limit, $start, 'start');
+                $nav = new XoopsPageNav($request_count, $nb_limit, $start, 'start', 'request_cid=' . $request_cid . '&request_status=' . $request_status);
                 $xoopsTpl->assign('nav_menu', $nav->renderNav(4));
             }
         }

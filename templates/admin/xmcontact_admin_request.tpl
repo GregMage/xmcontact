@@ -12,6 +12,20 @@
 <div class="xmcontact">
     <{$form}>
 </div>
+<{if $filter}>
+	<div align="right">
+		<form id="form_request_tri" name="form_request_tri" method="get" action="request.php">
+			<{$smarty.const._AM_XMCONTACT_INDEX_CAT}>
+			<select name="request_filter" id="request_filter" onchange="location='request.php?request_status=<{$request_status}>&request_cid='+this.options[this.selectedIndex].value">
+				<{$request_cid_options}>
+			<select>
+			<{$smarty.const._AM_XMCONTACT_STATUS}>
+			<select name="request_filter" id="request_filter" onchange="location='request.php?request_cid=<{$request_cid}>&request_status='+this.options[this.selectedIndex].value">
+				<{$request_status_options}>
+			<select>
+		</form>
+	</div>
+<{/if}>
 <{if $request_count != 0}>
     <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
         <thead>
