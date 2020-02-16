@@ -17,7 +17,7 @@
 	<{if $cat_id !=0}>
 	<div class="row" style="padding-bottom: 5px; padding-top: 5px;">
 		<div class="col-sm-2" style="height: 152px; text-align: center;">
-			<img src="<{$category_logo}>" title="<{$category_title}>" class="img-rounded" style="max-height: 150px;">
+			<img src="<{$category_logo}>" title="<{$category_title}>" class="img-rounded" style="max-height: 100px;">
 		</div>
 		<div class="col-sm-10">
 			<h4><{$category_title}></h4>
@@ -66,7 +66,7 @@
     <{if $info_columncat == 1}>
         <div class="row" style="padding-bottom: 5px; padding-top: 5px;">
             <div class="col-sm-2" style="height: 152px; text-align: center;">
-                <img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 150px;">
+                <img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 100px;">
             </div>
             <div class="col-sm-10">
                 <h4><{$category.title}></h4>
@@ -82,7 +82,7 @@
         <div class="row" style="margin-top: 5px;">
         <{/if}>
             <div class="col-md-2 col-sm-12" style="height: 152px; text-align: center;">
-                <img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 150px;">
+                <img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 100px;">
             </div>
             <div class="col-md-4 col-sm-12">
                 <h4><{$category.title}></h4>
@@ -100,7 +100,7 @@
         <div class="row" style="margin-top: 5px;">
         <{/if}>
             <div class="col-md-2 col-sm-12" style="height: 152px; text-align: center;">
-                <img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 150px;">
+                <img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 100px;">
             </div>
             <div class="col-md-2 col-sm-12">
                 <h4><{$category.title}></h4>

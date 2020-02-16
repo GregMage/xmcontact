@@ -3,7 +3,7 @@
 		<div class="row" style="padding-bottom: 5px; padding-top: 5px;">
 			<{if $block.show_logo == True}>
 			<div class="col-sm-2" style="height: 152px; text-align: center;">
-				<img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 150px;">
+				<img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 100px;">
 			</div>
 			<{/if}>
 			<div class="col-sm-10">
@@ -24,7 +24,7 @@
 			<{/if}>
 				<{if $block.show_logo == True}>
 				<div class="col-md-2 col-sm-12" style="height: 152px; text-align: center;">
-					<img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 150px;">
+					<img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 100px;">
 				</div>
 				<{/if}>
 				<div class="col-md-4 col-sm-12">
@@ -46,7 +46,7 @@
 			<{/if}>
 				<{if $block.show_logo == True}>
 				<div class="col-md-2 col-sm-12" style="height: 152px; text-align: center;">
-					<img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 150px;">
+					<img src="<{$category.logo}>" title="<{$category.title}>" class="img-rounded" style="max-height: 100px;">
 				</div>
 				<{/if}>
 				<div class="col-md-2 col-sm-12">
