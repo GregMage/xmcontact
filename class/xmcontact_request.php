@@ -117,9 +117,15 @@ class xmcontact_request extends XoopsObject
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_REQUEST_SUBMITTER, 'xmcontact_submitter', 50, 255, XoopsUser::getUnameFromId($GLOBALS['xoopsUser']->uid())), true);
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_REQUEST_EMAIL, 'xmcontact_mail', 50, 255, $GLOBALS['xoopsUser']->getVar('email')), true);
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_REQUEST_SUBJECT, 'xmcontact_subject', 50, 255, _RE . ' ' . $this->getVar('request_subject')), true);
+		
+		$reply_value = "\n\n\n\n-----------------------------------------------------------------------------------------------------\n";
+		$reply_value .= _AM_XMCONTACT_REQUEST_FROM . " " . $this->getVar('request_email') . "( " . $this->getVar('request_name') . ")\n";
+		$reply_value .= _AM_XMCONTACT_REQUEST_DATES . " : " . formatTimestamp($this->getVar('request_date_e')) . "\n";
+		$reply_value .= _AM_XMCONTACT_REQUEST_SUBJECT . " : " . $this->getVar('request_subject') . "\n";
+		$reply_value .= "\n" . $this->getVar('request_message');
         $editor_configs=array();
         $editor_configs['name'] ='xmcontact_message';
-        $editor_configs['value'] = '';
+        $editor_configs['value'] = $reply_value;
         $editor_configs['rows'] = 20;
         $editor_configs['cols'] = 160;
         $editor_configs['width'] = '100%';
