@@ -122,7 +122,7 @@ class xmcontact_request extends XoopsObject
 		$reply_value .= _AM_XMCONTACT_REQUEST_FROM . " " . $this->getVar('request_email') . "( " . $this->getVar('request_name') . ")\n";
 		$reply_value .= _AM_XMCONTACT_REQUEST_DATES . " : " . formatTimestamp($this->getVar('request_date_e')) . "\n";
 		$reply_value .= _AM_XMCONTACT_REQUEST_SUBJECT . " : " . $this->getVar('request_subject') . "\n";
-		$reply_value .= "\n" . $this->getVar('request_message');
+		$reply_value .= "\n" . $this->getVar('request_message', 'e');
         $editor_configs=array();
         $editor_configs['name'] ='xmcontact_message';
         $editor_configs['value'] = $reply_value;
