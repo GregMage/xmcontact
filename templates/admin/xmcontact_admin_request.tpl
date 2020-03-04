@@ -31,8 +31,9 @@
         <thead>
         <tr>
             <th class="txtleft width15"><{$smarty.const._AM_XMCONTACT_CATEGORY}></th>
-            <th class="txtcenter width15"><{$smarty.const._AM_XMCONTACT_REQUEST_DATES}></th>
-            <th class="txtcenter width15"><{$smarty.const._AM_XMCONTACT_REQUEST_DATER}></th>
+            <th class="txtleft"><{$smarty.const._AM_XMCONTACT_REQUEST_SUBJECT}></th>
+            <th class="txtcenter width10"><{$smarty.const._AM_XMCONTACT_REQUEST_DATES}></th>
+            <th class="txtcenter width10"><{$smarty.const._AM_XMCONTACT_REQUEST_DATER}></th>
             <th class="txtcenter width15"><{$smarty.const._AM_XMCONTACT_STATUS}></th>
             <th class="txtcenter width10"><{$smarty.const._AM_XMCONTACT_ACTION}></th>
         </tr>
@@ -41,6 +42,7 @@
         <{foreach item=request from=$request}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
                 <td class="txtleft"><{$request.category}></td>
+                <td class="txtleft"><{$request.subject}></td>
                 <td class="txtcenter"><{$request.date_e}></td>
                 <td class="txtcenter"><{$request.date_r}></td>
                 <td class="xo-actions txtcenter">

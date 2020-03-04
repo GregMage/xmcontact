@@ -77,13 +77,17 @@ switch ($op) {
             foreach (array_keys($request_arr) as $i) {
                 $request['id'] = $request_arr[$i]->getVar('request_id');
                 $request['category'] = $request_arr[$i]->getVar('category_title');
-                $request['subject'] = $request_arr[$i]->getVar('request_subject');
+				if (strlen($request_arr[$i]->getVar('request_subject')) > 300){
+					$request['subject'] = substr($request_arr[$i]->getVar('request_subject'), 0, 300) . '...';
+				} else {
+					$request['subject'] = $request_arr[$i]->getVar('request_subject');
+				}
                 $request['name'] = $request_arr[$i]->getVar('request_name');
-                $request['date_e'] = formatTimestamp($request_arr[$i]->getVar('request_date_e'));
+                $request['date_e'] = formatTimestamp($request_arr[$i]->getVar('request_date_e'), 'm');
                 if (0 == $request_arr[$i]->getVar('request_date_r')) {
                     $request['date_r'] = '/';
                 } else {
-                    $request['date_r']    = formatTimestamp($request_arr[$i]->getVar('request_date_r'));
+                    $request['date_r']    = formatTimestamp($request_arr[$i]->getVar('request_date_r'), 'm');
                 }
                 if (0 == $request_arr[$i]->getVar('request_status')) {
                     $request['status'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_NR . '</span>';
