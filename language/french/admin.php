@@ -76,12 +76,12 @@ define('_AM_XMCONTACT_ERROR_CAT', 'Il n\'y a pas de catégories dans la base de 
 define('_AM_XMCONTACT_ERROR_WEIGHT', 'Vous devez entrer un nombre');
 
 //new version 1.0
-define('_AM_XMCONTACT_CATEGORY_CIVILITY', 'Options CIVILITÉ');
-define('_AM_XMCONTACT_CATEGORY_NAME', 'Options NOM');
-define('_AM_XMCONTACT_CATEGORY_PHONE', 'Options TÉLÉPHONE');
-define('_AM_XMCONTACT_CATEGORY_SUBJECT', 'Options SUJET');
-define('_AM_XMCONTACT_CATEGORY_ADDRESS', 'Options ADRESSE');
-define('_AM_XMCONTACT_CATEGORY_URL', 'Options LIEN');
+define('_AM_XMCONTACT_CATEGORY_CIVILITY', 'Option CIVILITÉ');
+define('_AM_XMCONTACT_CATEGORY_NAME', 'Option NOM');
+define('_AM_XMCONTACT_CATEGORY_PHONE', 'Option TÉLÉPHONE');
+define('_AM_XMCONTACT_CATEGORY_SUBJECT', 'Option SUJET');
+define('_AM_XMCONTACT_CATEGORY_ADDRESS', 'Option ADRESSE');
+define('_AM_XMCONTACT_CATEGORY_URL', 'Option LIEN');
 define('_AM_XMCONTACT_CATEGORY_VIEW', 'Voir ce champ');
 define('_AM_XMCONTACT_CATEGORY_REQUIRED', 'Champ obligatoire');
 define('_AM_XMCONTACT_REQUEST_CIVILITY', 'Civilité');
