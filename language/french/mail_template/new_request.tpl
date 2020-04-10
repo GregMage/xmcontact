@@ -1,4 +1,4 @@
-﻿Bonjour {X_UNAME},
+Bonjour {X_UNAME},
 
 Une nouvelle demande de contact à été postée depuis le site: {X_SITENAME}
 

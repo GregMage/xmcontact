@@ -1,4 +1,4 @@
-﻿Hi {X_UNAME},
+Hi {X_UNAME},
 
 A new contact request has been posted from the site: {X_SITENAME}
 
