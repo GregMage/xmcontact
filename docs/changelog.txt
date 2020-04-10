@@ -1,4 +1,59 @@
 ﻿-------------------------------------------------
+Version: 1.0 Final
+Date:    10.04.2020
+-------------------------------------------------
+Bug fixes:	
+	- Remove pass-by-reference instances (mamba).
+	- HTML problem when editing the description.
+
+Improvements:
+	- Rewriting php administration code and user part (optimization).
+	- Removal of anonymous in the category manager.
+	- SEO improvement.
+	- Added category title (breadcrumb).
+	- Addition of the name of the contact category in the subject of the email (notification by email).
+	- Sql optimization.
+	- Addition of additional fields with display options and if required.
+	- Improvement of the form if it is used without categories.
+	- Improved layout of forms (categories).
+	- Language correction.
+	- Possibility of not placing a category manager.
+	- Addition of bootstrap 4 templates (in the extra folder).
+	- The name of the root of the breadcrumb is now the name of the module.
+	- If a registered member uses a form, their name and email are pre-filled.
+	- Filters in administration on the request page (categories and status).
+	- The subject is now displayed in the administration (request).
+
+Security:
+	- Addition of a token for forms.
+
+	
+Correction de bogues:	
+	- Supprimer les instances passées par référence(mamba).
+	- Problème html lors de l'édition de la description.
+
+Améliorations:
+	- Réécriture code php administration et partie user(optimisation).
+	- Suppression des anonymes dans le responsable d'une catégorie.
+	- Amélioration SEO.
+	- Ajout du titre de la catégorie (breadcrumb).
+	- Ajout du nom de la catégorie de contact dans le sujet du mail (notification par mail).
+	- Optmisation sql.
+	- Ajout de champs supplémentaires avec options d'affichage et si obligatoires.
+	- Amélioration du formulaire si on l'utilise sans catégories.
+	- Amélioration de la mise en page des formulaires (catégories).
+	- Correction de langue.
+	- Possibilité de ne pas mettre un responsable de catégorie.
+	- Ajout de templates bootstrap 4 (dans le dossier extra).
+	- Le nom de la racine du breadcrumb est maintenant le nom du module.
+	- Si un membre enregistré utilise un formulaire, son nom et son mail sont pré-rempli.
+	- Filtres dans l'administration sur la page request (catégories et statuts).
+	- Le sujet est maintenant affiché dans l'administration (request).
+
+Sécurités:
+	- Ajout d'un token pour les formulaires.
+
+-------------------------------------------------
 Version: 0.20 Final
 Date:    16.09.2016
 -------------------------------------------------
