@@ -5,6 +5,8 @@ Date:    10.04.2020
 Bug fixes:	
 	- Remove pass-by-reference instances (mamba).
 	- HTML problem when editing the description.
+	- Paypal did not work for donations (about.php).
+	- Problem encoding some files.
 
 Improvements:
 	- Rewriting php administration code and user part (optimization).
@@ -31,6 +33,8 @@ Security:
 Correction de bogues:	
 	- Supprimer les instances passées par référence(mamba).
 	- Problème html lors de l'édition de la description.
+	- Paypal ne fonctionnait pas pour les donations (about.php).
+	- Problème d'encodage de certains fichiers.
 
 Améliorations:
 	- Réécriture code php administration et partie user(optimisation).
