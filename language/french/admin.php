@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -19,7 +19,7 @@
 // all
 define('_AM_XMCONTACT_ACTION', 'Action');
 define('_AM_XMCONTACT_ADD', 'Ajouter');
-define('_AM_XMCONTACT_CATEGORY', 'Catégorie');
+define('_AM_XMCONTACT_CATEGORY', 'Formulaire');
 define('_AM_XMCONTACT_DEL', 'Supprimer');
 define('_AM_XMCONTACT_EDIT', 'Éditer');
 define('_AM_XMCONTACT_EDITSTATUS', 'Éditer manuellement le statut');
@@ -31,9 +31,9 @@ define('_AM_XMCONTACT_STATUS_NA', 'Désactivé');
 define('_AM_XMCONTACT_VIEW', 'Voir les détails');
 
 // index
-define('_AM_XMCONTACT_INDEX_CAT', 'Catégories');
-define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', 'catégories actives');
-define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', 'catégories désactivées');
+define('_AM_XMCONTACT_INDEX_CAT', 'Formulaires');
+define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', 'formulaires actifs');
+define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', 'formulaires désactivés');
 define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', 'demandes non traitées');
 define('_AM_XMCONTACT_INDEX_REQUEST', 'Demandes');
 define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', 'demandes traitées');
@@ -58,21 +58,21 @@ define('_AM_XMCONTACT_REQUEST_TITLE', 'Titres');
 define('_AM_XMCONTACT_REQUEST_TO', 'À :');
 
 // category
-define('_AM_XMCONTACT_CATEGORY_ADD', 'Ajouter une catégorie');
+define('_AM_XMCONTACT_CATEGORY_ADD', 'Ajouter un formulaire');
 define('_AM_XMCONTACT_CATEGORY_DESC', 'Description');
 define('_AM_XMCONTACT_CATEGORY_FORMPATH', 'Fichier existant dans : %s');
-define('_AM_XMCONTACT_CATEGORY_LIST', 'Liste des catégories');
+define('_AM_XMCONTACT_CATEGORY_LIST', 'Liste des formulaires');
 define('_AM_XMCONTACT_CATEGORY_LOGO', 'Logo');
 define('_AM_XMCONTACT_CATEGORY_LOGOFILE', 'Fichier du logo');
 define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE', 'Responsable');
-define('_AM_XMCONTACT_CATEGORY_SUREDEL', 'Êtes vous sûr de vouloir supprimer la catégorie: %s');
+define('_AM_XMCONTACT_CATEGORY_SUREDEL', 'Êtes vous sûr de vouloir supprimer le formulaire : %s');
 define('_AM_XMCONTACT_CATEGORY_TITLE', 'Titre');
 define('_AM_XMCONTACT_CATEGORY_UPLOAD', 'Envoi');
 define('_AM_XMCONTACT_CATEGORY_UPLOADSIZE', 'Taille maximum : %s Ko');
 define('_AM_XMCONTACT_CATEGORY_WEIGHT', 'Poids');
 
 // error
-define('_AM_XMCONTACT_ERROR_CAT', 'Il n\'y a pas de catégories dans la base de données');
+define('_AM_XMCONTACT_ERROR_CAT', 'Il n\'y a pas de formulaire dans la base de données');
 define('_AM_XMCONTACT_ERROR_WEIGHT', 'Vous devez entrer un nombre');
 
 //new version 1.0

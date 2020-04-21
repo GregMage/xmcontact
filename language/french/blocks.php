@@ -17,8 +17,8 @@
  * @author          Mage Gregory (AKA Mage)
  */
 // index.php
-define('_MB_XMCONTACT_ALLCATEGORY', 'Toutes les catégories');
-define('_MB_XMCONTACT_CATEGORY', 'Afficher les catégories:');
+define('_MB_XMCONTACT_ALLCATEGORY', 'Tous les formulaires');
+define('_MB_XMCONTACT_CATEGORY', 'Afficher les formulaires :');
 define('_MB_XMCONTACT_CONTACT', 'Contact');
 define('_MB_XMCONTACT_DESCRIPTION', 'Afficher la description:');
 define('_MB_XMCONTACT_DISPLAY', 'Affichage:');

@@ -23,8 +23,8 @@ define('_MI_XMCONTACT_DESC', 'Contact module');
 // Admin menu
 define('_MI_XMCONTACT_MENU_HOME', 'Home');
 define('_MI_XMCONTACT_MENU_HOME_DESC', 'Go back to homepage');
-define('_MI_XMCONTACT_MENU_CATEGORY', 'Categories');
-define('_MI_XMCONTACT_MENU_CATEGORY_DESC', 'List of categories');
+define('_MI_XMCONTACT_MENU_CATEGORY', 'Forms');
+define('_MI_XMCONTACT_MENU_CATEGORY_DESC', 'List of forms');
 define('_MI_XMCONTACT_MENU_REQUEST', 'Requests');
 define('_MI_XMCONTACT_MENU_REQUEST_DESC', 'List of requests');
 define('_MI_XMCONTACT_MENU_ABOUT', 'About');
@@ -38,8 +38,8 @@ define('_MI_XMCONTACT_BLOCK_CONTACT_DESC', 'Block of contact');
 define('_MI_XMCONTACT_PREF_HEAD_INFORMATION', "<span style='font-weight: bold;'>Information</span>");
 define('_MI_XMCONTACT_PREF_CAPTCHA', 'Use Captcha?');
 define('_MI_XMCONTACT_PREF_CAPTCHA_DESC', 'Select Yes to use Captcha in the submit form');
-define('_MI_XMCONTACT_PREF_COLUMNCAT', 'Number of column for Category View');
-define('_MI_XMCONTACT_PREF_COLUMNCAT_DESC', 'Number of categories that can be viewed: 1, 2 or 3 columns');
+define('_MI_XMCONTACT_PREF_COLUMNCAT', 'Number of column for Form View');
+define('_MI_XMCONTACT_PREF_COLUMNCAT_DESC', 'Number of form that can be viewed: 1, 2 or 3 columns');
 define('_MI_XMCONTACT_PREF_HEADER', 'Header index page');
 define('_MI_XMCONTACT_PREF_HEADER_DESC', 'Set HTML codes to show in contact page');
 define('_MI_XMCONTACT_PREF_FOOTER', 'Footer contact form');
@@ -49,14 +49,14 @@ define('_MI_XMCONTACT_PREF_ADDRESSE_DESC', 'Set HTML codes to show in contact pa
 define('_MI_XMCONTACT_PREF_GOOGLEMAPS', 'Embed Google maps');
 define('_MI_XMCONTACT_PREF_GOOGLEMAPS_DESC', "Embed Google maps iFrame<br />change iFrame width to '100%'");
 define('_MI_XMCONTACT_PREF_NOTIFICATION', 'Enable email notification');
-define('_MI_XMCONTACT_PREF_NOTIFICATION_DESC', 'For every contact request, the category owner will receive an email notification');
+define('_MI_XMCONTACT_PREF_NOTIFICATION_DESC', 'For every contact request, the form owner will receive an email notification');
 define('_MI_XMCONTACT_PREF_HEAD_ADMIN', "<span style='font-weight: bold;'>Administration</span>");
 define('_MI_XMCONTACT_PREF_EDITOR', 'Text Editor');
 define('_MI_XMCONTACT_PREF_ITEMPERPAGE', 'Number of items per page in the Admin view');
 
 //new version 1.0
-define('_MI_XMCONTACT_PREF_HEAD_SIMPLECONTACT', 'Valid options if the module is used without contact category (only one contact form)');
-define('_MI_XMCONTACT_PREF_SP_DESC', 'Only valid if the module is used without a contact category (Only one contact form)');
+define('_MI_XMCONTACT_PREF_HEAD_SIMPLECONTACT', 'Valid options if the module is used with a single contact form');
+define('_MI_XMCONTACT_PREF_SP_DESC', 'Valid only if the module is used with a single contact form');
 define('_MI_XMCONTACT_PREF_DOCIVILITY', 'View civility');
 define('_MI_XMCONTACT_PREF_RECIVILITY', 'Required civility');
 define('_MI_XMCONTACT_PREF_DONAME', 'View name');
