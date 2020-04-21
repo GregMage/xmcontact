@@ -38,9 +38,9 @@ $modversion['release_date']         = '2020/04/10';
 $modversion['module_website_url']   = 'www.monxoops.fr/';
 $modversion['module_website_name']  = 'MonXoops';
 $modversion['module_status']        = 'Final';
-$modversion['min_php']              = '5.6';
-$modversion['min_xoops']            = '2.5.10';
-$modversion['min_db']               = array('mysql'=>'5.0.7', 'mysqli'=>'5.0.7');
+$modversion['min_xoops'] 			= '2.5.10';
+$modversion['min_php']   			= '7.0';
+$modversion['min_db']    			= ['mysql' => '5.5'];
 
 //install and update
 $modversion['onInstall']           = 'include/install.php';

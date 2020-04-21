@@ -23,6 +23,8 @@ require __DIR__ . '/admin_header.php';
 $moduleAdmin = Admin::getInstance();
 $moduleAdmin->displayNavigation('index.php');
 
+$moduleAdmin->addConfigModuleVersion('system', 212);
+
 // category
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('category_status', 1));
