@@ -1,4 +1,4 @@
-Bonjour {X_UNAME},
+﻿Bonjour {X_UNAME},
 
 Une nouvelle demande de contact à été postée depuis le site: {X_SITENAME}
 
@@ -7,7 +7,7 @@ Vous pouvez voir la demande ici :
 
 Informations de la demande :
 
-Catégorie: contact- {X_CATEGORY}
+Formulaire : contact - {X_CATEGORY}
 
 Email: {X_EMAIL}
 

@@ -19,7 +19,7 @@
 // all
 define('_AM_XMCONTACT_ACTION', 'Action');
 define('_AM_XMCONTACT_ADD', 'Add');
-define('_AM_XMCONTACT_CATEGORY', 'Category');
+define('_AM_XMCONTACT_CATEGORY', 'Form');
 define('_AM_XMCONTACT_DEL', 'Delete');
 define('_AM_XMCONTACT_EDIT', 'Edit');
 define('_AM_XMCONTACT_EDITSTATUS', 'Manually edit the status');
@@ -31,9 +31,9 @@ define('_AM_XMCONTACT_STATUS_NA', 'Disabled');
 define('_AM_XMCONTACT_VIEW', 'View Details');
 
 // index
-define('_AM_XMCONTACT_INDEX_CAT', 'Categories');
-define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', 'active categories');
-define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', 'disabled categories');
+define('_AM_XMCONTACT_INDEX_CAT', 'Forms');
+define('_AM_XMCONTACT_INDEX_CAT_ACTIVE', 'active forms');
+define('_AM_XMCONTACT_INDEX_CAT_NOTACTIVE', 'disabled forms');
 define('_AM_XMCONTACT_INDEX_CAT_NOTREPLY', 'unanswered requests');
 define('_AM_XMCONTACT_INDEX_REQUEST', 'Requests');
 define('_AM_XMCONTACT_INDEX_REQUEST_REPLY', 'processed requests');
@@ -58,21 +58,21 @@ define('_AM_XMCONTACT_REQUEST_TITLE', 'Title');
 define('_AM_XMCONTACT_REQUEST_TO', 'A:');
 
 // category
-define('_AM_XMCONTACT_CATEGORY_ADD', 'Add Category');
+define('_AM_XMCONTACT_CATEGORY_ADD', 'Add Form');
 define('_AM_XMCONTACT_CATEGORY_DESC', 'Description');
 define('_AM_XMCONTACT_CATEGORY_FORMPATH', 'Files are in: %s');
-define('_AM_XMCONTACT_CATEGORY_LIST', 'Category List');
+define('_AM_XMCONTACT_CATEGORY_LIST', 'Forms List');
 define('_AM_XMCONTACT_CATEGORY_LOGO', 'Logo');
 define('_AM_XMCONTACT_CATEGORY_LOGOFILE', 'Logo file');
 define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE', 'Owner');
-define('_AM_XMCONTACT_CATEGORY_SUREDEL', 'Sure to delete this category? %s');
+define('_AM_XMCONTACT_CATEGORY_SUREDEL', 'Sure to delete this form? %s');
 define('_AM_XMCONTACT_CATEGORY_TITLE', 'Title');
 define('_AM_XMCONTACT_CATEGORY_UPLOAD', 'Upload');
 define('_AM_XMCONTACT_CATEGORY_UPLOADSIZE', 'Maximum size: %s kB');
 define('_AM_XMCONTACT_CATEGORY_WEIGHT', 'Weight');
 
 // error
-define('_AM_XMCONTACT_ERROR_CAT', 'There are no categories in the database');
+define('_AM_XMCONTACT_ERROR_CAT', 'There is no form in the database');
 define('_AM_XMCONTACT_ERROR_WEIGHT', 'Weight must be a number');
 
 //new version 1.0

@@ -7,7 +7,7 @@ You can see the request here:
 
 Informations of request:
 
-Category: contact- {X_CATEGORY}
+Form: contact - {X_CATEGORY}
 
 Email: {X_EMAIL}
 
