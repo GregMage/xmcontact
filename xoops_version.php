@@ -18,7 +18,7 @@
  */
 
 $modversion['name']                = _MI_XMCONTACT_NAME;
-$modversion['version']             = '1.0';
+$modversion['version']             = '1.1';
 $modversion['description']         = _MI_XMCONTACT_DESC;
 $modversion['credits']             = 'G. Mage';
 $modversion['author']              = 'G. Mage';
@@ -34,10 +34,10 @@ $modversion['icons32']             = 'Frameworks/moduleclasses/icons/32';
 $modversion['help']                = 'page=help';
 
 //about
-$modversion['release_date']         = '2020/04/24';
+$modversion['release_date']         = '2020/04/30';
 $modversion['module_website_url']   = 'www.monxoops.fr/';
 $modversion['module_website_name']  = 'MonXoops';
-$modversion['module_status']        = 'Final';
+$modversion['module_status']        = 'RC 1';
 $modversion['min_xoops'] 			= '2.5.10';
 $modversion['min_php']   			= '7.0';
 $modversion['min_db']    			= ['mysql' => '5.5'];
