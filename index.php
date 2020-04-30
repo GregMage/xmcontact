@@ -35,13 +35,15 @@ $criteria->add(new Criteria('category_status', 1));
 $category_arr = $categoryHandler->getall($criteria);
 $category_count = $categoryHandler->getCount($criteria);
 if ($category_count == 0) {
-	$xoopsTpl->assign('info_header', $helper->getConfig('info_header', ''));
-	$xoopsTpl->assign('info_footer', $helper->getConfig('info_footer', ''));
-	$xoopsTpl->assign('info_addresse', $helper->getConfig('info_addresse', ''));
-	$xoopsTpl->assign('info_googlemaps', $helper->getConfig('info_googlemaps', ''));
-	$op = 'form';
-	$simple_contact = true;
-	$xoopsTpl->assign('simple_contact', $simple_contact);
+	if ($op == 'list'){
+		$xoopsTpl->assign('info_header', $helper->getConfig('info_header', ''));
+		$xoopsTpl->assign('info_footer', $helper->getConfig('info_footer', ''));
+		$xoopsTpl->assign('info_addresse', $helper->getConfig('info_addresse', ''));
+		$xoopsTpl->assign('info_googlemaps', $helper->getConfig('info_googlemaps', ''));
+		$op = 'form';
+		$simple_contact = true;
+		$xoopsTpl->assign('simple_contact', $simple_contact);
+	}
 } else {
 	$simple_contact = false;
 }
