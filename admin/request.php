@@ -129,7 +129,11 @@ switch ($op) {
             $status = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_R . '</span>';
         }
         $category = $categoryHandler->get($request->getVar('request_cid'));
-        $category_title = $category->getVar('category_title');
+		if (empty($category)) {
+			$category_title = '';
+		} else {
+			$category_title = $category->getVar('category_title');
+		}
         $request_arr = array(_AM_XMCONTACT_CATEGORY => $category_title,
 							 _AM_XMCONTACT_REQUEST_CIVILITY => $request->getVar('request_civility'),
                              _AM_XMCONTACT_REQUEST_SUBMITTER => $request->getVar('request_name'),
