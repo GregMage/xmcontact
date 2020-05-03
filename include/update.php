@@ -29,8 +29,6 @@ function xoops_module_update_xmcontact(XoopsModule $module, $previousVersion = n
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_request') . "` ADD `request_url` varchar(255) NOT NULL DEFAULT '';";
         $db->query($sql);
 		//category
-		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_civility` tinyint(2) unsigned NOT NULL DEFAULT '10';";
-        $db->query($sql);
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_name` tinyint(2) unsigned NOT NULL DEFAULT '10';";
         $db->query($sql);
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_fname` tinyint(2) unsigned NOT NULL DEFAULT '10';";
@@ -42,6 +40,14 @@ function xoops_module_update_xmcontact(XoopsModule $module, $previousVersion = n
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_address` tinyint(2) unsigned NOT NULL DEFAULT '10';";
         $db->query($sql);
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_url` tinyint(2) unsigned NOT NULL DEFAULT '10';";
+        $db->query($sql);
+    }
+
+	// Passage de la version 1.0 à 1.1
+    if ($previousVersion <= 100) {
+        $db = XoopsDatabaseFactory::getDatabaseConnection();
+		//category
+		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_civility` tinyint(2) unsigned NOT NULL DEFAULT '10';";
         $db->query($sql);
     }
     return true;
