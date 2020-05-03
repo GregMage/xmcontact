@@ -312,20 +312,32 @@ switch ($op) {
             $obj->setVar('request_date_e', time());
             $obj->setVar('request_status', 0);
             if ($requestHandler->insert($obj)) {
-                if (0 != $cat_id && 1 == $helper->getConfig('info_notification', 1)) {
-                    $newcontent_id = $obj->get_new_enreg();
-                    $category = $categoryHandler->get($cat_id);
-					if ($category->getVar('category_responsible') != 0){
-						$memberHandler = xoops_getHandler('member');
-						$thisUser = $memberHandler->getUser($category->getVar('category_responsible'));
-						$xoopsMailer = xoops_getMailer();
-						$xoopsMailer->useMail();
-						$xoopsMailer->setToEmails($thisUser->getVar('email'));
-						$xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT . ' "' . $category->getVar('category_title') . '"');
+                if (1 == $helper->getConfig('info_notification', 1)) {
+                    $newcontent_id = $obj->get_new_enreg();					
+					$xoopsMailer = xoops_getMailer();
+					$xoopsMailer->useMail();
+					if (0 != $cat_id) {
+						$category = $categoryHandler->get($cat_id);
+						if ($category->getVar('category_responsible') != 0){
+							$memberHandler = xoops_getHandler('member');
+							$thisUser = $memberHandler->getUser($category->getVar('category_responsible'));
+							$xoopsMailer->setToEmails($thisUser->getVar('email'));
+							$xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT . ' "' . $category->getVar('category_title') . '"');
+							$xoopsMailer->assign('X_CATEGORY', $category->getVar('category_title'));
+							$xoopsMailer->assign('X_UNAME', XoopsUser::getUnameFromId($category->getVar('category_responsible')));
+							$mail = true;
+						} else {
+							$mail = false;
+						}							
+					} else {
+						$xoopsMailer->setToEmails($xoopsConfig['adminmail']);
+						$xoopsMailer->assign('X_UNAME', '');
+						$mail = true;
+					}
+                    
+					if ($mail == true){
 						$xoopsMailer->setTemplateDir($GLOBALS['xoopsModule']->getVar('dirname', 'n'));
-						$xoopsMailer->setTemplate('new_request.tpl');
-						$xoopsMailer->assign('X_UNAME', XoopsUser::getUnameFromId($category->getVar('category_responsible')));	
-						$xoopsMailer->assign('X_CATEGORY', $category->getVar('category_title'));						
+						$xoopsMailer->setTemplate('new_request.tpl');												
 						$xoopsMailer->assign('X_EMAIL', $request['email']);
 						$xoopsMailer->assign('X_MESSAGE', $request['message']);
 						$xoopsMailer->assign('REQUEST_URL', XOOPS_URL . '/modules/xmcontact/admin/request.php?op=view&request_id=' . $newcontent_id);
