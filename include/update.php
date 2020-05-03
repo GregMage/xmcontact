@@ -29,6 +29,8 @@ function xoops_module_update_xmcontact(XoopsModule $module, $previousVersion = n
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_request') . "` ADD `request_url` varchar(255) NOT NULL DEFAULT '';";
         $db->query($sql);
 		//category
+		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_civility` tinyint(2) unsigned NOT NULL DEFAULT '10';";
+        $db->query($sql);
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_name` tinyint(2) unsigned NOT NULL DEFAULT '10';";
         $db->query($sql);
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_fname` tinyint(2) unsigned NOT NULL DEFAULT '10';";
