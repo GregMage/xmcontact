@@ -1,4 +1,30 @@
 ﻿-------------------------------------------------
+Version: 1.1 Final
+Date:    08.05.2020
+-------------------------------------------------
+Bug fixes:	
+	- If a form was deleted, the requests linked to this form could not be read.
+	- The simple form did not work.
+	- The script for the transition from version 0.2 to 1.0 did not work (No longer possible to modify a form)
+
+Improvements:
+	- If notification by email is authorized, an email is sent to the administrator's email address when using a simple form.
+
+Security:
+	/
+
+	
+Correction de bogues:	
+	- Si on supprimait un formulaire, la lecture des demandes liées à ce formulaire était impossible.
+	- Le formulaire simple ne fonctionnait pas.
+	- Le script pour le passage de la version 0.2 à 1.0 ne fonctionnait pas (Plus possible de modifier un formulaire)
+
+Améliorations:
+	- Si la notification par mail est autorisée, un mail est envoyé à l'adresse électronique de l'administrateur(trice) dans le cas de l'utilisation d'un formulaire simple.
+
+Sécurités:
+	/
+-------------------------------------------------
 Version: 1.0 Final
 Date:    24.04.2020
 -------------------------------------------------
