@@ -331,6 +331,7 @@ switch ($op) {
 						}							
 					} else {
 						$xoopsMailer->setToEmails($xoopsConfig['adminmail']);
+						$xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT);
 						$xoopsMailer->assign('X_UNAME', '');
 						$xoopsMailer->assign('X_CATEGORY', '');
 						$mail = true;
