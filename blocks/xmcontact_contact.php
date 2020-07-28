@@ -17,6 +17,7 @@
  * @author          Mage Gregory (AKA Mage)
  */
 function block_xmcontact_contact_show($options) {
+
 	// Get handler
 	$categoryHandler = xoops_getModuleHandler('xmcontact_category', 'xmcontact');
 	
@@ -61,7 +62,10 @@ function block_xmcontact_contact_show($options) {
 	$block['show_logo']        = $options[2];
 	$block['display']          = $options[3];
 	$block['nb_column']        = $options[4];
-	
+	$block['category_count']   = $category_count;
+	if ($category_count == 0) {
+		$block['simple_contact']   = true;
+	}
 	return $block;
 }
 

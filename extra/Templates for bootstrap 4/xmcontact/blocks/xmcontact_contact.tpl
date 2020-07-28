@@ -1,3 +1,4 @@
+<{if $category_count != 0}>
 <div class="row">
 <{foreach item=category from=$block.category}>
 	<{if $block.display == "V"}>		
@@ -94,3 +95,9 @@
 	<{/if}>
 <{/foreach}>
 </div>
+<{/if}>
+<{if $simple_contact}>
+	<div class="col-12 pt-2">	
+		<button class="btn btn-primary btn-sm" onclick=window.location.href="<{$xoops_url}>/modules/xmcontact/index.php?op=form"><{$smarty.const._MB_XMCONTACT_CONTACT}></button>
+	</div>	
+<{/if}>
