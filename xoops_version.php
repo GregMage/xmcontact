@@ -161,6 +161,15 @@ $modversion['config'][] = array(
 );
 
 $modversion['config'][] = array(
+    'name'        => 'info_simplecontact',
+    'title'       => '_MI_XMCONTACT_PREF_SIMPLECONTACT',
+    'description' => '_MI_XMCONTACT_PREF_SIMPLECONTACT_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1
+);
+
+$modversion['config'][] = array(
     'name'        => 'break',
     'title'       => '_MI_XMCONTACT_PREF_HEAD_SIMPLECONTACT',
     'description' => '',

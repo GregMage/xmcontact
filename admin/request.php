@@ -33,6 +33,8 @@ switch ($op) {
         // Get start pager
         $start = Request::getInt('start', 0);
 		$xoopsTpl->assign('filter', true);
+		// Simple contact
+		$xoopsTpl->assign('simplecontact', $simplecontact);
 		// Category
 		$request_cid = Request::getInt('request_cid', 0);
         $xoopsTpl->assign('request_cid', $request_cid);

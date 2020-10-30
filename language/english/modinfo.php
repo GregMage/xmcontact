@@ -69,3 +69,7 @@ define('_MI_XMCONTACT_PREF_DOADDRESS', 'View address');
 define('_MI_XMCONTACT_PREF_READDRESS', 'Required address');
 define('_MI_XMCONTACT_PREF_DOURL', 'View url');
 define('_MI_XMCONTACT_PREF_REURL', 'Required url');
+
+//new version 2.0
+define('_MI_XMCONTACT_PREF_SIMPLECONTACT', 'Use only of a simple contact form');
+define('_MI_XMCONTACT_PREF_SIMPLECONTACT_DESC', 'If you want to use several forms, it is necessary to set this option to "no"');

@@ -30,7 +30,9 @@
     <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
         <thead>
         <tr>
+			<{if $simplecontact == 0}>
             <th class="txtleft width15"><{$smarty.const._AM_XMCONTACT_CATEGORY}></th>
+			<{/if}>
             <th class="txtleft"><{$smarty.const._AM_XMCONTACT_REQUEST_SUBJECT}></th>
             <th class="txtcenter width10"><{$smarty.const._AM_XMCONTACT_REQUEST_DATES}></th>
             <th class="txtcenter width10"><{$smarty.const._AM_XMCONTACT_REQUEST_DATER}></th>
@@ -41,7 +43,9 @@
         <tbody>
         <{foreach item=request from=$request}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
+				<{if $simplecontact == 0}>
                 <td class="txtleft"><{$request.category}></td>
+				<{/if}>
                 <td class="txtleft"><{$request.subject}></td>
                 <td class="txtcenter"><{$request.date_e}></td>
                 <td class="txtcenter"><{$request.date_r}></td>

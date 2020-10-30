@@ -36,4 +36,5 @@ $helper->loadLanguage('admin');
 
 // Config
 $nb_limit  = $helper->getConfig('admin_perpage', 15);
+$simplecontact  = $helper->getConfig('info_simplecontact', 1);
 xoops_cp_header();

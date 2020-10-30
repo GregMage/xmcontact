@@ -69,3 +69,7 @@ define('_MI_XMCONTACT_PREF_DOADDRESS', 'Afficher l\'adresse');
 define('_MI_XMCONTACT_PREF_READDRESS', 'Adresse obligatoire');
 define('_MI_XMCONTACT_PREF_DOURL', 'Afficher le lien');
 define('_MI_XMCONTACT_PREF_REURL', 'Lien obligatoire');
+
+//new version 2.0
+define('_MI_XMCONTACT_PREF_SIMPLECONTACT', 'Utilisez uniquement un simple formulaire de contact');
+define('_MI_XMCONTACT_PREF_SIMPLECONTACT_DESC', 'Si vous désirez utiliser plusieurs formulaires, il est nécessaire de mettre cette option sur "non"');

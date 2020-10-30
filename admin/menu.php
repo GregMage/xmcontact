@@ -17,6 +17,7 @@
  * @author          Mage Gregory (AKA Mage)
  */
 
+use Xmf\Module\Helper;
 defined('XOOPS_ROOT_PATH') || die('XOOPS root path not defined');
 
 // get path to icons
@@ -34,12 +35,15 @@ $adminmenu[] = [
     'icon'  => $pathIcon32 . 'home.png'
 ];
 // Category
-$adminmenu[] = [
-    'title' => _MI_XMCONTACT_MENU_CATEGORY,
-    'link'  => 'admin/category.php',
-	'desc'  => _MI_XMCONTACT_MENU_CATEGORY_DESC,
-    'icon'  => $pathIcon32 . 'category.png'
-];
+$helper = Helper::getHelper(basename(dirname(__DIR__)));
+if ($helper->getConfig('info_simplecontact', 1) == 0) {
+	$adminmenu[] = [
+		'title' => _MI_XMCONTACT_MENU_CATEGORY,
+		'link'  => 'admin/category.php',
+		'desc'  => _MI_XMCONTACT_MENU_CATEGORY_DESC,
+		'icon'  => $pathIcon32 . 'category.png'
+	];
+}
 // Request
 $adminmenu[] = [
     'title' => _MI_XMCONTACT_MENU_REQUEST,
