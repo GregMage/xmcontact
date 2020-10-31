@@ -34,8 +34,8 @@ $criteria->setOrder('ASC');
 $criteria->add(new Criteria('category_status', 1));
 $category_arr = $categoryHandler->getall($criteria);
 $category_count = $categoryHandler->getCount($criteria);
-if ($category_count == 0) {
-	if ($op == 'list'){
+if ($category_count == 0 || $helper->getConfig('info_simplecontact', 1) == 1) {
+	if ($op != 'save'){
 		$xoopsTpl->assign('info_header', $helper->getConfig('info_header', ''));
 		$xoopsTpl->assign('info_footer', $helper->getConfig('info_footer', ''));
 		$xoopsTpl->assign('info_addresse', $helper->getConfig('info_addresse', ''));
@@ -100,9 +100,6 @@ switch ($op) {
     
     // form
     case 'form':
-		if ($simple_contact == False){
-			$xoopsTpl->assign('form', true);
-		}
         // Captcha
         if (1 == $helper->getConfig('info_captcha', 1)) {
             xoops_load('XoopsCaptcha');
@@ -131,9 +128,10 @@ switch ($op) {
         $request['message'] = '';
         $xoopsTpl->assign('request', $request);
         $xoopsTpl->assign('token', $GLOBALS['xoopsSecurity']->createToken(0, 'XOOPS_TOKEN'));
-        $cat_id = Request::getInt('cat_id', 0);
-        $xoopsTpl->assign('cat_id', $cat_id);
-        if (0 != $cat_id) {
+        if ($simple_contact == False){
+			$cat_id = Request::getInt('cat_id', 0);
+			$xoopsTpl->assign('cat_id', $cat_id);
+			$xoopsTpl->assign('form', true);
             $category = $categoryHandler->get($cat_id);
             $xoopsTpl->assign('category_title', $category->getVar('category_title'));
             $xoopsTpl->assign('category_description', $category->getVar('category_description'));
@@ -359,7 +357,7 @@ switch ($op) {
 						if ($dourl == 1){
 							$infos .= _MD_XMCONTACT_INDEX_URL . ': ' . $request['url'] . "\n";
 						}
-						if ($dosubjec == 1){
+						if ($dosubject == 1){
 							$infos .= _MD_XMCONTACT_INDEX_SUBJECT . ': ' . $request['subject'] . "\n";
 						}
 						$xoopsMailer->assign('X_INFOS', $infos);						
