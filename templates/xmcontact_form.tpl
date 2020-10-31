@@ -2,7 +2,7 @@
 	<{if $docivility == 1}>
     <div class="form-group">
         <label for="Civility"><{$smarty.const._MD_XMCONTACT_INDEX_CIVILITY}> <{if $recivility ==1}><span style="color: red;">*</span><{/if}></label>
-		<select class="form-control" id="civility" name="civility" value="<{$request.name}>">
+		<select class="form-control" id="civility" name="civility" value="<{$request.civility}>">
 			<option></option>
 			<option><{$smarty.const._MD_XMCONTACT_INDEX_CIVILITY_OPT1}></option>
 			<option><{$smarty.const._MD_XMCONTACT_INDEX_CIVILITY_OPT2}></option>
