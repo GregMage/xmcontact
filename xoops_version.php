@@ -18,7 +18,7 @@
  */
 
 $modversion['name']                = _MI_XMCONTACT_NAME;
-$modversion['version']             = '1.2';
+$modversion['version']             = '2.0';
 $modversion['description']         = _MI_XMCONTACT_DESC;
 $modversion['credits']             = 'G. Mage';
 $modversion['author']              = 'G. Mage';
