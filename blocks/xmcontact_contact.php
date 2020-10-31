@@ -42,7 +42,6 @@ function block_xmcontact_contact_show($options) {
 	$count = 1;
 	$count_row = 1;
 	if ($category_count > 0){
-		echo '<br>cat: ' . $category_count;
 		foreach (array_keys($category_arr) as $i) {
 			$category_id                 = $category_arr[$i]->getVar('category_id');
 			$category['id']              = $category_id;
