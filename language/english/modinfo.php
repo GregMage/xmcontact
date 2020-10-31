@@ -73,3 +73,5 @@ define('_MI_XMCONTACT_PREF_REURL', 'Required url');
 //new version 2.0
 define('_MI_XMCONTACT_PREF_SIMPLECONTACT', 'Use only of a simple contact form');
 define('_MI_XMCONTACT_PREF_SIMPLECONTACT_DESC', 'If you want to use several forms, it is necessary to set this option to "no"');
+define('_MI_XMCONTACT_BLOCK_CONTACTFORM', 'Contact form');
+define('_MI_XMCONTACT_BLOCK_CONTACTFORM_DESC', 'Block with contact form');

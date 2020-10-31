@@ -74,6 +74,15 @@ $modversion['blocks'][] = array(
 	'options'     => '0|1|1|V|2',
     'template'    => 'xmcontact_contact.tpl'
 );
+$modversion['blocks'][] = array(
+    'file'        => 'xmcontact_contactform.php',
+    'name'        => _MI_XMCONTACT_BLOCK_CONTACTFORM,
+    'description' => _MI_XMCONTACT_BLOCK_CONTACTFORM_DESC,
+    'show_func'   => 'block_xmcontact_contactform_show',
+    'edit_func'   => 'block_xmcontact_contactform_edit',
+	'options'     => '0',
+    'template'    => 'xmcontact_contactform.tpl'
+);
 
 // Menu
 $modversion['hasMain'] = 1;

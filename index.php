@@ -178,6 +178,7 @@ switch ($op) {
             redirect_header('index.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
         }
         $cat_id = Request::getInt('cat_id', 0, 'POST');
+        $contact_redirect = Request::getUrl('contact_redirect', 'index.php', 'POST');
         $request['civility'] = Request::getString('civility', '', 'POST');
         $request['name'] = Request::getString('name', '', 'POST');
         $request['email'] = Request::getEmail('email', '', 'POST');
@@ -373,7 +374,7 @@ switch ($op) {
             if ('' != $message_error) {
                 $xoopsTpl->assign('error', $message_error);
             } else {
-				redirect_header('index.php', 2, _MD_XMCONTACT_REDIRECT_SEND);
+				redirect_header($contact_redirect, 2, _MD_XMCONTACT_REDIRECT_SEND);
 			}
         }
     break;

@@ -73,3 +73,5 @@ define('_MI_XMCONTACT_PREF_REURL', 'Lien obligatoire');
 //new version 2.0
 define('_MI_XMCONTACT_PREF_SIMPLECONTACT', 'Utilisez uniquement un simple formulaire de contact');
 define('_MI_XMCONTACT_PREF_SIMPLECONTACT_DESC', 'Si vous désirez utiliser plusieurs formulaires, il est nécessaire de mettre cette option sur "non"');
+define('_MI_XMCONTACT_BLOCK_CONTACTFORM', 'Formulaire de contact');
+define('_MI_XMCONTACT_BLOCK_CONTACTFORM_DESC', 'Block avec formulaire de contact');
