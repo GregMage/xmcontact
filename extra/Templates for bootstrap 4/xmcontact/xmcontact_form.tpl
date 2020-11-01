@@ -50,7 +50,7 @@
     </div>
     <{if $captcha}>
     <label for="Message"><{$captcha_caption}> <span style="color: red;">*</span></label>
-    <{$captcha}>
+    <{$block.captcha}>
     <{/if}>
     <div class="form-group text-center">
         <input type="hidden" name="op" id="op" value="save">
