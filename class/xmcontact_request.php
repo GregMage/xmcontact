@@ -16,7 +16,7 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-
+use Xmf\Module\Helper;
 if (!defined('XOOPS_ROOT_PATH')) {
     die('XOOPS root path not defined');
 }
@@ -104,6 +104,17 @@ class xmcontact_request extends XoopsObject
         }
         global $xoopsModuleConfig, $xoopsUser;
         include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
+		include __DIR__ . '/../include/common.php';
+
+		$helper = Helper::getHelper('xmcontact');
+		$category = $categoryHandler->get($this->getVar('request_cid'));
+		if ($category->getVar('category_signature') != ''){
+			$signature = $category->getVar('category_signature', 'e');
+		} elseif($helper->getConfig('info_signature', '') != ''){
+			$signature = $helper->getConfig('info_signature', '');
+		} else {
+			$signature = '';
+		}
         
         $form = new XoopsThemeForm(_AM_XMCONTACT_REPLY, 'form', $action, 'post', true);
         
@@ -117,8 +128,12 @@ class xmcontact_request extends XoopsObject
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_REQUEST_SUBMITTER, 'xmcontact_submitter', 50, 255, XoopsUser::getUnameFromId($GLOBALS['xoopsUser']->uid())), true);
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_REQUEST_EMAIL, 'xmcontact_mail', 50, 255, $GLOBALS['xoopsUser']->getVar('email')), true);
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_REQUEST_SUBJECT, 'xmcontact_subject', 50, 255, _RE . ' ' . $this->getVar('request_subject')), true);
-		
-		$reply_value = "\n\n\n\n-----------------------------------------------------------------------------------------------------\n";
+		$reply_value = "\n\n\n\n";
+		if ($signature != '') {
+			$reply_value .= $signature;
+			$reply_value .= "\n\n";
+		}		
+		$reply_value .= "-----------------------------------------------------------------------------------------------------\n";
 		$reply_value .= _AM_XMCONTACT_REQUEST_FROM . " " . $this->getVar('request_email') . "( " . $this->getVar('request_name') . ")\n";
 		$reply_value .= _AM_XMCONTACT_REQUEST_DATES . " : " . formatTimestamp($this->getVar('request_date_e')) . "\n";
 		$reply_value .= _AM_XMCONTACT_REQUEST_SUBJECT . " : " . $this->getVar('request_subject') . "\n";

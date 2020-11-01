@@ -47,7 +47,15 @@ function xoops_module_update_xmcontact(XoopsModule $module, $previousVersion = n
     if ($previousVersion <= 100) {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 		//category
-		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_civility` tinyint(2) unsigned NOT NULL DEFAULT '10';";
+		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_civility` tinyint(2) unsigned NOT NULL DEFAULT '10' AFTER `category_logo`;";
+        $db->query($sql);
+    }
+	
+	// Passage de la version 1.1 à 2.0
+    if ($previousVersion <= 110) {
+        $db = XoopsDatabaseFactory::getDatabaseConnection();
+		//category
+		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_signature` TEXT NOT NULL AFTER `category_url`;";
         $db->query($sql);
     }
     return true;

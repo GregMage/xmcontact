@@ -45,6 +45,7 @@ class xmcontact_category extends XoopsObject
 		$this->initVar('category_subject', XOBJ_DTYPE_TXTBOX, '10', false);
 		$this->initVar('category_address', XOBJ_DTYPE_TXTBOX, '10', false);
 		$this->initVar('category_url', XOBJ_DTYPE_TXTBOX, '10', false);
+		$this->initVar('category_signature', XOBJ_DTYPE_TXTAREA, null, false);
         $this->initVar('category_weight', XOBJ_DTYPE_INT, null, 11);
         $this->initVar('category_status', XOBJ_DTYPE_INT, 1, false);
     }
@@ -93,6 +94,7 @@ class xmcontact_category extends XoopsObject
         }
         $this->setVar('category_title', Request::getString('category_title', ''));
         $this->setVar('category_description', Request::getText('category_description', ''));
+        $this->setVar('category_signature', Request::getText('category_signature', ''));
         $this->setVar('category_responsible', Request::getInt('category_responsible', 1));
         $this->setVar('category_civility', Request::getInt('category_docivility', 1) . Request::getInt('category_recivility', 0));
         $this->setVar('category_name', Request::getInt('category_doname', 1) . Request::getInt('category_rename', 0));
@@ -269,7 +271,10 @@ class xmcontact_category extends XoopsObject
 		$reurl = new XoopsFormRadioYN(_AM_XMCONTACT_CATEGORY_REQUIRED, 'category_reurl', $reurl);
 		$url->addElement($reurl);
 		$url->addElement($closetable);
-		$form->addElement($url, false);	
+		$form->addElement($url, false);
+		
+		// signature
+        $form->addElement(new XoopsFormTextArea(_AM_XMCONTACT_CATEGORY_SIGNATURE, 'category_signature', $this->getVar('category_signature', 'e')), false);
 		
         // weight
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_CATEGORY_WEIGHT, 'category_weight', 5, 5, $weight), true);

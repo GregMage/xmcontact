@@ -170,6 +170,15 @@ $modversion['config'][] = array(
 );
 
 $modversion['config'][] = array(
+    'name'        => 'info_signature',
+    'title'       => '_MI_XMCONTACT_PREF_SIGNATURE',
+    'description' => '_MI_XMCONTACT_PREF_SIGNATURE_DESC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => ''
+);
+
+$modversion['config'][] = array(
     'name'        => 'info_simplecontact',
     'title'       => '_MI_XMCONTACT_PREF_SIMPLECONTACT',
     'description' => '_MI_XMCONTACT_PREF_SIMPLECONTACT_DESC',
