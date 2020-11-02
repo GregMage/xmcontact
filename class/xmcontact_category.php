@@ -122,7 +122,7 @@ class xmcontact_category extends XoopsObject
      */
     public function getForm($action = false)
     {
-		$helper      = Helper::getHelper('xmnews');
+		$helper      = Helper::getHelper('xmcontact');
         if (false === $action) {
             $action = $_SERVER['REQUEST_URI'];
         }
