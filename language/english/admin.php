@@ -88,3 +88,14 @@ define('_AM_XMCONTACT_REQUEST_CIVILITY', 'Civility');
 define('_AM_XMCONTACT_REQUEST_ADDRESS', 'Address');
 define('_AM_XMCONTACT_REQUEST_URL', 'Url');
 define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE_EMPTY', '-- No one --');
+
+//new version 2.0
+define('_AM_XMCONTACT_ANSWER_ADD', 'Add Recorded answers');
+define('_AM_XMCONTACT_ANSWER_LIST', 'Recorded answers list');
+define('_AM_XMCONTACT_ANSWER_TITLE', 'Title');
+define('_AM_XMCONTACT_ANSWER_DESC', 'Description');
+define('_AM_XMCONTACT_ANSWER_ANSWER', 'Answer');
+define('_AM_XMCONTACT_ERROR_ANSWER', 'There is no answer in the database');
+define('_AM_XMCONTACT_ANSWER_SUREDEL', 'Sure to delete this answer? %s');
+define('_AM_XMCONTACT_REQUEST_ANSWER', 'Use a predefined response');
+define('_AM_XMCONTACT_REQUEST_INSERT', 'Insert');

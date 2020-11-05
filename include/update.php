@@ -57,6 +57,9 @@ function xoops_module_update_xmcontact(XoopsModule $module, $previousVersion = n
 		//category
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontact_category') . "` ADD `category_signature` TEXT NOT NULL AFTER `category_url`;";
         $db->query($sql);
+		// answer
+		$sql = "CREATE TABLE `" . $db->prefix('xmcontact_answer') . "` ( `answer_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT, `answer_title` varchar(100) NOT NULL DEFAULT '', `answer_description` text NOT NULL, `answer_answer` text NOT NULL, `answer_weight` smallint(5) unsigned NOT NULL DEFAULT '0', PRIMARY KEY (`answer_id`), KEY `answer_title` (`answer_title`) ) ENGINE=MyISAM;";
+		$db->query($sql);
     }
     return true;
 }

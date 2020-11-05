@@ -30,6 +30,7 @@ $upload_size = 500000;
 // Get handler
 $categoryHandler  = $helper->getHandler('xmcontact_category');
 $requestHandler =  $helper->getHandler('xmcontact_request');
+$answerHandler =  $helper->getHandler('xmcontact_answer');
 // joint
 $requestHandler->table_link = $requestHandler->db->prefix('xmcontact_category'); // Nom de la table en jointure
 $requestHandler->field_link = 'category_id'; // champ de la table en jointure

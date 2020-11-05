@@ -147,7 +147,30 @@ class xmcontact_request extends XoopsObject
         $editor_configs['height'] = '400px';
         $editor_configs['editor'] = $xoopsModuleConfig['admin_editor'];
         $form->addElement(new XoopsFormEditor(_AM_XMCONTACT_REQUEST_MESSAGE, 'xmcontact_message', $editor_configs), false);
-        
+		
+		// Answer
+		if ($helper->getConfig('info_answer', 1) == 1) {
+			$criteria = new CriteriaCompo();
+			$criteria->setSort('answer_weight ASC, answer_title');
+			$criteria->setOrder('ASC');
+			$answer_arr = $answerHandler->getall($criteria);
+			$answer_count = $answerHandler->getCount($criteria);
+			if ($answer_count > 0) {
+				$form_answer = new XoopsFormElementTray(_AM_XMCONTACT_REQUEST_ANSWER);
+				$answer = new XoopsFormRadio('', 'radioanswer', array_key_first($answer_arr));
+				$answer->columns = 4;
+				foreach (array_keys($answer_arr) as $i) {
+					$value = '<div class="pad5 big bold">' . $answer_arr[$i]->getVar('answer_title') . '</div>';
+					$value .= '<div class="pad5 italic">' . $answer_arr[$i]->getVar('answer_description') . '</div>';
+					$answer->addOption($i, $value);
+					$form->addElement(new XoopsFormHidden('answer' . $answer_arr[$i]->getVar('answer_id'), $answer_arr[$i]->getVar('answer_answer', 'e')));
+				}
+				$form_answer->addElement($answer);
+				$form_answer->addElement(new XoopsFormLabel('<br>', "<button type='button' onclick='insert_answer()'>" . _AM_XMCONTACT_REQUEST_INSERT . "</button>"));
+				$form->addElement($form_answer);
+			}
+		}
+
         $form->addElement(new XoopsFormHidden('toemail', $this->getVar('request_email')));
         $form->addElement(new XoopsFormHidden('request_id', $this->getVar('request_id')));
         $form->addElement(new XoopsFormHidden('op', 'send'));

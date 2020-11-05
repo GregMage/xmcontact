@@ -11,7 +11,7 @@
 <{/if}>
 <div class="xmcontact">
     <{$form}>
-</div>
+
 <{if $filter}>
 	<div align="right">
 		<form id="form_request_tri" name="form_request_tri" method="get" action="request.php">

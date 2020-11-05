@@ -88,3 +88,14 @@ define('_AM_XMCONTACT_REQUEST_CIVILITY', 'Civilité');
 define('_AM_XMCONTACT_REQUEST_ADDRESS', 'Adresse');
 define('_AM_XMCONTACT_REQUEST_URL', 'Lien');
 define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE_EMPTY', '-- Personne --');
+
+//new version 2.0
+define('_AM_XMCONTACT_ANSWER_ADD', 'Ajouter des réponses enregistrées');
+define('_AM_XMCONTACT_ANSWER_LIST', 'Liste des réponses enregistrées');
+define('_AM_XMCONTACT_ANSWER_TITLE', 'Titre');
+define('_AM_XMCONTACT_ANSWER_DESC', 'Description');
+define('_AM_XMCONTACT_ANSWER_ANSWER', 'Réponse');
+define('_AM_XMCONTACT_ERROR_ANSWER', 'Il n\'y a pas de réponse dans la base de données');
+define('_AM_XMCONTACT_ANSWER_SUREDEL', 'Voulez-vous vraiment supprimer cette réponse? %s');
+define('_AM_XMCONTACT_REQUEST_ANSWER', 'Utiliser une réponse prédéfinie');
+define('_AM_XMCONTACT_REQUEST_INSERT', 'Inserer');

@@ -192,6 +192,7 @@ switch ($op) {
 
     // reply
     case 'reply':
+		$xoTheme->addScript('modules/xmcontact/assets/js/xmcontact_answer.js');
 		// Module admin
         $moduleAdmin->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
         $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());

@@ -51,6 +51,15 @@ $adminmenu[] = [
 	'desc'  => _MI_XMCONTACT_MENU_REQUEST_DESC,
     'icon'  => $pathIcon32 . 'newsletter.png'
 ];
+// Answer
+if ($helper->getConfig('info_answer', 1) == 1) {
+	$adminmenu[] = [
+		'title' => _MI_XMCONTACT_MENU_ANSWER,
+		'link'  => 'admin/answer.php',
+		'desc'  => _MI_XMCONTACT_MENU_ANSWER_DESC,
+		'icon'  => $pathIcon32 . 'database_go.png'
+	];
+}
 // About
 $adminmenu[] = [
     'title' => _MI_XMCONTACT_MENU_ABOUT,

@@ -59,6 +59,7 @@ $modversion['adminmenu'] = 'admin/menu.php';
 // Admin Templates
 $modversion['templates'][] = ['file' => 'xmcontact_admin_category.tpl', 'description' => '', 'type' => 'admin'];
 $modversion['templates'][] = ['file' => 'xmcontact_admin_request.tpl', 'description' => '', 'type' => 'admin'];
+$modversion['templates'][] = ['file' => 'xmcontact_admin_answer.tpl', 'description' => '', 'type' => 'admin'];
 
 // User Templates
 $modversion['templates'][] = ['file' => 'xmcontact_index.tpl', 'description' => ''];
@@ -93,6 +94,7 @@ $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
 // Tables created by sql file (without prefix!)
 $modversion['tables'][1] = 'xmcontact_request';
 $modversion['tables'][2] = 'xmcontact_category';
+$modversion['tables'][3] = 'xmcontact_answer';
 
 // Pref.
 
@@ -176,6 +178,15 @@ $modversion['config'][] = array(
     'formtype'    => 'textarea',
     'valuetype'   => 'text',
     'default'     => ''
+);
+
+$modversion['config'][] = array(
+    'name'        => 'info_answer',
+    'title'       => '_MI_XMCONTACT_PREF_ANSWER',
+    'description' => '_MI_XMCONTACT_PREF_ANSWER_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
 );
 
 $modversion['config'][] = array(
