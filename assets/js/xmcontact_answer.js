@@ -10,5 +10,5 @@ function insert_answer()
 			answer_name = 'answer' + answer_id
 		}
 	}	
-	document.getElementById('xmcontact_message').value = document.getElementById(answer_name).value + document.getElementById('xmcontact_message').value;
+	document.getElementById('xmcontact_message').value = document.getElementById(answer_name).value + "\r\n\r\n" + document.getElementById('xmcontact_message').value;
 }
