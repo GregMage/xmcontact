@@ -36,13 +36,15 @@ $adminmenu[] = [
 ];
 // Category
 $helper = Helper::getHelper(basename(dirname(__DIR__)));
-if ($helper->getConfig('info_simplecontact', 1) == 0) {
-	$adminmenu[] = [
-		'title' => _MI_XMCONTACT_MENU_CATEGORY,
-		'link'  => 'admin/category.php',
-		'desc'  => _MI_XMCONTACT_MENU_CATEGORY_DESC,
-		'icon'  => $pathIcon32 . 'category.png'
-	];
+if (method_exists ( $helper , 'getConfig' )){
+	if ($helper->getConfig('info_simplecontact', 1) == 0) {
+		$adminmenu[] = [
+			'title' => _MI_XMCONTACT_MENU_CATEGORY,
+			'link'  => 'admin/category.php',
+			'desc'  => _MI_XMCONTACT_MENU_CATEGORY_DESC,
+			'icon'  => $pathIcon32 . 'category.png'
+		];
+	}
 }
 // Request
 $adminmenu[] = [
@@ -52,13 +54,15 @@ $adminmenu[] = [
     'icon'  => $pathIcon32 . 'newsletter.png'
 ];
 // Answer
-if ($helper->getConfig('info_answer', 1) == 1) {
-	$adminmenu[] = [
-		'title' => _MI_XMCONTACT_MENU_ANSWER,
-		'link'  => 'admin/answer.php',
-		'desc'  => _MI_XMCONTACT_MENU_ANSWER_DESC,
-		'icon'  => $pathIcon32 . 'database_go.png'
-	];
+if (method_exists ( $helper , 'getConfig' )){
+	if ($helper->getConfig('info_answer', 1) == 1) {
+		$adminmenu[] = [
+			'title' => _MI_XMCONTACT_MENU_ANSWER,
+			'link'  => 'admin/answer.php',
+			'desc'  => _MI_XMCONTACT_MENU_ANSWER_DESC,
+			'icon'  => $pathIcon32 . 'database_go.png'
+		];
+	}
 }
 // About
 $adminmenu[] = [
