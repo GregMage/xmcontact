@@ -80,5 +80,5 @@ define('_MI_XMCONTACT_PREF_ANSWER_DESC', 'Ce gestionnaire permet d\'enregistrer 
 define('_MI_XMCONTACT_BLOCK_CONTACTFORM', 'Formulaire de contact');
 define('_MI_XMCONTACT_BLOCK_CONTACTFORM_DESC', 'Block avec formulaire de contact');
 define('_AM_XMCONTACT_CATEGORY_SIGNATURE', 'Signature');
-define('_MI_XMCONTACT_MENU_ANSWER', 'Réponses enregistrées');
-define('_MI_XMCONTACT_MENU_ANSWER_DESC', 'Liste des réponses enregistrées');
+define('_MI_XMCONTACT_MENU_ANSWER', 'Réponses types');
+define('_MI_XMCONTACT_MENU_ANSWER_DESC', 'Liste des réponses types');

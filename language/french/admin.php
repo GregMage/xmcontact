@@ -90,14 +90,14 @@ define('_AM_XMCONTACT_REQUEST_URL', 'Lien');
 define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE_EMPTY', '-- Personne --');
 
 //new version 2.0
-define('_AM_XMCONTACT_ANSWER_ADD', 'Ajouter des réponses enregistrées');
-define('_AM_XMCONTACT_ANSWER_LIST', 'Liste des réponses enregistrées');
+define('_AM_XMCONTACT_ANSWER_ADD', 'Ajouter des réponses types');
+define('_AM_XMCONTACT_ANSWER_LIST', 'Liste des réponses types');
 define('_AM_XMCONTACT_ANSWER_TITLE', 'Titre');
 define('_AM_XMCONTACT_ANSWER_DESC', 'Description');
 define('_AM_XMCONTACT_ANSWER_ANSWER', 'Réponse');
-define('_AM_XMCONTACT_ERROR_ANSWER', 'Il n\'y a pas de réponse dans la base de données');
-define('_AM_XMCONTACT_ANSWER_SUREDEL', 'Voulez-vous vraiment supprimer cette réponse? %s');
-define('_AM_XMCONTACT_REQUEST_ANSWER', 'Utiliser une réponse prédéfinie');
+define('_AM_XMCONTACT_ERROR_ANSWER', 'Il n\'y a pas de réponses types dans la base de donnée');
+define('_AM_XMCONTACT_ANSWER_SUREDEL', 'Voulez-vous vraiment supprimer cette réponse type? %s');
+define('_AM_XMCONTACT_REQUEST_ANSWER', 'Utiliser une réponse type');
 define('_AM_XMCONTACT_REQUEST_INSERT', 'Inserer');
 define('AM_XMCONTACT_CATEGORY_DESC_DSC', "Vous pouvez utiliser le délimitateur <span style='color:blue'>[break]</span> pour créer un description courte.<br>Le texte avant '[break]' sera utilisé pour la description courte (index du module et blocs)
  et le texte après '[break]' sera utilisé pour la description longue sur la page du formulaire.<br> Si vous n'utilisez pas '[break]', la description sera identique partout");
