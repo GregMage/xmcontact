@@ -156,7 +156,10 @@ class xmcontact_category extends XoopsObject
         $editor_configs['width']  = '100%';
         $editor_configs['height'] = '400px';
         $editor_configs['editor'] = $helper->getConfig('admin_editor', 'Plain Text');
-        $form->addElement(new XoopsFormEditor(_AM_XMCONTACT_CATEGORY_DESC, 'category_description', $editor_configs), false);
+		$description = new XoopsFormEditor(_AM_XMCONTACT_CATEGORY_DESC, 'category_description', $editor_configs);
+		$description->setDescription(AM_XMCONTACT_CATEGORY_DESC_DSC);
+        $form->addElement($description, false);
+		
         // responsible
 		xoops_load('formuser', 'xmcontact');
         $form->addElement(new XmcontactFormUser(_AM_XMCONTACT_CATEGORY_RESPONSIBLE, 'category_responsible', true, $this->getVar('category_responsible'), 1, false), true);

@@ -47,6 +47,9 @@ function block_xmcontact_contact_show($options) {
 			$category['id']              = $category_id;
 			$category['title']           = $category_arr[$i]->getVar('category_title');
 			$category['description']     = $category_arr[$i]->getVar('category_description');
+			if (true == strpos($category['description'], '[break]')){
+				$category['description'] =  substr($category['description'],0,strpos($category['description'],'[break]'));
+			}
 			$category_img                = $category_arr[$i]->getVar('category_logo') ?: 'blank.gif';
 			$category['logo']            = XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img;
 			$category['count']           = $count;

@@ -69,6 +69,9 @@ switch ($op) {
 			$category['id']              = $category_id;
 			$category['title']           = $category_arr[$i]->getVar('category_title');
 			$category['description']     = $category_arr[$i]->getVar('category_description');
+			if (true == strpos($category['description'], '[break]')){
+				$category['description'] =  substr($category['description'],0,strpos($category['description'],'[break]'));
+			}
 			$category_img                = $category_arr[$i]->getVar('category_logo') ?: 'blank.gif';
 			$category['logo']            = XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img;
 			$category['count']           = $count;
@@ -134,7 +137,11 @@ switch ($op) {
 			$xoopsTpl->assign('form', true);
             $category = $categoryHandler->get($cat_id);
             $xoopsTpl->assign('category_title', $category->getVar('category_title'));
-            $xoopsTpl->assign('category_description', $category->getVar('category_description'));
+			$description = $category->getVar('category_description');
+			if (true == strpos($description, '[break]')){
+				$description =  substr($description, strpos($description,'[break]') + 7);
+			}
+            $xoopsTpl->assign('category_description', $description);			
             $xoopsTpl->assign('docivility', substr($category->getVar('category_civility'), 0, 1));
             $xoopsTpl->assign('recivility', substr($category->getVar('category_civility'), 1, 1));
 			$xoopsTpl->assign('doname', substr($category->getVar('category_name'), 0, 1));
