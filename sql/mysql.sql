@@ -30,7 +30,7 @@ CREATE TABLE `xmcontact_category` (
   `category_subject`     	varchar(2)  		    NOT NULL DEFAULT '10',
   `category_address`     	varchar(2)  		    NOT NULL DEFAULT '10',
   `category_url`          	varchar(2)  		    NOT NULL DEFAULT '10',
-  `category_signatue`   	text 					NOT NULL,
+  `category_signature`   	text 					NOT NULL,
   `category_weight` 		smallint(5)	unsigned	NOT NULL DEFAULT '0',
   `category_status` 		tinyint(1) 	unsigned	NOT NULL DEFAULT '0',
   PRIMARY KEY (`category_id`),
