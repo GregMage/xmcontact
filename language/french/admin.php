@@ -98,6 +98,7 @@ define('_AM_XMCONTACT_ANSWER_ANSWER', 'Réponse');
 define('_AM_XMCONTACT_ERROR_ANSWER', 'Il n\'y a pas de réponses types dans la base de donnée');
 define('_AM_XMCONTACT_ANSWER_SUREDEL', 'Voulez-vous vraiment supprimer cette réponse type? %s');
 define('_AM_XMCONTACT_REQUEST_ANSWER', 'Utiliser une réponse type');
+define('_AM_XMCONTACT_REQUEST_SAVEANSWER', 'Enregistrer la réponse dans une réponse type');
 define('_AM_XMCONTACT_REQUEST_INSERT', 'Inserer');
 define('AM_XMCONTACT_CATEGORY_DESC_DSC', "Vous pouvez utiliser le délimitateur <span style='color:blue'>[break]</span> pour créer un description courte.<br>Le texte avant '[break]' sera utilisé pour la description courte (index du module et blocs)
  et le texte après '[break]' sera utilisé pour la description longue sur la page du formulaire.<br> Si vous n'utilisez pas '[break]', la description sera identique partout");

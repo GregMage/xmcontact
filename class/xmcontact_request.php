@@ -169,14 +169,16 @@ class xmcontact_request extends XoopsObject
 				$form_answer->addElement(new XoopsFormLabel('<br>', "<button type='button' onclick='insert_answer()'>" . _AM_XMCONTACT_REQUEST_INSERT . "</button>"));
 				$form->addElement($form_answer);
 			}
-		}
-
+			$form->addElement(new XoopsFormRadioYN(_AM_XMCONTACT_REQUEST_SAVEANSWER, 'request_saveanswer', false));
+		} else {
+			$form->addElement(new XoopsFormHidden('request_saveanswer', 0));
+		}		
         $form->addElement(new XoopsFormHidden('toemail', $this->getVar('request_email')));
         $form->addElement(new XoopsFormHidden('request_id', $this->getVar('request_id')));
+        $form->addElement(new XoopsFormHidden('xmcontact_signature', $signature));
         $form->addElement(new XoopsFormHidden('op', 'send'));
         // submitt
         $form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
-
         return $form;
     }
 }

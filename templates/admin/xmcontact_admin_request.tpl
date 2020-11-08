@@ -9,6 +9,11 @@
         <{$message_error}>
     </div>
 <{/if}>
+<{if $message_sucess != ''}>
+    <div class="resultMsg" style="text-align: left;">
+        <{$message_sucess}>
+    </div>
+<{/if}>
 <div class="xmcontact">
     <{$form}>
 

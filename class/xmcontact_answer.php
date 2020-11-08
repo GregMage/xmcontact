@@ -89,7 +89,7 @@ class xmcontact_answer extends XoopsObject
      * @param bool $action
      * @return XoopsThemeForm
      */
-    public function getForm($action = false)
+    public function getForm($action = false, $answer_mesage = '')
     {
 		$helper      = Helper::getHelper('xmcontact');
         if (false === $action) {
@@ -106,6 +106,7 @@ class xmcontact_answer extends XoopsObject
         if (!$this->isNew()) {
 			$form->addElement(new XoopsFormHidden('answer_id', $this->getVar('answer_id')));
             $weight = $this->getVar('answer_weight');
+			$answer_mesage = $this->getVar('answer_answer', 'e');
         } else {
             $weight = 0;
         }
@@ -119,7 +120,7 @@ class xmcontact_answer extends XoopsObject
 		// answer
         $editor_configs           =array();
         $editor_configs['name']   = 'answer_answer';
-        $editor_configs['value']  = $this->getVar('answer_answer', 'e');
+        $editor_configs['value']  = $answer_mesage;
         $editor_configs['rows']   = 20;
         $editor_configs['cols']   = 160;
         $editor_configs['width']  = '100%';

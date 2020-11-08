@@ -222,24 +222,50 @@ switch ($op) {
             $xoopsMailer->setFromEmail($_POST['xmcontact_mail']);
             $xoopsMailer->setFromName($_POST['xmcontact_submitter']);
             $xoopsMailer->setSubject($_POST['xmcontact_subject']);
-            $xoopsMailer->setBody($_POST['xmcontact_message']);
+			$message = Request::getText('xmcontact_message', '');
+            $xoopsMailer->setBody($message);
+			if (Request::getInt('request_saveanswer', 0) == 1){
+				$answer_mesage = substr($message, 0, strpos($message, '-----------------------------------------------------------------------------------------------------'));
+				$answer_mesage = str_replace($_POST['xmcontact_signature'], '', $answer_mesage);
+				//echo $answer_mesage;
+			}
+
             if ($xoopsMailer->send()) {
-                $message = _AM_XMCONTACT_REQUEST_SENDEMAIL;
                 $obj = $requestHandler->get($request_id);
                 $obj->setVar('request_date_r', time());
                 $obj->setVar('request_status', 1);
                 if ($requestHandler->insert($obj)) {
-                    redirect_header('request.php', 2, _AM_XMCONTACT_REQUEST_SENDEMAIL . '<br />' . _AM_XMCONTACT_REDIRECT_SAVE);
+					if (Request::getInt('request_saveanswer', 0) == 0){
+						redirect_header('request.php', 2, _AM_XMCONTACT_REQUEST_SENDEMAIL . '<br />' . _AM_XMCONTACT_REDIRECT_SAVE);
+					} else {
+						// Define Stylesheet
+						$xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
+						$xoopsTpl->assign('message_sucess', _AM_XMCONTACT_REQUEST_SENDEMAIL . '<br />' . _AM_XMCONTACT_REDIRECT_SAVE);
+						// Create form
+						$obj  = $answerHandler->create();
+						$form = $obj->getForm('answer.php', $answer_mesage);
+						// Assign form
+						$xoopsTpl->assign('form', $form->render());
+					}
                 }
                 $message_error .= $obj->getHtmlErrors();
             } else {
                 $message_error .= $xoopsMailer->getErrors();
             }
             if ('' != $message_error) {
+				// Define Stylesheet
+				$xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
 				// Module admin
 				$moduleAdmin->addItemButton(_AM_XMCONTACT_REQUEST_LIST, 'request.php', 'list');
 				$xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
-                $xoopsTpl->assign('message_error', $message_error);				
+                $xoopsTpl->assign('message_error', $message_error);
+				if (Request::getInt('request_saveanswer', 0) == 1){
+					// Create form
+					$obj  = $answerHandler->create();
+					$form = $obj->getForm('answer.php', $answer_mesage);
+					// Assign form
+					$xoopsTpl->assign('form', $form->render());
+				}
             }
         }
         break;

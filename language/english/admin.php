@@ -98,6 +98,7 @@ define('_AM_XMCONTACT_ANSWER_ANSWER', 'Answer');
 define('_AM_XMCONTACT_ERROR_ANSWER', 'There is no answer in the database');
 define('_AM_XMCONTACT_ANSWER_SUREDEL', 'Sure to delete this answer? %s');
 define('_AM_XMCONTACT_REQUEST_ANSWER', 'Use a predefined response');
+define('_AM_XMCONTACT_REQUEST_SAVEANSWER', 'Save the response in a predefined response');
 define('_AM_XMCONTACT_REQUEST_INSERT', 'Insert');
 define('AM_XMCONTACT_CATEGORY_DESC_DSC', "You can use the  <span style='color:blue'>[break]</span> delimiter to create a short description.<br>The text before <span style='color:blue'>[break]</span> will be used for the short description (module index and blocks)
   and the text after<span style='color:blue'>[break]</span> will be used for the long description on the form page. <br> If you don't use <span style='color:blue'>[break]</span>, the description will be the same everywhere");
