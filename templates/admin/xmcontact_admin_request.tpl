@@ -23,11 +23,11 @@
 			<{$smarty.const._AM_XMCONTACT_INDEX_CAT}>
 			<select name="request_filter" id="request_filter" onchange="location='request.php?request_status=<{$request_status}>&request_cid='+this.options[this.selectedIndex].value">
 				<{$request_cid_options}>
-			<select>
+			</select>
 			<{$smarty.const._AM_XMCONTACT_STATUS}>
 			<select name="request_filter" id="request_filter" onchange="location='request.php?request_cid=<{$request_cid}>&request_status='+this.options[this.selectedIndex].value">
 				<{$request_status_options}>
-			<select>
+			</select>
 		</form>
 	</div>
 <{/if}>
