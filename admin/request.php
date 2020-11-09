@@ -247,8 +247,9 @@ switch ($op) {
 						// Assign form
 						$xoopsTpl->assign('form', $form->render());
 					}
-                }
-                $message_error .= $obj->getHtmlErrors();
+                } else {
+					$message_error .= $obj->getHtmlErrors();
+				}
             } else {
                 $message_error .= $xoopsMailer->getErrors();
             }
