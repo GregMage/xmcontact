@@ -48,7 +48,7 @@
         <label for="Message"><{$smarty.const._MD_XMCONTACT_INDEX_MESSAGE}> <span style="color: red;">*</span></label>
         <textarea class="form-control" id="message" name="message" rows="5" placeholder="<{$smarty.const._MD_XMCONTACT_INDEX_MESSAGE_PH}>" required><{$request.message}></textarea>
     </div>
-    <{if $captcha}>
+    <{if $captcha|default:false}>
     <label for="Message"><{$captcha_caption}> <span style="color: red;">*</span></label>
     <{$captcha}>
     <{/if}>

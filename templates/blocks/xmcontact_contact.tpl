@@ -66,7 +66,7 @@
 	<{/if}>
 <{/foreach}>
 <{/if}>
-<{if $block.simple_contact}>
+<{if $block.simple_contact|default:false}>
 	<p style="padding-top: 15px;">
 		<a href="<{$xoops_url}>/modules/xmcontact/index.php?op=form"><button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MB_XMCONTACT_CONTACT}></button></a>
 	</p>

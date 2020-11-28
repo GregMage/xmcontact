@@ -1,23 +1,20 @@
 <div class="xmcontact">
-    <{$navigation}>
+    <{$renderbutton|default:''}>
 </div>
-<div class="xmcontact">
-    <{$renderbutton}>
-</div>
-<{if $message_error != ''}>
+<{if $message_error|default:'' != ''}>
     <div class="errorMsg" style="text-align: left;">
         <{$message_error}>
     </div>
 <{/if}>
-<{if $message_sucess != ''}>
+<{if $message_sucess|default:'' != ''}>
     <div class="resultMsg" style="text-align: left;">
         <{$message_sucess}>
     </div>
 <{/if}>
 <div class="xmcontact">
-    <{$form}>
+    <{$form|default:false}>
 
-<{if $filter}>
+<{if $filter|default:false}>
 	<div align="right">
 		<form id="form_request_tri" name="form_request_tri" method="get" action="request.php">
 			<{$smarty.const._AM_XMCONTACT_INDEX_CAT}>
@@ -31,7 +28,7 @@
 		</form>
 	</div>
 <{/if}>
-<{if $request_count != 0}>
+<{if $request_count|default:0 != 0}>
     <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
         <thead>
         <tr>
@@ -73,12 +70,12 @@
         </tbody>
     </table>
     <div class="clear spacer"></div>
-    <{if $nav_menu}>
+    <{if $nav_menu|default:false}>
         <div class="xo-avatar-pagenav floatright"><{$nav_menu}></div>
         <div class="clear spacer"></div>
     <{/if}>
 <{/if}>
-<{if $view}>
+<{if $view|default:false}>
     <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
         <thead>
         <tr>

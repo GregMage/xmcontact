@@ -1,22 +1,19 @@
 <div class="xmcontact">
-    <{$navigation}>
-</div>
-<div class="xmcontact">
     <{$renderbutton}>
 </div>
-<{if $message_error != ''}>
+<{if $message_error|default:'' != ''}>
     <div class="errorMsg" style="text-align: left;">
         <{$message_error}>
     </div>
 <{/if}>
 <div class="xmcontact">
-    <{$form}>
+    <{$form|default:''}>
 </div>
-<{if $answer_count != 0}>
+<{if $answer_count|default:0 != 0}>
     <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
         <thead>
         <tr>
-			<{if $simplecontact == 0}>
+			<{if $simplecontact|default:0 == 0}>
             <th class="txtleft width15"><{$smarty.const._AM_XMCONTACT_ANSWER_TITLE}></th>
 			<{/if}>
             <th class="txtleft"><{$smarty.const._AM_XMCONTACT_ANSWER_DESC}></th>
@@ -44,12 +41,12 @@
         </tbody>
     </table>
     <div class="clear spacer"></div>
-    <{if $nav_menu}>
+    <{if $nav_menu|default:false}>
         <div class="xo-avatar-pagenav floatright"><{$nav_menu}></div>
         <div class="clear spacer"></div>
     <{/if}>
 <{/if}>
-<{if $view}>
+<{if $view|default:false}>
 	<div class="pad5 big bold"><{$title}></div>
 	<div class="pad5 italic"><{$description}></div>
 	<hr>
