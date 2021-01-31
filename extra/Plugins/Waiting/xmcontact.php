@@ -26,7 +26,6 @@ function b_waiting_xmcontact()
     $xoopsDB = \XoopsDatabaseFactory::getDatabaseConnection();
     $ret     = [];
     $block   = [];
-    // extcal events
     $sql    = 'SELECT COUNT(*) FROM ' . $xoopsDB->prefix('xmcontact_request') . ' WHERE request_status=0';
     $result = $xoopsDB->query($sql);
     if ($result) {
