@@ -93,7 +93,7 @@ function block_xmcontact_contact_edit($options) {
 		xoops_load('XoopsFormLoader');
 
 		$form = new XmcontactBlockForm();
-		$category = new XoopsFormSelect(_MB_XMCONTACT_CATEGORY, 'options[0]', $options[0], 5, true);
+		$category = new XoopsFormSelect(_MB_XMCONTACT_CATEGORY, 'options[0]', explode(',', $options[0]), 5, true);
 		$category->addOption(0, _MB_XMCONTACT_ALLCATEGORY);
 		foreach (array_keys($category_arr) as $i) {
 			$category->addOption($category_arr[$i]->getVar('category_id'), $category_arr[$i]->getVar('category_title'));
