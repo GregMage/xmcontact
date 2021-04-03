@@ -42,11 +42,11 @@ function xoops_module_install_xmcontact()
     }
     chmod($dir, 0777);
 
-    //Copy index.html
-    $indexFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/include/index.html';
-    copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/index.html');
-    copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/index.html');
-    copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/cats/index.html');
+    //Copy index.php
+    $indexFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/include/index.php';
+    copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/index.php');
+    copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/index.php');
+    copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/cats/index.php');
 
     //Copy blank.gif
     $blankFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/assets/images/blank.gif';
