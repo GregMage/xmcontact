@@ -41,7 +41,7 @@ switch ($op) {
 		$criteria = new CriteriaCompo();
 		$criteria->setSort('category_weight ASC, category_title');
 		$criteria->setOrder('ASC');
-		$category_arr = $categoryHandler->getall($criteria);	
+		$category_arr = $categoryHandler->getAll($criteria);
 		if (count($category_arr) > 0) {
 			$request_cid_options = '<option value="0"' . ($request_cid == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
 			foreach (array_keys($category_arr) as $i) {

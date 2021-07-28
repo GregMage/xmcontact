@@ -46,7 +46,7 @@ switch ($op) {
         $criteria->setOrder('ASC');
         $criteria->setStart($start);
         $criteria->setLimit($nb_limit);
-        $category_arr = $categoryHandler->getall($criteria);
+        $category_arr = $categoryHandler->getAll($criteria);
         $category_count = $categoryHandler->getCount($criteria);
         $xoopsTpl->assign('category_count', $category_count);
 

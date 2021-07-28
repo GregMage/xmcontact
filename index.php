@@ -32,7 +32,7 @@ $criteria = new CriteriaCompo();
 $criteria->setSort('category_weight ASC, category_title');
 $criteria->setOrder('ASC');
 $criteria->add(new Criteria('category_status', 1));
-$category_arr = $categoryHandler->getall($criteria);
+$category_arr = $categoryHandler->getAll($criteria);
 $category_count = $categoryHandler->getCount($criteria);
 if ($category_count == 0 || $helper->getConfig('info_simplecontact', 1) == 1) {
 	if ($op != 'save'){
