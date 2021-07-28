@@ -170,9 +170,9 @@ class xmcontact_category extends XoopsObject
         $imgpath_img     = sprintf(_AM_XMCONTACT_CATEGORY_FORMPATH, $uploadirectory);
         $imageselect_img = new XoopsFormSelect($imgpath_img, 'category_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray(XOOPS_ROOT_PATH . $uploadirectory);
-        $imageselect_img->addOption("$blank_img", $blank_img);
+        $imageselect_img->addOption((string)$blank_img, $blank_img);
         foreach ($image_array_img as $image_img) {
-            $imageselect_img->addOption("$image_img", $image_img);
+            $imageselect_img->addOption((string)$image_img, $image_img);
         }
         $imageselect_img->setExtra("onchange='showImgSelected(\"image_img2\", \"category_logo\", \"" . $uploadirectory . "\", \"\", \"" . XOOPS_URL . "\")'");
         $imgtray_img->addElement($imageselect_img, false);
