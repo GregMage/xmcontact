@@ -176,5 +176,5 @@ switch ($op) {
         }
         break;
 }
-$xoopsTpl->display("db:xmcontact_admin_category.tpl");
+$xoopsTpl->display('db:xmcontact_admin_category.tpl');
 require __DIR__ . '/admin_footer.php';

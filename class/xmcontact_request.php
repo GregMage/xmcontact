@@ -134,9 +134,9 @@ class xmcontact_request extends XoopsObject
 			$reply_value .= "\n\n";
 		}		
 		$reply_value .= "-----------------------------------------------------------------------------------------------------\n";
-		$reply_value .= _AM_XMCONTACT_REQUEST_FROM . " " . $this->getVar('request_email') . "( " . $this->getVar('request_name') . ")\n";
-		$reply_value .= _AM_XMCONTACT_REQUEST_DATES . " : " . formatTimestamp($this->getVar('request_date_e')) . "\n";
-		$reply_value .= _AM_XMCONTACT_REQUEST_SUBJECT . " : " . $this->getVar('request_subject') . "\n";
+		$reply_value .= _AM_XMCONTACT_REQUEST_FROM . ' ' . $this->getVar('request_email') . '( ' . $this->getVar('request_name') . ")\n";
+		$reply_value .= _AM_XMCONTACT_REQUEST_DATES . ' : ' . formatTimestamp($this->getVar('request_date_e')) . "\n";
+		$reply_value .= _AM_XMCONTACT_REQUEST_SUBJECT . ' : ' . $this->getVar('request_subject') . "\n";
 		$reply_value .= "\n" . $this->getVar('request_message', 'e');
         $editor_configs= [];
         $editor_configs['name'] ='xmcontact_message';
@@ -166,7 +166,7 @@ class xmcontact_request extends XoopsObject
 					$form->addElement(new XoopsFormHidden('answer' . $answer_arr[$i]->getVar('answer_id'), $answer_arr[$i]->getVar('answer_answer', 'e')));
 				}
 				$form_answer->addElement($answer);
-				$form_answer->addElement(new XoopsFormLabel('<br>', "<button type='button' onclick='insert_answer()'>" . _AM_XMCONTACT_REQUEST_INSERT . "</button>"));
+				$form_answer->addElement(new XoopsFormLabel('<br>', "<button type='button' onclick='insert_answer()'>" . _AM_XMCONTACT_REQUEST_INSERT . '</button>'));
 				$form->addElement($form_answer);
 			}
 			$form->addElement(new XoopsFormRadioYN(_AM_XMCONTACT_REQUEST_SAVEANSWER, 'request_saveanswer', false));
