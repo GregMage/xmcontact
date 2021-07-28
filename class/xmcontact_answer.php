@@ -54,7 +54,7 @@ class xmcontact_answer extends XoopsObject
     }
 	
 	/**
-     * @return mixed
+     * @return string
      */
     public function saveAnswer($answerHandler, $action = false)
     {

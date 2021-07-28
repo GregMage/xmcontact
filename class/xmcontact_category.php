@@ -60,7 +60,7 @@ class xmcontact_category extends XoopsObject
         return $new_enreg;
     }
     /**
-     * @return mixed
+     * @return string
      */
     public function saveCategory($categoryHandler, $action = false)
     {
