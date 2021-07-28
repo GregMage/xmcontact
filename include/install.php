@@ -24,21 +24,27 @@ function xoops_module_install_xmcontact()
     //Creation ".$namemodule."/
     $dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '';
     if (!is_dir($dir)) {
-        mkdir($dir, 0777);
+        if (!mkdir($dir, 0777) && !is_dir($dir)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $dir));
+        }
     }
     chmod($dir, 0777);
 
     //Creation ".$namemodule."/images/
     $dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images';
     if (!is_dir($dir)) {
-        mkdir($dir, 0777);
+        if (!mkdir($dir, 0777) && !is_dir($dir)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $dir));
+        }
     }
     chmod($dir, 0777);
     
     //Creation ".$namemodule."/images/cat
     $dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/cats';
     if (!is_dir($dir)) {
-        mkdir($dir, 0777);
+        if (!mkdir($dir, 0777) && !is_dir($dir)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $dir));
+        }
     }
     chmod($dir, 0777);
 
