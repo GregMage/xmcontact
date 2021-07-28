@@ -17,7 +17,7 @@
  * @author          Mage Gregory (AKA Mage)
  */
 use Xmf\Module\Helper;
-$path = dirname(dirname(__DIR__));
+$path = dirname(__DIR__, 2);
 require_once $path . '/mainfile.php';
 include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
 include_once __DIR__ . '/include/common.php';

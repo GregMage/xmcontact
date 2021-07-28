@@ -112,10 +112,11 @@ switch ($op) {
                 xoops_error($obj->getHtmlErrors());
             }
         } else {
-            xoops_confirm(array(
+            xoops_confirm([
                               'ok' => 1,
                               'answer_id' => $answer_id,
-                              'op' => 'del'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_ANSWER_SUREDEL, $obj->getVar('answer_title')) . '<br \>' . $obj->getVar('answer_description') . '<br \>');
+                              'op' => 'del'
+                          ], $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_ANSWER_SUREDEL, $obj->getVar('answer_title')) . '<br \>' . $obj->getVar('answer_description') . '<br \>');
         }
         break;
 
@@ -158,5 +159,5 @@ switch ($op) {
         break;
 
 }
-$xoopsTpl->display("db:xmcontact_admin_answer.tpl");
+$xoopsTpl->display('db:xmcontact_admin_answer.tpl');
 require __DIR__ . '/admin_footer.php';

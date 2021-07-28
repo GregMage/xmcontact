@@ -41,15 +41,15 @@ define('_MD_XMCONTACT_ERROR_NOCAPTCHA', 'Captcha is required!');
 define('_MD_XMCONTACT_ERROR_SUBJECT', 'The subject is required!');
 
 //new version 1.0
-define('_MD_XMCONTACT_INDEX_CIVILITY', 'Civility');
+define('_MD_XMCONTACT_INDEX_CIVILITY', 'Title');
 define('_MD_XMCONTACT_INDEX_CIVILITY_OPT1', 'Mr');
 define('_MD_XMCONTACT_INDEX_CIVILITY_OPT2', 'Miss');
 define('_MD_XMCONTACT_INDEX_CIVILITY_OPT3', 'Ms');
 define('_MD_XMCONTACT_INDEX_ADDRESS', 'Address');
 define('_MD_XMCONTACT_INDEX_ADDRESS_PH', 'Enter your address');
-define('_MD_XMCONTACT_INDEX_URL', 'Url');
-define('_MD_XMCONTACT_INDEX_URL_PH', 'Enter url');
-define('_MD_XMCONTACT_ERROR_CIVILITY', 'Civility is required!');
+define('_MD_XMCONTACT_INDEX_URL', 'URL');
+define('_MD_XMCONTACT_INDEX_URL_PH', 'Enter URL');
+define('_MD_XMCONTACT_ERROR_CIVILITY', 'Title is required!');
 define('_MD_XMCONTACT_ERROR_PHONE', 'Phone number is required!');
 define('_MD_XMCONTACT_ERROR_ADDRESS', 'Address is required!');
-define('_MD_XMCONTACT_ERROR_URL', 'Url is required!');
+define('_MD_XMCONTACT_ERROR_URL', 'URL is required!');

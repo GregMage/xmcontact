@@ -54,7 +54,7 @@ class xmcontact_answer extends XoopsObject
     }
 	
 	/**
-     * @return mixed
+     * @return string
      */
     public function saveAnswer($answerHandler, $action = false)
     {
@@ -118,7 +118,7 @@ class xmcontact_answer extends XoopsObject
 		$form->addElement(new XoopsFormTextArea(_AM_XMCONTACT_ANSWER_DESC, 'answer_description', $this->getVar('answer_description', 'e'), 1), false);
 		
 		// answer
-        $editor_configs           =array();
+        $editor_configs           = [];
         $editor_configs['name']   = 'answer_answer';
         $editor_configs['value']  = $answer_mesage;
         $editor_configs['rows']   = 20;
@@ -148,7 +148,7 @@ class xmcontactxmcontact_answerHandler extends XoopsPersistableObjectHandler
      * xmcontactxmcontact_answerHandler constructor.
      * @param null|XoopsDatabase $db
      */
-    public function __construct(&$db)
+    public function __construct($db)
     {
         parent::__construct($db, 'xmcontact_answer', 'xmcontact_answer', 'answer_id', 'answer_title');
     }

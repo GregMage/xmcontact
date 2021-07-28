@@ -69,8 +69,8 @@ class XmcontactFormUser extends XoopsFormElementTray
         }
         /* @var XoopsMemberHandler $member_handler */
         $member_handler = xoops_getHandler('member');
-        $value          = is_array($value) ? $value : (empty($value) ? array() : array($value));
-        $selectedUsers = array();
+        $value          = is_array($value) ? $value : (empty($value) ? [] : [$value]);
+        $selectedUsers = [];
         if (count($value) > 0) {
             // fetch the set of uids in $value
             $criteria = new Criteria('uid', '(' . implode(',', $value) . ')', 'IN');
@@ -153,7 +153,7 @@ class XmcontactFormUser extends XoopsFormElementTray
         $action_tray->addElement($searchUsers);
 
          if (isset($GLOBALS['xoTheme']) && is_object($GLOBALS['xoTheme'])) {
-             $GLOBALS['xoTheme']->addScript('', array(), $js_addusers);
+             $GLOBALS['xoTheme']->addScript('', [], $js_addusers);
          } else {
              echo '<script>' . $js_addusers . '</script>';
          }

@@ -41,7 +41,7 @@ switch ($op) {
 		$criteria = new CriteriaCompo();
 		$criteria->setSort('category_weight ASC, category_title');
 		$criteria->setOrder('ASC');
-		$category_arr = $categoryHandler->getall($criteria);	
+		$category_arr = $categoryHandler->getAll($criteria);
 		if (count($category_arr) > 0) {
 			$request_cid_options = '<option value="0"' . ($request_cid == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
 			foreach (array_keys($category_arr) as $i) {
@@ -136,20 +136,21 @@ switch ($op) {
 		} else {
 			$category_title = $category->getVar('category_title');
 		}
-        $request_arr = array(_AM_XMCONTACT_CATEGORY => $category_title,
-							 _AM_XMCONTACT_REQUEST_CIVILITY => $request->getVar('request_civility'),
-                             _AM_XMCONTACT_REQUEST_SUBMITTER => $request->getVar('request_name'),
-							 _AM_XMCONTACT_REQUEST_EMAIL => $request->getVar('request_email'),
-							 _AM_XMCONTACT_REQUEST_PHONE => $request->getVar('request_phone'),
-							 _AM_XMCONTACT_REQUEST_ADDRESS => $request->getVar('request_address'),
-							 _AM_XMCONTACT_REQUEST_URL => '<a href="' . $request->getVar('request_url') . '" target="_blank">' . $request->getVar('request_url') . '</a>',
-                             _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
-							 _AM_XMCONTACT_REQUEST_MESSAGE => $request->getVar('request_message', 'show'),
-                             _AM_XMCONTACT_REQUEST_IP => $request->getVar('request_ip'),
-                             _AM_XMCONTACT_REQUEST_DATES => formatTimestamp($request->getVar('request_date_e')),
-                             _AM_XMCONTACT_REQUEST_DATER => $date_r,
-                             _AM_XMCONTACT_STATUS => $status,
-                             );
+        $request_arr = [
+            _AM_XMCONTACT_CATEGORY          => $category_title,
+            _AM_XMCONTACT_REQUEST_CIVILITY  => $request->getVar('request_civility'),
+            _AM_XMCONTACT_REQUEST_SUBMITTER => $request->getVar('request_name'),
+            _AM_XMCONTACT_REQUEST_EMAIL     => $request->getVar('request_email'),
+            _AM_XMCONTACT_REQUEST_PHONE     => $request->getVar('request_phone'),
+            _AM_XMCONTACT_REQUEST_ADDRESS   => $request->getVar('request_address'),
+            _AM_XMCONTACT_REQUEST_URL       => '<a href="' . $request->getVar('request_url') . '" target="_blank">' . $request->getVar('request_url') . '</a>',
+            _AM_XMCONTACT_REQUEST_SUBJECT   => $request->getVar('request_subject'),
+            _AM_XMCONTACT_REQUEST_MESSAGE   => $request->getVar('request_message', 'show'),
+            _AM_XMCONTACT_REQUEST_IP        => $request->getVar('request_ip'),
+            _AM_XMCONTACT_REQUEST_DATES     => formatTimestamp($request->getVar('request_date_e')),
+            _AM_XMCONTACT_REQUEST_DATER     => $date_r,
+            _AM_XMCONTACT_STATUS            => $status,
+        ];
 
         $xoopsTpl->assign('request_arr', $request_arr);
         $xoopsTpl->assign('request_id', $request_id);
@@ -287,12 +288,13 @@ switch ($op) {
                 xoops_error($obj->getHtmlErrors());
             }
         } else {
-            xoops_confirm(array(
+            xoops_confirm([
                               'ok' => 1,
                               'request_id' => $request_id,
-                              'op' => 'del'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_REQUEST_SUREDEL, $obj->getVar('request_name')) . '<br \>' . $obj->getVar('request_subject') . '<br \>');
+                              'op' => 'del'
+                          ], $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_REQUEST_SUREDEL, $obj->getVar('request_name')) . '<br \>' . $obj->getVar('request_subject') . '<br \>');
         }
         break;
 }
-$xoopsTpl->display("db:xmcontact_admin_request.tpl");
+$xoopsTpl->display('db:xmcontact_admin_request.tpl');
 require __DIR__ . '/admin_footer.php';

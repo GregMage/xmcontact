@@ -46,7 +46,7 @@ switch ($op) {
         $criteria->setOrder('ASC');
         $criteria->setStart($start);
         $criteria->setLimit($nb_limit);
-        $category_arr = $categoryHandler->getall($criteria);
+        $category_arr = $categoryHandler->getAll($criteria);
         $category_count = $categoryHandler->getCount($criteria);
         $xoopsTpl->assign('category_count', $category_count);
 
@@ -135,10 +135,11 @@ switch ($op) {
             }
         } else {
             $category_img = $obj->getVar('category_logo') ?: 'blank.gif';
-            xoops_confirm(array(
+            xoops_confirm([
                               'ok' => 1,
                               'category_id' => $category_id,
-                              'op' => 'del'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_CATEGORY_SUREDEL, $obj->getVar('category_title')) . '<br \><img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' . $category_img . '" alt="" /><br \>');
+                              'op' => 'del'
+                          ], $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_CATEGORY_SUREDEL, $obj->getVar('category_title')) . '<br \><img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' . $category_img . '" alt="" /><br \>');
         }
         break;
     // save category
@@ -175,5 +176,5 @@ switch ($op) {
         }
         break;
 }
-$xoopsTpl->display("db:xmcontact_admin_category.tpl");
+$xoopsTpl->display('db:xmcontact_admin_category.tpl');
 require __DIR__ . '/admin_footer.php';

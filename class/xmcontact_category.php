@@ -60,7 +60,7 @@ class xmcontact_category extends XoopsObject
         return $new_enreg;
     }
     /**
-     * @return mixed
+     * @return string
      */
     public function saveCategory($categoryHandler, $action = false)
     {
@@ -148,7 +148,7 @@ class xmcontact_category extends XoopsObject
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_CATEGORY_TITLE, 'category_title', 50, 255, $this->getVar('category_title')), true);
 
         // description
-        $editor_configs           =array();
+        $editor_configs           = [];
         $editor_configs['name']   = 'category_description';
         $editor_configs['value']  = $this->getVar('category_description', 'e');
         $editor_configs['rows']   = 20;
@@ -164,15 +164,15 @@ class xmcontact_category extends XoopsObject
 		xoops_load('formuser', 'xmcontact');
         $form->addElement(new XmcontactFormUser(_AM_XMCONTACT_CATEGORY_RESPONSIBLE, 'category_responsible', true, $this->getVar('category_responsible'), 1, false), true);
         // logo
-        $blank_img = $this->getVar('category_logo') ? $this->getVar('category_logo') : 'blank.gif';
+        $blank_img = $this->getVar('category_logo') ?: 'blank.gif';
 		$uploadirectory  = str_replace(XOOPS_URL, '', $url_logo);
         $imgtray_img     = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_LOGOFILE  . '<br /><br />' . sprintf(_AM_XMCONTACT_CATEGORY_UPLOADSIZE, $upload_size/1000), '<br />');
         $imgpath_img     = sprintf(_AM_XMCONTACT_CATEGORY_FORMPATH, $uploadirectory);
         $imageselect_img = new XoopsFormSelect($imgpath_img, 'category_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray(XOOPS_ROOT_PATH . $uploadirectory);
-        $imageselect_img->addOption("$blank_img", $blank_img);
+        $imageselect_img->addOption((string)$blank_img, $blank_img);
         foreach ($image_array_img as $image_img) {
-            $imageselect_img->addOption("$image_img", $image_img);
+            $imageselect_img->addOption((string)$image_img, $image_img);
         }
         $imageselect_img->setExtra("onchange='showImgSelected(\"image_img2\", \"category_logo\", \"" . $uploadirectory . "\", \"\", \"" . XOOPS_URL . "\")'");
         $imgtray_img->addElement($imageselect_img, false);
@@ -284,7 +284,7 @@ class xmcontact_category extends XoopsObject
 
         // status
         $form_status = new XoopsFormRadio(_AM_XMCONTACT_STATUS, 'category_status', $status);
-        $options = array(1 => _AM_XMCONTACT_STATUS_A, 0 =>_AM_XMCONTACT_STATUS_NA,);
+        $options = [1 => _AM_XMCONTACT_STATUS_A, 0 =>_AM_XMCONTACT_STATUS_NA,];
         $form_status->addOptionArray($options);
         $form->addElement($form_status);
 
@@ -305,7 +305,7 @@ class xmcontactxmcontact_categoryHandler extends XoopsPersistableObjectHandler
      * xmcontactxmcontact_categoryHandler constructor.
      * @param null|XoopsDatabase $db
      */
-    public function __construct(&$db)
+    public function __construct($db)
     {
         parent::__construct($db, 'xmcontact_category', 'xmcontact_category', 'category_id', 'category_title');
     }

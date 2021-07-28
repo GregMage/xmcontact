@@ -84,7 +84,7 @@ define('_AM_XMCONTACT_CATEGORY_ADDRESS', 'Options ADDRESS');
 define('_AM_XMCONTACT_CATEGORY_URL', 'Options URL');
 define('_AM_XMCONTACT_CATEGORY_VIEW', 'View this field');
 define('_AM_XMCONTACT_CATEGORY_REQUIRED', 'Required field');
-define('_AM_XMCONTACT_REQUEST_CIVILITY', 'Civility');
+define('_AM_XMCONTACT_REQUEST_CIVILITY', 'Title');
 define('_AM_XMCONTACT_REQUEST_ADDRESS', 'Address');
 define('_AM_XMCONTACT_REQUEST_URL', 'Url');
 define('_AM_XMCONTACT_CATEGORY_RESPONSIBLE_EMPTY', '-- No one --');

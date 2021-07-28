@@ -39,7 +39,7 @@ $modversion['module_website_url']   = 'www.monxoops.fr/';
 $modversion['module_website_name']  = 'MonXoops';
 $modversion['module_status']        = 'Alpha';
 $modversion['min_xoops'] 			= '2.5.10';
-$modversion['min_php']   			= '7.0';
+$modversion['min_php']   			= '7.1';
 $modversion['min_db']    			= ['mysql' => '5.5'];
 
 //install and update
@@ -66,7 +66,7 @@ $modversion['templates'][] = ['file' => 'xmcontact_index.tpl', 'description' => 
 $modversion['templates'][] = ['file' => 'xmcontact_form.tpl', 'description' => ''];
 
 // Pour les blocs
-$modversion['blocks'][] = array(
+$modversion['blocks'][] = [
     'file'        => 'xmcontact_contact.php',
     'name'        => _MI_XMCONTACT_BLOCK_CONTACT,
     'description' => _MI_XMCONTACT_BLOCK_CONTACT_DESC,
@@ -74,8 +74,8 @@ $modversion['blocks'][] = array(
     'edit_func'   => 'block_xmcontact_contact_edit',
 	'options'     => '0|1|1|V|2',
     'template'    => 'xmcontact_contact.tpl'
-);
-$modversion['blocks'][] = array(
+];
+$modversion['blocks'][] = [
     'file'        => 'xmcontact_contactform.php',
     'name'        => _MI_XMCONTACT_BLOCK_CONTACTFORM,
     'description' => _MI_XMCONTACT_BLOCK_CONTACTFORM_DESC,
@@ -83,7 +83,7 @@ $modversion['blocks'][] = array(
     'edit_func'   => 'block_xmcontact_contactform_edit',
 	'options'     => '0',
     'template'    => 'xmcontact_contactform.tpl'
-);
+];
 
 // Menu
 $modversion['hasMain'] = 1;
@@ -98,235 +98,235 @@ $modversion['tables'][3] = 'xmcontact_answer';
 
 // Pref.
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'break',
     'title'       => '_MI_XMCONTACT_PREF_HEAD_INFORMATION',
     'description' => '',
     'formtype'    => 'line_break',
     'valuetype'   => 'textbox',
     'default'     => 'head'
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'info_captcha',
     'title'       => '_MI_XMCONTACT_PREF_CAPTCHA',
     'description' => '_MI_XMCONTACT_PREF_CAPTCHA_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'info_columncat',
     'title'       => '_MI_XMCONTACT_PREF_COLUMNCAT',
     'description' => '_MI_XMCONTACT_PREF_COLUMNCAT_DESC',
     'formtype'    => 'select',
     'valuetype'   => 'int',
     'default'     => 2,
-    'options'     => array(1 => 1, 2 => 2, 3 => 3)
-);
+    'options'     => [1 => 1, 2 => 2, 3 => 3]
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'info_header',
     'title'       => '_MI_XMCONTACT_PREF_HEADER',
     'description' => '_MI_XMCONTACT_PREF_HEADER_DESC',
     'formtype'    => 'textarea',
     'valuetype'   => 'text',
     'default'     => ''
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'info_footer',
     'title'       => '_MI_XMCONTACT_PREF_FOOTER',
     'description' => '_MI_XMCONTACT_PREF_FOOTER_DESC',
     'formtype'    => 'textarea',
     'valuetype'   => 'text',
     'default'     => ''
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'info_addresse',
     'title'       => '_MI_XMCONTACT_PREF_ADDRESSE',
     'description' => '_MI_XMCONTACT_PREF_ADDRESSE_DESC',
     'formtype'    => 'textarea',
     'valuetype'   => 'text',
     'default'     => ''
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'info_googlemaps',
     'title'       => '_MI_XMCONTACT_PREF_GOOGLEMAPS',
     'description' => '_MI_XMCONTACT_PREF_GOOGLEMAPS_DESC',
     'formtype'    => 'textarea',
     'valuetype'   => 'text',
     'default'     => ''
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'info_notification',
     'title'       => '_MI_XMCONTACT_PREF_NOTIFICATION',
     'description' => '_MI_XMCONTACT_PREF_NOTIFICATION_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 1
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'info_signature',
     'title'       => '_MI_XMCONTACT_PREF_SIGNATURE',
     'description' => '_MI_XMCONTACT_PREF_SIGNATURE_DESC',
     'formtype'    => 'textarea',
     'valuetype'   => 'text',
     'default'     => ''
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'info_answer',
     'title'       => '_MI_XMCONTACT_PREF_ANSWER',
     'description' => '_MI_XMCONTACT_PREF_ANSWER_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'info_simplecontact',
     'title'       => '_MI_XMCONTACT_PREF_SIMPLECONTACT',
     'description' => '_MI_XMCONTACT_PREF_SIMPLECONTACT_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 1
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'break',
     'title'       => '_MI_XMCONTACT_PREF_HEAD_SIMPLECONTACT',
     'description' => '',
     'formtype'    => 'line_break',
     'valuetype'   => 'textbox',
     'default'     => 'head'
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_docivility',
     'title'       => '_MI_XMCONTACT_PREF_DOCIVILITY',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_recivility',
     'title'       => '_MI_XMCONTACT_PREF_RECIVILITY',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_doname',
     'title'       => '_MI_XMCONTACT_PREF_DONAME',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_rename',
     'title'       => '_MI_XMCONTACT_PREF_RENAME',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_dophone',
     'title'       => '_MI_XMCONTACT_PREF_DOPHONE',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_rephone',
     'title'       => '_MI_XMCONTACT_PREF_REPHONE',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_dosubject',
     'title'       => '_MI_XMCONTACT_PREF_DOSUBJECT',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_resubject',
     'title'       => '_MI_XMCONTACT_PREF_RESUBJECT',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_doaddress',
     'title'       => '_MI_XMCONTACT_PREF_DOADDRESS',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_readdress',
     'title'       => '_MI_XMCONTACT_PREF_READDRESS',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_dourl',
     'title'       => '_MI_XMCONTACT_PREF_DOURL',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'sp_reurl',
     'title'       => '_MI_XMCONTACT_PREF_REURL',
     'description' => '_MI_XMCONTACT_PREF_SP_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'break',
     'title'       => '_MI_XMCONTACT_PREF_HEAD_ADMIN',
     'description' => '',
     'formtype'    => 'line_break',
     'valuetype'   => 'textbox',
     'default'     => 'head'
-);
+];
 
 xoops_load('xoopseditorhandler');
 $editorHandler = XoopsEditorHandler::getInstance();
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'admin_editor',
     'title'       => '_MI_XMCONTACT_PREF_EDITOR',
     'description' => '',
@@ -334,13 +334,13 @@ $modversion['config'][] = array(
     'valuetype'   => 'text',
     'default'     => 'dhtmltextarea',
     'options'     => array_flip($editorHandler->getList())
-);
+];
 
-$modversion['config'][] = array(
+$modversion['config'][] = [
     'name'        => 'admin_perpage',
     'title'       => '_MI_XMCONTACT_PREF_ITEMPERPAGE',
     'description' => '',
     'formtype'    => 'textbox',
     'valuetype'   => 'int',
     'default'     => 15
-);
+];

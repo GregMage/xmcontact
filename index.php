@@ -16,8 +16,8 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-use \Xmf\Request;
-use \Xmf\Metagen;
+use Xmf\Request;
+use Xmf\Metagen;
 
 include_once __DIR__ . '/header.php';
 $GLOBALS['xoopsOption']['template_main'] = 'xmcontact_index.tpl';
@@ -32,7 +32,7 @@ $criteria = new CriteriaCompo();
 $criteria->setSort('category_weight ASC, category_title');
 $criteria->setOrder('ASC');
 $criteria->add(new Criteria('category_status', 1));
-$category_arr = $categoryHandler->getall($criteria);
+$category_arr = $categoryHandler->getAll($criteria);
 $category_count = $categoryHandler->getCount($criteria);
 if ($category_count == 0 || $helper->getConfig('info_simplecontact', 1) == 1) {
 	if ($op != 'save'){
