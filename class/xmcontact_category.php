@@ -164,7 +164,7 @@ class xmcontact_category extends XoopsObject
 		xoops_load('formuser', 'xmcontact');
         $form->addElement(new XmcontactFormUser(_AM_XMCONTACT_CATEGORY_RESPONSIBLE, 'category_responsible', true, $this->getVar('category_responsible'), 1, false), true);
         // logo
-        $blank_img = $this->getVar('category_logo') ? $this->getVar('category_logo') : 'blank.gif';
+        $blank_img = $this->getVar('category_logo') ?: 'blank.gif';
 		$uploadirectory  = str_replace(XOOPS_URL, '', $url_logo);
         $imgtray_img     = new XoopsFormElementTray(_AM_XMCONTACT_CATEGORY_LOGOFILE  . '<br /><br />' . sprintf(_AM_XMCONTACT_CATEGORY_UPLOADSIZE, $upload_size/1000), '<br />');
         $imgpath_img     = sprintf(_AM_XMCONTACT_CATEGORY_FORMPATH, $uploadirectory);
