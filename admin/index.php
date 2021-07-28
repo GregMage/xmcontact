@@ -54,7 +54,7 @@ $moduleAdmin->addInfoBoxLine(sprintf( $ret . ' ' . _AM_XMCONTACT_INDEX_CAT_NOTRE
 $folder[] = $path_logo;
 foreach (array_keys( $folder) as $i) {
     $moduleAdmin->addConfigBoxLine($folder[$i], 'folder');
-    $moduleAdmin->addConfigBoxLine(array($folder[$i], '777'), 'chmod');
+    $moduleAdmin->addConfigBoxLine([$folder[$i], '777'], 'chmod');
 }
 
 

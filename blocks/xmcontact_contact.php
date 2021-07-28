@@ -105,10 +105,10 @@ function block_xmcontact_contact_edit($options) {
 		
 		$display = new XoopsFormElementTray(_MB_XMCONTACT_DISPLAY);
 		$display_VH = new XoopsFormRadio('', 'options[3]', $options[3]);
-		$display_VH->addOptionArray(array('V' =>_MB_XMCONTACT_VERTICAL, 'H' =>_MB_XMCONTACT_HORIZONTAL));
+		$display_VH->addOptionArray(['V' =>_MB_XMCONTACT_VERTICAL, 'H' =>_MB_XMCONTACT_HORIZONTAL]);
 		$display->addElement($display_VH);
 		$display_HC = new XoopsFormSelect('', 'options[4]', $options[4]);
-		$display_HC->addOptionArray(array(2 =>'2', 3 =>'3'));
+		$display_HC->addOptionArray([2 =>'2', 3 =>'3']);
 		$display->addElement($display_HC);
 		
 		$form->addElement($category);

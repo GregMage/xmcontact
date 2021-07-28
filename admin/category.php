@@ -135,10 +135,11 @@ switch ($op) {
             }
         } else {
             $category_img = $obj->getVar('category_logo') ?: 'blank.gif';
-            xoops_confirm(array(
+            xoops_confirm([
                               'ok' => 1,
                               'category_id' => $category_id,
-                              'op' => 'del'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_CATEGORY_SUREDEL, $obj->getVar('category_title')) . '<br \><img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' . $category_img . '" alt="" /><br \>');
+                              'op' => 'del'
+                          ], $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_CATEGORY_SUREDEL, $obj->getVar('category_title')) . '<br \><img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' . $category_img . '" alt="" /><br \>');
         }
         break;
     // save category

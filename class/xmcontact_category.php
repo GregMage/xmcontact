@@ -148,7 +148,7 @@ class xmcontact_category extends XoopsObject
         $form->addElement(new XoopsFormText(_AM_XMCONTACT_CATEGORY_TITLE, 'category_title', 50, 255, $this->getVar('category_title')), true);
 
         // description
-        $editor_configs           =array();
+        $editor_configs           = [];
         $editor_configs['name']   = 'category_description';
         $editor_configs['value']  = $this->getVar('category_description', 'e');
         $editor_configs['rows']   = 20;
@@ -284,7 +284,7 @@ class xmcontact_category extends XoopsObject
 
         // status
         $form_status = new XoopsFormRadio(_AM_XMCONTACT_STATUS, 'category_status', $status);
-        $options = array(1 => _AM_XMCONTACT_STATUS_A, 0 =>_AM_XMCONTACT_STATUS_NA,);
+        $options = [1 => _AM_XMCONTACT_STATUS_A, 0 =>_AM_XMCONTACT_STATUS_NA,];
         $form_status->addOptionArray($options);
         $form->addElement($form_status);
 

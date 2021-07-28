@@ -81,7 +81,7 @@ class xmcontact_request extends XoopsObject
         $form->addElement(new XoopsFormLabel(_AM_XMCONTACT_REQUEST_SUBJECT, $this->getVar('request_subject'), 'subject'));
         // status
         $status = new XoopsFormRadio(_AM_XMCONTACT_STATUS, 'request_status', $this->getVar('request_status'));
-        $options = array('0' =>_AM_XMCONTACT_REQUEST_STATUS_NR, '1' => _AM_XMCONTACT_REQUEST_STATUS_R);
+        $options = ['0' =>_AM_XMCONTACT_REQUEST_STATUS_NR, '1' => _AM_XMCONTACT_REQUEST_STATUS_R];
         $status->addOptionArray($options);
         $form->addElement($status);
 
@@ -138,7 +138,7 @@ class xmcontact_request extends XoopsObject
 		$reply_value .= _AM_XMCONTACT_REQUEST_DATES . " : " . formatTimestamp($this->getVar('request_date_e')) . "\n";
 		$reply_value .= _AM_XMCONTACT_REQUEST_SUBJECT . " : " . $this->getVar('request_subject') . "\n";
 		$reply_value .= "\n" . $this->getVar('request_message', 'e');
-        $editor_configs=array();
+        $editor_configs= [];
         $editor_configs['name'] ='xmcontact_message';
         $editor_configs['value'] = $reply_value;
         $editor_configs['rows'] = 20;

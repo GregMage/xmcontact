@@ -118,7 +118,7 @@ class xmcontact_answer extends XoopsObject
 		$form->addElement(new XoopsFormTextArea(_AM_XMCONTACT_ANSWER_DESC, 'answer_description', $this->getVar('answer_description', 'e'), 1), false);
 		
 		// answer
-        $editor_configs           =array();
+        $editor_configs           = [];
         $editor_configs['name']   = 'answer_answer';
         $editor_configs['value']  = $answer_mesage;
         $editor_configs['rows']   = 20;
