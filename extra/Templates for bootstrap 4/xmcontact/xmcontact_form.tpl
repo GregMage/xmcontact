@@ -54,7 +54,9 @@
     <{/if}>
     <div class="form-group text-center">
         <input type="hidden" name="op" id="op" value="save">
+		<{if $cat_id|default:0 != 0}>
         <input type="hidden" name="cat_id" id="cat_id" value="<{$cat_id}>">
+		<{/if}>
 		<input type="hidden" name="XOOPS_TOKEN_REQUEST" id="XOOPS_TOKEN_REQUEST" value="<{$token}>" />
         <button type="submit" class="btn btn-primary"><{$smarty.const._MD_XMCONTACT_INDEX_SUBMIT}></button>
     </div>

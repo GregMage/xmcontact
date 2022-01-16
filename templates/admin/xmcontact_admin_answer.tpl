@@ -1,5 +1,5 @@
 <div class="xmcontact">
-    <{$renderbutton}>
+    <{$renderbutton|default:''}>
 </div>
 <{if $message_error|default:'' != ''}>
     <div class="errorMsg" style="text-align: left;">

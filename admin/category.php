@@ -64,7 +64,12 @@ switch ($op) {
                 $category['weight']          = $category_arr[$i]->getVar('category_weight');
                 $category['status']          = $category_arr[$i]->getVar('category_status');
                 $category_img                = $category_arr[$i]->getVar('category_logo') ?: 'blank.gif';
-                $category['logo']            = '<img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img . '" alt="' . $category_img . '" style="max-width:150px"/>';
+				if ($category_img == ''){
+					$category['logo']        = '';
+				} else {
+					$category['logo']        = $url_logo . $category_img;
+				}
+                //$category['logo']            = '<img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img . '" alt="' . $category_img . '" style="max-width:150px"/>';
                 $xoopsTpl->append_by_ref('category', $category);
                 unset($category);
             }
@@ -138,7 +143,7 @@ switch ($op) {
             xoops_confirm(array(
                               'ok' => 1,
                               'category_id' => $category_id,
-                              'op' => 'del'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_CATEGORY_SUREDEL, $obj->getVar('category_title')) . '<br \><img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' . $category_img . '" alt="" /><br \>');
+                              'op' => 'del'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTACT_CATEGORY_SUREDEL, $obj->getVar('category_title')) . '<br \><img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' . $category_img . '" alt="" style="max-width:100px"/><br \>');
         }
         break;
     // save category

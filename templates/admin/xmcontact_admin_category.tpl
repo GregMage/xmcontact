@@ -3,7 +3,7 @@
     IMG_OFF = '<{xoAdminIcons cancel.png}>';
 </script>
 <div class="xmcontact">
-    <{$renderbutton}>
+    <{$renderbutton|default:''}>
 </div>
 <{if $message_error|default:'' != ''}>
     <div class="errorMsg" style="text-align: left;">
@@ -29,7 +29,11 @@
         <tbody>
         <{foreach item=category from=$category}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
-                <td class="txtcenter"><{$category.logo}></td>
+                <td class="txtcenter">
+					<{if $category.logo != ''}>
+					<img src="<{$category.logo}>" alt="<{$category.title}>" style="max-width:150px">
+					<{/if}>
+				</td>
                 <td class="txtleft"><{$category.title}></td>
                 <td class="txtleft"><{$category.description}></td>
                 <td class="txtcenter">
