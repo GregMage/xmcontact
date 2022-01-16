@@ -148,7 +148,7 @@ class xmcontactxmcontact_answerHandler extends XoopsPersistableObjectHandler
      * xmcontactxmcontact_answerHandler constructor.
      * @param null|XoopsDatabase $db
      */
-    public function __construct(&$db)
+    public function __construct($db)
     {
         parent::__construct($db, 'xmcontact_answer', 'xmcontact_answer', 'answer_id', 'answer_title');
     }
