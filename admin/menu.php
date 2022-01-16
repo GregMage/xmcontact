@@ -36,7 +36,7 @@ $adminmenu[] = [
 ];
 // Category
 $helper = Helper::getHelper(basename(dirname(__DIR__)));
-if (method_exists ( $helper , 'getConfig' )){
+if ($helper){
 	if ($helper->getConfig('info_simplecontact', 1) == 0) {
 		$adminmenu[] = [
 			'title' => _MI_XMCONTACT_MENU_CATEGORY,
@@ -54,7 +54,7 @@ $adminmenu[] = [
     'icon'  => $pathIcon32 . 'newsletter.png'
 ];
 // Answer
-if (method_exists ( $helper , 'getConfig' )){
+if ($helper){
 	if ($helper->getConfig('info_answer', 1) == 1) {
 		$adminmenu[] = [
 			'title' => _MI_XMCONTACT_MENU_ANSWER,
