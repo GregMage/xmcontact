@@ -57,8 +57,8 @@ define('_MI_XMCONTACT_PREF_ITEMPERPAGE', 'Number of items per page in the Admin 
 //new version 1.0
 define('_MI_XMCONTACT_PREF_HEAD_SIMPLECONTACT', 'Valid options if the module is used with a single contact form');
 define('_MI_XMCONTACT_PREF_SP_DESC', 'Valid only if the module is used with a single contact form');
-define('_MI_XMCONTACT_PREF_DOCIVILITY', 'View civility');
-define('_MI_XMCONTACT_PREF_RECIVILITY', 'Required civility');
+define('_MI_XMCONTACT_PREF_DOCIVILITY', 'View title');
+define('_MI_XMCONTACT_PREF_RECIVILITY', 'Required title');
 define('_MI_XMCONTACT_PREF_DONAME', 'View name');
 define('_MI_XMCONTACT_PREF_RENAME', 'Required name');
 define('_MI_XMCONTACT_PREF_DOPHONE', 'View phone number');
