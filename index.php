@@ -16,8 +16,8 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-use \Xmf\Request;
-use \Xmf\Metagen;
+use Xmf\Request;
+use Xmf\Metagen;
 
 include_once __DIR__ . '/header.php';
 $GLOBALS['xoopsOption']['template_main'] = 'xmcontact_index.tpl';
