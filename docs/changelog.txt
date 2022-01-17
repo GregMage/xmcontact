@@ -1,4 +1,63 @@
 ﻿-------------------------------------------------
+Version: 2.0 RC1
+Date:    17.01.2022
+-------------------------------------------------
+Bug fixes:	
+	- there was no subject in the email during a notification by email (simple form)
+	- there was no block displayed if there was not a category
+	- Default value error for the "Title" field
+	- Captcha integration error
+	- helper error in category editing and creation (the prefs editor was not used)
+	- Fixed helper error during installation
+	- Fixed PHP 8 errors
+	- If several cats were selected in the edition of the blocks, they were not selected during a new edition of the block
+	- correction of a token problem (if the captcha was wrong, the token was not provided so sending error)
+
+Improvements:
+	- FR and EN translation error
+	- Option to deactivate contact categories (simplification of the admin view)
+	- Addition of a block that allows to display a contact form
+	- Ability to add automatic signature for replies
+	- Saved Replies Manager
+	- Plugin for the waiting module
+	- System that allows to create a short description (module index and blocks) and a long description for the form
+	- You can save an answer as a standard answer
+	- Compatibility with the xlanguage module
+	- Added shipping confirmation page 
+
+Security:
+	- Switching from index.html to index.php
+
+	
+Correction de bogues:	
+	- il n'y avait pas de sujet au mail lors d'une notifiaction par mail (formulaire simple)
+	- il n'y avait pas de bloc affiché si il n'y avait pas une catégorie
+	- Erreur de valeur par défaut pour le champ "Civilité"
+	- Erreur intégration captcha
+	- erreur helper dans l'édition et la création de catégorie (l'éditeur des préfs n'était pas utilisé)
+	- Correction erreur helper à l'installation
+	- Correction d'erreurs PHP 8
+	- Si plusieurs cat étaient sélectionnées dans l'édition des blocs,elles n'étaient pas sélectionnée lors d'une nouvelle édition du bloc
+	- correction d'un problème de token (si le captcha était faux, le token n'était pas fourni donc erreur d'envoi)
+
+Améliorations:
+	- Erreur de traduction FR et EN
+	- Option qui permet de désactiver les catégories de contact (simplification de la vue admin)
+	- Ajout d'un bloc qui permet d'afficher un formulaire de contact
+	- Possibilité d'ajouter une signature automatique pour les réponses
+	- Gestionnaire de réponses enregistrées
+	- Plugin pour le module waiting
+	- Système qui permet de créer une description courte (index du module et blocs) et une description longue pour le formulaire
+	- On peut enregistré une réponse comme réponse type
+	- Compatibilité avec le module xlanguage
+	- Ajout d'une page de confirmation d'envoi
+
+Sécurités:
+	- Passage de index.html à index.php
+
+PHP 7.4 minimu
+
+-------------------------------------------------
 Version: 1.1 Final
 Date:    08.05.2020
 -------------------------------------------------
