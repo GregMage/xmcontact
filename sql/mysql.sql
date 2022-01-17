@@ -12,6 +12,7 @@ CREATE TABLE `xmcontact_request` (
   `request_message` 		text 					NOT NULL,
   `request_date_e` 			int(10) 	 unsigned	NOT NULL DEFAULT '0',
   `request_date_r` 			int(10) 	 unsigned	NOT NULL DEFAULT '0',
+  `request_token` 			varchar(40) 			NOT NULL DEFAULT '',
   `request_status` 			tinyint(1)   unsigned	NOT NULL DEFAULT '0',
   PRIMARY KEY (`request_id`),
   KEY `request_name` (`request_name`),

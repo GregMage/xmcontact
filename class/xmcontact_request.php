@@ -46,6 +46,7 @@ class xmcontact_request extends XoopsObject
         $this->initVar('request_message', XOBJ_DTYPE_TXTAREA, null, false);
         $this->initVar('request_date_e', XOBJ_DTYPE_INT, null, false, 10);
         $this->initVar('request_date_r', XOBJ_DTYPE_INT, null, false, 10);
+		$this->initVar('request_token', XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('request_status', XOBJ_DTYPE_INT, null, false, 10);
 
         //pour les jointures:

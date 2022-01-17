@@ -35,13 +35,13 @@ $criteria->add(new Criteria('category_status', 1));
 $category_arr = $categoryHandler->getall($criteria);
 $category_count = $categoryHandler->getCount($criteria);
 if ($category_count == 0 || $helper->getConfig('info_simplecontact', 1) == 1) {
-	if ($op != 'save'){
+	$simple_contact = true;
+	if ($op != 'save' && $op != 'confirm'){
 		$xoopsTpl->assign('info_header', $helper->getConfig('info_header', ''));
 		$xoopsTpl->assign('info_footer', $helper->getConfig('info_footer', ''));
 		$xoopsTpl->assign('info_addresse', $helper->getConfig('info_addresse', ''));
 		$xoopsTpl->assign('info_googlemaps', $helper->getConfig('info_googlemaps', ''));
-		$op = 'form';
-		$simple_contact = true;
+		$op = 'form';		
 		$xoopsTpl->assign('simple_contact', $simple_contact);
 	}
 } else {
@@ -100,7 +100,77 @@ switch ($op) {
         $keywords = substr($keywords, 0, -1);
         $xoTheme->addMeta('meta', 'keywords', $keywords);
         break;
-    
+
+    // confirm
+    case 'confirm':
+		$xoopsTpl->assign('confirm', true);
+		$token = Request::getString('token', '', 'GET');
+		$request_id = Request::getInt('request_id', 0, 'GET');
+		if ($request_id == 0 || $token == ''){
+			redirect_header('index.php', 2, _NOPERM . ' -A');
+		}
+		$request = $requestHandler->get($request_id);
+		if (empty($request)) {
+			redirect_header('index.php', 2, _NOPERM . ' -B');
+		}
+		if ($token != $request->getVar('request_token')){
+			redirect_header('index.php', 2, _NOPERM . ' -C');
+		}		
+		$request_arr = [];
+		if ($simple_contact == False){
+			$category = $categoryHandler->get($request->getVar('request_cid'));
+			if (substr($category->getVar('category_civility'), 0, 1) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_CIVILITY] = $request->getVar('request_civility');
+			}
+			if (substr($category->getVar('category_name'), 0, 1) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_SUBMITTER] = $request->getVar('request_name');
+			}
+			$request_arr[_AM_XMCONTACT_REQUEST_EMAIL] = $request->getVar('request_email');
+			if (substr($category->getVar('category_phone'), 0, 1) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_PHONE] = $request->getVar('request_phone');
+			}
+			if (substr($category->getVar('category_address'), 0, 1) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_ADDRESS] = $request->getVar('request_address');
+			}
+			if (substr($category->getVar('category_url'), 0, 1) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_URL] = '<a href="' . $request->getVar('request_url') . '" target="_blank">' . $request->getVar('request_url') . '</a>';
+			}
+			if (substr($category->getVar('category_subject'), 0, 1) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_SUBJECT] = $request->getVar('request_subject');
+			}
+			$request_arr[_AM_XMCONTACT_REQUEST_MESSAGE] = $request->getVar('request_message', 'show');
+			$request_arr[_AM_XMCONTACT_REQUEST_DATES] = formatTimestamp($request->getVar('request_date_e'));
+        } else {
+			if ($helper->getConfig('sp_docivility', 0) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_CIVILITY] = $request->getVar('request_civility');
+			}
+			if ($helper->getConfig('sp_doname', 0) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_SUBMITTER] = $request->getVar('request_name');
+			}
+			$request_arr[_AM_XMCONTACT_REQUEST_EMAIL] = $request->getVar('request_email');
+			if ($helper->getConfig('sp_dophone', 0) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_PHONE] = $request->getVar('request_phone');
+			}
+			if ($helper->getConfig('sp_doaddress', 0) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_ADDRESS] = $request->getVar('request_address');
+			}
+			if ($helper->getConfig('sp_dourl', 0) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_URL] = '<a href="' . $request->getVar('request_url') . '" target="_blank">' . $request->getVar('request_url') . '</a>';
+			}
+			if ($helper->getConfig('sp_dosubject', 0) == 1) {
+				$request_arr[_AM_XMCONTACT_REQUEST_SUBJECT] = $request->getVar('request_subject');
+			}
+			$request_arr[_AM_XMCONTACT_REQUEST_MESSAGE] = $request->getVar('request_message', 'show');
+			$request_arr[_AM_XMCONTACT_REQUEST_DATES] = formatTimestamp($request->getVar('request_date_e'));
+		}
+        $xoopsTpl->assign('request_arr', $request_arr);	
+		
+        //SEO
+		// pagetitle
+		$xoopsTpl->assign('xoops_pagetitle', _MD_XMCONTACT_INDEX_CONFIRM . ' - ' . $xoopsModule->name());
+
+        break;
+
     // form
     case 'form':
         // Captcha
@@ -115,7 +185,7 @@ switch ($op) {
                 $xoopsTpl->assign('captcha', $captchaHandler->render());
             }
         }
-        
+
         $request['civility'] = '';
 		if (is_object($xoopsUser)) {
 			$request['name'] = $xoopsUser->getVar('name');
@@ -141,7 +211,7 @@ switch ($op) {
 			if (true == strpos($description, '[break]')){
 				$description =  substr($description, strpos($description,'[break]') + 7);
 			}
-            $xoopsTpl->assign('category_description', $description);			
+            $xoopsTpl->assign('category_description', $description);
             $xoopsTpl->assign('docivility', substr($category->getVar('category_civility'), 0, 1));
             $xoopsTpl->assign('recivility', substr($category->getVar('category_civility'), 1, 1));
 			$xoopsTpl->assign('doname', substr($category->getVar('category_name'), 0, 1));
@@ -154,12 +224,12 @@ switch ($op) {
             $xoopsTpl->assign('reurl', substr($category->getVar('category_url'), 1, 1));
 			$xoopsTpl->assign('dosubject', substr($category->getVar('category_subject'), 0, 1));
             $xoopsTpl->assign('resubject', substr($category->getVar('category_subject'), 1, 1));
-			
+
             $category_img = $category->getVar('category_logo') ?: 'blank.gif';
-            $xoopsTpl->assign('category_logo', XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img);            
+            $xoopsTpl->assign('category_logo', XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img);
             // pagetitle
 			$xoopsTpl->assign('xoops_pagetitle', $category->getVar('category_title') . '-' . $xoopsModule->name());
-			$keywords = Metagen::generateKeywords($category->getVar('category_description'), 10);    
+			$keywords = Metagen::generateKeywords($category->getVar('category_description'), 10);
 			$xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 	        //description
 			$xoTheme->addMeta('meta', 'description', Metagen::generateDescription($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM . ' ' . $category->getVar('category_description'), 30));
@@ -185,7 +255,7 @@ switch ($op) {
             redirect_header('index.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
         }
         $cat_id = Request::getInt('cat_id', 0, 'POST');
-        $contact_redirect = Request::getUrl('contact_redirect', 'index.php', 'POST');
+		$token = $GLOBALS['xoopsSecurity']->createToken(0, 'XOOPS_TOKEN');
         $request['civility'] = Request::getString('civility', '', 'POST');
         $request['name'] = Request::getString('name', '', 'POST');
         $request['email'] = Request::getEmail('email', '', 'POST');
@@ -208,7 +278,7 @@ switch ($op) {
             $reurl 		= substr($category->getVar('category_url'), 1, 1);
 			$dosubject 	= substr($category->getVar('category_subject'), 0, 1);
             $resubject 	= substr($category->getVar('category_subject'), 1, 1);
-			
+
 		} else {
 			$docivility = $helper->getConfig('sp_docivility', 0);
             $recivility = $helper->getConfig('sp_recivility', 0);
@@ -295,6 +365,7 @@ switch ($op) {
             $xoopsTpl->assign('reurl', $reurl);
 			$xoopsTpl->assign('dosubject', $dosubject);
             $xoopsTpl->assign('resubject', $resubject);
+			$xoopsTpl->assign('token', $GLOBALS['xoopsSecurity']->createToken(0, 'XOOPS_TOKEN'));
             if (0 != $cat_id) {
                 $category = $categoryHandler->get($cat_id);
                 $xoopsTpl->assign('category_title', $category->getVar('category_title'));
@@ -316,10 +387,11 @@ switch ($op) {
             $obj->setVar('request_subject',  $request['subject']);
             $obj->setVar('request_message', $request['message']);
             $obj->setVar('request_date_e', time());
+            $obj->setVar('request_token', $token);
             $obj->setVar('request_status', 0);
             if ($requestHandler->insert($obj)) {
-                if (1 == $helper->getConfig('info_notification', 1)) {
-                    $newcontent_id = $obj->get_new_enreg();					
+				$newrequest_id = $obj->get_new_enreg();
+                if (1 == $helper->getConfig('info_notification', 1)) {                    
 					$xoopsMailer = xoops_getMailer();
 					$xoopsMailer->useMail();
 					if (0 != $cat_id) {
@@ -334,7 +406,7 @@ switch ($op) {
 							$mail = true;
 						} else {
 							$mail = false;
-						}							
+						}
 					} else {
 						$xoopsMailer->setToEmails($xoopsConfig['adminmail']);
 						$xoopsMailer->setSubject(_MD_XMCONTACT_INDEX_MAIL_SUBJECT);
@@ -342,13 +414,13 @@ switch ($op) {
 						$xoopsMailer->assign('X_CATEGORY', '');
 						$mail = true;
 					}
-                    
+
 					if ($mail == true){
 						$xoopsMailer->setTemplateDir($GLOBALS['xoopsModule']->getVar('dirname', 'n'));
-						$xoopsMailer->setTemplate('new_request.tpl');												
+						$xoopsMailer->setTemplate('new_request.tpl');
 						$xoopsMailer->assign('X_EMAIL', $request['email']);
 						$xoopsMailer->assign('X_MESSAGE', $request['message']);
-						$xoopsMailer->assign('REQUEST_URL', XOOPS_URL . '/modules/xmcontact/admin/request.php?op=view&request_id=' . $newcontent_id);
+						$xoopsMailer->assign('REQUEST_URL', XOOPS_URL . '/modules/xmcontact/admin/request.php?op=view&request_id=' . $newrequest_id);
 						$infos = '';
 						if ($docivility == 1){
 							$infos .= _MD_XMCONTACT_INDEX_CIVILITY . ': ' . $request['civility'] . "\n";
@@ -368,7 +440,7 @@ switch ($op) {
 						if ($dosubject == 1){
 							$infos .= _MD_XMCONTACT_INDEX_SUBJECT . ': ' . $request['subject'] . "\n";
 						}
-						$xoopsMailer->assign('X_INFOS', $infos);						
+						$xoopsMailer->assign('X_INFOS', $infos);
 						if (!$xoopsMailer->send()) {
 							$message_error = $xoopsMailer->getErrors();
 							$xoopsTpl->assign('message_error', $message_error);
@@ -381,6 +453,11 @@ switch ($op) {
             if ('' != $message_error) {
                 $xoopsTpl->assign('error', $message_error);
             } else {
+				if ($helper->getConfig('info_confirm', 1) == 0){
+					$contact_redirect = Request::getUrl('contact_redirect', 'index.php', 'POST');
+				} else {			
+					$contact_redirect = 'index.php?op=confirm&token=' . $token . '&request_id=' . $newrequest_id;
+				}
 				redirect_header($contact_redirect, 2, _MD_XMCONTACT_REDIRECT_SEND);
 			}
         }

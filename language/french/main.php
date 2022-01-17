@@ -53,3 +53,7 @@ define('_MD_XMCONTACT_ERROR_CIVILITY', 'La civilité est obligatoire !');
 define('_MD_XMCONTACT_ERROR_PHONE', 'Le numéro de téléphone est obligatoire !');
 define('_MD_XMCONTACT_ERROR_ADDRESS', 'L\'adresse est obligatoire !');
 define('_MD_XMCONTACT_ERROR_URL', 'Le lien est obligatoire !');
+
+//new version 2.0
+define('_MD_XMCONTACT_INDEX_CONFIRM', 'Confirmation');
+define('_MD_XMCONTACT_CONFIRM_SEND', 'Votre message a bien été envoyé avec les informations suivantes :');

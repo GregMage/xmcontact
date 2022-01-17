@@ -53,3 +53,7 @@ define('_MD_XMCONTACT_ERROR_CIVILITY', 'Title is required!');
 define('_MD_XMCONTACT_ERROR_PHONE', 'Phone number is required!');
 define('_MD_XMCONTACT_ERROR_ADDRESS', 'Address is required!');
 define('_MD_XMCONTACT_ERROR_URL', 'Url is required!');
+
+//new version 2.0
+define('_MD_XMCONTACT_INDEX_CONFIRM', 'Confirmation');
+define('_MD_XMCONTACT_CONFIRM_SEND', 'Your message has been sent with the following information:');
