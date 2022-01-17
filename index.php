@@ -332,6 +332,9 @@ switch ($op) {
         if (1 == $helper->getConfig('info_captcha', 1)) {
             xoops_load('xoopscaptcha');
             $xoopsCaptcha = XoopsCaptcha::getInstance();
+			$configs['name']       = 'xoopscaptcha';
+			$configs['skipmember'] = true;
+			$xoopsCaptcha->setConfigs($configs);
             if (! $xoopsCaptcha->verify() ) {
                 $message_error .= $xoopsCaptcha->getMessage();
             }
