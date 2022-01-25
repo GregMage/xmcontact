@@ -195,7 +195,7 @@ $modversion['config'][] = array(
     'description' => '_MI_XMCONTACT_PREF_SIMPLECONTACT_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
-    'default'     => 1
+    'default'     => 0
 );
 
 $modversion['config'][] = array(
