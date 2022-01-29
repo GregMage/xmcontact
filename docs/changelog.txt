@@ -1,6 +1,6 @@
 ﻿-------------------------------------------------
-Version: 2.0 RC1
-Date:    17.01.2022
+Version: 2.0 Stable
+Date:    29.01.2022
 -------------------------------------------------
 Bug fixes:	
 	- there was no subject in the email during a notification by email (simple form)
