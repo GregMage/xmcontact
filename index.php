@@ -206,6 +206,9 @@ switch ($op) {
 			$xoopsTpl->assign('cat_id', $cat_id);
 			$xoopsTpl->assign('form', true);
             $category = $categoryHandler->get($cat_id);
+			if (empty($category)) {
+				redirect_header('index.php', 2, _NOPERM);
+			}
             $xoopsTpl->assign('category_title', $category->getVar('category_title'));
 			$description = $category->getVar('category_description');
 			if (true == strpos($description, '[break]')){
