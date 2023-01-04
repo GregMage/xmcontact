@@ -50,9 +50,9 @@
     </div>
     <{if $block.captcha|default:false}>
     <label for="Message"><{$block.captcha_caption}> <span style="color: red;">*</span></label>
-    <{$block.captcha}>
+    <{$captcha}>
     <{/if}>
-    <div class="form-group">
+    <div class="form-group text-center">
         <input type="hidden" name="op" id="op" value="save">
 		<{if $block.cat_id|default:0 != 0}>
         <input type="hidden" name="cat_id" id="cat_id" value="<{$block.cat_id}>">

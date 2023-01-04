@@ -52,7 +52,7 @@
     <label for="Message"><{$captcha_caption}> <span style="color: red;">*</span></label>
     <{$captcha}>
     <{/if}>
-    <div class="form-group">
+    <div class="form-group text-center">
         <input type="hidden" name="op" id="op" value="save">
 		<{if $cat_id|default:0 != 0}>
         <input type="hidden" name="cat_id" id="cat_id" value="<{$cat_id}>">
