@@ -1,4 +1,35 @@
 ﻿-------------------------------------------------
+Version: 2.1.0 Alpha
+Date:    03.01.2023
+-------------------------------------------------
+Bug fixes:	
+	- If we try to access a non-existing category there was an error message. Now there is a redirect on the index.
+
+Improvements:
+	- Compatibility with smarty 3 (xoops 2.5.11).
+
+Security:
+	- /
+	
+Important:	- The 2.1.0 series is only compatible under xoops 2.5.11.
+			- The default templates are only compatible with a bootstrap 4 theme, the templates for version 3 of boostrap are in the extra folder.
+	
+Correction de bogues:	
+	- Si on essaye d'accéder à une catégorie non existante il y avait un message d'erreur. Maintenant il y a une redirection sur l'index.
+
+Améliorations:
+	- Compatibilité avec smarty 3 (xoops 2.5.11).
+
+Sécurités:
+	- /
+	
+Important:	- La série 2.1.0 est compatible uniquement sous xoops 2.5.11.
+			- Les templates par défaut sont compatibles uniquement avec un thème bootstrap 4, les templates pour la version 3 de boostrap sont dans le dossier extra.
+
+
+
+
+-------------------------------------------------
 Version: 2.0 Stable
 Date:    29.01.2022
 -------------------------------------------------
