@@ -22,18 +22,18 @@
         </tr>
         </thead>
         <tbody>
-        <{foreach item=answer from=$answer}>
+        <{foreach item=itemanswer from=$answer}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
-                <td class="txtleft"><{$answer.title}></td>
-                <td class="txtleft"><{$answer.description}></td>
-                <td class="txtcenter"><{$answer.weight}></td>
+                <td class="txtleft"><{$itemanswer.title}></td>
+                <td class="txtleft"><{$itemanswer.description}></td>
+                <td class="txtcenter"><{$itemanswer.weight}></td>
                 <td class="xo-actions txtcenter">
-                    <a class="tooltip" href="answer.php?op=view&amp;answer_id=<{$answer.id}>" title="<{$smarty.const._AM_XMCONTACT_VIEW}>">
-                        <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._AM_XMCONTACT_VIEW}>"/></a>
-                    <a class="tooltip" href="answer.php?op=edit&amp;answer_id=<{$answer.id}>" title="<{$smarty.const._AM_XMCONTACT_EDIT}>">
-                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTACT_EDIT}>"/></a>
-                    <a class="tooltip" href="answer.php?op=del&amp;answer_id=<{$answer.id}>" title="<{$smarty.const._AM_XMCONTACT_DEL}>">
-                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/></a>
+                    <a class="tooltip" href="answer.php?op=view&amp;answer_id=<{$itemanswer.id}>" title="<{$smarty.const._AM_XMCONTACT_VIEW}>">
+                        <img src="<{xoAdminIcons 'view.png'}>" alt="<{$smarty.const._AM_XMCONTACT_VIEW}>"/></a>
+                    <a class="tooltip" href="answer.php?op=edit&amp;answer_id=<{$itemanswer.id}>" title="<{$smarty.const._AM_XMCONTACT_EDIT}>">
+                        <img src="<{xoAdminIcons 'edit.png'}>" alt="<{$smarty.const._AM_XMCONTACT_EDIT}>"/></a>
+                    <a class="tooltip" href="answer.php?op=del&amp;answer_id=<{$itemanswer.id}>" title="<{$smarty.const._AM_XMCONTACT_DEL}>">
+                        <img src="<{xoAdminIcons 'delete.png'}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/></a>
                 </td>
 
             </tr>
@@ -53,9 +53,9 @@
 	<div class="pad5"><{$answer}></div>
 	<hr>
 	<div class="xo-actions txtcenter">
-		<a class="tooltip" href="answer.php?op=edit&amp;answer_id=<{$answer_id}>" title="<{$smarty.const._AM_XMCONTACT_EDIT}>">
-			<img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTACT_EDIT}>"/></a>
-		<a class="tooltip" href="answer.php?op=del&amp;answer_id=<{$answer_id}>" title="<{$smarty.const._AM_XMCONTACT_DEL}>">
-			<img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/></a>
+		<a class="tooltip" href="answer.php?op=edit&amp;answer_id=<{$itemanswer_id}>" title="<{$smarty.const._AM_XMCONTACT_EDIT}>">
+			<img src="<{xoAdminIcons 'edit.png'}>" alt="<{$smarty.const._AM_XMCONTACT_EDIT}>"/></a>
+		<a class="tooltip" href="answer.php?op=del&amp;answer_id=<{$itemanswer_id}>" title="<{$smarty.const._AM_XMCONTACT_DEL}>">
+			<img src="<{xoAdminIcons 'delete.png'}>" alt="<{$smarty.const._AM_XMCONTACT_DEL}>"/></a>
 	</div>
 <{/if}>
