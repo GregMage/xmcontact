@@ -41,7 +41,7 @@ switch ($op) {
 		$criteria = new CriteriaCompo();
 		$criteria->setSort('category_weight ASC, category_title');
 		$criteria->setOrder('ASC');
-		$category_arr = $categoryHandler->getall($criteria);	
+		$category_arr = $categoryHandler->getall($criteria);
 		if (count($category_arr) > 0) {
 			$request_cid_options = '<option value="0"' . ($request_cid == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
 			foreach (array_keys($category_arr) as $i) {
@@ -65,7 +65,7 @@ switch ($op) {
 		}
         if ($request_status != 10){
 			$criteria->add(new Criteria('request_status', $request_status));
-		} 
+		}
         $criteria->setStart($start);
         $criteria->setLimit($nb_limit);
         // Content
@@ -96,7 +96,7 @@ switch ($op) {
                 } else {
                     $request['status'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTACT_REQUEST_STATUS_R . '</span>';
                 }
-                $xoopsTpl->append_by_ref('request', $request);
+                $xoopsTpl->appendByRef('request', $request);
                 unset($request);
             }
             // Display Page Navigation
@@ -114,12 +114,12 @@ switch ($op) {
         $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Define Stylesheet
         $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
-        
+
         $xoopsTpl->assign('view', 'view');
-        
+
         $request_id = Request::getInt('request_id', 0);
         $request = $requestHandler->get($request_id);
-        
+
         if (0 == $request->getVar('request_date_r')) {
             $date_r = '/';
         } else {
@@ -205,7 +205,7 @@ switch ($op) {
         // Assign form
         $xoopsTpl->assign('form', $form->render());
         break;
-    
+
     // send
     case 'send':
         if (!$GLOBALS['xoopsSecurity']->check()) {
@@ -214,7 +214,7 @@ switch ($op) {
         $request_id = Request::getInt('request_id', 0);
         // error
         $message_error = '';
-        
+
         if ($request_id > 0) {
             $xoopsMailer = xoops_getMailer();
             $xoopsMailer->useMail();

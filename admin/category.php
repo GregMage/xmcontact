@@ -70,7 +70,7 @@ switch ($op) {
 					$category['logo']        = $url_logo . $category_img;
 				}
                 //$category['logo']            = '<img src="' . XOOPS_UPLOAD_URL . '/xmcontact/images/cats/' .  $category_img . '" alt="' . $category_img . '" style="max-width:150px"/>';
-                $xoopsTpl->append_by_ref('category', $category);
+                $xoopsTpl->appendByRef('category', $category);
                 unset($category);
             }
             // Display Page Navigation
@@ -82,12 +82,12 @@ switch ($op) {
             $xoopsTpl->assign('message_error', _AM_XMCONTACT_ERROR_CAT);
         }
         break;
-    
+
     // add category
     case 'add':
 		// Module admin
         $moduleAdmin->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
-        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());            
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Create form
         $obj  = $categoryHandler->create();
         $form = $obj->getForm();
@@ -100,7 +100,7 @@ switch ($op) {
 		// Module admin
         $moduleAdmin->addItemButton(_AM_XMCONTACT_CATEGORY_ADD, 'category.php?op=add', 'add');
         $moduleAdmin->addItemButton(_AM_XMCONTACT_CATEGORY_LIST, 'category.php', 'list');
-        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());         
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Create form
 		$category_id = Request::getInt('category_id', 0);
         $obj  = $categoryHandler->get($category_id);
@@ -153,7 +153,7 @@ switch ($op) {
         }
         $category_id = Request::getInt('category_id', 0);
         if ($category_id == 0) {
-            $obj = $categoryHandler->create();            
+            $obj = $categoryHandler->create();
         } else {
             $obj = $categoryHandler->get($category_id);
         }
@@ -163,7 +163,7 @@ switch ($op) {
             $form = $obj->getForm();
             $xoopsTpl->assign('form', $form->render());
         }
-        
+
         break;
 
     // update status

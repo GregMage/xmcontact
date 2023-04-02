@@ -57,7 +57,7 @@ switch ($op) {
                 $answer['title']           = $answer_arr[$i]->getVar('answer_title');
                 $answer['description']     = $answer_arr[$i]->getVar('answer_description');
                 $answer['weight']          = $answer_arr[$i]->getVar('answer_weight');
-                $xoopsTpl->append_by_ref('answer', $answer);
+                $xoopsTpl->appendByRef('answer', $answer);
                 unset($answer);
             }
             // Display Page Navigation
@@ -69,12 +69,12 @@ switch ($op) {
             $xoopsTpl->assign('message_error', _AM_XMCONTACT_ERROR_ANSWER);
         }
         break;
-    
+
     // add answer
     case 'add':
 		// Module admin
         $moduleAdmin->addItemButton(_AM_XMCONTACT_ANSWER_LIST, 'answer.php', 'list');
-        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());            
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Create form
         $obj  = $answerHandler->create();
         $form = $obj->getForm();
@@ -87,7 +87,7 @@ switch ($op) {
 		// Module admin
         $moduleAdmin->addItemButton(_AM_XMCONTACT_ANSWER_ADD, 'answer.php?op=add', 'add');
         $moduleAdmin->addItemButton(_AM_XMCONTACT_ANSWER_LIST, 'answer.php', 'list');
-        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());         
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Create form
 		$answer_id = Request::getInt('answer_id', 0);
         $obj  = $answerHandler->get($answer_id);
@@ -126,7 +126,7 @@ switch ($op) {
         }
         $answer_id = Request::getInt('answer_id', 0);
         if ($answer_id == 0) {
-            $obj = $answerHandler->create();            
+            $obj = $answerHandler->create();
         } else {
             $obj = $answerHandler->get($answer_id);
         }
@@ -135,7 +135,7 @@ switch ($op) {
             $xoopsTpl->assign('error_message', $error_message);
             $form = $obj->getForm();
             $xoopsTpl->assign('form', $form->render());
-        }        
+        }
         break;
 
 	case 'view':
@@ -144,12 +144,12 @@ switch ($op) {
         $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Define Stylesheet
         $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
-        
+
         $xoopsTpl->assign('view', 'view');
-        
+
         $answer_id = Request::getInt('answer_id', 0);
         $answer = $answerHandler->get($answer_id);
-		
+
 		$xoopsTpl->assign('title', $answer->getVar('answer_title'));
 		$xoopsTpl->assign('description', $answer->getVar('answer_description'));
 		$xoopsTpl->assign('answer', $answer->getVar('answer_answer'));

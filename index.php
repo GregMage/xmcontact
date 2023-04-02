@@ -41,7 +41,7 @@ if ($category_count == 0 || $helper->getConfig('info_simplecontact', 1) == 1) {
 		$xoopsTpl->assign('info_footer', $helper->getConfig('info_footer', ''));
 		$xoopsTpl->assign('info_addresse', $helper->getConfig('info_addresse', ''));
 		$xoopsTpl->assign('info_googlemaps', $helper->getConfig('info_googlemaps', ''));
-		$op = 'form';		
+		$op = 'form';
 		$xoopsTpl->assign('simple_contact', $simple_contact);
 	}
 } else {
@@ -86,7 +86,7 @@ switch ($op) {
 			} else {
 				$category['end'] = false;
 			}
-			$xoopsTpl->append_by_ref('category', $category);
+			$xoopsTpl->appendByRef('category', $category);
 			$count++;
 			$keywords .= Metagen::generateSeoTitle($category['title']) . ',';
 			unset($category);
@@ -115,7 +115,7 @@ switch ($op) {
 		}
 		if ($token != $request->getVar('request_token')){
 			redirect_header('index.php', 2, _NOPERM . ' -C');
-		}		
+		}
 		$request_arr = [];
 		if ($simple_contact == False){
 			$category = $categoryHandler->get($request->getVar('request_cid'));
@@ -163,8 +163,8 @@ switch ($op) {
 			$request_arr[_AM_XMCONTACT_REQUEST_MESSAGE] = $request->getVar('request_message', 'show');
 			$request_arr[_AM_XMCONTACT_REQUEST_DATES] = formatTimestamp($request->getVar('request_date_e'));
 		}
-        $xoopsTpl->assign('request_arr', $request_arr);	
-		
+        $xoopsTpl->assign('request_arr', $request_arr);
+
         //SEO
 		// pagetitle
 		$xoopsTpl->assign('xoops_pagetitle', _MD_XMCONTACT_INDEX_CONFIRM . ' - ' . $xoopsModule->name());
@@ -397,7 +397,7 @@ switch ($op) {
             $obj->setVar('request_status', 0);
             if ($requestHandler->insert($obj)) {
 				$newrequest_id = $obj->get_new_enreg();
-                if (1 == $helper->getConfig('info_notification', 1)) {                    
+                if (1 == $helper->getConfig('info_notification', 1)) {
 					$xoopsMailer = xoops_getMailer();
 					$xoopsMailer->useMail();
 					if (0 != $cat_id) {
@@ -461,7 +461,7 @@ switch ($op) {
             } else {
 				if ($helper->getConfig('info_confirm', 1) == 0){
 					$contact_redirect = Request::getUrl('contact_redirect', 'index.php', 'POST');
-				} else {			
+				} else {
 					$contact_redirect = 'index.php?op=confirm&token=' . $token . '&request_id=' . $newrequest_id;
 				}
 				redirect_header($contact_redirect, 2, _MD_XMCONTACT_REDIRECT_SEND);
