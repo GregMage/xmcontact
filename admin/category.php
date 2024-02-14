@@ -55,7 +55,7 @@ switch ($op) {
                 $category_id                 = $category_arr[$i]->getVar('category_id');
                 $category['id']              = $category_id;
                 $category['title']           = $category_arr[$i]->getVar('category_title');
-				$category['description']     = $category_arr[$i]->getVar('category_description');
+				$category['description']     = XmcontactUtility::TagSafe($category_arr[$i]->getVar('category_description', 'e'));
 				if (true == strpos($category['description'], '[break]')){
 					$category['description'] =  substr($category['description'],0,strpos($category['description'],'[break]'));
 				}

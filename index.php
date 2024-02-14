@@ -68,7 +68,7 @@ switch ($op) {
 			$category_id                 = $category_arr[$i]->getVar('category_id');
 			$category['id']              = $category_id;
 			$category['title']           = $category_arr[$i]->getVar('category_title');
-			$category['description']     = $category_arr[$i]->getVar('category_description');
+			$category['description']     = XmcontactUtility::TagSafe($category_arr[$i]->getVar('category_description'));
 			if (true == strpos($category['description'], '[break]')){
 				$category['description'] =  substr($category['description'],0,strpos($category['description'],'[break]'));
 			}
@@ -95,7 +95,7 @@ switch ($op) {
 		// pagetitle
 		$xoopsTpl->assign('xoops_pagetitle', $xoopsModule->name());
         //description
-        $xoTheme->addMeta('meta', 'description', Metagen::generateDescription($xoopsModule->name(), 30));
+		$xoTheme->addMeta('meta', 'description', XmcontactUtility::generateDescriptionTagSafe($xoopsModule->name(), 30));
         //keywords
         $keywords = substr($keywords, 0, -1);
         $xoTheme->addMeta('meta', 'keywords', $keywords);
@@ -210,7 +210,7 @@ switch ($op) {
 				redirect_header('index.php', 2, _NOPERM);
 			}
             $xoopsTpl->assign('category_title', $category->getVar('category_title'));
-			$description = $category->getVar('category_description');
+			$description = XmcontactUtility::TagSafe($category->getVar('category_description'));
 			if (true == strpos($description, '[break]')){
 				$description =  substr($description, strpos($description,'[break]') + 7);
 			}
@@ -235,7 +235,7 @@ switch ($op) {
 			$keywords = Metagen::generateKeywords($category->getVar('category_description'), 10);
 			$xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 	        //description
-			$xoTheme->addMeta('meta', 'description', Metagen::generateDescription($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM . ' ' . $category->getVar('category_description'), 30));
+			$xoTheme->addMeta('meta', 'description', XmcontactUtility::generateDescriptionTagSafe($xoopsModule->name() . ' ' . _MD_XMCONTACT_INDEX_FORM . ' ' . $category->getVar('category_description'), 80));
         } else {
 			$xoopsTpl->assign('docivility', $helper->getConfig('sp_docivility', 0));
             $xoopsTpl->assign('recivility', $helper->getConfig('sp_recivility', 0));

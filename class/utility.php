@@ -16,18 +16,27 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-use Xmf\Module\Helper;
-$path = dirname(dirname(__DIR__));
-require_once $path . '/mainfile.php';
-include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-include_once __DIR__ . '/include/common.php';
 
-xoops_load('utility', basename(__DIR__));
+/**
+ * Class XmcontactUtility
+ */
+class XmcontactUtility
+{
 
-$helper     = Helper::getHelper('xmcontact');
-$permHelper = new Helper\Permission();
+	public static function generateDescriptionTagSafe($text, $wordCount = 100)
+    {
+		if (xoops_isActiveModule('xlanguage')){
+			$text = XoopsModules\Xlanguage\Utility::cleanMultiLang($text);
+		}
+		$text = \Xmf\Metagen::generateDescription($text, $wordCount);
+		return $text;
+	}
 
-// Load language files
-$helper->loadLanguage('main');
-$helper->loadLanguage('admin');
-$helper->loadLanguage('modinfo');
+	public static function TagSafe($text)
+    {
+		if (xoops_isActiveModule('xlanguage')){
+			$text = XoopsModules\Xlanguage\Utility::cleanMultiLang($text);
+		}
+		return $text;
+	}
+}
