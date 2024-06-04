@@ -1,28 +1,31 @@
 ﻿-------------------------------------------------
-Version: 2.1.0 Alpha
-Date:    03.01.2023
+Version: 2.1.0 Stable
+Date:    04.06.2024
 -------------------------------------------------
-Bug fixes:	
+Bug fixes:
 	- If we try to access a non-existing category there was an error message. Now there is a redirect on the index.
 
 Improvements:
 	- Compatibility with smarty 3 (xoops 2.5.11).
+	- Delete unnecessary index.html
 
 Security:
 	- /
-	
+
 Important:	- The 2.1.0 series is only compatible under xoops 2.5.11.
 			- The default templates are only compatible with a bootstrap 4 theme, the templates for version 3 of boostrap are in the extra folder.
-	
-Correction de bogues:	
+
+Correction de bogues:
 	- Si on essaye d'accéder à une catégorie non existante il y avait un message d'erreur. Maintenant il y a une redirection sur l'index.
 
 Améliorations:
 	- Compatibilité avec smarty 3 (xoops 2.5.11).
+	- Suppression index.html inutile
+
 
 Sécurités:
 	- /
-	
+
 Important:	- La série 2.1.0 est compatible uniquement sous xoops 2.5.11.
 			- Les templates par défaut sont compatibles uniquement avec un thème bootstrap 4, les templates pour la version 3 de boostrap sont dans le dossier extra.
 
@@ -33,7 +36,7 @@ Important:	- La série 2.1.0 est compatible uniquement sous xoops 2.5.11.
 Version: 2.0 Stable
 Date:    29.01.2022
 -------------------------------------------------
-Bug fixes:	
+Bug fixes:
 	- there was no subject in the email during a notification by email (simple form)
 	- there was no block displayed if there was not a category
 	- Default value error for the "Title" field
@@ -54,13 +57,13 @@ Improvements:
 	- System that allows to create a short description (module index and blocks) and a long description for the form
 	- You can save an answer as a standard answer
 	- Compatibility with the xlanguage module
-	- Added shipping confirmation page 
+	- Added shipping confirmation page
 
 Security:
 	- Switching from index.html to index.php
 
-	
-Correction de bogues:	
+
+Correction de bogues:
 	- il n'y avait pas de sujet au mail lors d'une notifiaction par mail (formulaire simple)
 	- il n'y avait pas de bloc affiché si il n'y avait pas une catégorie
 	- Erreur de valeur par défaut pour le champ "Civilité"
@@ -92,7 +95,7 @@ PHP 7.4 minimu
 Version: 1.1 Final
 Date:    08.05.2020
 -------------------------------------------------
-Bug fixes:	
+Bug fixes:
 	- If a form was deleted, the requests linked to this form could not be read.
 	- The simple form did not work.
 	- The script for the transition from version 0.2 to 1.0 did not work (No longer possible to modify a form)
@@ -103,8 +106,8 @@ Improvements:
 Security:
 	/
 
-	
-Correction de bogues:	
+
+Correction de bogues:
 	- Si on supprimait un formulaire, la lecture des demandes liées à ce formulaire était impossible.
 	- Le formulaire simple ne fonctionnait pas.
 	- Le script pour le passage de la version 0.2 à 1.0 ne fonctionnait pas (Plus possible de modifier un formulaire)
@@ -118,7 +121,7 @@ Sécurités:
 Version: 1.0 Final
 Date:    24.04.2020
 -------------------------------------------------
-Bug fixes:	
+Bug fixes:
 	- Remove pass-by-reference instances (mamba).
 	- HTML problem when editing the description.
 	- Paypal did not work for donations (about.php).
@@ -145,8 +148,8 @@ Improvements:
 Security:
 	- Addition of a token for forms.
 
-	
-Correction de bogues:	
+
+Correction de bogues:
 	- Supprimer les instances passées par référence(mamba).
 	- Problème html lors de l'édition de la description.
 	- Paypal ne fonctionnait pas pour les donations (about.php).
